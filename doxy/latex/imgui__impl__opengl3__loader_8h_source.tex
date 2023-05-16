@@ -1,0 +1,811 @@
+\hypertarget{imgui__impl__opengl3__loader_8h_source}{}\doxysection{imgui\+\_\+impl\+\_\+opengl3\+\_\+loader.\+h}
+\label{imgui__impl__opengl3__loader_8h_source}\index{C:/Users/jason/source/repos/assignment\_1\_397/Lab\_4/imgui\_impl\_opengl3\_loader.h@{C:/Users/jason/source/repos/assignment\_1\_397/Lab\_4/imgui\_impl\_opengl3\_loader.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00001}00001\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00002}00002\ \textcolor{comment}{//\ About\ imgui\_impl\_opengl3\_loader.h:}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00003}00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00004}00004\ \textcolor{comment}{//\ We\ embed\ our\ own\ OpenGL\ loader\ to\ not\ require\ user\ to\ provide\ their\ own\ or\ to\ have\ to\ use\ ours,}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00005}00005\ \textcolor{comment}{//\ which\ proved\ to\ be\ endless\ problems\ for\ users.}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00006}00006\ \textcolor{comment}{//\ Our\ loader\ is\ custom-\/generated,\ based\ on\ gl3w\ but\ automatically\ filtered\ to\ only\ include}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00007}00007\ \textcolor{comment}{//\ enums/functions\ that\ we\ use\ in\ our\ imgui\_impl\_opengl3.cpp\ source\ file\ in\ order\ to\ be\ small.}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00008}00008\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00009}00009\ \textcolor{comment}{//\ YOU\ SHOULD\ NOT\ NEED\ TO\ INCLUDE/USE\ THIS\ DIRECTLY.\ THIS\ IS\ USED\ BY\ imgui\_impl\_opengl3.cpp\ ONLY.}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00010}00010\ \textcolor{comment}{//\ THE\ REST\ OF\ YOUR\ APP\ SHOULD\ USE\ A\ DIFFERENT\ GL\ LOADER:\ ANY\ GL\ LOADER\ OF\ YOUR\ CHOICE.}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00011}00011\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00012}00012\ \textcolor{comment}{//\ IF\ YOU\ GET\ BUILD\ ERRORS\ IN\ THIS\ FILE\ (commonly\ macro\ redefinitions\ or\ function\ redefinitions):}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00013}00013\ \textcolor{comment}{//\ IT\ LIKELY\ MEANS\ THAT\ YOU\ ARE\ BUILDING\ 'imgui\_impl\_opengl3.cpp'\ OR\ INCUDING\ 'imgui\_impl\_opengl3\_loader.h'}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00014}00014\ \textcolor{comment}{//\ IN\ THE\ SAME\ COMPILATION\ UNIT\ AS\ ONE\ OF\ YOUR\ FILE\ WHICH\ IS\ USING\ A\ THIRD-\/PARTY\ OPENGL\ LOADER.}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00015}00015\ \textcolor{comment}{//\ (e.g.\ COULD\ HAPPEN\ IF\ YOU\ ARE\ DOING\ A\ UNITY/JUMBO\ BUILD,\ OR\ INCLUDING\ .CPP\ FILES\ FROM\ OTHERS)}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00016}00016\ \textcolor{comment}{//\ YOU\ SHOULD\ NOT\ BUILD\ BOTH\ IN\ THE\ SAME\ COMPILATION\ UNIT.}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00017}00017\ \textcolor{comment}{//\ BUT\ IF\ YOU\ REALLY\ WANT\ TO,\ you\ can\ '\#define\ IMGUI\_IMPL\_OPENGL\_LOADER\_CUSTOM'\ and\ imgui\_impl\_opengl3.cpp}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00018}00018\ \textcolor{comment}{//\ WILL\ NOT\ BE\ USING\ OUR\ LOADER,\ AND\ INSTEAD\ EXPECT\ ANOTHER/YOUR\ LOADER\ TO\ BE\ AVAILABLE\ IN\ THE\ COMPILATION\ UNIT.}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00019}00019\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00020}00020\ \textcolor{comment}{//\ Regenerate\ with:}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00021}00021\ \textcolor{comment}{//\ \ \ python\ gl3w\_gen.py\ -\/-\/output\ ../imgui/backends/imgui\_impl\_opengl3\_loader.h\ -\/-\/ref\ ../imgui/backends/imgui\_impl\_opengl3.cpp\ ./extra\_symbols.txt}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00022}00022\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00023}00023\ \textcolor{comment}{//\ More\ info:}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00024}00024\ \textcolor{comment}{//\ \ \ https://github.com/dearimgui/gl3w\_stripped}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00025}00025\ \textcolor{comment}{//\ \ \ https://github.com/ocornut/imgui/issues/4445}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00026}00026\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00028}00028\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ This\ file\ was\ generated\ with\ gl3w\_gen.py,\ part\ of\ imgl3w}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ (hosted\ at\ https://github.com/dearimgui/gl3w\_stripped)}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *\ This\ is\ free\ and\ unencumbered\ software\ released\ into\ the\ public\ domain.}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *\ Anyone\ is\ free\ to\ copy,\ modify,\ publish,\ use,\ compile,\ sell,\ or}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ *\ distribute\ this\ software,\ either\ in\ source\ code\ form\ or\ as\ a\ compiled}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ *\ binary,\ for\ any\ purpose,\ commercial\ or\ non-\/commercial,\ and\ by\ any}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ *\ means.}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ *\ In\ jurisdictions\ that\ recognize\ copyright\ laws,\ the\ author\ or\ authors}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ *\ of\ this\ software\ dedicate\ any\ and\ all\ copyright\ interest\ in\ the}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ *\ software\ to\ the\ public\ domain.\ We\ make\ this\ dedication\ for\ the\ benefit}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ *\ of\ the\ public\ at\ large\ and\ to\ the\ detriment\ of\ our\ heirs\ and}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ *\ successors.\ We\ intend\ this\ dedication\ to\ be\ an\ overt\ act\ of}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ *\ relinquishment\ in\ perpetuity\ of\ all\ present\ and\ future\ rights\ to\ this}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ *\ software\ under\ copyright\ law.}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ *\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ *\ EXPRESS\ OR\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ *\ MERCHANTABILITY,\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ *\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR}}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ *\ OTHER\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,}}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ *\ ARISING\ FROM,\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR}}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ *\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{00054\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00056}00056\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{\_\_gl3w\_h\_}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00057}00057\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{\_\_gl3w\_h\_}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00059}00059\ \textcolor{comment}{//\ Adapted\ from\ KHR/khrplatform.h\ to\ avoid\ including\ entire\ file.}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00060}00060\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{\_\_khrplatform\_h\_}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00061}00061\ \textcolor{keyword}{typedef}\ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ khronos\_float\_t;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00062}00062\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ khronos\_int8\_t;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00063}00063\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ khronos\_uint8\_t;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00064}00064\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \ \ \textcolor{keywordtype}{short}\ \textcolor{keywordtype}{int}\ \ \ \ \ khronos\_int16\_t;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00065}00065\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ \textcolor{keywordtype}{int}\ \ \ \ \ khronos\_uint16\_t;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00066}00066\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifdef}\ \_WIN64}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00067}00067\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ khronos\_intptr\_t;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00068}00068\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ khronos\_ssize\_t;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00069}00069\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{else}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00070}00070\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \ \ \textcolor{keywordtype}{long}\ \ \textcolor{keywordtype}{int}\ \ \ \ \ khronos\_intptr\_t;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00071}00071\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \ \ \textcolor{keywordtype}{long}\ \ \textcolor{keywordtype}{int}\ \ \ \ \ khronos\_ssize\_t;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00072}00072\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00074}00074\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{if}\ \textcolor{preprocessor}{defined}\textcolor{preprocessor}{(}\_MSC\_VER\textcolor{preprocessor}{)}\ \textcolor{preprocessor}{\&\&}\ \textcolor{preprocessor}{!}\textcolor{preprocessor}{defined}\textcolor{preprocessor}{(}\_\_clang\_\_\textcolor{preprocessor}{)}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00075}00075\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \ \ \textcolor{keyword}{\_\_int64}\ \ \ \ \ \ \ khronos\_int64\_t;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00076}00076\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keyword}{\_\_int64}\ \ \ \ \ \ \ khronos\_uint64\_t;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00077}00077\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{elif}\ \textcolor{preprocessor}{(}\textcolor{preprocessor}{defined}\textcolor{preprocessor}{(}\_\_clang\_\_\textcolor{preprocessor}{)}\ \textcolor{preprocessor}{||}\ \textcolor{preprocessor}{defined}\textcolor{preprocessor}{(}\textcolor{preprocessor}{\_\_GNUC\_\_}\textcolor{preprocessor}{)}\textcolor{preprocessor}{)}\ \textcolor{preprocessor}{\&\&}\ \textcolor{preprocessor}{(}\_\_cplusplus\ \textcolor{preprocessor}{<}\ 201100\textcolor{preprocessor}{)}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00078}00078\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{<}\textcolor{preprocessor}{stdint}\textcolor{preprocessor}{.}\textcolor{preprocessor}{h}\textcolor{preprocessor}{>}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00079}00079\ \textcolor{keyword}{typedef}\ \ \ \ \ \ \ \ \ \ int64\_t\ \ \ \ \ \ \ khronos\_int64\_t;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00080}00080\ \textcolor{keyword}{typedef}\ \ \ \ \ \ \ \ \ \ uint64\_t\ \ \ \ \ \ khronos\_uint64\_t;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00081}00081\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{else}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00082}00082\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \ \ \ \ khronos\_int64\_t;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00083}00083\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \ \ \ \ khronos\_uint64\_t;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00084}00084\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00085}00085\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}\ \ \textcolor{comment}{//\ \_\_khrplatform\_h\_}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00087}00087\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{\_\_gl\_glcorearb\_h\_}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00088}00088\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{\_\_gl\_glcorearb\_h\_}\ 1}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00089}00089\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifdef}\ \_\_cplusplus}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00090}00090\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00091}00091\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00092}00092\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00093\ \textcolor{comment}{**\ Copyright\ 2013-\/2020\ The\ Khronos\ Group\ Inc.}}
+\DoxyCodeLine{00094\ \textcolor{comment}{**\ SPDX-\/License-\/Identifier:\ MIT}}
+\DoxyCodeLine{00095\ \textcolor{comment}{**}}
+\DoxyCodeLine{00096\ \textcolor{comment}{**\ This\ header\ is\ generated\ from\ the\ Khronos\ OpenGL\ /\ OpenGL\ ES\ XML}}
+\DoxyCodeLine{00097\ \textcolor{comment}{**\ API\ Registry.\ The\ current\ version\ of\ the\ Registry,\ generator\ scripts}}
+\DoxyCodeLine{00098\ \textcolor{comment}{**\ used\ to\ make\ the\ header,\ and\ the\ header\ can\ be\ found\ at}}
+\DoxyCodeLine{00099\ \textcolor{comment}{**\ \ \ https://github.com/KhronosGroup/OpenGL-\/Registry}}
+\DoxyCodeLine{00100\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00101}00101\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{if}\ \textcolor{preprocessor}{defined}\textcolor{preprocessor}{(}\_WIN32\textcolor{preprocessor}{)}\ \textcolor{preprocessor}{\&\&}\ \textcolor{preprocessor}{!}\textcolor{preprocessor}{defined}\textcolor{preprocessor}{(}\textcolor{preprocessor}{APIENTRY}\textcolor{preprocessor}{)}\ \textcolor{preprocessor}{\&\&}\ \textcolor{preprocessor}{!}\textcolor{preprocessor}{defined}\textcolor{preprocessor}{(}\textcolor{preprocessor}{\_\_CYGWIN\_\_}\textcolor{preprocessor}{)}\ \textcolor{preprocessor}{\&\&}\ \textcolor{preprocessor}{!}\textcolor{preprocessor}{defined}\textcolor{preprocessor}{(}\textcolor{preprocessor}{\_\_SCITECH\_SNAP\_\_}\textcolor{preprocessor}{)}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00102}00102\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{WIN32\_LEAN\_AND\_MEAN}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00103}00103\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{WIN32\_LEAN\_AND\_MEAN}\ 1}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00104}00104\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00105}00105\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{<}\textcolor{preprocessor}{windows}\textcolor{preprocessor}{.}\textcolor{preprocessor}{h}\textcolor{preprocessor}{>}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00106}00106\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00107}00107\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \mbox{\hyperlink{imgui__impl__opengl3__loader_8h_a428a91acf2c2439dc1a257708ee1f805}{APIENTRY}}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00108}00108\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{APIENTRY}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00109}00109\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00110}00110\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{APIENTRYP}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00111}00111\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{APIENTRYP}\ \mbox{\hyperlink{imgui__impl__opengl3__loader_8h_a428a91acf2c2439dc1a257708ee1f805}{APIENTRY}}\ \textcolor{preprocessor}{*}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00112}00112\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00113}00113\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{GLAPI}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00114}00114\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GLAPI}\ \textcolor{keyword}{extern}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00115}00115\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00116}00116\ \textcolor{comment}{/*\ glcorearb.h\ is\ for\ use\ with\ OpenGL\ core\ profile\ implementations.}}
+\DoxyCodeLine{00117\ \textcolor{comment}{**\ It\ should\ should\ be\ placed\ in\ the\ same\ directory\ as\ gl.h\ and}}
+\DoxyCodeLine{00118\ \textcolor{comment}{**\ included\ as\ <GL/glcorearb.h>.}}
+\DoxyCodeLine{00119\ \textcolor{comment}{**}}
+\DoxyCodeLine{00120\ \textcolor{comment}{**\ glcorearb.h\ includes\ only\ APIs\ in\ the\ latest\ OpenGL\ core\ profile}}
+\DoxyCodeLine{00121\ \textcolor{comment}{**\ implementation\ together\ with\ APIs\ in\ newer\ ARB\ extensions\ which}}
+\DoxyCodeLine{00122\ \textcolor{comment}{**\ can\ be\ supported\ by\ the\ core\ profile.\ It\ does\ not,\ and\ never\ will}}
+\DoxyCodeLine{00123\ \textcolor{comment}{**\ include\ functionality\ removed\ from\ the\ core\ profile,\ such\ as}}
+\DoxyCodeLine{00124\ \textcolor{comment}{**\ fixed-\/function\ vertex\ and\ fragment\ processing.}}
+\DoxyCodeLine{00125\ \textcolor{comment}{**}}
+\DoxyCodeLine{00126\ \textcolor{comment}{**\ Do\ not\ \#include\ both\ <GL/glcorearb.h>\ and\ either\ of\ <GL/gl.h>\ or}}
+\DoxyCodeLine{00127\ \textcolor{comment}{**\ <GL/glext.h>\ in\ the\ same\ source\ file.}}
+\DoxyCodeLine{00128\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00129}00129\ \textcolor{comment}{/*\ Generated\ C\ header\ for:}}
+\DoxyCodeLine{00130\ \textcolor{comment}{\ *\ API:\ gl}}
+\DoxyCodeLine{00131\ \textcolor{comment}{\ *\ Profile:\ core}}
+\DoxyCodeLine{00132\ \textcolor{comment}{\ *\ Versions\ considered:\ .*}}
+\DoxyCodeLine{00133\ \textcolor{comment}{\ *\ Versions\ emitted:\ .*}}
+\DoxyCodeLine{00134\ \textcolor{comment}{\ *\ Default\ extensions\ included:\ glcore}}
+\DoxyCodeLine{00135\ \textcolor{comment}{\ *\ Additional\ extensions\ included:\ \_nomatch\_\string^}}
+\DoxyCodeLine{00136\ \textcolor{comment}{\ *\ Extensions\ removed:\ \_nomatch\_\string^}}
+\DoxyCodeLine{00137\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00138}00138\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{GL\_VERSION\_1\_0}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00139}00139\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ GLvoid;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00140}00140\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ GLenum;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00142}00142\ \textcolor{keyword}{typedef}\ khronos\_float\_t\ GLfloat;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00143}00143\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{int}\ GLint;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00144}00144\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{int}\ GLsizei;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00145}00145\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ GLbitfield;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00146}00146\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{double}\ GLdouble;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00147}00147\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ GLuint;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00148}00148\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ GLboolean;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00149}00149\ \textcolor{keyword}{typedef}\ khronos\_uint8\_t\ GLubyte;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00150}00150\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_COLOR\_BUFFER\_BIT}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00004000}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00151}00151\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_FALSE}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00152}00152\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_TRUE}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00153}00153\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_TRIANGLES}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x0004}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00154}00154\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_ONE}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00155}00155\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_SRC\_ALPHA}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x0302}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00156}00156\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_ONE\_MINUS\_SRC\_ALPHA}\ \ \ \ \ \ \ \ \ \ \ \ 0x0303}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00157}00157\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_FRONT\_AND\_BACK}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x0408}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00158}00158\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_POLYGON\_MODE}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x0B40}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00159}00159\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_CULL\_FACE}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x0B44}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00160}00160\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_DEPTH\_TEST}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x0B71}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00161}00161\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_STENCIL\_TEST}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x0B90}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00162}00162\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_VIEWPORT}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x0BA2}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00163}00163\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_BLEND}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x0BE2}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00164}00164\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_SCISSOR\_BOX}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x0C10}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00165}00165\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_SCISSOR\_TEST}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x0C11}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00166}00166\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_UNPACK\_ROW\_LENGTH}\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x0CF2}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00167}00167\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_PACK\_ALIGNMENT}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x0D05}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00168}00168\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_TEXTURE\_2D}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x0DE1}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00169}00169\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_UNSIGNED\_BYTE}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x1401}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00170}00170\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_UNSIGNED\_SHORT}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x1403}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00171}00171\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_UNSIGNED\_INT}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x1405}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00172}00172\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_FLOAT}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x1406}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00173}00173\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_RGBA}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x1908}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00174}00174\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_FILL}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x1B02}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00175}00175\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_VENDOR}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x1F00}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00176}00176\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_RENDERER}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x1F01}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00177}00177\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_VERSION}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x1F02}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00178}00178\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_EXTENSIONS}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x1F03}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00179}00179\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_LINEAR}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x2601}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00180}00180\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_TEXTURE\_MAG\_FILTER}\ \ \ \ \ \ \ \ \ \ \ \ \ 0x2800}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00181}00181\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_TEXTURE\_MIN\_FILTER}\ \ \ \ \ \ \ \ \ \ \ \ \ 0x2801}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00182}00182\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLPOLYGONMODEPROC)\ (GLenum\ face,\ GLenum\ mode);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00183}00183\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLSCISSORPROC)\ (GLint\ x,\ GLint\ y,\ GLsizei\ width,\ GLsizei\ height);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00184}00184\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLTEXPARAMETERIPROC)\ (GLenum\ target,\ GLenum\ pname,\ GLint\ param);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00185}00185\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLTEXIMAGE2DPROC)\ (GLenum\ target,\ GLint\ level,\ GLint\ internalformat,\ GLsizei\ width,\ GLsizei\ height,\ GLint\ border,\ GLenum\ format,\ GLenum\ type,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *pixels);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00186}00186\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLCLEARPROC)\ (GLbitfield\ mask);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00187}00187\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLCLEARCOLORPROC)\ (GLfloat\ red,\ GLfloat\ green,\ GLfloat\ blue,\ GLfloat\ alpha);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00188}00188\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLDISABLEPROC)\ (GLenum\ cap);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00189}00189\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLENABLEPROC)\ (GLenum\ cap);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00190}00190\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLFLUSHPROC)\ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00191}00191\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLPIXELSTOREIPROC)\ (GLenum\ pname,\ GLint\ param);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00192}00192\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLREADPIXELSPROC)\ (GLint\ x,\ GLint\ y,\ GLsizei\ width,\ GLsizei\ height,\ GLenum\ format,\ GLenum\ type,\ \textcolor{keywordtype}{void}\ *pixels);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00193}00193\ \textcolor{keyword}{typedef}\ GLenum\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLGETERRORPROC)\ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00194}00194\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLGETINTEGERVPROC)\ (GLenum\ pname,\ GLint\ *data);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00195}00195\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{const}\ GLubyte\ *(\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLGETSTRINGPROC)\ (GLenum\ name);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00196}00196\ \textcolor{keyword}{typedef}\ GLboolean\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLISENABLEDPROC)\ (GLenum\ cap);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00197}00197\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLVIEWPORTPROC)\ (GLint\ x,\ GLint\ y,\ GLsizei\ width,\ GLsizei\ height);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00198}00198\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifdef}\ \textcolor{preprocessor}{GL\_GLEXT\_PROTOTYPES}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00199}00199\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glPolygonMode\ (GLenum\ face,\ GLenum\ mode);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00200}00200\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glScissor\ (GLint\ x,\ GLint\ y,\ GLsizei\ width,\ GLsizei\ height);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00201}00201\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glTexParameteri\ (GLenum\ target,\ GLenum\ pname,\ GLint\ param);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00202}00202\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glTexImage2D\ (GLenum\ target,\ GLint\ level,\ GLint\ internalformat,\ GLsizei\ width,\ GLsizei\ height,\ GLint\ border,\ GLenum\ format,\ GLenum\ type,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *pixels);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00203}00203\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glClear\ (GLbitfield\ mask);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00204}00204\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glClearColor\ (GLfloat\ red,\ GLfloat\ green,\ GLfloat\ blue,\ GLfloat\ alpha);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00205}00205\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glDisable\ (GLenum\ cap);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00206}00206\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glEnable\ (GLenum\ cap);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00207}00207\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glFlush\ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00208}00208\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glPixelStorei\ (GLenum\ pname,\ GLint\ param);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00209}00209\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glReadPixels\ (GLint\ x,\ GLint\ y,\ GLsizei\ width,\ GLsizei\ height,\ GLenum\ format,\ GLenum\ type,\ \textcolor{keywordtype}{void}\ *pixels);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00210}00210\ GLAPI\ GLenum\ APIENTRY\ glGetError\ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00211}00211\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glGetIntegerv\ (GLenum\ pname,\ GLint\ *data);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00212}00212\ GLAPI\ \textcolor{keyword}{const}\ GLubyte\ *APIENTRY\ glGetString\ (GLenum\ name);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00213}00213\ GLAPI\ GLboolean\ APIENTRY\ glIsEnabled\ (GLenum\ cap);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00214}00214\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glViewport\ (GLint\ x,\ GLint\ y,\ GLsizei\ width,\ GLsizei\ height);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00215}00215\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00216}00216\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}\ \textcolor{comment}{/*\ GL\_VERSION\_1\_0\ */}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00217}00217\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{GL\_VERSION\_1\_1}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00218}00218\ \textcolor{keyword}{typedef}\ khronos\_float\_t\ GLclampf;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00219}00219\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{double}\ GLclampd;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00220}00220\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_TEXTURE\_BINDING\_2D}\ \ \ \ \ \ \ \ \ \ \ \ \ 0x8069}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00221}00221\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLDRAWELEMENTSPROC)\ (GLenum\ mode,\ GLsizei\ count,\ GLenum\ type,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *indices);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00222}00222\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLBINDTEXTUREPROC)\ (GLenum\ target,\ GLuint\ texture);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00223}00223\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLDELETETEXTURESPROC)\ (GLsizei\ n,\ \textcolor{keyword}{const}\ GLuint\ *textures);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00224}00224\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLGENTEXTURESPROC)\ (GLsizei\ n,\ GLuint\ *textures);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00225}00225\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifdef}\ \textcolor{preprocessor}{GL\_GLEXT\_PROTOTYPES}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00226}00226\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glDrawElements\ (GLenum\ mode,\ GLsizei\ count,\ GLenum\ type,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *indices);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00227}00227\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glBindTexture\ (GLenum\ target,\ GLuint\ texture);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00228}00228\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glDeleteTextures\ (GLsizei\ n,\ \textcolor{keyword}{const}\ GLuint\ *textures);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00229}00229\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glGenTextures\ (GLsizei\ n,\ GLuint\ *textures);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00230}00230\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00231}00231\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}\ \textcolor{comment}{/*\ GL\_VERSION\_1\_1\ */}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00232}00232\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{GL\_VERSION\_1\_3}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00233}00233\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_TEXTURE0}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x84C0}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00234}00234\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_ACTIVE\_TEXTURE}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x84E0}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00235}00235\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLACTIVETEXTUREPROC)\ (GLenum\ texture);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00236}00236\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifdef}\ \textcolor{preprocessor}{GL\_GLEXT\_PROTOTYPES}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00237}00237\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glActiveTexture\ (GLenum\ texture);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00238}00238\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00239}00239\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}\ \textcolor{comment}{/*\ GL\_VERSION\_1\_3\ */}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00240}00240\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{GL\_VERSION\_1\_4}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00241}00241\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_BLEND\_DST\_RGB}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x80C8}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00242}00242\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_BLEND\_SRC\_RGB}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x80C9}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00243}00243\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_BLEND\_DST\_ALPHA}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x80CA}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00244}00244\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_BLEND\_SRC\_ALPHA}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x80CB}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00245}00245\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_FUNC\_ADD}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x8006}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00246}00246\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLBLENDFUNCSEPARATEPROC)\ (GLenum\ sfactorRGB,\ GLenum\ dfactorRGB,\ GLenum\ sfactorAlpha,\ GLenum\ dfactorAlpha);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00247}00247\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLBLENDEQUATIONPROC)\ (GLenum\ mode);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00248}00248\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifdef}\ \textcolor{preprocessor}{GL\_GLEXT\_PROTOTYPES}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00249}00249\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glBlendFuncSeparate\ (GLenum\ sfactorRGB,\ GLenum\ dfactorRGB,\ GLenum\ sfactorAlpha,\ GLenum\ dfactorAlpha);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00250}00250\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glBlendEquation\ (GLenum\ mode);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00251}00251\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00252}00252\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}\ \textcolor{comment}{/*\ GL\_VERSION\_1\_4\ */}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00253}00253\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{GL\_VERSION\_1\_5}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00254}00254\ \textcolor{keyword}{typedef}\ khronos\_ssize\_t\ GLsizeiptr;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00255}00255\ \textcolor{keyword}{typedef}\ khronos\_intptr\_t\ GLintptr;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00256}00256\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_ARRAY\_BUFFER}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x8892}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00257}00257\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_ELEMENT\_ARRAY\_BUFFER}\ \ \ \ \ \ \ \ \ \ \ 0x8893}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00258}00258\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_ARRAY\_BUFFER\_BINDING}\ \ \ \ \ \ \ \ \ \ \ 0x8894}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00259}00259\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_ELEMENT\_ARRAY\_BUFFER\_BINDING}\ \ \ 0x8895}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00260}00260\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_STREAM\_DRAW}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x88E0}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00261}00261\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLBINDBUFFERPROC)\ (GLenum\ target,\ GLuint\ buffer);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00262}00262\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLDELETEBUFFERSPROC)\ (GLsizei\ n,\ \textcolor{keyword}{const}\ GLuint\ *buffers);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00263}00263\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLGENBUFFERSPROC)\ (GLsizei\ n,\ GLuint\ *buffers);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00264}00264\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLBUFFERDATAPROC)\ (GLenum\ target,\ GLsizeiptr\ size,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *data,\ GLenum\ usage);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00265}00265\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLBUFFERSUBDATAPROC)\ (GLenum\ target,\ GLintptr\ offset,\ GLsizeiptr\ size,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *data);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00266}00266\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifdef}\ \textcolor{preprocessor}{GL\_GLEXT\_PROTOTYPES}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00267}00267\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glBindBuffer\ (GLenum\ target,\ GLuint\ buffer);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00268}00268\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glDeleteBuffers\ (GLsizei\ n,\ \textcolor{keyword}{const}\ GLuint\ *buffers);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00269}00269\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glGenBuffers\ (GLsizei\ n,\ GLuint\ *buffers);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00270}00270\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glBufferData\ (GLenum\ target,\ GLsizeiptr\ size,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *data,\ GLenum\ usage);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00271}00271\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glBufferSubData\ (GLenum\ target,\ GLintptr\ offset,\ GLsizeiptr\ size,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *data);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00272}00272\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00273}00273\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}\ \textcolor{comment}{/*\ GL\_VERSION\_1\_5\ */}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00274}00274\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{GL\_VERSION\_2\_0}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00275}00275\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{char}\ GLchar;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00276}00276\ \textcolor{keyword}{typedef}\ khronos\_int16\_t\ GLshort;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00277}00277\ \textcolor{keyword}{typedef}\ khronos\_int8\_t\ GLbyte;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00278}00278\ \textcolor{keyword}{typedef}\ khronos\_uint16\_t\ GLushort;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00279}00279\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_BLEND\_EQUATION\_RGB}\ \ \ \ \ \ \ \ \ \ \ \ \ 0x8009}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00280}00280\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_VERTEX\_ATTRIB\_ARRAY\_ENABLED}\ \ \ \ 0x8622}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00281}00281\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_VERTEX\_ATTRIB\_ARRAY\_SIZE}\ \ \ \ \ \ \ 0x8623}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00282}00282\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_VERTEX\_ATTRIB\_ARRAY\_STRIDE}\ \ \ \ \ 0x8624}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00283}00283\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_VERTEX\_ATTRIB\_ARRAY\_TYPE}\ \ \ \ \ \ \ 0x8625}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00284}00284\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_VERTEX\_ATTRIB\_ARRAY\_POINTER}\ \ \ \ 0x8645}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00285}00285\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_BLEND\_EQUATION\_ALPHA}\ \ \ \ \ \ \ \ \ \ \ 0x883D}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00286}00286\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_VERTEX\_ATTRIB\_ARRAY\_NORMALIZED}\ 0x886A}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00287}00287\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_FRAGMENT\_SHADER}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x8B30}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00288}00288\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_VERTEX\_SHADER}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x8B31}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00289}00289\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_COMPILE\_STATUS}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x8B81}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00290}00290\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_LINK\_STATUS}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x8B82}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00291}00291\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_INFO\_LOG\_LENGTH}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x8B84}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00292}00292\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_CURRENT\_PROGRAM}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x8B8D}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00293}00293\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_UPPER\_LEFT}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x8CA2}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00294}00294\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLBLENDEQUATIONSEPARATEPROC)\ (GLenum\ modeRGB,\ GLenum\ modeAlpha);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00295}00295\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLATTACHSHADERPROC)\ (GLuint\ program,\ GLuint\ shader);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00296}00296\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLCOMPILESHADERPROC)\ (GLuint\ shader);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00297}00297\ \textcolor{keyword}{typedef}\ GLuint\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLCREATEPROGRAMPROC)\ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00298}00298\ \textcolor{keyword}{typedef}\ GLuint\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLCREATESHADERPROC)\ (GLenum\ type);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00299}00299\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLDELETEPROGRAMPROC)\ (GLuint\ program);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00300}00300\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLDELETESHADERPROC)\ (GLuint\ shader);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00301}00301\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLDETACHSHADERPROC)\ (GLuint\ program,\ GLuint\ shader);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00302}00302\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLDISABLEVERTEXATTRIBARRAYPROC)\ (GLuint\ index);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00303}00303\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLENABLEVERTEXATTRIBARRAYPROC)\ (GLuint\ index);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00304}00304\ \textcolor{keyword}{typedef}\ GLint\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLGETATTRIBLOCATIONPROC)\ (GLuint\ program,\ \textcolor{keyword}{const}\ GLchar\ *name);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00305}00305\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLGETPROGRAMIVPROC)\ (GLuint\ program,\ GLenum\ pname,\ GLint\ *params);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00306}00306\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLGETPROGRAMINFOLOGPROC)\ (GLuint\ program,\ GLsizei\ bufSize,\ GLsizei\ *length,\ GLchar\ *infoLog);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00307}00307\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLGETSHADERIVPROC)\ (GLuint\ shader,\ GLenum\ pname,\ GLint\ *params);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00308}00308\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLGETSHADERINFOLOGPROC)\ (GLuint\ shader,\ GLsizei\ bufSize,\ GLsizei\ *length,\ GLchar\ *infoLog);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00309}00309\ \textcolor{keyword}{typedef}\ GLint\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLGETUNIFORMLOCATIONPROC)\ (GLuint\ program,\ \textcolor{keyword}{const}\ GLchar\ *name);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00310}00310\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLGETVERTEXATTRIBIVPROC)\ (GLuint\ index,\ GLenum\ pname,\ GLint\ *params);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00311}00311\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLGETVERTEXATTRIBPOINTERVPROC)\ (GLuint\ index,\ GLenum\ pname,\ \textcolor{keywordtype}{void}\ **pointer);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00312}00312\ \textcolor{keyword}{typedef}\ GLboolean\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLISPROGRAMPROC)\ (GLuint\ program);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00313}00313\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLLINKPROGRAMPROC)\ (GLuint\ program);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00314}00314\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLSHADERSOURCEPROC)\ (GLuint\ shader,\ GLsizei\ count,\ \textcolor{keyword}{const}\ GLchar\ *\textcolor{keyword}{const}*string,\ \textcolor{keyword}{const}\ GLint\ *length);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00315}00315\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLUSEPROGRAMPROC)\ (GLuint\ program);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00316}00316\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLUNIFORM1IPROC)\ (GLint\ location,\ GLint\ v0);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00317}00317\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLUNIFORMMATRIX4FVPROC)\ (GLint\ location,\ GLsizei\ count,\ GLboolean\ transpose,\ \textcolor{keyword}{const}\ GLfloat\ *value);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00318}00318\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLVERTEXATTRIBPOINTERPROC)\ (GLuint\ index,\ GLint\ size,\ GLenum\ type,\ GLboolean\ normalized,\ GLsizei\ stride,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *pointer);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00319}00319\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifdef}\ \textcolor{preprocessor}{GL\_GLEXT\_PROTOTYPES}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00320}00320\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glBlendEquationSeparate\ (GLenum\ modeRGB,\ GLenum\ modeAlpha);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00321}00321\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glAttachShader\ (GLuint\ program,\ GLuint\ shader);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00322}00322\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glCompileShader\ (GLuint\ shader);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00323}00323\ GLAPI\ GLuint\ APIENTRY\ glCreateProgram\ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00324}00324\ GLAPI\ GLuint\ APIENTRY\ glCreateShader\ (GLenum\ type);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00325}00325\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glDeleteProgram\ (GLuint\ program);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00326}00326\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glDeleteShader\ (GLuint\ shader);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00327}00327\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glDetachShader\ (GLuint\ program,\ GLuint\ shader);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00328}00328\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glDisableVertexAttribArray\ (GLuint\ index);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00329}00329\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glEnableVertexAttribArray\ (GLuint\ index);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00330}00330\ GLAPI\ GLint\ APIENTRY\ glGetAttribLocation\ (GLuint\ program,\ \textcolor{keyword}{const}\ GLchar\ *name);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00331}00331\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glGetProgramiv\ (GLuint\ program,\ GLenum\ pname,\ GLint\ *params);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00332}00332\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glGetProgramInfoLog\ (GLuint\ program,\ GLsizei\ bufSize,\ GLsizei\ *length,\ GLchar\ *infoLog);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00333}00333\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glGetShaderiv\ (GLuint\ shader,\ GLenum\ pname,\ GLint\ *params);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00334}00334\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glGetShaderInfoLog\ (GLuint\ shader,\ GLsizei\ bufSize,\ GLsizei\ *length,\ GLchar\ *infoLog);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00335}00335\ GLAPI\ GLint\ APIENTRY\ glGetUniformLocation\ (GLuint\ program,\ \textcolor{keyword}{const}\ GLchar\ *name);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00336}00336\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glGetVertexAttribiv\ (GLuint\ index,\ GLenum\ pname,\ GLint\ *params);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00337}00337\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glGetVertexAttribPointerv\ (GLuint\ index,\ GLenum\ pname,\ \textcolor{keywordtype}{void}\ **pointer);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00338}00338\ GLAPI\ GLboolean\ APIENTRY\ glIsProgram\ (GLuint\ program);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00339}00339\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glLinkProgram\ (GLuint\ program);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00340}00340\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glShaderSource\ (GLuint\ shader,\ GLsizei\ count,\ \textcolor{keyword}{const}\ GLchar\ *\textcolor{keyword}{const}*string,\ \textcolor{keyword}{const}\ GLint\ *length);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00341}00341\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glUseProgram\ (GLuint\ program);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00342}00342\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glUniform1i\ (GLint\ location,\ GLint\ v0);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00343}00343\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glUniformMatrix4fv\ (GLint\ location,\ GLsizei\ count,\ GLboolean\ transpose,\ \textcolor{keyword}{const}\ GLfloat\ *value);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00344}00344\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glVertexAttribPointer\ (GLuint\ index,\ GLint\ size,\ GLenum\ type,\ GLboolean\ normalized,\ GLsizei\ stride,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *pointer);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00345}00345\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00346}00346\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}\ \textcolor{comment}{/*\ GL\_VERSION\_2\_0\ */}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00347}00347\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{GL\_VERSION\_3\_0}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00348}00348\ \textcolor{keyword}{typedef}\ khronos\_uint16\_t\ GLhalf;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00349}00349\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_MAJOR\_VERSION}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x821B}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00350}00350\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_MINOR\_VERSION}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x821C}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00351}00351\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_NUM\_EXTENSIONS}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x821D}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00352}00352\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_FRAMEBUFFER\_SRGB}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x8DB9}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00353}00353\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_VERTEX\_ARRAY\_BINDING}\ \ \ \ \ \ \ \ \ \ \ 0x85B5}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00354}00354\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLGETBOOLEANI\_VPROC)\ (GLenum\ target,\ GLuint\ index,\ GLboolean\ *data);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00355}00355\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLGETINTEGERI\_VPROC)\ (GLenum\ target,\ GLuint\ index,\ GLint\ *data);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00356}00356\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{const}\ GLubyte\ *(\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLGETSTRINGIPROC)\ (GLenum\ name,\ GLuint\ index);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00357}00357\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLBINDVERTEXARRAYPROC)\ (GLuint\ array);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00358}00358\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLDELETEVERTEXARRAYSPROC)\ (GLsizei\ n,\ \textcolor{keyword}{const}\ GLuint\ *arrays);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00359}00359\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLGENVERTEXARRAYSPROC)\ (GLsizei\ n,\ GLuint\ *arrays);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00360}00360\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifdef}\ \textcolor{preprocessor}{GL\_GLEXT\_PROTOTYPES}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00361}00361\ GLAPI\ \textcolor{keyword}{const}\ GLubyte\ *APIENTRY\ glGetStringi\ (GLenum\ name,\ GLuint\ index);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00362}00362\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glBindVertexArray\ (GLuint\ array);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00363}00363\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glDeleteVertexArrays\ (GLsizei\ n,\ \textcolor{keyword}{const}\ GLuint\ *arrays);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00364}00364\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glGenVertexArrays\ (GLsizei\ n,\ GLuint\ *arrays);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00365}00365\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00366}00366\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}\ \textcolor{comment}{/*\ GL\_VERSION\_3\_0\ */}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00367}00367\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{GL\_VERSION\_3\_1}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00368}00368\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_VERSION\_3\_1}\ 1}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00369}00369\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_PRIMITIVE\_RESTART}\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x8F9D}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00370}00370\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}\ \textcolor{comment}{/*\ GL\_VERSION\_3\_1\ */}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00371}00371\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{GL\_VERSION\_3\_2}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00372}00372\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_VERSION\_3\_2}\ 1}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00373}00373\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\ \_\_GLsync\ *GLsync;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00374}00374\ \textcolor{keyword}{typedef}\ khronos\_uint64\_t\ GLuint64;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00375}00375\ \textcolor{keyword}{typedef}\ khronos\_int64\_t\ GLint64;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00376}00376\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLDRAWELEMENTSBASEVERTEXPROC)\ (GLenum\ mode,\ GLsizei\ count,\ GLenum\ type,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *indices,\ GLint\ basevertex);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00377}00377\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLGETINTEGER64I\_VPROC)\ (GLenum\ target,\ GLuint\ index,\ GLint64\ *data);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00378}00378\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifdef}\ \textcolor{preprocessor}{GL\_GLEXT\_PROTOTYPES}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00379}00379\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glDrawElementsBaseVertex\ (GLenum\ mode,\ GLsizei\ count,\ GLenum\ type,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *indices,\ GLint\ basevertex);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00380}00380\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00381}00381\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}\ \textcolor{comment}{/*\ GL\_VERSION\_3\_2\ */}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00382}00382\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{GL\_VERSION\_3\_3}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00383}00383\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_VERSION\_3\_3}\ 1}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00384}00384\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_SAMPLER\_BINDING}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x8919}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00385}00385\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLBINDSAMPLERPROC)\ (GLuint\ unit,\ GLuint\ sampler);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00386}00386\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifdef}\ \textcolor{preprocessor}{GL\_GLEXT\_PROTOTYPES}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00387}00387\ GLAPI\ \textcolor{keywordtype}{void}\ APIENTRY\ glBindSampler\ (GLuint\ unit,\ GLuint\ sampler);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00388}00388\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00389}00389\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}\ \textcolor{comment}{/*\ GL\_VERSION\_3\_3\ */}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00390}00390\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{GL\_VERSION\_4\_1}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00391}00391\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLGETFLOATI\_VPROC)\ (GLenum\ target,\ GLuint\ index,\ GLfloat\ *data);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00392}00392\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLGETDOUBLEI\_VPROC)\ (GLenum\ target,\ GLuint\ index,\ GLdouble\ *data);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00393}00393\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}\ \textcolor{comment}{/*\ GL\_VERSION\_4\_1\ */}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00394}00394\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{GL\_VERSION\_4\_3}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00395}00395\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_a428a91acf2c2439dc1a257708ee1f805}{APIENTRY}}\ \ *GLDEBUGPROC)(GLenum\ source,GLenum\ type,GLuint\ id,GLenum\ severity,GLsizei\ length,\textcolor{keyword}{const}\ GLchar\ *message,\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *userParam);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00396}00396\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}\ \textcolor{comment}{/*\ GL\_VERSION\_4\_3\ */}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00397}00397\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{GL\_VERSION\_4\_5}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00398}00398\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_CLIP\_ORIGIN}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x935C}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00399}00399\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLGETTRANSFORMFEEDBACKI\_VPROC)\ (GLuint\ xfb,\ GLenum\ pname,\ GLuint\ index,\ GLint\ *param);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00400}00400\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLGETTRANSFORMFEEDBACKI64\_VPROC)\ (GLuint\ xfb,\ GLenum\ pname,\ GLuint\ index,\ GLint64\ *param);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00401}00401\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}\ \textcolor{comment}{/*\ GL\_VERSION\_4\_5\ */}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00402}00402\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{GL\_ARB\_bindless\_texture}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00403}00403\ \textcolor{keyword}{typedef}\ khronos\_uint64\_t\ GLuint64EXT;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00404}00404\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}\ \textcolor{comment}{/*\ GL\_ARB\_bindless\_texture\ */}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00405}00405\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{GL\_ARB\_cl\_event}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00406}00406\ \textcolor{keyword}{struct}\ \_cl\_context;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00407}00407\ \textcolor{keyword}{struct}\ \_cl\_event;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00408}00408\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}\ \textcolor{comment}{/*\ GL\_ARB\_cl\_event\ */}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00409}00409\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{GL\_ARB\_clip\_control}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00410}00410\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL\_ARB\_clip\_control}\ 1}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00411}00411\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}\ \textcolor{comment}{/*\ GL\_ARB\_clip\_control\ */}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00412}00412\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{GL\_ARB\_debug\_output}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00413}00413\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_a428a91acf2c2439dc1a257708ee1f805}{APIENTRY}}\ \ *GLDEBUGPROCARB)(GLenum\ source,GLenum\ type,GLuint\ id,GLenum\ severity,GLsizei\ length,\textcolor{keyword}{const}\ GLchar\ *message,\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *userParam);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00414}00414\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}\ \textcolor{comment}{/*\ GL\_ARB\_debug\_output\ */}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00415}00415\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{GL\_EXT\_EGL\_image\_storage}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00416}00416\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ *GLeglImageOES;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00417}00417\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}\ \textcolor{comment}{/*\ GL\_EXT\_EGL\_image\_storage\ */}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00418}00418\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{GL\_EXT\_direct\_state\_access}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00419}00419\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLGETFLOATI\_VEXTPROC)\ (GLenum\ pname,\ GLuint\ index,\ GLfloat\ *params);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00420}00420\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLGETDOUBLEI\_VEXTPROC)\ (GLenum\ pname,\ GLuint\ index,\ GLdouble\ *params);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00421}00421\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLGETPOINTERI\_VEXTPROC)\ (GLenum\ pname,\ GLuint\ index,\ \textcolor{keywordtype}{void}\ **params);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00422}00422\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLGETVERTEXARRAYINTEGERI\_VEXTPROC)\ (GLuint\ vaobj,\ GLuint\ index,\ GLenum\ pname,\ GLint\ *param);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00423}00423\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLGETVERTEXARRAYPOINTERI\_VEXTPROC)\ (GLuint\ vaobj,\ GLuint\ index,\ GLenum\ pname,\ \textcolor{keywordtype}{void}\ **param);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00424}00424\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}\ \textcolor{comment}{/*\ GL\_EXT\_direct\_state\_access\ */}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00425}00425\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{GL\_NV\_draw\_vulkan\_image}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00426}00426\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_a428a91acf2c2439dc1a257708ee1f805}{APIENTRY}}\ \ *GLVULKANPROCNV)(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00427}00427\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}\ \textcolor{comment}{/*\ GL\_NV\_draw\_vulkan\_image\ */}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00428}00428\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{GL\_NV\_gpu\_shader5}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00429}00429\ \textcolor{keyword}{typedef}\ khronos\_int64\_t\ GLint64EXT;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00430}00430\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}\ \textcolor{comment}{/*\ GL\_NV\_gpu\_shader5\ */}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00431}00431\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{GL\_NV\_vertex\_buffer\_unified\_memory}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00432}00432\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_aef0d9e5e275e1b7becf54b6aa9ce3911}{APIENTRYP}}\ PFNGLGETINTEGERUI64I\_VNVPROC)\ (GLenum\ value,\ GLuint\ index,\ GLuint64EXT\ *result);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00433}00433\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}\ \textcolor{comment}{/*\ GL\_NV\_vertex\_buffer\_unified\_memory\ */}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00434}00434\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifdef}\ \_\_cplusplus}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00435}00435\ \}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00436}00436\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00437}00437\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00438}00438\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00439}00439\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{GL3W\_API}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00440}00440\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL3W\_API}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00441}00441\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00442}00442\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00443}00443\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{\_\_gl\_h\_}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00444}00444\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{\_\_gl\_h\_}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00445}00445\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00446}00446\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00447}00447\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifdef}\ \_\_cplusplus}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00448}00448\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00449}00449\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00450}00450\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00451}00451\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL3W\_OK}\ 0}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00452}00452\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL3W\_ERROR\_INIT}\ \textcolor{preprocessor}{-\/}1}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00453}00453\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL3W\_ERROR\_LIBRARY\_OPEN}\ \textcolor{preprocessor}{-\/}2}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00454}00454\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{GL3W\_ERROR\_OPENGL\_VERSION}\ \textcolor{preprocessor}{-\/}3}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00455}00455\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00456}00456\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ (*GL3WglProc)(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00457}00457\ \textcolor{keyword}{typedef}\ GL3WglProc\ (*GL3WGetProcAddressProc)(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *proc);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00458}00458\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00459}00459\ \textcolor{comment}{/*\ gl3w\ api\ */}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00460}00460\ \mbox{\hyperlink{imgui__impl__opengl3__loader_8h_a57320a9e655c80fa24df2c18e0db36c1}{GL3W\_API}}\ \textcolor{keywordtype}{int}\ imgl3wInit(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00461}00461\ \mbox{\hyperlink{imgui__impl__opengl3__loader_8h_a57320a9e655c80fa24df2c18e0db36c1}{GL3W\_API}}\ \textcolor{keywordtype}{int}\ imgl3wInit2(GL3WGetProcAddressProc\ proc);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00462}00462\ \mbox{\hyperlink{imgui__impl__opengl3__loader_8h_a57320a9e655c80fa24df2c18e0db36c1}{GL3W\_API}}\ \textcolor{keywordtype}{int}\ imgl3wIsSupported(\textcolor{keywordtype}{int}\ major,\ \textcolor{keywordtype}{int}\ minor);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00463}00463\ \mbox{\hyperlink{imgui__impl__opengl3__loader_8h_a57320a9e655c80fa24df2c18e0db36c1}{GL3W\_API}}\ GL3WglProc\ imgl3wGetProcAddress(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *proc);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00464}00464\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00465}00465\ \textcolor{comment}{/*\ gl3w\ internal\ state\ */}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00466}00466\ \textcolor{keyword}{union}\ \mbox{\hyperlink{union_g_l3_w_procs}{GL3WProcs}}\ \{}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00467}00467\ \ \ \ \ GL3WglProc\ ptr[59];}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00468}00468\ \ \ \ \ \textcolor{keyword}{struct}\ \{}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00469}00469\ \ \ \ \ \ \ \ \ PFNGLACTIVETEXTUREPROC\ \ \ \ \ \ \ \ \ \ \ \ ActiveTexture;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00470}00470\ \ \ \ \ \ \ \ \ PFNGLATTACHSHADERPROC\ \ \ \ \ \ \ \ \ \ \ \ \ AttachShader;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00471}00471\ \ \ \ \ \ \ \ \ PFNGLBINDBUFFERPROC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BindBuffer;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00472}00472\ \ \ \ \ \ \ \ \ PFNGLBINDSAMPLERPROC\ \ \ \ \ \ \ \ \ \ \ \ \ \ BindSampler;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00473}00473\ \ \ \ \ \ \ \ \ PFNGLBINDTEXTUREPROC\ \ \ \ \ \ \ \ \ \ \ \ \ \ BindTexture;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00474}00474\ \ \ \ \ \ \ \ \ PFNGLBINDVERTEXARRAYPROC\ \ \ \ \ \ \ \ \ \ BindVertexArray;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00475}00475\ \ \ \ \ \ \ \ \ PFNGLBLENDEQUATIONPROC\ \ \ \ \ \ \ \ \ \ \ \ BlendEquation;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00476}00476\ \ \ \ \ \ \ \ \ PFNGLBLENDEQUATIONSEPARATEPROC\ \ \ \ BlendEquationSeparate;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00477}00477\ \ \ \ \ \ \ \ \ PFNGLBLENDFUNCSEPARATEPROC\ \ \ \ \ \ \ \ BlendFuncSeparate;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00478}00478\ \ \ \ \ \ \ \ \ PFNGLBUFFERDATAPROC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BufferData;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00479}00479\ \ \ \ \ \ \ \ \ PFNGLBUFFERSUBDATAPROC\ \ \ \ \ \ \ \ \ \ \ \ BufferSubData;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00480}00480\ \ \ \ \ \ \ \ \ PFNGLCLEARPROC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Clear;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00481}00481\ \ \ \ \ \ \ \ \ PFNGLCLEARCOLORPROC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ClearColor;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00482}00482\ \ \ \ \ \ \ \ \ PFNGLCOMPILESHADERPROC\ \ \ \ \ \ \ \ \ \ \ \ CompileShader;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00483}00483\ \ \ \ \ \ \ \ \ PFNGLCREATEPROGRAMPROC\ \ \ \ \ \ \ \ \ \ \ \ CreateProgram;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00484}00484\ \ \ \ \ \ \ \ \ PFNGLCREATESHADERPROC\ \ \ \ \ \ \ \ \ \ \ \ \ CreateShader;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00485}00485\ \ \ \ \ \ \ \ \ PFNGLDELETEBUFFERSPROC\ \ \ \ \ \ \ \ \ \ \ \ DeleteBuffers;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00486}00486\ \ \ \ \ \ \ \ \ PFNGLDELETEPROGRAMPROC\ \ \ \ \ \ \ \ \ \ \ \ DeleteProgram;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00487}00487\ \ \ \ \ \ \ \ \ PFNGLDELETESHADERPROC\ \ \ \ \ \ \ \ \ \ \ \ \ DeleteShader;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00488}00488\ \ \ \ \ \ \ \ \ PFNGLDELETETEXTURESPROC\ \ \ \ \ \ \ \ \ \ \ DeleteTextures;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00489}00489\ \ \ \ \ \ \ \ \ PFNGLDELETEVERTEXARRAYSPROC\ \ \ \ \ \ \ DeleteVertexArrays;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00490}00490\ \ \ \ \ \ \ \ \ PFNGLDETACHSHADERPROC\ \ \ \ \ \ \ \ \ \ \ \ \ DetachShader;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00491}00491\ \ \ \ \ \ \ \ \ PFNGLDISABLEPROC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Disable;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00492}00492\ \ \ \ \ \ \ \ \ PFNGLDISABLEVERTEXATTRIBARRAYPROC\ DisableVertexAttribArray;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00493}00493\ \ \ \ \ \ \ \ \ PFNGLDRAWELEMENTSPROC\ \ \ \ \ \ \ \ \ \ \ \ \ DrawElements;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00494}00494\ \ \ \ \ \ \ \ \ PFNGLDRAWELEMENTSBASEVERTEXPROC\ \ \ DrawElementsBaseVertex;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00495}00495\ \ \ \ \ \ \ \ \ PFNGLENABLEPROC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Enable;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00496}00496\ \ \ \ \ \ \ \ \ PFNGLENABLEVERTEXATTRIBARRAYPROC\ \ EnableVertexAttribArray;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00497}00497\ \ \ \ \ \ \ \ \ PFNGLFLUSHPROC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Flush;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00498}00498\ \ \ \ \ \ \ \ \ PFNGLGENBUFFERSPROC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GenBuffers;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00499}00499\ \ \ \ \ \ \ \ \ PFNGLGENTEXTURESPROC\ \ \ \ \ \ \ \ \ \ \ \ \ \ GenTextures;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00500}00500\ \ \ \ \ \ \ \ \ PFNGLGENVERTEXARRAYSPROC\ \ \ \ \ \ \ \ \ \ GenVertexArrays;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00501}00501\ \ \ \ \ \ \ \ \ PFNGLGETATTRIBLOCATIONPROC\ \ \ \ \ \ \ \ GetAttribLocation;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00502}00502\ \ \ \ \ \ \ \ \ PFNGLGETERRORPROC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GetError;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00503}00503\ \ \ \ \ \ \ \ \ PFNGLGETINTEGERVPROC\ \ \ \ \ \ \ \ \ \ \ \ \ \ GetIntegerv;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00504}00504\ \ \ \ \ \ \ \ \ PFNGLGETPROGRAMINFOLOGPROC\ \ \ \ \ \ \ \ GetProgramInfoLog;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00505}00505\ \ \ \ \ \ \ \ \ PFNGLGETPROGRAMIVPROC\ \ \ \ \ \ \ \ \ \ \ \ \ GetProgramiv;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00506}00506\ \ \ \ \ \ \ \ \ PFNGLGETSHADERINFOLOGPROC\ \ \ \ \ \ \ \ \ GetShaderInfoLog;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00507}00507\ \ \ \ \ \ \ \ \ PFNGLGETSHADERIVPROC\ \ \ \ \ \ \ \ \ \ \ \ \ \ GetShaderiv;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00508}00508\ \ \ \ \ \ \ \ \ PFNGLGETSTRINGPROC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GetString;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00509}00509\ \ \ \ \ \ \ \ \ PFNGLGETSTRINGIPROC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GetStringi;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00510}00510\ \ \ \ \ \ \ \ \ PFNGLGETUNIFORMLOCATIONPROC\ \ \ \ \ \ \ GetUniformLocation;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00511}00511\ \ \ \ \ \ \ \ \ PFNGLGETVERTEXATTRIBPOINTERVPROC\ \ GetVertexAttribPointerv;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00512}00512\ \ \ \ \ \ \ \ \ PFNGLGETVERTEXATTRIBIVPROC\ \ \ \ \ \ \ \ GetVertexAttribiv;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00513}00513\ \ \ \ \ \ \ \ \ PFNGLISENABLEDPROC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IsEnabled;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00514}00514\ \ \ \ \ \ \ \ \ PFNGLISPROGRAMPROC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IsProgram;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00515}00515\ \ \ \ \ \ \ \ \ PFNGLLINKPROGRAMPROC\ \ \ \ \ \ \ \ \ \ \ \ \ \ LinkProgram;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00516}00516\ \ \ \ \ \ \ \ \ PFNGLPIXELSTOREIPROC\ \ \ \ \ \ \ \ \ \ \ \ \ \ PixelStorei;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00517}00517\ \ \ \ \ \ \ \ \ PFNGLPOLYGONMODEPROC\ \ \ \ \ \ \ \ \ \ \ \ \ \ PolygonMode;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00518}00518\ \ \ \ \ \ \ \ \ PFNGLREADPIXELSPROC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ReadPixels;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00519}00519\ \ \ \ \ \ \ \ \ PFNGLSCISSORPROC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Scissor;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00520}00520\ \ \ \ \ \ \ \ \ PFNGLSHADERSOURCEPROC\ \ \ \ \ \ \ \ \ \ \ \ \ ShaderSource;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00521}00521\ \ \ \ \ \ \ \ \ PFNGLTEXIMAGE2DPROC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TexImage2D;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00522}00522\ \ \ \ \ \ \ \ \ PFNGLTEXPARAMETERIPROC\ \ \ \ \ \ \ \ \ \ \ \ TexParameteri;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00523}00523\ \ \ \ \ \ \ \ \ PFNGLUNIFORM1IPROC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Uniform1i;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00524}00524\ \ \ \ \ \ \ \ \ PFNGLUNIFORMMATRIX4FVPROC\ \ \ \ \ \ \ \ \ UniformMatrix4fv;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00525}00525\ \ \ \ \ \ \ \ \ PFNGLUSEPROGRAMPROC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ UseProgram;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00526}00526\ \ \ \ \ \ \ \ \ PFNGLVERTEXATTRIBPOINTERPROC\ \ \ \ \ \ VertexAttribPointer;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00527}00527\ \ \ \ \ \ \ \ \ PFNGLVIEWPORTPROC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Viewport;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00528}00528\ \ \ \ \ \}\ gl;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00529}00529\ \};}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00530}00530\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00531}00531\ \mbox{\hyperlink{imgui__impl__opengl3__loader_8h_a57320a9e655c80fa24df2c18e0db36c1}{GL3W\_API}}\ \textcolor{keyword}{extern}\ \textcolor{keyword}{union}\ \mbox{\hyperlink{union_g_l3_w_procs}{GL3WProcs}}\ imgl3wProcs;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00532}00532\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00533}00533\ \textcolor{comment}{/*\ OpenGL\ functions\ */}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00534}00534\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glActiveTexture}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{ActiveTexture}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00535}00535\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glAttachShader}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{AttachShader}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00536}00536\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glBindBuffer}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{BindBuffer}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00537}00537\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glBindSampler}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{BindSampler}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00538}00538\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glBindTexture}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{BindTexture}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00539}00539\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glBindVertexArray}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{BindVertexArray}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00540}00540\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glBlendEquation}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{BlendEquation}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00541}00541\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glBlendEquationSeparate}\ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{BlendEquationSeparate}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00542}00542\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glBlendFuncSeparate}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{BlendFuncSeparate}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00543}00543\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glBufferData}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{BufferData}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00544}00544\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glBufferSubData}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{BufferSubData}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00545}00545\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glClear}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{Clear}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00546}00546\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glClearColor}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{ClearColor}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00547}00547\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glCompileShader}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{CompileShader}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00548}00548\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glCreateProgram}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{CreateProgram}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00549}00549\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glCreateShader}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{CreateShader}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00550}00550\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glDeleteBuffers}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{DeleteBuffers}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00551}00551\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glDeleteProgram}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{DeleteProgram}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00552}00552\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glDeleteShader}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{DeleteShader}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00553}00553\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glDeleteTextures}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{DeleteTextures}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00554}00554\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glDeleteVertexArrays}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{DeleteVertexArrays}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00555}00555\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glDetachShader}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{DetachShader}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00556}00556\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glDisable}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{Disable}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00557}00557\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glDisableVertexAttribArray}\ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{DisableVertexAttribArray}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00558}00558\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glDrawElements}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{DrawElements}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00559}00559\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glDrawElementsBaseVertex}\ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{DrawElementsBaseVertex}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00560}00560\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glEnable}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{Enable}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00561}00561\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glEnableVertexAttribArray}\ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{EnableVertexAttribArray}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00562}00562\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glFlush}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{Flush}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00563}00563\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glGenBuffers}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{GenBuffers}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00564}00564\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glGenTextures}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{GenTextures}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00565}00565\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glGenVertexArrays}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{GenVertexArrays}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00566}00566\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glGetAttribLocation}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{GetAttribLocation}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00567}00567\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glGetError}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{GetError}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00568}00568\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glGetIntegerv}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{GetIntegerv}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00569}00569\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glGetProgramInfoLog}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{GetProgramInfoLog}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00570}00570\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glGetProgramiv}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{GetProgramiv}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00571}00571\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glGetShaderInfoLog}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{GetShaderInfoLog}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00572}00572\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glGetShaderiv}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{GetShaderiv}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00573}00573\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glGetString}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{GetString}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00574}00574\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glGetStringi}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{GetStringi}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00575}00575\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glGetUniformLocation}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{GetUniformLocation}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00576}00576\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glGetVertexAttribPointerv}\ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{GetVertexAttribPointerv}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00577}00577\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glGetVertexAttribiv}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{GetVertexAttribiv}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00578}00578\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glIsEnabled}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{IsEnabled}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00579}00579\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glIsProgram}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{IsProgram}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00580}00580\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glLinkProgram}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{LinkProgram}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00581}00581\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glPixelStorei}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{PixelStorei}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00582}00582\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glPolygonMode}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{PolygonMode}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00583}00583\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glReadPixels}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{ReadPixels}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00584}00584\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glScissor}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{Scissor}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00585}00585\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glShaderSource}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{ShaderSource}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00586}00586\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glTexImage2D}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{TexImage2D}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00587}00587\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glTexParameteri}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{TexParameteri}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00588}00588\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glUniform1i}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{Uniform1i}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00589}00589\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glUniformMatrix4fv}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{UniformMatrix4fv}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00590}00590\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glUseProgram}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{UseProgram}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00591}00591\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glVertexAttribPointer}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{VertexAttribPointer}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00592}00592\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{glViewport}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{preprocessor}{imgl3wProcs}\textcolor{preprocessor}{.}\textcolor{preprocessor}{gl}\textcolor{preprocessor}{.}\textcolor{preprocessor}{Viewport}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00593}00593\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00594}00594\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifdef}\ \_\_cplusplus}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00595}00595\ \}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00596}00596\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00597}00597\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00598}00598\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00599}00599\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00600}00600\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifdef}\ \mbox{\hyperlink{imgui__impl__opengl3_8cpp_a7dcfb597d9879faf16deecf3874e58d4}{IMGL3W\_IMPL}}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00601}00601\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifdef}\ \_\_cplusplus}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00602}00602\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00603}00603\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00604}00604\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00605}00605\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{<}\textcolor{preprocessor}{stdlib}\textcolor{preprocessor}{.}\textcolor{preprocessor}{h}\textcolor{preprocessor}{>}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00606}00606\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00607}00607\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{ARRAY\_SIZE}\textcolor{preprocessor}{(}\textcolor{preprocessor}{x}\textcolor{preprocessor}{)}\ \ \textcolor{preprocessor}{(}\textcolor{keyword}{sizeof}\textcolor{preprocessor}{(}\textcolor{preprocessor}{x}\textcolor{preprocessor}{)}\ \textcolor{preprocessor}{/}\ \textcolor{keyword}{sizeof}\textcolor{preprocessor}{(}\textcolor{preprocessor}{(}\textcolor{preprocessor}{x}\textcolor{preprocessor}{)}\textcolor{preprocessor}{[}0\textcolor{preprocessor}{]}\textcolor{preprocessor}{)}\textcolor{preprocessor}{)}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00608}00608\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00609}00609\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{if}\ \textcolor{preprocessor}{defined}\textcolor{preprocessor}{(}\_WIN32\textcolor{preprocessor}{)}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00610}00610\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ WIN32\_LEAN\_AND\_MEAN}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00611}00611\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{WIN32\_LEAN\_AND\_MEAN}\ 1}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00612}00612\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00613}00613\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{<}\textcolor{preprocessor}{windows}\textcolor{preprocessor}{.}\textcolor{preprocessor}{h}\textcolor{preprocessor}{>}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00614}00614\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00615}00615\ \textcolor{keyword}{static}\ HMODULE\ libgl;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00616}00616\ \textcolor{keyword}{typedef}\ PROC(\textcolor{keyword}{\_\_stdcall}*\ GL3WglGetProcAddr)(LPCSTR);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00617}00617\ \textcolor{keyword}{static}\ GL3WglGetProcAddr\ wgl\_get\_proc\_address;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00618}00618\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00619}00619\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ open\_libgl(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00620}00620\ \{}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00621}00621\ \ \ \ \ libgl\ =\ LoadLibraryA(\textcolor{stringliteral}{"{}opengl32.dll"{}});}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00622}00622\ \ \ \ \ \textcolor{keywordflow}{if}\ (!libgl)}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00623}00623\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{imgui__impl__opengl3__loader_8h_abfa52697afa5626ffcc2008efc8886e2}{GL3W\_ERROR\_LIBRARY\_OPEN}};}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00624}00624\ \ \ \ \ wgl\_get\_proc\_address\ =\ (GL3WglGetProcAddr)GetProcAddress(libgl,\ \textcolor{stringliteral}{"{}wglGetProcAddress"{}});}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00625}00625\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{imgui__impl__opengl3__loader_8h_adcceeedf5de18fd0cab56b96dd57b118}{GL3W\_OK}};}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00626}00626\ \}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00627}00627\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00628}00628\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ close\_libgl(\textcolor{keywordtype}{void})\ \{\ FreeLibrary(libgl);\ \}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00629}00629\ \textcolor{keyword}{static}\ GL3WglProc\ get\_proc(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *proc)}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00630}00630\ \{}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00631}00631\ \ \ \ \ GL3WglProc\ res;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00632}00632\ \ \ \ \ res\ =\ (GL3WglProc)wgl\_get\_proc\_address(proc);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00633}00633\ \ \ \ \ \textcolor{keywordflow}{if}\ (!res)}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00634}00634\ \ \ \ \ \ \ \ \ res\ =\ (GL3WglProc)GetProcAddress(libgl,\ proc);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00635}00635\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00636}00636\ \}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00637}00637\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{elif}\ \textcolor{preprocessor}{defined}\textcolor{preprocessor}{(}\textcolor{preprocessor}{\_\_APPLE\_\_}\textcolor{preprocessor}{)}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00638}00638\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{<}\textcolor{preprocessor}{dlfcn}\textcolor{preprocessor}{.}\textcolor{preprocessor}{h}\textcolor{preprocessor}{>}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00639}00639\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00640}00640\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ *libgl;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00641}00641\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ open\_libgl(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00642}00642\ \{}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00643}00643\ \ \ \ \ libgl\ =\ dlopen(\textcolor{stringliteral}{"{}/System/Library/Frameworks/OpenGL.framework/OpenGL"{}},\ RTLD\_LAZY\ |\ RTLD\_LOCAL);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00644}00644\ \ \ \ \ \textcolor{keywordflow}{if}\ (!libgl)}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00645}00645\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GL3W\_ERROR\_LIBRARY\_OPEN;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00646}00646\ \ \ \ \ \textcolor{keywordflow}{return}\ GL3W\_OK;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00647}00647\ \}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00648}00648\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00649}00649\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ close\_libgl(\textcolor{keywordtype}{void})\ \{\ dlclose(libgl);\ \}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00650}00650\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00651}00651\ \textcolor{keyword}{static}\ GL3WglProc\ get\_proc(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *proc)}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00652}00652\ \{}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00653}00653\ \ \ \ \ GL3WglProc\ res;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00654}00654\ \ \ \ \ *(\textcolor{keywordtype}{void}\ **)(\&res)\ =\ dlsym(libgl,\ proc);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00655}00655\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00656}00656\ \}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00657}00657\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{else}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00658}00658\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{<}\textcolor{preprocessor}{dlfcn}\textcolor{preprocessor}{.}\textcolor{preprocessor}{h}\textcolor{preprocessor}{>}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00659}00659\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00660}00660\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ *libgl;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00661}00661\ \textcolor{keyword}{static}\ GL3WglProc\ (*glx\_get\_proc\_address)(\textcolor{keyword}{const}\ GLubyte\ *);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00662}00662\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00663}00663\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ open\_libgl(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00664}00664\ \{}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00665}00665\ \ \ \ \ libgl\ =\ dlopen(\textcolor{stringliteral}{"{}libGL.so.1"{}},\ RTLD\_LAZY\ |\ RTLD\_LOCAL);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00666}00666\ \ \ \ \ \textcolor{keywordflow}{if}\ (!libgl)}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00667}00667\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GL3W\_ERROR\_LIBRARY\_OPEN;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00668}00668\ \ \ \ \ *(\textcolor{keywordtype}{void}\ **)(\&glx\_get\_proc\_address)\ =\ dlsym(libgl,\ \textcolor{stringliteral}{"{}glXGetProcAddressARB"{}});}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00669}00669\ \ \ \ \ \textcolor{keywordflow}{return}\ GL3W\_OK;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00670}00670\ \}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00671}00671\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00672}00672\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ close\_libgl(\textcolor{keywordtype}{void})\ \{\ dlclose(libgl);\ \}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00673}00673\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00674}00674\ \textcolor{keyword}{static}\ GL3WglProc\ get\_proc(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *proc)}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00675}00675\ \{}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00676}00676\ \ \ \ \ GL3WglProc\ res;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00677}00677\ \ \ \ \ res\ =\ glx\_get\_proc\_address((\textcolor{keyword}{const}\ GLubyte\ *)proc);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00678}00678\ \ \ \ \ \textcolor{keywordflow}{if}\ (!res)}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00679}00679\ \ \ \ \ \ \ \ \ *(\textcolor{keywordtype}{void}\ **)(\&res)\ =\ dlsym(libgl,\ proc);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00680}00680\ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00681}00681\ \}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00682}00682\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00683}00683\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00684}00684\ \textcolor{keyword}{static}\ \textcolor{keyword}{struct}\ \{\ \textcolor{keywordtype}{int}\ major,\ minor;\ \}\ version;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00685}00685\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00686}00686\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ parse\_version(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00687}00687\ \{}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00688}00688\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_a70ad6a21033347a0478dad517dd2bb83}{glGetIntegerv}})}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00689}00689\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{imgui__impl__opengl3__loader_8h_a98d6e43dda8e70f3242322296874b4e7}{GL3W\_ERROR\_INIT}};}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00690}00690\ \ \ \ \ \mbox{\hyperlink{imgui__impl__opengl3__loader_8h_a70ad6a21033347a0478dad517dd2bb83}{glGetIntegerv}}(\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_a2b2319323c7cfb4ed795be005209d73d}{GL\_MAJOR\_VERSION}},\ \&version.major);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00691}00691\ \ \ \ \ \mbox{\hyperlink{imgui__impl__opengl3__loader_8h_a70ad6a21033347a0478dad517dd2bb83}{glGetIntegerv}}(\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_ad45fb154a63b2b32a07732388e8251ad}{GL\_MINOR\_VERSION}},\ \&version.minor);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00692}00692\ \ \ \ \ \textcolor{keywordflow}{if}\ (version.major\ ==\ 0\ \&\&\ version.minor\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00693}00693\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00694}00694\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Query\ GL\_VERSION\ in\ desktop\ GL\ 2.x,\ the\ string\ will\ start\ with\ "{}<major>.<minor>"{}}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00695}00695\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ gl\_version\ =\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*)\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_a766db4e4de8f98981e53ea03bd47a004}{glGetString}}(\mbox{\hyperlink{imgui__impl__opengl3__loader_8h_a18f8c168894e0666430a156138cb8cb7}{GL\_VERSION}}))}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00696}00696\ \ \ \ \ \ \ \ \ \ \ \ \ sscanf(gl\_version,\ \textcolor{stringliteral}{"{}\%d.\%d"{}},\ \&version.major,\ \&version.minor);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00697}00697\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00698}00698\ \ \ \ \ \textcolor{keywordflow}{if}\ (version.major\ <\ 2)}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00699}00699\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{imgui__impl__opengl3__loader_8h_a68bbfd6532e5f3ee7a550661030903cf}{GL3W\_ERROR\_OPENGL\_VERSION}};}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00700}00700\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{imgui__impl__opengl3__loader_8h_adcceeedf5de18fd0cab56b96dd57b118}{GL3W\_OK}};}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00701}00701\ \}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00702}00702\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00703}00703\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ load\_procs(GL3WGetProcAddressProc\ proc);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00704}00704\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00705}00705\ \textcolor{keywordtype}{int}\ imgl3wInit(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00706}00706\ \{}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00707}00707\ \ \ \ \ \textcolor{keywordtype}{int}\ res\ =\ open\_libgl();}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00708}00708\ \ \ \ \ \textcolor{keywordflow}{if}\ (res)}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00709}00709\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00710}00710\ \ \ \ \ atexit(close\_libgl);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00711}00711\ \ \ \ \ \textcolor{keywordflow}{return}\ imgl3wInit2(get\_proc);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00712}00712\ \}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00713}00713\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00714}00714\ \textcolor{keywordtype}{int}\ imgl3wInit2(GL3WGetProcAddressProc\ proc)}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00715}00715\ \{}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00716}00716\ \ \ \ \ load\_procs(proc);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00717}00717\ \ \ \ \ \textcolor{keywordflow}{return}\ parse\_version();}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00718}00718\ \}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00719}00719\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00720}00720\ \textcolor{keywordtype}{int}\ imgl3wIsSupported(\textcolor{keywordtype}{int}\ major,\ \textcolor{keywordtype}{int}\ minor)}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00721}00721\ \{}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00722}00722\ \ \ \ \ \textcolor{keywordflow}{if}\ (major\ <\ 2)}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00723}00723\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00724}00724\ \ \ \ \ \textcolor{keywordflow}{if}\ (version.major\ ==\ major)}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00725}00725\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ version.minor\ >=\ minor;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00726}00726\ \ \ \ \ \textcolor{keywordflow}{return}\ version.major\ >=\ major;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00727}00727\ \}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00728}00728\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00729}00729\ GL3WglProc\ imgl3wGetProcAddress(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *proc)\ \{\ \textcolor{keywordflow}{return}\ get\_proc(proc);\ \}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00730}00730\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00731}00731\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *proc\_names[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00732}00732\ \ \ \ \ \textcolor{stringliteral}{"{}glActiveTexture"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00733}00733\ \ \ \ \ \textcolor{stringliteral}{"{}glAttachShader"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00734}00734\ \ \ \ \ \textcolor{stringliteral}{"{}glBindBuffer"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00735}00735\ \ \ \ \ \textcolor{stringliteral}{"{}glBindSampler"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00736}00736\ \ \ \ \ \textcolor{stringliteral}{"{}glBindTexture"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00737}00737\ \ \ \ \ \textcolor{stringliteral}{"{}glBindVertexArray"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00738}00738\ \ \ \ \ \textcolor{stringliteral}{"{}glBlendEquation"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00739}00739\ \ \ \ \ \textcolor{stringliteral}{"{}glBlendEquationSeparate"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00740}00740\ \ \ \ \ \textcolor{stringliteral}{"{}glBlendFuncSeparate"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00741}00741\ \ \ \ \ \textcolor{stringliteral}{"{}glBufferData"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00742}00742\ \ \ \ \ \textcolor{stringliteral}{"{}glBufferSubData"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00743}00743\ \ \ \ \ \textcolor{stringliteral}{"{}glClear"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00744}00744\ \ \ \ \ \textcolor{stringliteral}{"{}glClearColor"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00745}00745\ \ \ \ \ \textcolor{stringliteral}{"{}glCompileShader"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00746}00746\ \ \ \ \ \textcolor{stringliteral}{"{}glCreateProgram"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00747}00747\ \ \ \ \ \textcolor{stringliteral}{"{}glCreateShader"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00748}00748\ \ \ \ \ \textcolor{stringliteral}{"{}glDeleteBuffers"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00749}00749\ \ \ \ \ \textcolor{stringliteral}{"{}glDeleteProgram"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00750}00750\ \ \ \ \ \textcolor{stringliteral}{"{}glDeleteShader"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00751}00751\ \ \ \ \ \textcolor{stringliteral}{"{}glDeleteTextures"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00752}00752\ \ \ \ \ \textcolor{stringliteral}{"{}glDeleteVertexArrays"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00753}00753\ \ \ \ \ \textcolor{stringliteral}{"{}glDetachShader"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00754}00754\ \ \ \ \ \textcolor{stringliteral}{"{}glDisable"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00755}00755\ \ \ \ \ \textcolor{stringliteral}{"{}glDisableVertexAttribArray"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00756}00756\ \ \ \ \ \textcolor{stringliteral}{"{}glDrawElements"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00757}00757\ \ \ \ \ \textcolor{stringliteral}{"{}glDrawElementsBaseVertex"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00758}00758\ \ \ \ \ \textcolor{stringliteral}{"{}glEnable"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00759}00759\ \ \ \ \ \textcolor{stringliteral}{"{}glEnableVertexAttribArray"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00760}00760\ \ \ \ \ \textcolor{stringliteral}{"{}glFlush"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00761}00761\ \ \ \ \ \textcolor{stringliteral}{"{}glGenBuffers"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00762}00762\ \ \ \ \ \textcolor{stringliteral}{"{}glGenTextures"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00763}00763\ \ \ \ \ \textcolor{stringliteral}{"{}glGenVertexArrays"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00764}00764\ \ \ \ \ \textcolor{stringliteral}{"{}glGetAttribLocation"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00765}00765\ \ \ \ \ \textcolor{stringliteral}{"{}glGetError"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00766}00766\ \ \ \ \ \textcolor{stringliteral}{"{}glGetIntegerv"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00767}00767\ \ \ \ \ \textcolor{stringliteral}{"{}glGetProgramInfoLog"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00768}00768\ \ \ \ \ \textcolor{stringliteral}{"{}glGetProgramiv"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00769}00769\ \ \ \ \ \textcolor{stringliteral}{"{}glGetShaderInfoLog"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00770}00770\ \ \ \ \ \textcolor{stringliteral}{"{}glGetShaderiv"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00771}00771\ \ \ \ \ \textcolor{stringliteral}{"{}glGetString"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00772}00772\ \ \ \ \ \textcolor{stringliteral}{"{}glGetStringi"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00773}00773\ \ \ \ \ \textcolor{stringliteral}{"{}glGetUniformLocation"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00774}00774\ \ \ \ \ \textcolor{stringliteral}{"{}glGetVertexAttribPointerv"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00775}00775\ \ \ \ \ \textcolor{stringliteral}{"{}glGetVertexAttribiv"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00776}00776\ \ \ \ \ \textcolor{stringliteral}{"{}glIsEnabled"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00777}00777\ \ \ \ \ \textcolor{stringliteral}{"{}glIsProgram"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00778}00778\ \ \ \ \ \textcolor{stringliteral}{"{}glLinkProgram"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00779}00779\ \ \ \ \ \textcolor{stringliteral}{"{}glPixelStorei"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00780}00780\ \ \ \ \ \textcolor{stringliteral}{"{}glPolygonMode"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00781}00781\ \ \ \ \ \textcolor{stringliteral}{"{}glReadPixels"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00782}00782\ \ \ \ \ \textcolor{stringliteral}{"{}glScissor"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00783}00783\ \ \ \ \ \textcolor{stringliteral}{"{}glShaderSource"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00784}00784\ \ \ \ \ \textcolor{stringliteral}{"{}glTexImage2D"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00785}00785\ \ \ \ \ \textcolor{stringliteral}{"{}glTexParameteri"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00786}00786\ \ \ \ \ \textcolor{stringliteral}{"{}glUniform1i"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00787}00787\ \ \ \ \ \textcolor{stringliteral}{"{}glUniformMatrix4fv"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00788}00788\ \ \ \ \ \textcolor{stringliteral}{"{}glUseProgram"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00789}00789\ \ \ \ \ \textcolor{stringliteral}{"{}glVertexAttribPointer"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00790}00790\ \ \ \ \ \textcolor{stringliteral}{"{}glViewport"{}},}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00791}00791\ \};}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00792}00792\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00793}00793\ \mbox{\hyperlink{imgui__impl__opengl3__loader_8h_a57320a9e655c80fa24df2c18e0db36c1}{GL3W\_API}}\ \textcolor{keyword}{union}\ \mbox{\hyperlink{union_g_l3_w_procs}{GL3WProcs}}\ imgl3wProcs;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00794}00794\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00795}00795\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ load\_procs(GL3WGetProcAddressProc\ proc)}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00796}00796\ \{}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00797}00797\ \ \ \ \ size\_t\ i;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00798}00798\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ ARRAY\_SIZE(proc\_names);\ i++)}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00799}00799\ \ \ \ \ \ \ \ \ imgl3wProcs.ptr[i]\ =\ proc(proc\_names[i]);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00800}00800\ \}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00801}00801\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00802}00802\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifdef}\ \_\_cplusplus}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00803}00803\ \}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00804}00804\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__opengl3__loader_8h_source_l00805}00805\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}}
+
+\end{DoxyCode}

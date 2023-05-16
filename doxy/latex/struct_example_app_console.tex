@@ -1,0 +1,647 @@
+\hypertarget{struct_example_app_console}{}\doxysection{Example\+App\+Console Struct Reference}
+\label{struct_example_app_console}\index{ExampleAppConsole@{ExampleAppConsole}}
+
+
+Collaboration diagram for Example\+App\+Console\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_example_app_console__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{struct_example_app_console_a2ef13f00c474b16b8da2ec062d5e5cc2}{Clear\+Log}} ()
+\item 
+void \mbox{\hyperlink{struct_example_app_console_a719354ce6be7481923a5fd702e785952}{Add\+Log}} (const char $\ast$fmt,...) IM\+\_\+\+FMTARGS(2)
+\item 
+void \mbox{\hyperlink{struct_example_app_console_a0518a09c7e8648dd52c7c06df19ac17a}{Draw}} (const char $\ast$title, bool $\ast$p\+\_\+open)
+\item 
+void \mbox{\hyperlink{struct_example_app_console_aa1e8bf1f3795cbc41597e1ff081c6589}{Exec\+Command}} (const char $\ast$command\+\_\+line)
+\item 
+int \mbox{\hyperlink{struct_example_app_console_a0bc85c5dd2bef56ae1a64697be00ec87}{Text\+Edit\+Callback}} (\mbox{\hyperlink{struct_im_gui_input_text_callback_data}{Im\+Gui\+Input\+Text\+Callback\+Data}} $\ast$data)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{struct_example_app_console_a3ac60d63c0eed2d3ad282fbbc1ae068a}{Stricmp}} (const char $\ast$s1, const char $\ast$s2)
+\item 
+static int \mbox{\hyperlink{struct_example_app_console_a8dfb0fe296b0bad9e991861ff46ec12f}{Strnicmp}} (const char $\ast$s1, const char $\ast$s2, int n)
+\item 
+static char $\ast$ \mbox{\hyperlink{struct_example_app_console_ab81253ac3575f7fcd63a61c7f5820913}{Strdup}} (const char $\ast$s)
+\item 
+static void \mbox{\hyperlink{struct_example_app_console_a3a5622b2d8c52a3083df6ed9f90e7210}{Strtrim}} (char $\ast$s)
+\item 
+static int \mbox{\hyperlink{struct_example_app_console_a394debe3cbf3cfd93b9bfd2835a4fdec}{Text\+Edit\+Callback\+Stub}} (\mbox{\hyperlink{struct_im_gui_input_text_callback_data}{Im\+Gui\+Input\+Text\+Callback\+Data}} $\ast$data)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{struct_example_app_console_ab30accde81ae6833bd2ecf35f43f01ab}{Input\+Buf}} \mbox{[}256\mbox{]}
+\item 
+\mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$ char $\ast$ $>$ \mbox{\hyperlink{struct_example_app_console_acfde7d45fb733ac72d5d500168557b36}{Items}}
+\item 
+\mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$ const char $\ast$ $>$ \mbox{\hyperlink{struct_example_app_console_a1eebee69cceb0345cf9d9b6e6beb9d03}{Commands}}
+\item 
+\mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$ char $\ast$ $>$ \mbox{\hyperlink{struct_example_app_console_a11c7fa54e744288f3606e4d6521d6345}{History}}
+\item 
+int \mbox{\hyperlink{struct_example_app_console_a2508db0a7d205947cea65b141d4ed589}{History\+Pos}}
+\item 
+\mbox{\hyperlink{struct_im_gui_text_filter}{Im\+Gui\+Text\+Filter}} \mbox{\hyperlink{struct_example_app_console_a5526ec74c611e1152fb13162cd01e6da}{Filter}}
+\item 
+bool \mbox{\hyperlink{struct_example_app_console_a01c861ed21b9ec8de5e1ee2c762c627a}{Auto\+Scroll}}
+\item 
+bool \mbox{\hyperlink{struct_example_app_console_a69b1406795fd71a3757761b0767ea1c5}{Scroll\+To\+Bottom}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{imgui__demo_8cpp_source_l06535}{6535}} of file \mbox{\hyperlink{imgui__demo_8cpp_source}{imgui\+\_\+demo.\+cpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_example_app_console_a405521e6aa8f97954b67315baf8d6147}\label{struct_example_app_console_a405521e6aa8f97954b67315baf8d6147}} 
+\index{ExampleAppConsole@{ExampleAppConsole}!ExampleAppConsole@{ExampleAppConsole}}
+\index{ExampleAppConsole@{ExampleAppConsole}!ExampleAppConsole@{ExampleAppConsole}}
+\doxysubsubsection{\texorpdfstring{ExampleAppConsole()}{ExampleAppConsole()}}
+{\footnotesize\ttfamily Example\+App\+Console\+::\+Example\+App\+Console (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__demo_8cpp_source_l06546}{6546}} of file \mbox{\hyperlink{imgui__demo_8cpp_source}{imgui\+\_\+demo.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{06547\ \ \ \ \ \{}
+\DoxyCodeLine{06548\ \ \ \ \ \ \ \ \ IMGUI\_DEMO\_MARKER(\textcolor{stringliteral}{"{}Examples/Console"{}});}
+\DoxyCodeLine{06549\ \ \ \ \ \ \ \ \ ClearLog();}
+\DoxyCodeLine{06550\ \ \ \ \ \ \ \ \ memset(InputBuf,\ 0,\ \textcolor{keyword}{sizeof}(InputBuf));}
+\DoxyCodeLine{06551\ \ \ \ \ \ \ \ \ HistoryPos\ =\ -\/1;}
+\DoxyCodeLine{06552\ }
+\DoxyCodeLine{06553\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ "{}CLASSIFY"{}\ is\ here\ to\ provide\ the\ test\ case\ where\ "{}C"{}+[tab]\ completes\ to\ "{}CL"{}\ and\ display\ multiple\ matches.}}
+\DoxyCodeLine{06554\ \ \ \ \ \ \ \ \ Commands.push\_back(\textcolor{stringliteral}{"{}HELP"{}});}
+\DoxyCodeLine{06555\ \ \ \ \ \ \ \ \ Commands.push\_back(\textcolor{stringliteral}{"{}HISTORY"{}});}
+\DoxyCodeLine{06556\ \ \ \ \ \ \ \ \ Commands.push\_back(\textcolor{stringliteral}{"{}CLEAR"{}});}
+\DoxyCodeLine{06557\ \ \ \ \ \ \ \ \ Commands.push\_back(\textcolor{stringliteral}{"{}CLASSIFY"{}});}
+\DoxyCodeLine{06558\ \ \ \ \ \ \ \ \ AutoScroll\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{06559\ \ \ \ \ \ \ \ \ ScrollToBottom\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{06560\ \ \ \ \ \ \ \ \ AddLog(\textcolor{stringliteral}{"{}Welcome\ to\ Dear\ ImGui!"{}});}
+\DoxyCodeLine{06561\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_example_app_console_a91ef200056f867cf97a57db91bb991c4}\label{struct_example_app_console_a91ef200056f867cf97a57db91bb991c4}} 
+\index{ExampleAppConsole@{ExampleAppConsole}!````~ExampleAppConsole@{$\sim$ExampleAppConsole}}
+\index{````~ExampleAppConsole@{$\sim$ExampleAppConsole}!ExampleAppConsole@{ExampleAppConsole}}
+\doxysubsubsection{\texorpdfstring{$\sim$ExampleAppConsole()}{~ExampleAppConsole()}}
+{\footnotesize\ttfamily Example\+App\+Console\+::$\sim$\+Example\+App\+Console (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__demo_8cpp_source_l06562}{6562}} of file \mbox{\hyperlink{imgui__demo_8cpp_source}{imgui\+\_\+demo.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{06563\ \ \ \ \ \{}
+\DoxyCodeLine{06564\ \ \ \ \ \ \ \ \ ClearLog();}
+\DoxyCodeLine{06565\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ History.Size;\ i++)}
+\DoxyCodeLine{06566\ \ \ \ \ \ \ \ \ \ \ \ \ free(History[i]);}
+\DoxyCodeLine{06567\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_example_app_console_a719354ce6be7481923a5fd702e785952}\label{struct_example_app_console_a719354ce6be7481923a5fd702e785952}} 
+\index{ExampleAppConsole@{ExampleAppConsole}!AddLog@{AddLog}}
+\index{AddLog@{AddLog}!ExampleAppConsole@{ExampleAppConsole}}
+\doxysubsubsection{\texorpdfstring{AddLog()}{AddLog()}}
+{\footnotesize\ttfamily void Example\+App\+Console\+::\+Add\+Log (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__demo_8cpp_source_l06582}{6582}} of file \mbox{\hyperlink{imgui__demo_8cpp_source}{imgui\+\_\+demo.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{06583\ \ \ \ \ \{}
+\DoxyCodeLine{06584\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ FIXME-\/OPT}}
+\DoxyCodeLine{06585\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ buf[1024];}
+\DoxyCodeLine{06586\ \ \ \ \ \ \ \ \ va\_list\ args;}
+\DoxyCodeLine{06587\ \ \ \ \ \ \ \ \ va\_start(args,\ fmt);}
+\DoxyCodeLine{06588\ \ \ \ \ \ \ \ \ vsnprintf(buf,\ IM\_ARRAYSIZE(buf),\ fmt,\ args);}
+\DoxyCodeLine{06589\ \ \ \ \ \ \ \ \ buf[IM\_ARRAYSIZE(buf)-\/1]\ =\ 0;}
+\DoxyCodeLine{06590\ \ \ \ \ \ \ \ \ va\_end(args);}
+\DoxyCodeLine{06591\ \ \ \ \ \ \ \ \ Items.push\_back(Strdup(buf));}
+\DoxyCodeLine{06592\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_example_app_console_a2ef13f00c474b16b8da2ec062d5e5cc2}\label{struct_example_app_console_a2ef13f00c474b16b8da2ec062d5e5cc2}} 
+\index{ExampleAppConsole@{ExampleAppConsole}!ClearLog@{ClearLog}}
+\index{ClearLog@{ClearLog}!ExampleAppConsole@{ExampleAppConsole}}
+\doxysubsubsection{\texorpdfstring{ClearLog()}{ClearLog()}}
+{\footnotesize\ttfamily void Example\+App\+Console\+::\+Clear\+Log (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__demo_8cpp_source_l06575}{6575}} of file \mbox{\hyperlink{imgui__demo_8cpp_source}{imgui\+\_\+demo.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{06576\ \ \ \ \ \{}
+\DoxyCodeLine{06577\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ Items.Size;\ i++)}
+\DoxyCodeLine{06578\ \ \ \ \ \ \ \ \ \ \ \ \ free(Items[i]);}
+\DoxyCodeLine{06579\ \ \ \ \ \ \ \ \ Items.clear();}
+\DoxyCodeLine{06580\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_example_app_console_a0518a09c7e8648dd52c7c06df19ac17a}\label{struct_example_app_console_a0518a09c7e8648dd52c7c06df19ac17a}} 
+\index{ExampleAppConsole@{ExampleAppConsole}!Draw@{Draw}}
+\index{Draw@{Draw}!ExampleAppConsole@{ExampleAppConsole}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Example\+App\+Console\+::\+Draw (\begin{DoxyParamCaption}\item[{const char $\ast$}]{title,  }\item[{bool $\ast$}]{p\+\_\+open }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__demo_8cpp_source_l06594}{6594}} of file \mbox{\hyperlink{imgui__demo_8cpp_source}{imgui\+\_\+demo.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{06595\ \ \ \ \ \{}
+\DoxyCodeLine{06596\ \ \ \ \ \ \ \ \ ImGui::SetNextWindowSize(\mbox{\hyperlink{struct_im_vec2}{ImVec2}}(520,\ 600),\ ImGuiCond\_FirstUseEver);}
+\DoxyCodeLine{06597\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!ImGui::Begin(title,\ p\_open))}
+\DoxyCodeLine{06598\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{06599\ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::End();}
+\DoxyCodeLine{06600\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{06601\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{06602\ }
+\DoxyCodeLine{06603\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ As\ a\ specific\ feature\ guaranteed\ by\ the\ library,\ after\ calling\ Begin()\ the\ last\ Item\ represent\ the\ title\ bar.}}
+\DoxyCodeLine{06604\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ So\ e.g.\ IsItemHovered()\ will\ return\ true\ when\ hovering\ the\ title\ bar.}}
+\DoxyCodeLine{06605\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Here\ we\ create\ a\ context\ menu\ only\ available\ from\ the\ title\ bar.}}
+\DoxyCodeLine{06606\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::BeginPopupContextItem())}
+\DoxyCodeLine{06607\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{06608\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::MenuItem(\textcolor{stringliteral}{"{}Close\ Console"{}}))}
+\DoxyCodeLine{06609\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *p\_open\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{06610\ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::EndPopup();}
+\DoxyCodeLine{06611\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{06612\ }
+\DoxyCodeLine{06613\ \ \ \ \ \ \ \ \ ImGui::TextWrapped(}
+\DoxyCodeLine{06614\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}This\ example\ implements\ a\ console\ with\ basic\ coloring,\ completion\ (TAB\ key)\ and\ history\ (Up/Down\ keys).\ A\ more\ elaborate\ "{}}}
+\DoxyCodeLine{06615\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}implementation\ may\ want\ to\ store\ entries\ along\ with\ extra\ data\ such\ as\ timestamp,\ emitter,\ etc."{}});}
+\DoxyCodeLine{06616\ \ \ \ \ \ \ \ \ ImGui::TextWrapped(\textcolor{stringliteral}{"{}Enter\ 'HELP'\ for\ help."{}});}
+\DoxyCodeLine{06617\ }
+\DoxyCodeLine{06618\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ display\ items\ starting\ from\ the\ bottom}}
+\DoxyCodeLine{06619\ }
+\DoxyCodeLine{06620\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::SmallButton(\textcolor{stringliteral}{"{}Add\ Debug\ Text"{}}))\ \ \{\ AddLog(\textcolor{stringliteral}{"{}\%d\ some\ text"{}},\ Items.Size);\ AddLog(\textcolor{stringliteral}{"{}some\ more\ text"{}});\ AddLog(\textcolor{stringliteral}{"{}display\ very\ important\ message\ here!"{}});\ \}}
+\DoxyCodeLine{06621\ \ \ \ \ \ \ \ \ ImGui::SameLine();}
+\DoxyCodeLine{06622\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::SmallButton(\textcolor{stringliteral}{"{}Add\ Debug\ Error"{}}))\ \{\ AddLog(\textcolor{stringliteral}{"{}[error]\ something\ went\ wrong"{}});\ \}}
+\DoxyCodeLine{06623\ \ \ \ \ \ \ \ \ ImGui::SameLine();}
+\DoxyCodeLine{06624\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::SmallButton(\textcolor{stringliteral}{"{}Clear"{}}))\ \ \ \ \ \ \ \ \ \ \ \{\ ClearLog();\ \}}
+\DoxyCodeLine{06625\ \ \ \ \ \ \ \ \ ImGui::SameLine();}
+\DoxyCodeLine{06626\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ copy\_to\_clipboard\ =\ ImGui::SmallButton(\textcolor{stringliteral}{"{}Copy"{}});}
+\DoxyCodeLine{06627\ \ \ \ \ \ \ \ \ \textcolor{comment}{//static\ float\ t\ =\ 0.0f;\ if\ (ImGui::GetTime()\ -\/\ t\ >\ 0.02f)\ \{\ t\ =\ ImGui::GetTime();\ AddLog("{}Spam\ \%f"{},\ t);\ \}}}
+\DoxyCodeLine{06628\ }
+\DoxyCodeLine{06629\ \ \ \ \ \ \ \ \ ImGui::Separator();}
+\DoxyCodeLine{06630\ }
+\DoxyCodeLine{06631\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Options\ menu}}
+\DoxyCodeLine{06632\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::BeginPopup(\textcolor{stringliteral}{"{}Options"{}}))}
+\DoxyCodeLine{06633\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{06634\ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::Checkbox(\textcolor{stringliteral}{"{}Auto-\/scroll"{}},\ \&AutoScroll);}
+\DoxyCodeLine{06635\ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::EndPopup();}
+\DoxyCodeLine{06636\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{06637\ }
+\DoxyCodeLine{06638\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Options,\ Filter}}
+\DoxyCodeLine{06639\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::Button(\textcolor{stringliteral}{"{}Options"{}}))}
+\DoxyCodeLine{06640\ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::OpenPopup(\textcolor{stringliteral}{"{}Options"{}});}
+\DoxyCodeLine{06641\ \ \ \ \ \ \ \ \ ImGui::SameLine();}
+\DoxyCodeLine{06642\ \ \ \ \ \ \ \ \ Filter.Draw(\textcolor{stringliteral}{"{}Filter\ (\(\backslash\)"{}incl,-\/excl\(\backslash\)"{})\ (\(\backslash\)"{}error\(\backslash\)"{})"{}},\ 180);}
+\DoxyCodeLine{06643\ \ \ \ \ \ \ \ \ ImGui::Separator();}
+\DoxyCodeLine{06644\ }
+\DoxyCodeLine{06645\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Reserve\ enough\ left-\/over\ height\ for\ 1\ separator\ +\ 1\ input\ text}}
+\DoxyCodeLine{06646\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ footer\_height\_to\_reserve\ =\ ImGui::GetStyle().ItemSpacing.y\ +\ ImGui::GetFrameHeightWithSpacing();}
+\DoxyCodeLine{06647\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::BeginChild(\textcolor{stringliteral}{"{}ScrollingRegion"{}},\ \mbox{\hyperlink{struct_im_vec2}{ImVec2}}(0,\ -\/footer\_height\_to\_reserve),\ \textcolor{keyword}{false},\ ImGuiWindowFlags\_HorizontalScrollbar))}
+\DoxyCodeLine{06648\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{06649\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::BeginPopupContextWindow())}
+\DoxyCodeLine{06650\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{06651\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::Selectable(\textcolor{stringliteral}{"{}Clear"{}}))\ ClearLog();}
+\DoxyCodeLine{06652\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::EndPopup();}
+\DoxyCodeLine{06653\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{06654\ }
+\DoxyCodeLine{06655\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Display\ every\ line\ as\ a\ separate\ entry\ so\ we\ can\ change\ their\ color\ or\ add\ custom\ widgets.}}
+\DoxyCodeLine{06656\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ you\ only\ want\ raw\ text\ you\ can\ use\ ImGui::TextUnformatted(log.begin(),\ log.end());}}
+\DoxyCodeLine{06657\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ NB-\/\ if\ you\ have\ thousands\ of\ entries\ this\ approach\ may\ be\ too\ inefficient\ and\ may\ require\ user-\/side\ clipping}}
+\DoxyCodeLine{06658\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ to\ only\ process\ visible\ items.\ The\ clipper\ will\ automatically\ measure\ the\ height\ of\ your\ first\ item\ and\ then}}
+\DoxyCodeLine{06659\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ "{}seek"{}\ to\ display\ only\ items\ in\ the\ visible\ area.}}
+\DoxyCodeLine{06660\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ To\ use\ the\ clipper\ we\ can\ replace\ your\ standard\ loop:}}
+\DoxyCodeLine{06661\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ for\ (int\ i\ =\ 0;\ i\ <\ Items.Size;\ i++)}}
+\DoxyCodeLine{06662\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ With:}}
+\DoxyCodeLine{06663\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ ImGuiListClipper\ clipper;}}
+\DoxyCodeLine{06664\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ clipper.Begin(Items.Size);}}
+\DoxyCodeLine{06665\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ while\ (clipper.Step())}}
+\DoxyCodeLine{06666\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ for\ (int\ i\ =\ clipper.DisplayStart;\ i\ <\ clipper.DisplayEnd;\ i++)}}
+\DoxyCodeLine{06667\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/\ That\ your\ items\ are\ evenly\ spaced\ (same\ height)}}
+\DoxyCodeLine{06668\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/\ That\ you\ have\ cheap\ random\ access\ to\ your\ elements\ (you\ can\ access\ them\ given\ their\ index,}}
+\DoxyCodeLine{06669\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ without\ processing\ all\ the\ ones\ before)}}
+\DoxyCodeLine{06670\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ You\ cannot\ this\ code\ as-\/is\ if\ a\ filter\ is\ active\ because\ it\ breaks\ the\ 'cheap\ random-\/access'\ property.}}
+\DoxyCodeLine{06671\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ would\ need\ random-\/access\ on\ the\ post-\/filtered\ list.}}
+\DoxyCodeLine{06672\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ A\ typical\ application\ wanting\ coarse\ clipping\ and\ filtering\ may\ want\ to\ pre-\/compute\ an\ array\ of\ indices}}
+\DoxyCodeLine{06673\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ or\ offsets\ of\ items\ that\ passed\ the\ filtering\ test,\ recomputing\ this\ array\ when\ user\ changes\ the\ filter,}}
+\DoxyCodeLine{06674\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ and\ appending\ newly\ elements\ as\ they\ are\ inserted.\ This\ is\ left\ as\ a\ task\ to\ the\ user\ until\ we\ can\ manage}}
+\DoxyCodeLine{06675\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ to\ improve\ this\ example\ code!}}
+\DoxyCodeLine{06676\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ your\ items\ are\ of\ variable\ height:}}
+\DoxyCodeLine{06677\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/\ Split\ them\ into\ same\ height\ items\ would\ be\ simpler\ and\ facilitate\ random-\/seeking\ into\ your\ list.}}
+\DoxyCodeLine{06678\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/\ Consider\ using\ manual\ call\ to\ IsRectVisible()\ and\ skipping\ extraneous\ decoration\ from\ your\ items.}}
+\DoxyCodeLine{06679\ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::PushStyleVar(ImGuiStyleVar\_ItemSpacing,\ \mbox{\hyperlink{struct_im_vec2}{ImVec2}}(4,\ 1));\ \textcolor{comment}{//\ Tighten\ spacing}}
+\DoxyCodeLine{06680\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (copy\_to\_clipboard)}
+\DoxyCodeLine{06681\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::LogToClipboard();}
+\DoxyCodeLine{06682\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ Items.Size;\ i++)}
+\DoxyCodeLine{06683\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{06684\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ item\ =\ Items[i];}
+\DoxyCodeLine{06685\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!Filter.PassFilter(item))}
+\DoxyCodeLine{06686\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{06687\ }
+\DoxyCodeLine{06688\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Normally\ you\ would\ store\ more\ information\ in\ your\ item\ than\ just\ a\ string.}}
+\DoxyCodeLine{06689\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ (e.g.\ make\ Items[]\ an\ array\ of\ structure,\ store\ color/type\ etc.)}}
+\DoxyCodeLine{06690\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_im_vec4}{ImVec4}}\ color;}
+\DoxyCodeLine{06691\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ has\_color\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{06692\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strstr(item,\ \textcolor{stringliteral}{"{}[error]"{}}))\ \{\ color\ =\ \mbox{\hyperlink{struct_im_vec4}{ImVec4}}(1.0f,\ 0.4f,\ 0.4f,\ 1.0f);\ has\_color\ =\ \textcolor{keyword}{true};\ \}}
+\DoxyCodeLine{06693\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strncmp(item,\ \textcolor{stringliteral}{"{}\#\ "{}},\ 2)\ ==\ 0)\ \{\ color\ =\ \mbox{\hyperlink{struct_im_vec4}{ImVec4}}(1.0f,\ 0.8f,\ 0.6f,\ 1.0f);\ has\_color\ =\ \textcolor{keyword}{true};\ \}}
+\DoxyCodeLine{06694\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (has\_color)}
+\DoxyCodeLine{06695\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::PushStyleColor(ImGuiCol\_Text,\ color);}
+\DoxyCodeLine{06696\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::TextUnformatted(item);}
+\DoxyCodeLine{06697\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (has\_color)}
+\DoxyCodeLine{06698\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::PopStyleColor();}
+\DoxyCodeLine{06699\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{06700\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (copy\_to\_clipboard)}
+\DoxyCodeLine{06701\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::LogFinish();}
+\DoxyCodeLine{06702\ }
+\DoxyCodeLine{06703\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Keep\ up\ at\ the\ bottom\ of\ the\ scroll\ region\ if\ we\ were\ already\ at\ the\ bottom\ at\ the\ beginning\ of\ the\ frame.}}
+\DoxyCodeLine{06704\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Using\ a\ scrollbar\ or\ mouse-\/wheel\ will\ take\ away\ from\ the\ bottom\ edge.}}
+\DoxyCodeLine{06705\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ScrollToBottom\ ||\ (AutoScroll\ \&\&\ ImGui::GetScrollY()\ >=\ ImGui::GetScrollMaxY()))}
+\DoxyCodeLine{06706\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::SetScrollHereY(1.0f);}
+\DoxyCodeLine{06707\ \ \ \ \ \ \ \ \ \ \ \ \ ScrollToBottom\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{06708\ }
+\DoxyCodeLine{06709\ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::PopStyleVar();}
+\DoxyCodeLine{06710\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{06711\ \ \ \ \ \ \ \ \ ImGui::EndChild();}
+\DoxyCodeLine{06712\ \ \ \ \ \ \ \ \ ImGui::Separator();}
+\DoxyCodeLine{06713\ }
+\DoxyCodeLine{06714\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Command-\/line}}
+\DoxyCodeLine{06715\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ reclaim\_focus\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{06716\ \ \ \ \ \ \ \ \ ImGuiInputTextFlags\ input\_text\_flags\ =\ ImGuiInputTextFlags\_EnterReturnsTrue\ |\ ImGuiInputTextFlags\_EscapeClearsAll\ |\ ImGuiInputTextFlags\_CallbackCompletion\ |\ ImGuiInputTextFlags\_CallbackHistory;}
+\DoxyCodeLine{06717\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::InputText(\textcolor{stringliteral}{"{}Input"{}},\ InputBuf,\ IM\_ARRAYSIZE(InputBuf),\ input\_text\_flags,\ \&TextEditCallbackStub,\ (\textcolor{keywordtype}{void}*)\textcolor{keyword}{this}))}
+\DoxyCodeLine{06718\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{06719\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ s\ =\ InputBuf;}
+\DoxyCodeLine{06720\ \ \ \ \ \ \ \ \ \ \ \ \ Strtrim(s);}
+\DoxyCodeLine{06721\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (s[0])}
+\DoxyCodeLine{06722\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ExecCommand(s);}
+\DoxyCodeLine{06723\ \ \ \ \ \ \ \ \ \ \ \ \ strcpy(s,\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{06724\ \ \ \ \ \ \ \ \ \ \ \ \ reclaim\_focus\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{06725\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{06726\ }
+\DoxyCodeLine{06727\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Auto-\/focus\ on\ window\ apparition}}
+\DoxyCodeLine{06728\ \ \ \ \ \ \ \ \ ImGui::SetItemDefaultFocus();}
+\DoxyCodeLine{06729\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (reclaim\_focus)}
+\DoxyCodeLine{06730\ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::SetKeyboardFocusHere(-\/1);\ \textcolor{comment}{//\ Auto\ focus\ previous\ widget}}
+\DoxyCodeLine{06731\ }
+\DoxyCodeLine{06732\ \ \ \ \ \ \ \ \ ImGui::End();}
+\DoxyCodeLine{06733\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_example_app_console_aa1e8bf1f3795cbc41597e1ff081c6589}\label{struct_example_app_console_aa1e8bf1f3795cbc41597e1ff081c6589}} 
+\index{ExampleAppConsole@{ExampleAppConsole}!ExecCommand@{ExecCommand}}
+\index{ExecCommand@{ExecCommand}!ExampleAppConsole@{ExampleAppConsole}}
+\doxysubsubsection{\texorpdfstring{ExecCommand()}{ExecCommand()}}
+{\footnotesize\ttfamily void Example\+App\+Console\+::\+Exec\+Command (\begin{DoxyParamCaption}\item[{const char $\ast$}]{command\+\_\+line }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__demo_8cpp_source_l06735}{6735}} of file \mbox{\hyperlink{imgui__demo_8cpp_source}{imgui\+\_\+demo.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{06736\ \ \ \ \ \{}
+\DoxyCodeLine{06737\ \ \ \ \ \ \ \ \ AddLog(\textcolor{stringliteral}{"{}\#\ \%s\(\backslash\)n"{}},\ command\_line);}
+\DoxyCodeLine{06738\ }
+\DoxyCodeLine{06739\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Insert\ into\ history.\ First\ find\ match\ and\ delete\ it\ so\ it\ can\ be\ pushed\ to\ the\ back.}}
+\DoxyCodeLine{06740\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ isn't\ trying\ to\ be\ smart\ or\ optimal.}}
+\DoxyCodeLine{06741\ \ \ \ \ \ \ \ \ HistoryPos\ =\ -\/1;}
+\DoxyCodeLine{06742\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ History.Size\ -\/\ 1;\ i\ >=\ 0;\ i-\/-\/)}
+\DoxyCodeLine{06743\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Stricmp(History[i],\ command\_line)\ ==\ 0)}
+\DoxyCodeLine{06744\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{06745\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ free(History[i]);}
+\DoxyCodeLine{06746\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ History.erase(History.begin()\ +\ i);}
+\DoxyCodeLine{06747\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{06748\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{06749\ \ \ \ \ \ \ \ \ History.push\_back(Strdup(command\_line));}
+\DoxyCodeLine{06750\ }
+\DoxyCodeLine{06751\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Process\ command}}
+\DoxyCodeLine{06752\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Stricmp(command\_line,\ \textcolor{stringliteral}{"{}CLEAR"{}})\ ==\ 0)}
+\DoxyCodeLine{06753\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{06754\ \ \ \ \ \ \ \ \ \ \ \ \ ClearLog();}
+\DoxyCodeLine{06755\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{06756\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (Stricmp(command\_line,\ \textcolor{stringliteral}{"{}HELP"{}})\ ==\ 0)}
+\DoxyCodeLine{06757\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{06758\ \ \ \ \ \ \ \ \ \ \ \ \ AddLog(\textcolor{stringliteral}{"{}Commands:"{}});}
+\DoxyCodeLine{06759\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ Commands.Size;\ i++)}
+\DoxyCodeLine{06760\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ AddLog(\textcolor{stringliteral}{"{}-\/\ \%s"{}},\ Commands[i]);}
+\DoxyCodeLine{06761\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{06762\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (Stricmp(command\_line,\ \textcolor{stringliteral}{"{}HISTORY"{}})\ ==\ 0)}
+\DoxyCodeLine{06763\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{06764\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ first\ =\ History.Size\ -\/\ 10;}
+\DoxyCodeLine{06765\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ first\ >\ 0\ ?\ first\ :\ 0;\ i\ <\ History.Size;\ i++)}
+\DoxyCodeLine{06766\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ AddLog(\textcolor{stringliteral}{"{}\%3d:\ \%s\(\backslash\)n"{}},\ i,\ History[i]);}
+\DoxyCodeLine{06767\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{06768\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{06769\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{06770\ \ \ \ \ \ \ \ \ \ \ \ \ AddLog(\textcolor{stringliteral}{"{}Unknown\ command:\ '\%s'\(\backslash\)n"{}},\ command\_line);}
+\DoxyCodeLine{06771\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{06772\ }
+\DoxyCodeLine{06773\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ On\ command\ input,\ we\ scroll\ to\ bottom\ even\ if\ AutoScroll==false}}
+\DoxyCodeLine{06774\ \ \ \ \ \ \ \ \ ScrollToBottom\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{06775\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_example_app_console_ab81253ac3575f7fcd63a61c7f5820913}\label{struct_example_app_console_ab81253ac3575f7fcd63a61c7f5820913}} 
+\index{ExampleAppConsole@{ExampleAppConsole}!Strdup@{Strdup}}
+\index{Strdup@{Strdup}!ExampleAppConsole@{ExampleAppConsole}}
+\doxysubsubsection{\texorpdfstring{Strdup()}{Strdup()}}
+{\footnotesize\ttfamily static char $\ast$ Example\+App\+Console\+::\+Strdup (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__demo_8cpp_source_l06572}{6572}} of file \mbox{\hyperlink{imgui__demo_8cpp_source}{imgui\+\_\+demo.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{06572\ \{\ IM\_ASSERT(s);\ \textcolor{keywordtype}{size\_t}\ len\ =\ strlen(s)\ +\ 1;\ \textcolor{keywordtype}{void}*\ buf\ =\ malloc(len);\ IM\_ASSERT(buf);\ \textcolor{keywordflow}{return}\ (\textcolor{keywordtype}{char}*)memcpy(buf,\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*)s,\ len);\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_example_app_console_a3ac60d63c0eed2d3ad282fbbc1ae068a}\label{struct_example_app_console_a3ac60d63c0eed2d3ad282fbbc1ae068a}} 
+\index{ExampleAppConsole@{ExampleAppConsole}!Stricmp@{Stricmp}}
+\index{Stricmp@{Stricmp}!ExampleAppConsole@{ExampleAppConsole}}
+\doxysubsubsection{\texorpdfstring{Stricmp()}{Stricmp()}}
+{\footnotesize\ttfamily static int Example\+App\+Console\+::\+Stricmp (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s1,  }\item[{const char $\ast$}]{s2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__demo_8cpp_source_l06570}{6570}} of file \mbox{\hyperlink{imgui__demo_8cpp_source}{imgui\+\_\+demo.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{06570\ \{\ \textcolor{keywordtype}{int}\ d;\ \textcolor{keywordflow}{while}\ ((d\ =\ toupper(*s2)\ -\/\ toupper(*s1))\ ==\ 0\ \&\&\ *s1)\ \{\ s1++;\ s2++;\ \}\ \textcolor{keywordflow}{return}\ d;\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_example_app_console_a8dfb0fe296b0bad9e991861ff46ec12f}\label{struct_example_app_console_a8dfb0fe296b0bad9e991861ff46ec12f}} 
+\index{ExampleAppConsole@{ExampleAppConsole}!Strnicmp@{Strnicmp}}
+\index{Strnicmp@{Strnicmp}!ExampleAppConsole@{ExampleAppConsole}}
+\doxysubsubsection{\texorpdfstring{Strnicmp()}{Strnicmp()}}
+{\footnotesize\ttfamily static int Example\+App\+Console\+::\+Strnicmp (\begin{DoxyParamCaption}\item[{const char $\ast$}]{s1,  }\item[{const char $\ast$}]{s2,  }\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__demo_8cpp_source_l06571}{6571}} of file \mbox{\hyperlink{imgui__demo_8cpp_source}{imgui\+\_\+demo.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{06571\ \{\ \textcolor{keywordtype}{int}\ d\ =\ 0;\ \textcolor{keywordflow}{while}\ (n\ >\ 0\ \&\&\ (d\ =\ toupper(*s2)\ -\/\ toupper(*s1))\ ==\ 0\ \&\&\ *s1)\ \{\ s1++;\ s2++;\ n-\/-\/;\ \}\ \textcolor{keywordflow}{return}\ d;\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_example_app_console_a3a5622b2d8c52a3083df6ed9f90e7210}\label{struct_example_app_console_a3a5622b2d8c52a3083df6ed9f90e7210}} 
+\index{ExampleAppConsole@{ExampleAppConsole}!Strtrim@{Strtrim}}
+\index{Strtrim@{Strtrim}!ExampleAppConsole@{ExampleAppConsole}}
+\doxysubsubsection{\texorpdfstring{Strtrim()}{Strtrim()}}
+{\footnotesize\ttfamily static void Example\+App\+Console\+::\+Strtrim (\begin{DoxyParamCaption}\item[{char $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__demo_8cpp_source_l06573}{6573}} of file \mbox{\hyperlink{imgui__demo_8cpp_source}{imgui\+\_\+demo.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{06573\ \{\ \textcolor{keywordtype}{char}*\ str\_end\ =\ s\ +\ strlen(s);\ \textcolor{keywordflow}{while}\ (str\_end\ >\ s\ \&\&\ str\_end[-\/1]\ ==\ \textcolor{charliteral}{'\ '})\ str\_end-\/-\/;\ *str\_end\ =\ 0;\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_example_app_console_a0bc85c5dd2bef56ae1a64697be00ec87}\label{struct_example_app_console_a0bc85c5dd2bef56ae1a64697be00ec87}} 
+\index{ExampleAppConsole@{ExampleAppConsole}!TextEditCallback@{TextEditCallback}}
+\index{TextEditCallback@{TextEditCallback}!ExampleAppConsole@{ExampleAppConsole}}
+\doxysubsubsection{\texorpdfstring{TextEditCallback()}{TextEditCallback()}}
+{\footnotesize\ttfamily int Example\+App\+Console\+::\+Text\+Edit\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_im_gui_input_text_callback_data}{Im\+Gui\+Input\+Text\+Callback\+Data}} $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__demo_8cpp_source_l06784}{6784}} of file \mbox{\hyperlink{imgui__demo_8cpp_source}{imgui\+\_\+demo.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{06785\ \ \ \ \ \{}
+\DoxyCodeLine{06786\ \ \ \ \ \ \ \ \ \textcolor{comment}{//AddLog("{}cursor:\ \%d,\ selection:\ \%d-\/\%d"{},\ data-\/>CursorPos,\ data-\/>SelectionStart,\ data-\/>SelectionEnd);}}
+\DoxyCodeLine{06787\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (data-\/>EventFlag)}
+\DoxyCodeLine{06788\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{06789\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ ImGuiInputTextFlags\_CallbackCompletion:}
+\DoxyCodeLine{06790\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{06791\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Example\ of\ TEXT\ COMPLETION}}
+\DoxyCodeLine{06792\ }
+\DoxyCodeLine{06793\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Locate\ beginning\ of\ current\ word}}
+\DoxyCodeLine{06794\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ word\_end\ =\ data-\/>Buf\ +\ data-\/>CursorPos;}
+\DoxyCodeLine{06795\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ word\_start\ =\ word\_end;}
+\DoxyCodeLine{06796\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (word\_start\ >\ data-\/>Buf)}
+\DoxyCodeLine{06797\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{06798\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ c\ =\ word\_start[-\/1];}
+\DoxyCodeLine{06799\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ ==\ \textcolor{charliteral}{'\ '}\ ||\ c\ ==\ \textcolor{charliteral}{'\(\backslash\)t'}\ ||\ c\ ==\ \textcolor{charliteral}{','}\ ||\ c\ ==\ \textcolor{charliteral}{';'})}
+\DoxyCodeLine{06800\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{06801\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ word\_start-\/-\/;}
+\DoxyCodeLine{06802\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{06803\ }
+\DoxyCodeLine{06804\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Build\ a\ list\ of\ candidates}}
+\DoxyCodeLine{06805\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_im_vector}{ImVector<const\ char*>}}\ candidates;}
+\DoxyCodeLine{06806\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ Commands.Size;\ i++)}
+\DoxyCodeLine{06807\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Strnicmp(Commands[i],\ word\_start,\ (\textcolor{keywordtype}{int})(word\_end\ -\/\ word\_start))\ ==\ 0)}
+\DoxyCodeLine{06808\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ candidates.push\_back(Commands[i]);}
+\DoxyCodeLine{06809\ }
+\DoxyCodeLine{06810\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (candidates.Size\ ==\ 0)}
+\DoxyCodeLine{06811\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{06812\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ No\ match}}
+\DoxyCodeLine{06813\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ AddLog(\textcolor{stringliteral}{"{}No\ match\ for\ \(\backslash\)"{}\%.*s\(\backslash\)"{}!\(\backslash\)n"{}},\ (\textcolor{keywordtype}{int})(word\_end\ -\/\ word\_start),\ word\_start);}
+\DoxyCodeLine{06814\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{06815\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (candidates.Size\ ==\ 1)}
+\DoxyCodeLine{06816\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{06817\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Single\ match.\ Delete\ the\ beginning\ of\ the\ word\ and\ replace\ it\ entirely\ so\ we've\ got\ nice\ casing.}}
+\DoxyCodeLine{06818\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data-\/>DeleteChars((\textcolor{keywordtype}{int})(word\_start\ -\/\ data-\/>Buf),\ (\textcolor{keywordtype}{int})(word\_end\ -\/\ word\_start));}
+\DoxyCodeLine{06819\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data-\/>InsertChars(data-\/>CursorPos,\ candidates[0]);}
+\DoxyCodeLine{06820\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data-\/>InsertChars(data-\/>CursorPos,\ \textcolor{stringliteral}{"{}\ "{}});}
+\DoxyCodeLine{06821\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{06822\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{06823\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{06824\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Multiple\ matches.\ Complete\ as\ much\ as\ we\ can..}}
+\DoxyCodeLine{06825\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ So\ inputing\ "{}C"{}+Tab\ will\ complete\ to\ "{}CL"{}\ then\ display\ "{}CLEAR"{}\ and\ "{}CLASSIFY"{}\ as\ matches.}}
+\DoxyCodeLine{06826\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ match\_len\ =\ (int)(word\_end\ -\/\ word\_start);}
+\DoxyCodeLine{06827\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;;)}
+\DoxyCodeLine{06828\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{06829\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ c\ =\ 0;}
+\DoxyCodeLine{06830\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ all\_candidates\_matches\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{06831\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ candidates.Size\ \&\&\ all\_candidates\_matches;\ i++)}
+\DoxyCodeLine{06832\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ 0)}
+\DoxyCodeLine{06833\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c\ =\ toupper(candidates[i][match\_len]);}
+\DoxyCodeLine{06834\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (c\ ==\ 0\ ||\ c\ !=\ toupper(candidates[i][match\_len]))}
+\DoxyCodeLine{06835\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ all\_candidates\_matches\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{06836\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!all\_candidates\_matches)}
+\DoxyCodeLine{06837\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{06838\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ match\_len++;}
+\DoxyCodeLine{06839\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{06840\ }
+\DoxyCodeLine{06841\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (match\_len\ >\ 0)}
+\DoxyCodeLine{06842\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{06843\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data-\/>DeleteChars((\textcolor{keywordtype}{int})(word\_start\ -\/\ data-\/>Buf),\ (\textcolor{keywordtype}{int})(word\_end\ -\/\ word\_start));}
+\DoxyCodeLine{06844\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data-\/>InsertChars(data-\/>CursorPos,\ candidates[0],\ candidates[0]\ +\ match\_len);}
+\DoxyCodeLine{06845\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{06846\ }
+\DoxyCodeLine{06847\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ List\ matches}}
+\DoxyCodeLine{06848\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ AddLog(\textcolor{stringliteral}{"{}Possible\ matches:\(\backslash\)n"{}});}
+\DoxyCodeLine{06849\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ candidates.Size;\ i++)}
+\DoxyCodeLine{06850\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ AddLog(\textcolor{stringliteral}{"{}-\/\ \%s\(\backslash\)n"{}},\ candidates[i]);}
+\DoxyCodeLine{06851\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{06852\ }
+\DoxyCodeLine{06853\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{06854\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{06855\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ ImGuiInputTextFlags\_CallbackHistory:}
+\DoxyCodeLine{06856\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{06857\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Example\ of\ HISTORY}}
+\DoxyCodeLine{06858\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ prev\_history\_pos\ =\ HistoryPos;}
+\DoxyCodeLine{06859\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (data-\/>EventKey\ ==\ ImGuiKey\_UpArrow)}
+\DoxyCodeLine{06860\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{06861\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (HistoryPos\ ==\ -\/1)}
+\DoxyCodeLine{06862\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HistoryPos\ =\ History.Size\ -\/\ 1;}
+\DoxyCodeLine{06863\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (HistoryPos\ >\ 0)}
+\DoxyCodeLine{06864\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HistoryPos-\/-\/;}
+\DoxyCodeLine{06865\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{06866\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (data-\/>EventKey\ ==\ ImGuiKey\_DownArrow)}
+\DoxyCodeLine{06867\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{06868\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (HistoryPos\ !=\ -\/1)}
+\DoxyCodeLine{06869\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (++HistoryPos\ >=\ History.Size)}
+\DoxyCodeLine{06870\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HistoryPos\ =\ -\/1;}
+\DoxyCodeLine{06871\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{06872\ }
+\DoxyCodeLine{06873\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ A\ better\ implementation\ would\ preserve\ the\ data\ on\ the\ current\ input\ line\ along\ with\ cursor\ position.}}
+\DoxyCodeLine{06874\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (prev\_history\_pos\ !=\ HistoryPos)}
+\DoxyCodeLine{06875\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{06876\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ history\_str\ =\ (HistoryPos\ >=\ 0)\ ?\ History[HistoryPos]\ :\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{06877\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data-\/>DeleteChars(0,\ data-\/>BufTextLen);}
+\DoxyCodeLine{06878\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data-\/>InsertChars(0,\ history\_str);}
+\DoxyCodeLine{06879\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{06880\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{06881\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{06882\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{06883\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_example_app_console_a394debe3cbf3cfd93b9bfd2835a4fdec}\label{struct_example_app_console_a394debe3cbf3cfd93b9bfd2835a4fdec}} 
+\index{ExampleAppConsole@{ExampleAppConsole}!TextEditCallbackStub@{TextEditCallbackStub}}
+\index{TextEditCallbackStub@{TextEditCallbackStub}!ExampleAppConsole@{ExampleAppConsole}}
+\doxysubsubsection{\texorpdfstring{TextEditCallbackStub()}{TextEditCallbackStub()}}
+{\footnotesize\ttfamily static int Example\+App\+Console\+::\+Text\+Edit\+Callback\+Stub (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_im_gui_input_text_callback_data}{Im\+Gui\+Input\+Text\+Callback\+Data}} $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__demo_8cpp_source_l06778}{6778}} of file \mbox{\hyperlink{imgui__demo_8cpp_source}{imgui\+\_\+demo.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{06779\ \ \ \ \ \{}
+\DoxyCodeLine{06780\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_example_app_console}{ExampleAppConsole}}*\ console\ =\ (\mbox{\hyperlink{struct_example_app_console}{ExampleAppConsole}}*)data-\/>UserData;}
+\DoxyCodeLine{06781\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ console-\/>TextEditCallback(data);}
+\DoxyCodeLine{06782\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_example_app_console_a01c861ed21b9ec8de5e1ee2c762c627a}\label{struct_example_app_console_a01c861ed21b9ec8de5e1ee2c762c627a}} 
+\index{ExampleAppConsole@{ExampleAppConsole}!AutoScroll@{AutoScroll}}
+\index{AutoScroll@{AutoScroll}!ExampleAppConsole@{ExampleAppConsole}}
+\doxysubsubsection{\texorpdfstring{AutoScroll}{AutoScroll}}
+{\footnotesize\ttfamily bool Example\+App\+Console\+::\+Auto\+Scroll}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__demo_8cpp_source_l06543}{6543}} of file \mbox{\hyperlink{imgui__demo_8cpp_source}{imgui\+\_\+demo.\+cpp}}.
+
+\mbox{\Hypertarget{struct_example_app_console_a1eebee69cceb0345cf9d9b6e6beb9d03}\label{struct_example_app_console_a1eebee69cceb0345cf9d9b6e6beb9d03}} 
+\index{ExampleAppConsole@{ExampleAppConsole}!Commands@{Commands}}
+\index{Commands@{Commands}!ExampleAppConsole@{ExampleAppConsole}}
+\doxysubsubsection{\texorpdfstring{Commands}{Commands}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$const char$\ast$$>$ Example\+App\+Console\+::\+Commands}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__demo_8cpp_source_l06539}{6539}} of file \mbox{\hyperlink{imgui__demo_8cpp_source}{imgui\+\_\+demo.\+cpp}}.
+
+\mbox{\Hypertarget{struct_example_app_console_a5526ec74c611e1152fb13162cd01e6da}\label{struct_example_app_console_a5526ec74c611e1152fb13162cd01e6da}} 
+\index{ExampleAppConsole@{ExampleAppConsole}!Filter@{Filter}}
+\index{Filter@{Filter}!ExampleAppConsole@{ExampleAppConsole}}
+\doxysubsubsection{\texorpdfstring{Filter}{Filter}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_gui_text_filter}{Im\+Gui\+Text\+Filter}} Example\+App\+Console\+::\+Filter}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__demo_8cpp_source_l06542}{6542}} of file \mbox{\hyperlink{imgui__demo_8cpp_source}{imgui\+\_\+demo.\+cpp}}.
+
+\mbox{\Hypertarget{struct_example_app_console_a11c7fa54e744288f3606e4d6521d6345}\label{struct_example_app_console_a11c7fa54e744288f3606e4d6521d6345}} 
+\index{ExampleAppConsole@{ExampleAppConsole}!History@{History}}
+\index{History@{History}!ExampleAppConsole@{ExampleAppConsole}}
+\doxysubsubsection{\texorpdfstring{History}{History}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$char$\ast$$>$ Example\+App\+Console\+::\+History}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__demo_8cpp_source_l06540}{6540}} of file \mbox{\hyperlink{imgui__demo_8cpp_source}{imgui\+\_\+demo.\+cpp}}.
+
+\mbox{\Hypertarget{struct_example_app_console_a2508db0a7d205947cea65b141d4ed589}\label{struct_example_app_console_a2508db0a7d205947cea65b141d4ed589}} 
+\index{ExampleAppConsole@{ExampleAppConsole}!HistoryPos@{HistoryPos}}
+\index{HistoryPos@{HistoryPos}!ExampleAppConsole@{ExampleAppConsole}}
+\doxysubsubsection{\texorpdfstring{HistoryPos}{HistoryPos}}
+{\footnotesize\ttfamily int Example\+App\+Console\+::\+History\+Pos}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__demo_8cpp_source_l06541}{6541}} of file \mbox{\hyperlink{imgui__demo_8cpp_source}{imgui\+\_\+demo.\+cpp}}.
+
+\mbox{\Hypertarget{struct_example_app_console_ab30accde81ae6833bd2ecf35f43f01ab}\label{struct_example_app_console_ab30accde81ae6833bd2ecf35f43f01ab}} 
+\index{ExampleAppConsole@{ExampleAppConsole}!InputBuf@{InputBuf}}
+\index{InputBuf@{InputBuf}!ExampleAppConsole@{ExampleAppConsole}}
+\doxysubsubsection{\texorpdfstring{InputBuf}{InputBuf}}
+{\footnotesize\ttfamily char Example\+App\+Console\+::\+Input\+Buf\mbox{[}256\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__demo_8cpp_source_l06537}{6537}} of file \mbox{\hyperlink{imgui__demo_8cpp_source}{imgui\+\_\+demo.\+cpp}}.
+
+\mbox{\Hypertarget{struct_example_app_console_acfde7d45fb733ac72d5d500168557b36}\label{struct_example_app_console_acfde7d45fb733ac72d5d500168557b36}} 
+\index{ExampleAppConsole@{ExampleAppConsole}!Items@{Items}}
+\index{Items@{Items}!ExampleAppConsole@{ExampleAppConsole}}
+\doxysubsubsection{\texorpdfstring{Items}{Items}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$char$\ast$$>$ Example\+App\+Console\+::\+Items}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__demo_8cpp_source_l06538}{6538}} of file \mbox{\hyperlink{imgui__demo_8cpp_source}{imgui\+\_\+demo.\+cpp}}.
+
+\mbox{\Hypertarget{struct_example_app_console_a69b1406795fd71a3757761b0767ea1c5}\label{struct_example_app_console_a69b1406795fd71a3757761b0767ea1c5}} 
+\index{ExampleAppConsole@{ExampleAppConsole}!ScrollToBottom@{ScrollToBottom}}
+\index{ScrollToBottom@{ScrollToBottom}!ExampleAppConsole@{ExampleAppConsole}}
+\doxysubsubsection{\texorpdfstring{ScrollToBottom}{ScrollToBottom}}
+{\footnotesize\ttfamily bool Example\+App\+Console\+::\+Scroll\+To\+Bottom}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__demo_8cpp_source_l06544}{6544}} of file \mbox{\hyperlink{imgui__demo_8cpp_source}{imgui\+\_\+demo.\+cpp}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/imgui\+\_\+demo.\+cpp\end{DoxyCompactItemize}

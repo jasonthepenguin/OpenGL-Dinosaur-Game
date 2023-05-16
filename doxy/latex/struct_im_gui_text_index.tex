@@ -1,0 +1,157 @@
+\hypertarget{struct_im_gui_text_index}{}\doxysection{Im\+Gui\+Text\+Index Struct Reference}
+\label{struct_im_gui_text_index}\index{ImGuiTextIndex@{ImGuiTextIndex}}
+
+
+Collaboration diagram for Im\+Gui\+Text\+Index\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=174pt]{struct_im_gui_text_index__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{struct_im_gui_text_index_a4c4f61227f86144ae9c054cc865eecb3}{clear}} ()
+\item 
+int \mbox{\hyperlink{struct_im_gui_text_index_a016978541a00f3901b19327296fd4934}{size}} ()
+\item 
+const char $\ast$ \mbox{\hyperlink{struct_im_gui_text_index_aca03811115c2399b24cb0051dac850b0}{get\+\_\+line\+\_\+begin}} (const char $\ast$base, int n)
+\item 
+const char $\ast$ \mbox{\hyperlink{struct_im_gui_text_index_a17115775633756615910747494e81a8c}{get\+\_\+line\+\_\+end}} (const char $\ast$base, int n)
+\item 
+void \mbox{\hyperlink{struct_im_gui_text_index_aa1dd7404a8097a902f1dd83ba988bd95}{append}} (const char $\ast$base, int old\+\_\+size, int new\+\_\+size)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$ int $>$ \mbox{\hyperlink{struct_im_gui_text_index_ad9683201522668ffd920299243de177b}{Line\+Offsets}}
+\item 
+int \mbox{\hyperlink{struct_im_gui_text_index_a885f884d458a6309a1a524a20670c426}{End\+Offset}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l00705}{705}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_im_gui_text_index_aa1dd7404a8097a902f1dd83ba988bd95}\label{struct_im_gui_text_index_aa1dd7404a8097a902f1dd83ba988bd95}} 
+\index{ImGuiTextIndex@{ImGuiTextIndex}!append@{append}}
+\index{append@{append}!ImGuiTextIndex@{ImGuiTextIndex}}
+\doxysubsubsection{\texorpdfstring{append()}{append()}}
+{\footnotesize\ttfamily void Im\+Gui\+Text\+Index\+::append (\begin{DoxyParamCaption}\item[{const char $\ast$}]{base,  }\item[{int}]{old\+\_\+size,  }\item[{int}]{new\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8cpp_source_l02612}{2612}} of file \mbox{\hyperlink{imgui_8cpp_source}{imgui.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02613\ \{}
+\DoxyCodeLine{02614\ \ \ \ \ IM\_ASSERT(old\_size\ >=\ 0\ \&\&\ new\_size\ >=\ old\_size\ \&\&\ new\_size\ >=\ EndOffset);}
+\DoxyCodeLine{02615\ \ \ \ \ \textcolor{keywordflow}{if}\ (old\_size\ ==\ new\_size)}
+\DoxyCodeLine{02616\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{02617\ \ \ \ \ \textcolor{keywordflow}{if}\ (EndOffset\ ==\ 0\ ||\ base[EndOffset\ -\/\ 1]\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{02618\ \ \ \ \ \ \ \ \ LineOffsets.push\_back(EndOffset);}
+\DoxyCodeLine{02619\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ base\_end\ =\ base\ +\ new\_size;}
+\DoxyCodeLine{02620\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ p\ =\ base\ +\ old\_size;\ (p\ =\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*)memchr(p,\ \textcolor{charliteral}{'\(\backslash\)n'},\ base\_end\ -\/\ p))\ !=\ 0;\ )}
+\DoxyCodeLine{02621\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (++p\ <\ base\_end)\ \textcolor{comment}{//\ Don't\ push\ a\ trailing\ offset\ on\ last\ \(\backslash\)n}}
+\DoxyCodeLine{02622\ \ \ \ \ \ \ \ \ \ \ \ \ LineOffsets.push\_back((\textcolor{keywordtype}{int})(intptr\_t)(p\ -\/\ base));}
+\DoxyCodeLine{02623\ \ \ \ \ EndOffset\ =\ ImMax(EndOffset,\ new\_size);}
+\DoxyCodeLine{02624\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_gui_text_index_a4c4f61227f86144ae9c054cc865eecb3}\label{struct_im_gui_text_index_a4c4f61227f86144ae9c054cc865eecb3}} 
+\index{ImGuiTextIndex@{ImGuiTextIndex}!clear@{clear}}
+\index{clear@{clear}!ImGuiTextIndex@{ImGuiTextIndex}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void Im\+Gui\+Text\+Index\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l00710}{710}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00710\ \{\ LineOffsets.clear();\ EndOffset\ =\ 0;\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_gui_text_index_aca03811115c2399b24cb0051dac850b0}\label{struct_im_gui_text_index_aca03811115c2399b24cb0051dac850b0}} 
+\index{ImGuiTextIndex@{ImGuiTextIndex}!get\_line\_begin@{get\_line\_begin}}
+\index{get\_line\_begin@{get\_line\_begin}!ImGuiTextIndex@{ImGuiTextIndex}}
+\doxysubsubsection{\texorpdfstring{get\_line\_begin()}{get\_line\_begin()}}
+{\footnotesize\ttfamily const char $\ast$ Im\+Gui\+Text\+Index\+::get\+\_\+line\+\_\+begin (\begin{DoxyParamCaption}\item[{const char $\ast$}]{base,  }\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l00712}{712}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00712\ \{\ \textcolor{keywordflow}{return}\ base\ +\ LineOffsets[n];\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_gui_text_index_a17115775633756615910747494e81a8c}\label{struct_im_gui_text_index_a17115775633756615910747494e81a8c}} 
+\index{ImGuiTextIndex@{ImGuiTextIndex}!get\_line\_end@{get\_line\_end}}
+\index{get\_line\_end@{get\_line\_end}!ImGuiTextIndex@{ImGuiTextIndex}}
+\doxysubsubsection{\texorpdfstring{get\_line\_end()}{get\_line\_end()}}
+{\footnotesize\ttfamily const char $\ast$ Im\+Gui\+Text\+Index\+::get\+\_\+line\+\_\+end (\begin{DoxyParamCaption}\item[{const char $\ast$}]{base,  }\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l00713}{713}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00713\ \{\ \textcolor{keywordflow}{return}\ base\ +\ (n\ +\ 1\ <\ LineOffsets.Size\ ?\ (LineOffsets[n\ +\ 1]\ -\/\ 1)\ :\ EndOffset);\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_gui_text_index_a016978541a00f3901b19327296fd4934}\label{struct_im_gui_text_index_a016978541a00f3901b19327296fd4934}} 
+\index{ImGuiTextIndex@{ImGuiTextIndex}!size@{size}}
+\index{size@{size}!ImGuiTextIndex@{ImGuiTextIndex}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily int Im\+Gui\+Text\+Index\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l00711}{711}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00711\ \{\ \textcolor{keywordflow}{return}\ LineOffsets.Size;\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_im_gui_text_index_a885f884d458a6309a1a524a20670c426}\label{struct_im_gui_text_index_a885f884d458a6309a1a524a20670c426}} 
+\index{ImGuiTextIndex@{ImGuiTextIndex}!EndOffset@{EndOffset}}
+\index{EndOffset@{EndOffset}!ImGuiTextIndex@{ImGuiTextIndex}}
+\doxysubsubsection{\texorpdfstring{EndOffset}{EndOffset}}
+{\footnotesize\ttfamily int Im\+Gui\+Text\+Index\+::\+End\+Offset = 0}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l00708}{708}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_text_index_ad9683201522668ffd920299243de177b}\label{struct_im_gui_text_index_ad9683201522668ffd920299243de177b}} 
+\index{ImGuiTextIndex@{ImGuiTextIndex}!LineOffsets@{LineOffsets}}
+\index{LineOffsets@{LineOffsets}!ImGuiTextIndex@{ImGuiTextIndex}}
+\doxysubsubsection{\texorpdfstring{LineOffsets}{LineOffsets}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$int$>$ Im\+Gui\+Text\+Index\+::\+Line\+Offsets}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l00707}{707}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/imgui\+\_\+internal.\+h\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/imgui.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,218 @@
+\hypertarget{struct_im_gui_stack_sizes}{}\doxysection{Im\+Gui\+Stack\+Sizes Struct Reference}
+\label{struct_im_gui_stack_sizes}\index{ImGuiStackSizes@{ImGuiStackSizes}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{struct_im_gui_stack_sizes_a7dd94b563bf4547685bc93fc00f58543}{Set\+To\+Context\+State}} (\mbox{\hyperlink{struct_im_gui_context}{Im\+Gui\+Context}} $\ast$ctx)
+\item 
+void \mbox{\hyperlink{struct_im_gui_stack_sizes_a800d27777904276582b3a6d8c2cab961}{Compare\+With\+Context\+State}} (\mbox{\hyperlink{struct_im_gui_context}{Im\+Gui\+Context}} $\ast$ctx)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+short \mbox{\hyperlink{struct_im_gui_stack_sizes_ace27d02b760e0224c041d44bea926ae6}{Size\+Of\+IDStack}}
+\item 
+short \mbox{\hyperlink{struct_im_gui_stack_sizes_ada3c64baaac1256f04d5f1a99dfb6ed2}{Size\+Of\+Color\+Stack}}
+\item 
+short \mbox{\hyperlink{struct_im_gui_stack_sizes_a038e2705132e5561bb187148a8395be0}{Size\+Of\+Style\+Var\+Stack}}
+\item 
+short \mbox{\hyperlink{struct_im_gui_stack_sizes_a5430682ade553552a42a7012b83c212d}{Size\+Of\+Font\+Stack}}
+\item 
+short \mbox{\hyperlink{struct_im_gui_stack_sizes_a99fa2a45397945e6f0209ab556ca19d9}{Size\+Of\+Focus\+Scope\+Stack}}
+\item 
+short \mbox{\hyperlink{struct_im_gui_stack_sizes_a1fd94592cd82ddac79aab6cc01cb8703}{Size\+Of\+Group\+Stack}}
+\item 
+short \mbox{\hyperlink{struct_im_gui_stack_sizes_afa2af2775b3925e0dfd9fac22e097e30}{Size\+Of\+Item\+Flags\+Stack}}
+\item 
+short \mbox{\hyperlink{struct_im_gui_stack_sizes_a6851e33fafec9be3c27412de81ba6e68}{Size\+Of\+Begin\+Popup\+Stack}}
+\item 
+short \mbox{\hyperlink{struct_im_gui_stack_sizes_a955ce6bbb9e231d67d087bd886848dc5}{Size\+Of\+Disabled\+Stack}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01183}{1183}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_im_gui_stack_sizes_ac8d9f1bb427e2480bbae8acc55ee58a2}\label{struct_im_gui_stack_sizes_ac8d9f1bb427e2480bbae8acc55ee58a2}} 
+\index{ImGuiStackSizes@{ImGuiStackSizes}!ImGuiStackSizes@{ImGuiStackSizes}}
+\index{ImGuiStackSizes@{ImGuiStackSizes}!ImGuiStackSizes@{ImGuiStackSizes}}
+\doxysubsubsection{\texorpdfstring{ImGuiStackSizes()}{ImGuiStackSizes()}}
+{\footnotesize\ttfamily Im\+Gui\+Stack\+Sizes\+::\+Im\+Gui\+Stack\+Sizes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01195}{1195}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01195\ \{\ memset(\textcolor{keyword}{this},\ 0,\ \textcolor{keyword}{sizeof}(*\textcolor{keyword}{this}));\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_im_gui_stack_sizes_a800d27777904276582b3a6d8c2cab961}\label{struct_im_gui_stack_sizes_a800d27777904276582b3a6d8c2cab961}} 
+\index{ImGuiStackSizes@{ImGuiStackSizes}!CompareWithContextState@{CompareWithContextState}}
+\index{CompareWithContextState@{CompareWithContextState}!ImGuiStackSizes@{ImGuiStackSizes}}
+\doxysubsubsection{\texorpdfstring{CompareWithContextState()}{CompareWithContextState()}}
+{\footnotesize\ttfamily void Im\+Gui\+Stack\+Sizes\+::\+Compare\+With\+Context\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_im_gui_context}{Im\+Gui\+Context}} $\ast$}]{ctx }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8cpp_source_l09209}{9209}} of file \mbox{\hyperlink{imgui_8cpp_source}{imgui.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{09210\ \{}
+\DoxyCodeLine{09211\ \ \ \ \ \mbox{\hyperlink{struct_im_gui_context}{ImGuiContext}}\&\ g\ =\ *ctx;}
+\DoxyCodeLine{09212\ \ \ \ \ \mbox{\hyperlink{struct_im_gui_window}{ImGuiWindow}}*\ window\ =\ g.CurrentWindow;}
+\DoxyCodeLine{09213\ \ \ \ \ IM\_UNUSED(window);}
+\DoxyCodeLine{09214\ }
+\DoxyCodeLine{09215\ \ \ \ \ \textcolor{comment}{//\ Window\ stacks}}
+\DoxyCodeLine{09216\ \ \ \ \ \textcolor{comment}{//\ NOT\ checking:\ DC.ItemWidth,\ DC.TextWrapPos\ (per\ window)\ to\ allow\ user\ to\ conveniently\ push\ once\ and\ not\ pop\ (they\ are\ cleared\ on\ Begin)}}
+\DoxyCodeLine{09217\ \ \ \ \ IM\_ASSERT(SizeOfIDStack\ \ \ \ \ \ \ \ \ ==\ window-\/>IDStack.Size\ \ \ \ \ \&\&\ \textcolor{stringliteral}{"{}PushID/PopID\ or\ TreeNode/TreePop\ Mismatch!"{}});}
+\DoxyCodeLine{09218\ }
+\DoxyCodeLine{09219\ \ \ \ \ \textcolor{comment}{//\ Global\ stacks}}
+\DoxyCodeLine{09220\ \ \ \ \ \textcolor{comment}{//\ For\ color,\ style\ and\ font\ stacks\ there\ is\ an\ incentive\ to\ use\ Push/Begin/Pop/.../End\ patterns,\ so\ we\ relax\ our\ checks\ a\ little\ to\ allow\ them.}}
+\DoxyCodeLine{09221\ \ \ \ \ IM\_ASSERT(SizeOfGroupStack\ \ \ \ \ \ ==\ g.GroupStack.Size\ \ \ \ \ \ \ \ \&\&\ \textcolor{stringliteral}{"{}BeginGroup/EndGroup\ Mismatch!"{}});}
+\DoxyCodeLine{09222\ \ \ \ \ IM\_ASSERT(SizeOfBeginPopupStack\ ==\ g.BeginPopupStack.Size\ \ \ \&\&\ \textcolor{stringliteral}{"{}BeginPopup/EndPopup\ or\ BeginMenu/EndMenu\ Mismatch!"{}});}
+\DoxyCodeLine{09223\ \ \ \ \ IM\_ASSERT(SizeOfDisabledStack\ \ \ ==\ g.DisabledStackSize\ \ \ \ \ \ \&\&\ \textcolor{stringliteral}{"{}BeginDisabled/EndDisabled\ Mismatch!"{}});}
+\DoxyCodeLine{09224\ \ \ \ \ IM\_ASSERT(SizeOfItemFlagsStack\ \ >=\ g.ItemFlagsStack.Size\ \ \ \ \&\&\ \textcolor{stringliteral}{"{}PushItemFlag/PopItemFlag\ Mismatch!"{}});}
+\DoxyCodeLine{09225\ \ \ \ \ IM\_ASSERT(SizeOfColorStack\ \ \ \ \ \ >=\ g.ColorStack.Size\ \ \ \ \ \ \ \ \&\&\ \textcolor{stringliteral}{"{}PushStyleColor/PopStyleColor\ Mismatch!"{}});}
+\DoxyCodeLine{09226\ \ \ \ \ IM\_ASSERT(SizeOfStyleVarStack\ \ \ >=\ g.StyleVarStack.Size\ \ \ \ \ \&\&\ \textcolor{stringliteral}{"{}PushStyleVar/PopStyleVar\ Mismatch!"{}});}
+\DoxyCodeLine{09227\ \ \ \ \ IM\_ASSERT(SizeOfFontStack\ \ \ \ \ \ \ >=\ g.FontStack.Size\ \ \ \ \ \ \ \ \ \&\&\ \textcolor{stringliteral}{"{}PushFont/PopFont\ Mismatch!"{}});}
+\DoxyCodeLine{09228\ \ \ \ \ IM\_ASSERT(SizeOfFocusScopeStack\ ==\ g.FocusScopeStack.Size\ \ \ \&\&\ \textcolor{stringliteral}{"{}PushFocusScope/PopFocusScope\ Mismatch!"{}});}
+\DoxyCodeLine{09229\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_gui_stack_sizes_a7dd94b563bf4547685bc93fc00f58543}\label{struct_im_gui_stack_sizes_a7dd94b563bf4547685bc93fc00f58543}} 
+\index{ImGuiStackSizes@{ImGuiStackSizes}!SetToContextState@{SetToContextState}}
+\index{SetToContextState@{SetToContextState}!ImGuiStackSizes@{ImGuiStackSizes}}
+\doxysubsubsection{\texorpdfstring{SetToContextState()}{SetToContextState()}}
+{\footnotesize\ttfamily void Im\+Gui\+Stack\+Sizes\+::\+Set\+To\+Context\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_im_gui_context}{Im\+Gui\+Context}} $\ast$}]{ctx }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8cpp_source_l09193}{9193}} of file \mbox{\hyperlink{imgui_8cpp_source}{imgui.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{09194\ \{}
+\DoxyCodeLine{09195\ \ \ \ \ \mbox{\hyperlink{struct_im_gui_context}{ImGuiContext}}\&\ g\ =\ *ctx;}
+\DoxyCodeLine{09196\ \ \ \ \ \mbox{\hyperlink{struct_im_gui_window}{ImGuiWindow}}*\ window\ =\ g.CurrentWindow;}
+\DoxyCodeLine{09197\ \ \ \ \ SizeOfIDStack\ =\ (short)window-\/>IDStack.Size;}
+\DoxyCodeLine{09198\ \ \ \ \ SizeOfColorStack\ =\ (\textcolor{keywordtype}{short})g.ColorStack.Size;}
+\DoxyCodeLine{09199\ \ \ \ \ SizeOfStyleVarStack\ =\ (short)g.StyleVarStack.Size;}
+\DoxyCodeLine{09200\ \ \ \ \ SizeOfFontStack\ =\ (\textcolor{keywordtype}{short})g.FontStack.Size;}
+\DoxyCodeLine{09201\ \ \ \ \ SizeOfFocusScopeStack\ =\ (short)g.FocusScopeStack.Size;}
+\DoxyCodeLine{09202\ \ \ \ \ SizeOfGroupStack\ =\ (\textcolor{keywordtype}{short})g.GroupStack.Size;}
+\DoxyCodeLine{09203\ \ \ \ \ SizeOfItemFlagsStack\ =\ (short)g.ItemFlagsStack.Size;}
+\DoxyCodeLine{09204\ \ \ \ \ SizeOfBeginPopupStack\ =\ (\textcolor{keywordtype}{short})g.BeginPopupStack.Size;}
+\DoxyCodeLine{09205\ \ \ \ \ SizeOfDisabledStack\ =\ (short)g.DisabledStackSize;}
+\DoxyCodeLine{09206\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_im_gui_stack_sizes_a6851e33fafec9be3c27412de81ba6e68}\label{struct_im_gui_stack_sizes_a6851e33fafec9be3c27412de81ba6e68}} 
+\index{ImGuiStackSizes@{ImGuiStackSizes}!SizeOfBeginPopupStack@{SizeOfBeginPopupStack}}
+\index{SizeOfBeginPopupStack@{SizeOfBeginPopupStack}!ImGuiStackSizes@{ImGuiStackSizes}}
+\doxysubsubsection{\texorpdfstring{SizeOfBeginPopupStack}{SizeOfBeginPopupStack}}
+{\footnotesize\ttfamily short Im\+Gui\+Stack\+Sizes\+::\+Size\+Of\+Begin\+Popup\+Stack}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01192}{1192}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_stack_sizes_ada3c64baaac1256f04d5f1a99dfb6ed2}\label{struct_im_gui_stack_sizes_ada3c64baaac1256f04d5f1a99dfb6ed2}} 
+\index{ImGuiStackSizes@{ImGuiStackSizes}!SizeOfColorStack@{SizeOfColorStack}}
+\index{SizeOfColorStack@{SizeOfColorStack}!ImGuiStackSizes@{ImGuiStackSizes}}
+\doxysubsubsection{\texorpdfstring{SizeOfColorStack}{SizeOfColorStack}}
+{\footnotesize\ttfamily short Im\+Gui\+Stack\+Sizes\+::\+Size\+Of\+Color\+Stack}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01186}{1186}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_stack_sizes_a955ce6bbb9e231d67d087bd886848dc5}\label{struct_im_gui_stack_sizes_a955ce6bbb9e231d67d087bd886848dc5}} 
+\index{ImGuiStackSizes@{ImGuiStackSizes}!SizeOfDisabledStack@{SizeOfDisabledStack}}
+\index{SizeOfDisabledStack@{SizeOfDisabledStack}!ImGuiStackSizes@{ImGuiStackSizes}}
+\doxysubsubsection{\texorpdfstring{SizeOfDisabledStack}{SizeOfDisabledStack}}
+{\footnotesize\ttfamily short Im\+Gui\+Stack\+Sizes\+::\+Size\+Of\+Disabled\+Stack}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01193}{1193}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_stack_sizes_a99fa2a45397945e6f0209ab556ca19d9}\label{struct_im_gui_stack_sizes_a99fa2a45397945e6f0209ab556ca19d9}} 
+\index{ImGuiStackSizes@{ImGuiStackSizes}!SizeOfFocusScopeStack@{SizeOfFocusScopeStack}}
+\index{SizeOfFocusScopeStack@{SizeOfFocusScopeStack}!ImGuiStackSizes@{ImGuiStackSizes}}
+\doxysubsubsection{\texorpdfstring{SizeOfFocusScopeStack}{SizeOfFocusScopeStack}}
+{\footnotesize\ttfamily short Im\+Gui\+Stack\+Sizes\+::\+Size\+Of\+Focus\+Scope\+Stack}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01189}{1189}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_stack_sizes_a5430682ade553552a42a7012b83c212d}\label{struct_im_gui_stack_sizes_a5430682ade553552a42a7012b83c212d}} 
+\index{ImGuiStackSizes@{ImGuiStackSizes}!SizeOfFontStack@{SizeOfFontStack}}
+\index{SizeOfFontStack@{SizeOfFontStack}!ImGuiStackSizes@{ImGuiStackSizes}}
+\doxysubsubsection{\texorpdfstring{SizeOfFontStack}{SizeOfFontStack}}
+{\footnotesize\ttfamily short Im\+Gui\+Stack\+Sizes\+::\+Size\+Of\+Font\+Stack}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01188}{1188}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_stack_sizes_a1fd94592cd82ddac79aab6cc01cb8703}\label{struct_im_gui_stack_sizes_a1fd94592cd82ddac79aab6cc01cb8703}} 
+\index{ImGuiStackSizes@{ImGuiStackSizes}!SizeOfGroupStack@{SizeOfGroupStack}}
+\index{SizeOfGroupStack@{SizeOfGroupStack}!ImGuiStackSizes@{ImGuiStackSizes}}
+\doxysubsubsection{\texorpdfstring{SizeOfGroupStack}{SizeOfGroupStack}}
+{\footnotesize\ttfamily short Im\+Gui\+Stack\+Sizes\+::\+Size\+Of\+Group\+Stack}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01190}{1190}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_stack_sizes_ace27d02b760e0224c041d44bea926ae6}\label{struct_im_gui_stack_sizes_ace27d02b760e0224c041d44bea926ae6}} 
+\index{ImGuiStackSizes@{ImGuiStackSizes}!SizeOfIDStack@{SizeOfIDStack}}
+\index{SizeOfIDStack@{SizeOfIDStack}!ImGuiStackSizes@{ImGuiStackSizes}}
+\doxysubsubsection{\texorpdfstring{SizeOfIDStack}{SizeOfIDStack}}
+{\footnotesize\ttfamily short Im\+Gui\+Stack\+Sizes\+::\+Size\+Of\+IDStack}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01185}{1185}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_stack_sizes_afa2af2775b3925e0dfd9fac22e097e30}\label{struct_im_gui_stack_sizes_afa2af2775b3925e0dfd9fac22e097e30}} 
+\index{ImGuiStackSizes@{ImGuiStackSizes}!SizeOfItemFlagsStack@{SizeOfItemFlagsStack}}
+\index{SizeOfItemFlagsStack@{SizeOfItemFlagsStack}!ImGuiStackSizes@{ImGuiStackSizes}}
+\doxysubsubsection{\texorpdfstring{SizeOfItemFlagsStack}{SizeOfItemFlagsStack}}
+{\footnotesize\ttfamily short Im\+Gui\+Stack\+Sizes\+::\+Size\+Of\+Item\+Flags\+Stack}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01191}{1191}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_stack_sizes_a038e2705132e5561bb187148a8395be0}\label{struct_im_gui_stack_sizes_a038e2705132e5561bb187148a8395be0}} 
+\index{ImGuiStackSizes@{ImGuiStackSizes}!SizeOfStyleVarStack@{SizeOfStyleVarStack}}
+\index{SizeOfStyleVarStack@{SizeOfStyleVarStack}!ImGuiStackSizes@{ImGuiStackSizes}}
+\doxysubsubsection{\texorpdfstring{SizeOfStyleVarStack}{SizeOfStyleVarStack}}
+{\footnotesize\ttfamily short Im\+Gui\+Stack\+Sizes\+::\+Size\+Of\+Style\+Var\+Stack}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01187}{1187}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/imgui\+\_\+internal.\+h\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/imgui.\+cpp\end{DoxyCompactItemize}

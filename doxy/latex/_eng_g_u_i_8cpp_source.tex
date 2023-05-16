@@ -1,0 +1,108 @@
+\hypertarget{_eng_g_u_i_8cpp_source}{}\doxysection{Eng\+GUI.\+cpp}
+\label{_eng_g_u_i_8cpp_source}\index{C:/Users/jason/source/repos/assignment\_1\_397/Lab\_4/EngGUI.cpp@{C:/Users/jason/source/repos/assignment\_1\_397/Lab\_4/EngGUI.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \mbox{\hyperlink{_eng_g_u_i_8h}{"{}EngGUI.h"{}}}}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{<}\textcolor{preprocessor}{GLFW}\textcolor{preprocessor}{/}\textcolor{preprocessor}{glfw3}\textcolor{preprocessor}{.}\textcolor{preprocessor}{h}\textcolor{preprocessor}{>}}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \mbox{\hyperlink{_lab_engine_8h}{"{}LabEngine.h"{}}}}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00007}00007\ \mbox{\hyperlink{class_eng_g_u_i}{EngGUI}}::EngGUI()}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00010}00010\ \ \ \ \ window\ =\ \mbox{\hyperlink{class_lab_engine}{LabEngine}}::getInstance().m\_window-\/>window;}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00012}00012\ \ \ \ \ \textcolor{comment}{//\ TESTING\ IMGUI}}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00013}00013\ \ \ \ \ \textcolor{comment}{//\ Initialize\ ImGui}}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00014}00014\ \ \ \ \ \mbox{\hyperlink{imgui_8h_a4846e0a12ef734d9467d31572034bf07}{IMGUI\_CHECKVERSION}}();}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00015}00015\ \ \ \ \ ImGui::CreateContext();}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00016}00016\ \ \ \ \ \mbox{\hyperlink{struct_im_gui_i_o}{ImGuiIO}}\&\ io\ =\ ImGui::GetIO();\ (\textcolor{keywordtype}{void})io;}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00017}00017\ \ \ \ \ io.IniFilename\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00019}00019\ \ \ \ \ \textcolor{comment}{//\ Set\ ImGui\ style}}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00020}00020\ \ \ \ \ ImGui::StyleColorsDark();}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00022}00022\ \ \ \ \ \textcolor{comment}{//\ Initialize\ ImGui\ GLFW\ and\ OpenGL\ bindings}}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00023}00023\ \ \ \ \ ImGui\_ImplGlfw\_InitForOpenGL(window,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00024}00024\ \ \ \ \ ImGui\_ImplOpenGL3\_Init(\textcolor{stringliteral}{"{}\#version\ 330\ core"{}});}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00027}00027\ \ \ \ \ \mbox{\hyperlink{class_texture_factory}{TextureFactory}}\ textFact;}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00028}00028\ \ \ \ \ \textcolor{comment}{//\ -\/-\/\ INIT\ PHOTO\ FOR\ GUI}}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00029}00029\ \ \ \ \ \textcolor{keyword}{auto}\ groupPhoto\ =\ textFact.createTexture(\textcolor{stringliteral}{"{}group\_photo.png"{}});}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00030}00030\ \ \ \ \ groupPhoto-\/>load();}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00032}00032\ \ \ \ \ image\_texture\_id\ =\ groupPhoto-\/>texture;}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00034}00034\ \}}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00036}00036\ \mbox{\hyperlink{class_eng_g_u_i}{EngGUI}}::\string~EngGUI()}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00037}00037\ \{}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00038}00038\ \ \ \ \ ImGui\_ImplOpenGL3\_Shutdown();}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00039}00039\ \ \ \ \ ImGui\_ImplGlfw\_Shutdown();}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00040}00040\ \ \ \ \ ImGui::DestroyContext();}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00041}00041\ \}}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00044}00044\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_eng_g_u_i}{EngGUI}}::BeginFrame()}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00045}00045\ \{}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00047}00047\ \ \ \ \ \textcolor{comment}{//auto\ window\ =\ LabEngine::getInstance().m\_window-\/>window;}}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00049}00049\ \ \ \ \ ImGui\_ImplOpenGL3\_NewFrame();}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00050}00050\ \ \ \ \ ImGui\_ImplGlfw\_NewFrame();}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00051}00051\ \ \ \ \ ImGui::NewFrame();}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00054}00054\ \ \ \ \ \textcolor{keywordflow}{if}\ (show\_demo\_window)\ \{}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{comment}{//ImGui::SetNextWindowSize(ImVec2(300,\ 200));\ //\ Set\ the\ window\ size\ }}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ ImGui::SetNextWindowSize(\mbox{\hyperlink{struct_im_vec2}{ImVec2}}(300,\ 300));\ \textcolor{comment}{//\ Set\ the\ window\ size}}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ImGui\ content\ goes\ here,\ e.g.:}}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ ImGui::Begin(\textcolor{stringliteral}{"{}Welcome\ to\ our\ Demo!\ (pls\ have\ mercy)"{}});}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ ImGui::Text(\textcolor{stringliteral}{"{}-\/\ Press\ M\ to\ open\ and\ close\ this\ manual!"{}});}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ ImGui::Text(\textcolor{stringliteral}{"{}-\/\ Press\ K\ to\ go\ into\ wireframe\ mode!"{}});}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ ImGui::Text(\textcolor{stringliteral}{"{}-\/\ Press\ X\ to\ quit\ this\ demo!"{}});}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ ImGui::Text(\textcolor{stringliteral}{"{}-\/\ Press\ WASD\ keys\ to\ move!"{}});}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ ImGui::Text(\textcolor{stringliteral}{"{}-\/\ Press\ R\ key\ to\ spawn\ boxes\ (test)"{}});}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ ImGui::Text(\textcolor{stringliteral}{"{}-\/\ Press\ the\ F\ key\ to\ fly!"{}});}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ ImGui::Text(\textcolor{stringliteral}{"{}-\/\ Use\ the\ mouse\ or\ arrow\ keys\ to\ look!"{}});}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ ImGui::End();}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (show\_image)\ \{}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ glfwSetInputMode(window,\ GLFW\_CURSOR,\ GLFW\_CURSOR\_NORMAL);}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//ImVec2\ image\_size(groupPhoto-\/>width,\ groupPhoto-\/>height);\ //\ Set\ the\ image\ display\ size\ to\ 300x200}}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_im_vec2}{ImVec2}}\ image\_size(1000,\ 700);\ \textcolor{comment}{//\ Set\ the\ image\ display\ size\ to\ 300x200}}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::Begin(\textcolor{stringliteral}{"{}Image\ Display"{}});}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::Image((\textcolor{keywordtype}{void}*)(intptr\_t)image\_texture\_id,\ image\_size,\ \mbox{\hyperlink{struct_im_vec2}{ImVec2}}(0,\ 1),\ \mbox{\hyperlink{struct_im_vec2}{ImVec2}}(1,\ 0));}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::IsItemClicked())\ \{}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ glfwSetWindowShouldClose(window,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::End();}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00082}00082\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00084}00084\ \}}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00088}00088\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_eng_g_u_i}{EngGUI}}::EndFrame()\ \{}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00090}00090\ \ \ \ \ ImGui::Render();}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00092}00092\ \}}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00094}00094\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_eng_g_u_i}{EngGUI}}::renderData()}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00095}00095\ \{}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00096}00096\ \ \ \ \ ImGui\_ImplOpenGL3\_RenderDrawData(ImGui::GetDrawData());\ \textcolor{comment}{//\ doing\ this\ at\ the\ end\ so\ draws\ on\ top\ of\ everything\ else}}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00097}00097\ \}}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00100}00100\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_eng_g_u_i}{EngGUI}}::MainMenu()\{}
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{_eng_g_u_i_8cpp_source_l00102}00102\ \}}
+
+\end{DoxyCode}

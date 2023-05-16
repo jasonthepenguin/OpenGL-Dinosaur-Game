@@ -1,0 +1,169 @@
+\hypertarget{struct_im_gui_input_event}{}\doxysection{Im\+Gui\+Input\+Event Struct Reference}
+\label{struct_im_gui_input_event}\index{ImGuiInputEvent@{ImGuiInputEvent}}
+
+
+Collaboration diagram for Im\+Gui\+Input\+Event\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_gui_input_event__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Im\+Gui\+Input\+Event\+Type \mbox{\hyperlink{struct_im_gui_input_event_a21d31c722ff155e2e8896a8012850acd}{Type}}
+\item 
+Im\+Gui\+Input\+Source \mbox{\hyperlink{struct_im_gui_input_event_a8780562e8dbed9ae613760399e8be8df}{Source}}
+\item 
+Im\+U32 \mbox{\hyperlink{struct_im_gui_input_event_ab508aea0f8dcdbc3f1d5812742b0a459}{Event\+Id}}
+\item 
+\mbox{\Hypertarget{struct_im_gui_input_event_a43e43d2454c3aa2aa464d9822916d42c}\label{struct_im_gui_input_event_a43e43d2454c3aa2aa464d9822916d42c}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{struct_im_gui_input_event_mouse_pos}{Im\+Gui\+Input\+Event\+Mouse\+Pos}} \mbox{\hyperlink{struct_im_gui_input_event_aa5259390b6478192287966a5f87dd311}{Mouse\+Pos}}\\
+\>\mbox{\hyperlink{struct_im_gui_input_event_mouse_wheel}{Im\+Gui\+Input\+Event\+Mouse\+Wheel}} \mbox{\hyperlink{struct_im_gui_input_event_aa0d1ebe2404e336b61d44fa95874093f}{Mouse\+Wheel}}\\
+\>\mbox{\hyperlink{struct_im_gui_input_event_mouse_button}{Im\+Gui\+Input\+Event\+Mouse\+Button}} \mbox{\hyperlink{struct_im_gui_input_event_a7e75a2c5682fc93bcded186ddb5ccfab}{Mouse\+Button}}\\
+\>\mbox{\hyperlink{struct_im_gui_input_event_key}{Im\+Gui\+Input\+Event\+Key}} \mbox{\hyperlink{struct_im_gui_input_event_a7739f48af4f0fbad1ca79b5d9f82707e}{Key}}\\
+\>\mbox{\hyperlink{struct_im_gui_input_event_text}{Im\+Gui\+Input\+Event\+Text}} \mbox{\hyperlink{struct_im_gui_input_event_aae5e3f7f631cef154a0831e89f608655}{Text}}\\
+\>\mbox{\hyperlink{struct_im_gui_input_event_app_focused}{Im\+Gui\+Input\+Event\+App\+Focused}} \mbox{\hyperlink{struct_im_gui_input_event_a74fbb441887d8a49f07df0d6dac48692}{App\+Focused}}\\
+\}; \\
+
+\end{tabbing}\item 
+bool \mbox{\hyperlink{struct_im_gui_input_event_a87ff836d8c98d03adc91cdd592a13e0d}{Added\+By\+Test\+Engine}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01284}{1284}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_im_gui_input_event_a0245c48f5f48b23defb78940c3a4a5ba}\label{struct_im_gui_input_event_a0245c48f5f48b23defb78940c3a4a5ba}} 
+\index{ImGuiInputEvent@{ImGuiInputEvent}!ImGuiInputEvent@{ImGuiInputEvent}}
+\index{ImGuiInputEvent@{ImGuiInputEvent}!ImGuiInputEvent@{ImGuiInputEvent}}
+\doxysubsubsection{\texorpdfstring{ImGuiInputEvent()}{ImGuiInputEvent()}}
+{\footnotesize\ttfamily Im\+Gui\+Input\+Event\+::\+Im\+Gui\+Input\+Event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01300}{1300}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01300\ \{\ memset(\textcolor{keyword}{this},\ 0,\ \textcolor{keyword}{sizeof}(*\textcolor{keyword}{this}));\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_im_gui_input_event_a87ff836d8c98d03adc91cdd592a13e0d}\label{struct_im_gui_input_event_a87ff836d8c98d03adc91cdd592a13e0d}} 
+\index{ImGuiInputEvent@{ImGuiInputEvent}!AddedByTestEngine@{AddedByTestEngine}}
+\index{AddedByTestEngine@{AddedByTestEngine}!ImGuiInputEvent@{ImGuiInputEvent}}
+\doxysubsubsection{\texorpdfstring{AddedByTestEngine}{AddedByTestEngine}}
+{\footnotesize\ttfamily bool Im\+Gui\+Input\+Event\+::\+Added\+By\+Test\+Engine}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01298}{1298}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_input_event_a74fbb441887d8a49f07df0d6dac48692}\label{struct_im_gui_input_event_a74fbb441887d8a49f07df0d6dac48692}} 
+\index{ImGuiInputEvent@{ImGuiInputEvent}!AppFocused@{AppFocused}}
+\index{AppFocused@{AppFocused}!ImGuiInputEvent@{ImGuiInputEvent}}
+\doxysubsubsection{\texorpdfstring{AppFocused}{AppFocused}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_gui_input_event_app_focused}{Im\+Gui\+Input\+Event\+App\+Focused}} Im\+Gui\+Input\+Event\+::\+App\+Focused}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01296}{1296}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_input_event_ab508aea0f8dcdbc3f1d5812742b0a459}\label{struct_im_gui_input_event_ab508aea0f8dcdbc3f1d5812742b0a459}} 
+\index{ImGuiInputEvent@{ImGuiInputEvent}!EventId@{EventId}}
+\index{EventId@{EventId}!ImGuiInputEvent@{ImGuiInputEvent}}
+\doxysubsubsection{\texorpdfstring{EventId}{EventId}}
+{\footnotesize\ttfamily Im\+U32 Im\+Gui\+Input\+Event\+::\+Event\+Id}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01288}{1288}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_input_event_a7739f48af4f0fbad1ca79b5d9f82707e}\label{struct_im_gui_input_event_a7739f48af4f0fbad1ca79b5d9f82707e}} 
+\index{ImGuiInputEvent@{ImGuiInputEvent}!Key@{Key}}
+\index{Key@{Key}!ImGuiInputEvent@{ImGuiInputEvent}}
+\doxysubsubsection{\texorpdfstring{Key}{Key}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_gui_input_event_key}{Im\+Gui\+Input\+Event\+Key}} Im\+Gui\+Input\+Event\+::\+Key}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01294}{1294}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_input_event_a7e75a2c5682fc93bcded186ddb5ccfab}\label{struct_im_gui_input_event_a7e75a2c5682fc93bcded186ddb5ccfab}} 
+\index{ImGuiInputEvent@{ImGuiInputEvent}!MouseButton@{MouseButton}}
+\index{MouseButton@{MouseButton}!ImGuiInputEvent@{ImGuiInputEvent}}
+\doxysubsubsection{\texorpdfstring{MouseButton}{MouseButton}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_gui_input_event_mouse_button}{Im\+Gui\+Input\+Event\+Mouse\+Button}} Im\+Gui\+Input\+Event\+::\+Mouse\+Button}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01293}{1293}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_input_event_aa5259390b6478192287966a5f87dd311}\label{struct_im_gui_input_event_aa5259390b6478192287966a5f87dd311}} 
+\index{ImGuiInputEvent@{ImGuiInputEvent}!MousePos@{MousePos}}
+\index{MousePos@{MousePos}!ImGuiInputEvent@{ImGuiInputEvent}}
+\doxysubsubsection{\texorpdfstring{MousePos}{MousePos}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_gui_input_event_mouse_pos}{Im\+Gui\+Input\+Event\+Mouse\+Pos}} Im\+Gui\+Input\+Event\+::\+Mouse\+Pos}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01291}{1291}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_input_event_aa0d1ebe2404e336b61d44fa95874093f}\label{struct_im_gui_input_event_aa0d1ebe2404e336b61d44fa95874093f}} 
+\index{ImGuiInputEvent@{ImGuiInputEvent}!MouseWheel@{MouseWheel}}
+\index{MouseWheel@{MouseWheel}!ImGuiInputEvent@{ImGuiInputEvent}}
+\doxysubsubsection{\texorpdfstring{MouseWheel}{MouseWheel}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_gui_input_event_mouse_wheel}{Im\+Gui\+Input\+Event\+Mouse\+Wheel}} Im\+Gui\+Input\+Event\+::\+Mouse\+Wheel}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01292}{1292}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_input_event_a8780562e8dbed9ae613760399e8be8df}\label{struct_im_gui_input_event_a8780562e8dbed9ae613760399e8be8df}} 
+\index{ImGuiInputEvent@{ImGuiInputEvent}!Source@{Source}}
+\index{Source@{Source}!ImGuiInputEvent@{ImGuiInputEvent}}
+\doxysubsubsection{\texorpdfstring{Source}{Source}}
+{\footnotesize\ttfamily Im\+Gui\+Input\+Source Im\+Gui\+Input\+Event\+::\+Source}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01287}{1287}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_input_event_aae5e3f7f631cef154a0831e89f608655}\label{struct_im_gui_input_event_aae5e3f7f631cef154a0831e89f608655}} 
+\index{ImGuiInputEvent@{ImGuiInputEvent}!Text@{Text}}
+\index{Text@{Text}!ImGuiInputEvent@{ImGuiInputEvent}}
+\doxysubsubsection{\texorpdfstring{Text}{Text}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_gui_input_event_text}{Im\+Gui\+Input\+Event\+Text}} Im\+Gui\+Input\+Event\+::\+Text}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01295}{1295}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_input_event_a21d31c722ff155e2e8896a8012850acd}\label{struct_im_gui_input_event_a21d31c722ff155e2e8896a8012850acd}} 
+\index{ImGuiInputEvent@{ImGuiInputEvent}!Type@{Type}}
+\index{Type@{Type}!ImGuiInputEvent@{ImGuiInputEvent}}
+\doxysubsubsection{\texorpdfstring{Type}{Type}}
+{\footnotesize\ttfamily Im\+Gui\+Input\+Event\+Type Im\+Gui\+Input\+Event\+::\+Type}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01286}{1286}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/imgui\+\_\+internal.\+h\end{DoxyCompactItemize}

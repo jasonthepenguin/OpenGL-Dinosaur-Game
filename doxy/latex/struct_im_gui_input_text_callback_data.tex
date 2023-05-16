@@ -1,0 +1,342 @@
+\hypertarget{struct_im_gui_input_text_callback_data}{}\doxysection{Im\+Gui\+Input\+Text\+Callback\+Data Struct Reference}
+\label{struct_im_gui_input_text_callback_data}\index{ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}}
+
+
+Collaboration diagram for Im\+Gui\+Input\+Text\+Callback\+Data\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_gui_input_text_callback_data__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_gui_input_text_callback_data_ab5dc30d7edcf60efbd5bb8e677dab8bf}{Delete\+Chars}} (int pos, int bytes\+\_\+count)
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_gui_input_text_callback_data_a9963937f48aba00466c2af404dad1e25}{Insert\+Chars}} (int pos, const char $\ast$text, const char $\ast$text\+\_\+end=NULL)
+\item 
+void \mbox{\hyperlink{struct_im_gui_input_text_callback_data_aabbc96c73ebcec89f06811dba531bc56}{Select\+All}} ()
+\item 
+void \mbox{\hyperlink{struct_im_gui_input_text_callback_data_a14dacdd841c76dfd171ffca8a96d7c22}{Clear\+Selection}} ()
+\item 
+bool \mbox{\hyperlink{struct_im_gui_input_text_callback_data_aae1b69a904053961be171d7f47ef430e}{Has\+Selection}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_im_gui_context}{Im\+Gui\+Context}} $\ast$ \mbox{\hyperlink{struct_im_gui_input_text_callback_data_aba08927f2b128153e5544ec662a32a5f}{Ctx}}
+\item 
+Im\+Gui\+Input\+Text\+Flags \mbox{\hyperlink{struct_im_gui_input_text_callback_data_a6ad2f8e385c68e56e6682fc0c4e79949}{Event\+Flag}}
+\item 
+Im\+Gui\+Input\+Text\+Flags \mbox{\hyperlink{struct_im_gui_input_text_callback_data_aac3133cf2c9d194142481e54192d8fa1}{Flags}}
+\item 
+void $\ast$ \mbox{\hyperlink{struct_im_gui_input_text_callback_data_ae8358ea4135032204fcba6c9ada7c49f}{User\+Data}}
+\item 
+Im\+Wchar \mbox{\hyperlink{struct_im_gui_input_text_callback_data_a7a6e9a43c5db8f236cde912b913fe707}{Event\+Char}}
+\item 
+Im\+Gui\+Key \mbox{\hyperlink{struct_im_gui_input_text_callback_data_a2db52e1da5e8109d4eeb5b0ab22200a9}{Event\+Key}}
+\item 
+char $\ast$ \mbox{\hyperlink{struct_im_gui_input_text_callback_data_ac8cd46c3473851c2822aae8240289069}{Buf}}
+\item 
+int \mbox{\hyperlink{struct_im_gui_input_text_callback_data_aa4db7629a772cfc3286a5a3fd1e5f1ab}{Buf\+Text\+Len}}
+\item 
+int \mbox{\hyperlink{struct_im_gui_input_text_callback_data_a0e391986e9359f6777ab27a3b08229a6}{Buf\+Size}}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_input_text_callback_data_aa2d91cca2b46de3f2b218573579f122b}{Buf\+Dirty}}
+\item 
+int \mbox{\hyperlink{struct_im_gui_input_text_callback_data_a45b3cc4d7625b1bc38d5b995ca149b43}{Cursor\+Pos}}
+\item 
+int \mbox{\hyperlink{struct_im_gui_input_text_callback_data_a72642ac2ce877eaade95386cad70ee8a}{Selection\+Start}}
+\item 
+int \mbox{\hyperlink{struct_im_gui_input_text_callback_data_a616bf3a1f0c2d73b9133931f22ab44a7}{Selection\+End}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02100}{2100}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_im_gui_input_text_callback_data_ae19641bad15c1a163928d121075ca09c}\label{struct_im_gui_input_text_callback_data_ae19641bad15c1a163928d121075ca09c}} 
+\index{ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}!ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}}
+\index{ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}!ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}}
+\doxysubsubsection{\texorpdfstring{ImGuiInputTextCallbackData()}{ImGuiInputTextCallbackData()}}
+{\footnotesize\ttfamily Im\+Gui\+Input\+Text\+Callback\+Data\+::\+Im\+Gui\+Input\+Text\+Callback\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__widgets_8cpp_source_l03840}{3840}} of file \mbox{\hyperlink{imgui__widgets_8cpp_source}{imgui\+\_\+widgets.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{03841\ \{}
+\DoxyCodeLine{03842\ \ \ \ \ memset(\textcolor{keyword}{this},\ 0,\ \textcolor{keyword}{sizeof}(*\textcolor{keyword}{this}));}
+\DoxyCodeLine{03843\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_im_gui_input_text_callback_data_a14dacdd841c76dfd171ffca8a96d7c22}\label{struct_im_gui_input_text_callback_data_a14dacdd841c76dfd171ffca8a96d7c22}} 
+\index{ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}!ClearSelection@{ClearSelection}}
+\index{ClearSelection@{ClearSelection}!ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}}
+\doxysubsubsection{\texorpdfstring{ClearSelection()}{ClearSelection()}}
+{\footnotesize\ttfamily void Im\+Gui\+Input\+Text\+Callback\+Data\+::\+Clear\+Selection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02126}{2126}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02126\ \{\ SelectionStart\ =\ SelectionEnd\ =\ BufTextLen;\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_gui_input_text_callback_data_ab5dc30d7edcf60efbd5bb8e677dab8bf}\label{struct_im_gui_input_text_callback_data_ab5dc30d7edcf60efbd5bb8e677dab8bf}} 
+\index{ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}!DeleteChars@{DeleteChars}}
+\index{DeleteChars@{DeleteChars}!ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}}
+\doxysubsubsection{\texorpdfstring{DeleteChars()}{DeleteChars()}}
+{\footnotesize\ttfamily void Im\+Gui\+Input\+Text\+Callback\+Data\+::\+Delete\+Chars (\begin{DoxyParamCaption}\item[{int}]{pos,  }\item[{int}]{bytes\+\_\+count }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__widgets_8cpp_source_l03848}{3848}} of file \mbox{\hyperlink{imgui__widgets_8cpp_source}{imgui\+\_\+widgets.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{03849\ \{}
+\DoxyCodeLine{03850\ \ \ \ \ IM\_ASSERT(pos\ +\ bytes\_count\ <=\ BufTextLen);}
+\DoxyCodeLine{03851\ \ \ \ \ \textcolor{keywordtype}{char}*\ dst\ =\ Buf\ +\ pos;}
+\DoxyCodeLine{03852\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ src\ =\ Buf\ +\ pos\ +\ bytes\_count;}
+\DoxyCodeLine{03853\ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keywordtype}{char}\ c\ =\ *src++)}
+\DoxyCodeLine{03854\ \ \ \ \ \ \ \ \ *dst++\ =\ c;}
+\DoxyCodeLine{03855\ \ \ \ \ *dst\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{03856\ }
+\DoxyCodeLine{03857\ \ \ \ \ \textcolor{keywordflow}{if}\ (CursorPos\ >=\ pos\ +\ bytes\_count)}
+\DoxyCodeLine{03858\ \ \ \ \ \ \ \ \ CursorPos\ -\/=\ bytes\_count;}
+\DoxyCodeLine{03859\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (CursorPos\ >=\ pos)}
+\DoxyCodeLine{03860\ \ \ \ \ \ \ \ \ CursorPos\ =\ pos;}
+\DoxyCodeLine{03861\ \ \ \ \ SelectionStart\ =\ SelectionEnd\ =\ CursorPos;}
+\DoxyCodeLine{03862\ \ \ \ \ BufDirty\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{03863\ \ \ \ \ BufTextLen\ -\/=\ bytes\_count;}
+\DoxyCodeLine{03864\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_gui_input_text_callback_data_aae1b69a904053961be171d7f47ef430e}\label{struct_im_gui_input_text_callback_data_aae1b69a904053961be171d7f47ef430e}} 
+\index{ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}!HasSelection@{HasSelection}}
+\index{HasSelection@{HasSelection}!ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}}
+\doxysubsubsection{\texorpdfstring{HasSelection()}{HasSelection()}}
+{\footnotesize\ttfamily bool Im\+Gui\+Input\+Text\+Callback\+Data\+::\+Has\+Selection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02127}{2127}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02127\ \{\ \textcolor{keywordflow}{return}\ SelectionStart\ !=\ SelectionEnd;\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_gui_input_text_callback_data_a9963937f48aba00466c2af404dad1e25}\label{struct_im_gui_input_text_callback_data_a9963937f48aba00466c2af404dad1e25}} 
+\index{ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}!InsertChars@{InsertChars}}
+\index{InsertChars@{InsertChars}!ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}}
+\doxysubsubsection{\texorpdfstring{InsertChars()}{InsertChars()}}
+{\footnotesize\ttfamily void Im\+Gui\+Input\+Text\+Callback\+Data\+::\+Insert\+Chars (\begin{DoxyParamCaption}\item[{int}]{pos,  }\item[{const char $\ast$}]{text,  }\item[{const char $\ast$}]{text\+\_\+end = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__widgets_8cpp_source_l03866}{3866}} of file \mbox{\hyperlink{imgui__widgets_8cpp_source}{imgui\+\_\+widgets.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{03867\ \{}
+\DoxyCodeLine{03868\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ is\_resizable\ =\ (Flags\ \&\ ImGuiInputTextFlags\_CallbackResize)\ !=\ 0;}
+\DoxyCodeLine{03869\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ new\_text\_len\ =\ new\_text\_end\ ?\ (int)(new\_text\_end\ -\/\ new\_text)\ :\ (int)strlen(new\_text);}
+\DoxyCodeLine{03870\ \ \ \ \ \textcolor{keywordflow}{if}\ (new\_text\_len\ +\ BufTextLen\ >=\ BufSize)}
+\DoxyCodeLine{03871\ \ \ \ \ \{}
+\DoxyCodeLine{03872\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!is\_resizable)}
+\DoxyCodeLine{03873\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{03874\ }
+\DoxyCodeLine{03875\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Contrary\ to\ STB\_TEXTEDIT\_INSERTCHARS()\ this\ is\ working\ in\ the\ UTF8\ buffer,\ hence\ the\ mildly\ similar\ code\ (until\ we\ remove\ the\ U16\ buffer\ altogether!)}}
+\DoxyCodeLine{03876\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_im_gui_context}{ImGuiContext}}\&\ g\ =\ *Ctx;}
+\DoxyCodeLine{03877\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_im_gui_input_text_state}{ImGuiInputTextState}}*\ edit\_state\ =\ \&g.InputTextState;}
+\DoxyCodeLine{03878\ \ \ \ \ \ \ \ \ IM\_ASSERT(edit\_state-\/>ID\ !=\ 0\ \&\&\ g.ActiveId\ ==\ edit\_state-\/>ID);}
+\DoxyCodeLine{03879\ \ \ \ \ \ \ \ \ IM\_ASSERT(Buf\ ==\ edit\_state-\/>TextA.Data);}
+\DoxyCodeLine{03880\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ new\_buf\_size\ =\ BufTextLen\ +\ ImClamp(new\_text\_len\ *\ 4,\ 32,\ ImMax(256,\ new\_text\_len))\ +\ 1;}
+\DoxyCodeLine{03881\ \ \ \ \ \ \ \ \ edit\_state-\/>TextA.reserve(new\_buf\_size\ +\ 1);}
+\DoxyCodeLine{03882\ \ \ \ \ \ \ \ \ Buf\ =\ edit\_state-\/>TextA.Data;}
+\DoxyCodeLine{03883\ \ \ \ \ \ \ \ \ BufSize\ =\ edit\_state-\/>BufCapacityA\ =\ new\_buf\_size;}
+\DoxyCodeLine{03884\ \ \ \ \ \}}
+\DoxyCodeLine{03885\ }
+\DoxyCodeLine{03886\ \ \ \ \ \textcolor{keywordflow}{if}\ (BufTextLen\ !=\ pos)}
+\DoxyCodeLine{03887\ \ \ \ \ \ \ \ \ memmove(Buf\ +\ pos\ +\ new\_text\_len,\ Buf\ +\ pos,\ (\textcolor{keywordtype}{size\_t})(BufTextLen\ -\/\ pos));}
+\DoxyCodeLine{03888\ \ \ \ \ memcpy(Buf\ +\ pos,\ new\_text,\ (\textcolor{keywordtype}{size\_t})new\_text\_len\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}));}
+\DoxyCodeLine{03889\ \ \ \ \ Buf[BufTextLen\ +\ new\_text\_len]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{03890\ }
+\DoxyCodeLine{03891\ \ \ \ \ \textcolor{keywordflow}{if}\ (CursorPos\ >=\ pos)}
+\DoxyCodeLine{03892\ \ \ \ \ \ \ \ \ CursorPos\ +=\ new\_text\_len;}
+\DoxyCodeLine{03893\ \ \ \ \ SelectionStart\ =\ SelectionEnd\ =\ CursorPos;}
+\DoxyCodeLine{03894\ \ \ \ \ BufDirty\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{03895\ \ \ \ \ BufTextLen\ +=\ new\_text\_len;}
+\DoxyCodeLine{03896\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_gui_input_text_callback_data_aabbc96c73ebcec89f06811dba531bc56}\label{struct_im_gui_input_text_callback_data_aabbc96c73ebcec89f06811dba531bc56}} 
+\index{ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}!SelectAll@{SelectAll}}
+\index{SelectAll@{SelectAll}!ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}}
+\doxysubsubsection{\texorpdfstring{SelectAll()}{SelectAll()}}
+{\footnotesize\ttfamily void Im\+Gui\+Input\+Text\+Callback\+Data\+::\+Select\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02125}{2125}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02125\ \{\ SelectionStart\ =\ 0;\ SelectionEnd\ =\ BufTextLen;\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_im_gui_input_text_callback_data_ac8cd46c3473851c2822aae8240289069}\label{struct_im_gui_input_text_callback_data_ac8cd46c3473851c2822aae8240289069}} 
+\index{ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}!Buf@{Buf}}
+\index{Buf@{Buf}!ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}}
+\doxysubsubsection{\texorpdfstring{Buf}{Buf}}
+{\footnotesize\ttfamily char$\ast$ Im\+Gui\+Input\+Text\+Callback\+Data\+::\+Buf}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02112}{2112}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_input_text_callback_data_aa2d91cca2b46de3f2b218573579f122b}\label{struct_im_gui_input_text_callback_data_aa2d91cca2b46de3f2b218573579f122b}} 
+\index{ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}!BufDirty@{BufDirty}}
+\index{BufDirty@{BufDirty}!ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}}
+\doxysubsubsection{\texorpdfstring{BufDirty}{BufDirty}}
+{\footnotesize\ttfamily bool Im\+Gui\+Input\+Text\+Callback\+Data\+::\+Buf\+Dirty}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02115}{2115}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_input_text_callback_data_a0e391986e9359f6777ab27a3b08229a6}\label{struct_im_gui_input_text_callback_data_a0e391986e9359f6777ab27a3b08229a6}} 
+\index{ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}!BufSize@{BufSize}}
+\index{BufSize@{BufSize}!ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}}
+\doxysubsubsection{\texorpdfstring{BufSize}{BufSize}}
+{\footnotesize\ttfamily int Im\+Gui\+Input\+Text\+Callback\+Data\+::\+Buf\+Size}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02114}{2114}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_input_text_callback_data_aa4db7629a772cfc3286a5a3fd1e5f1ab}\label{struct_im_gui_input_text_callback_data_aa4db7629a772cfc3286a5a3fd1e5f1ab}} 
+\index{ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}!BufTextLen@{BufTextLen}}
+\index{BufTextLen@{BufTextLen}!ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}}
+\doxysubsubsection{\texorpdfstring{BufTextLen}{BufTextLen}}
+{\footnotesize\ttfamily int Im\+Gui\+Input\+Text\+Callback\+Data\+::\+Buf\+Text\+Len}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02113}{2113}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_input_text_callback_data_aba08927f2b128153e5544ec662a32a5f}\label{struct_im_gui_input_text_callback_data_aba08927f2b128153e5544ec662a32a5f}} 
+\index{ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}!Ctx@{Ctx}}
+\index{Ctx@{Ctx}!ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}}
+\doxysubsubsection{\texorpdfstring{Ctx}{Ctx}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_gui_context}{Im\+Gui\+Context}}$\ast$ Im\+Gui\+Input\+Text\+Callback\+Data\+::\+Ctx}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02102}{2102}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_input_text_callback_data_a45b3cc4d7625b1bc38d5b995ca149b43}\label{struct_im_gui_input_text_callback_data_a45b3cc4d7625b1bc38d5b995ca149b43}} 
+\index{ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}!CursorPos@{CursorPos}}
+\index{CursorPos@{CursorPos}!ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}}
+\doxysubsubsection{\texorpdfstring{CursorPos}{CursorPos}}
+{\footnotesize\ttfamily int Im\+Gui\+Input\+Text\+Callback\+Data\+::\+Cursor\+Pos}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02116}{2116}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_input_text_callback_data_a7a6e9a43c5db8f236cde912b913fe707}\label{struct_im_gui_input_text_callback_data_a7a6e9a43c5db8f236cde912b913fe707}} 
+\index{ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}!EventChar@{EventChar}}
+\index{EventChar@{EventChar}!ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}}
+\doxysubsubsection{\texorpdfstring{EventChar}{EventChar}}
+{\footnotesize\ttfamily Im\+Wchar Im\+Gui\+Input\+Text\+Callback\+Data\+::\+Event\+Char}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02110}{2110}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_input_text_callback_data_a6ad2f8e385c68e56e6682fc0c4e79949}\label{struct_im_gui_input_text_callback_data_a6ad2f8e385c68e56e6682fc0c4e79949}} 
+\index{ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}!EventFlag@{EventFlag}}
+\index{EventFlag@{EventFlag}!ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}}
+\doxysubsubsection{\texorpdfstring{EventFlag}{EventFlag}}
+{\footnotesize\ttfamily Im\+Gui\+Input\+Text\+Flags Im\+Gui\+Input\+Text\+Callback\+Data\+::\+Event\+Flag}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02103}{2103}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_input_text_callback_data_a2db52e1da5e8109d4eeb5b0ab22200a9}\label{struct_im_gui_input_text_callback_data_a2db52e1da5e8109d4eeb5b0ab22200a9}} 
+\index{ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}!EventKey@{EventKey}}
+\index{EventKey@{EventKey}!ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}}
+\doxysubsubsection{\texorpdfstring{EventKey}{EventKey}}
+{\footnotesize\ttfamily Im\+Gui\+Key Im\+Gui\+Input\+Text\+Callback\+Data\+::\+Event\+Key}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02111}{2111}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_input_text_callback_data_aac3133cf2c9d194142481e54192d8fa1}\label{struct_im_gui_input_text_callback_data_aac3133cf2c9d194142481e54192d8fa1}} 
+\index{ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}!Flags@{Flags}}
+\index{Flags@{Flags}!ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}}
+\doxysubsubsection{\texorpdfstring{Flags}{Flags}}
+{\footnotesize\ttfamily Im\+Gui\+Input\+Text\+Flags Im\+Gui\+Input\+Text\+Callback\+Data\+::\+Flags}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02104}{2104}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_input_text_callback_data_a616bf3a1f0c2d73b9133931f22ab44a7}\label{struct_im_gui_input_text_callback_data_a616bf3a1f0c2d73b9133931f22ab44a7}} 
+\index{ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}!SelectionEnd@{SelectionEnd}}
+\index{SelectionEnd@{SelectionEnd}!ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}}
+\doxysubsubsection{\texorpdfstring{SelectionEnd}{SelectionEnd}}
+{\footnotesize\ttfamily int Im\+Gui\+Input\+Text\+Callback\+Data\+::\+Selection\+End}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02118}{2118}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_input_text_callback_data_a72642ac2ce877eaade95386cad70ee8a}\label{struct_im_gui_input_text_callback_data_a72642ac2ce877eaade95386cad70ee8a}} 
+\index{ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}!SelectionStart@{SelectionStart}}
+\index{SelectionStart@{SelectionStart}!ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}}
+\doxysubsubsection{\texorpdfstring{SelectionStart}{SelectionStart}}
+{\footnotesize\ttfamily int Im\+Gui\+Input\+Text\+Callback\+Data\+::\+Selection\+Start}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02117}{2117}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_input_text_callback_data_ae8358ea4135032204fcba6c9ada7c49f}\label{struct_im_gui_input_text_callback_data_ae8358ea4135032204fcba6c9ada7c49f}} 
+\index{ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}!UserData@{UserData}}
+\index{UserData@{UserData}!ImGuiInputTextCallbackData@{ImGuiInputTextCallbackData}}
+\doxysubsubsection{\texorpdfstring{UserData}{UserData}}
+{\footnotesize\ttfamily void$\ast$ Im\+Gui\+Input\+Text\+Callback\+Data\+::\+User\+Data}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02105}{2105}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/imgui.\+h\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/imgui\+\_\+widgets.\+cpp\end{DoxyCompactItemize}

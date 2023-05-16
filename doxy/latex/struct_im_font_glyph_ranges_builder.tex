@@ -1,0 +1,211 @@
+\hypertarget{struct_im_font_glyph_ranges_builder}{}\doxysection{Im\+Font\+Glyph\+Ranges\+Builder Struct Reference}
+\label{struct_im_font_glyph_ranges_builder}\index{ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}}
+
+
+Collaboration diagram for Im\+Font\+Glyph\+Ranges\+Builder\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{struct_im_font_glyph_ranges_builder__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{struct_im_font_glyph_ranges_builder_a918c20b2291c13acd86b5fbbf6097b7f}{Clear}} ()
+\item 
+bool \mbox{\hyperlink{struct_im_font_glyph_ranges_builder_a6b1480f843b82db098205872b1309f47}{Get\+Bit}} (size\+\_\+t n) const
+\item 
+void \mbox{\hyperlink{struct_im_font_glyph_ranges_builder_a12474f5e042b7097a515db0abb71e3e6}{Set\+Bit}} (size\+\_\+t n)
+\item 
+void \mbox{\hyperlink{struct_im_font_glyph_ranges_builder_a6d3f5e3e377a73f4f4324c4cf98600dd}{Add\+Char}} (Im\+Wchar c)
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_font_glyph_ranges_builder_ade9770bde0f63b4630df30402f3619cf}{Add\+Text}} (const char $\ast$text, const char $\ast$text\+\_\+end=NULL)
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_font_glyph_ranges_builder_ac28bc574d4d34d3a2889cda34470ae71}{Add\+Ranges}} (const Im\+Wchar $\ast$ranges)
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_font_glyph_ranges_builder_abc11a683e1b345299c42abd8b6c422a5}{Build\+Ranges}} (\mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$ Im\+Wchar $>$ $\ast$out\+\_\+ranges)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$ Im\+U32 $>$ \mbox{\hyperlink{struct_im_font_glyph_ranges_builder_af83d63600e78e2454a78f0d736ba8ee4}{Used\+Chars}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02747}{2747}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_im_font_glyph_ranges_builder_aaee7673423cb7e29d43ea3901628c870}\label{struct_im_font_glyph_ranges_builder_aaee7673423cb7e29d43ea3901628c870}} 
+\index{ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}!ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}}
+\index{ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}!ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}}
+\doxysubsubsection{\texorpdfstring{ImFontGlyphRangesBuilder()}{ImFontGlyphRangesBuilder()}}
+{\footnotesize\ttfamily Im\+Font\+Glyph\+Ranges\+Builder\+::\+Im\+Font\+Glyph\+Ranges\+Builder (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02751}{2751}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02751\ \{\ Clear();\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_im_font_glyph_ranges_builder_a6d3f5e3e377a73f4f4324c4cf98600dd}\label{struct_im_font_glyph_ranges_builder_a6d3f5e3e377a73f4f4324c4cf98600dd}} 
+\index{ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}!AddChar@{AddChar}}
+\index{AddChar@{AddChar}!ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}}
+\doxysubsubsection{\texorpdfstring{AddChar()}{AddChar()}}
+{\footnotesize\ttfamily void Im\+Font\+Glyph\+Ranges\+Builder\+::\+Add\+Char (\begin{DoxyParamCaption}\item[{Im\+Wchar}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02755}{2755}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02755\ \{\ SetBit(c);\ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Add\ character}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_glyph_ranges_builder_ac28bc574d4d34d3a2889cda34470ae71}\label{struct_im_font_glyph_ranges_builder_ac28bc574d4d34d3a2889cda34470ae71}} 
+\index{ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}!AddRanges@{AddRanges}}
+\index{AddRanges@{AddRanges}!ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}}
+\doxysubsubsection{\texorpdfstring{AddRanges()}{AddRanges()}}
+{\footnotesize\ttfamily void Im\+Font\+Glyph\+Ranges\+Builder\+::\+Add\+Ranges (\begin{DoxyParamCaption}\item[{const Im\+Wchar $\ast$}]{ranges }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l03090}{3090}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{03091\ \{}
+\DoxyCodeLine{03092\ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ ranges[0];\ ranges\ +=\ 2)}
+\DoxyCodeLine{03093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ c\ =\ ranges[0];\ c\ <=\ ranges[1]\ \&\&\ c\ <=\ IM\_UNICODE\_CODEPOINT\_MAX;\ c++)\ \textcolor{comment}{//-\/V560}}
+\DoxyCodeLine{03094\ \ \ \ \ \ \ \ \ \ \ \ \ AddChar((ImWchar)c);}
+\DoxyCodeLine{03095\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_glyph_ranges_builder_ade9770bde0f63b4630df30402f3619cf}\label{struct_im_font_glyph_ranges_builder_ade9770bde0f63b4630df30402f3619cf}} 
+\index{ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}!AddText@{AddText}}
+\index{AddText@{AddText}!ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}}
+\doxysubsubsection{\texorpdfstring{AddText()}{AddText()}}
+{\footnotesize\ttfamily void Im\+Font\+Glyph\+Ranges\+Builder\+::\+Add\+Text (\begin{DoxyParamCaption}\item[{const char $\ast$}]{text,  }\item[{const char $\ast$}]{text\+\_\+end = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l03077}{3077}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{03078\ \{}
+\DoxyCodeLine{03079\ \ \ \ \ \textcolor{keywordflow}{while}\ (text\_end\ ?\ (text\ <\ text\_end)\ :\ *text)}
+\DoxyCodeLine{03080\ \ \ \ \ \{}
+\DoxyCodeLine{03081\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ c\ =\ 0;}
+\DoxyCodeLine{03082\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ c\_len\ =\ ImTextCharFromUtf8(\&c,\ text,\ text\_end);}
+\DoxyCodeLine{03083\ \ \ \ \ \ \ \ \ text\ +=\ c\_len;}
+\DoxyCodeLine{03084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c\_len\ ==\ 0)}
+\DoxyCodeLine{03085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{03086\ \ \ \ \ \ \ \ \ AddChar((ImWchar)c);}
+\DoxyCodeLine{03087\ \ \ \ \ \}}
+\DoxyCodeLine{03088\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_glyph_ranges_builder_abc11a683e1b345299c42abd8b6c422a5}\label{struct_im_font_glyph_ranges_builder_abc11a683e1b345299c42abd8b6c422a5}} 
+\index{ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}!BuildRanges@{BuildRanges}}
+\index{BuildRanges@{BuildRanges}!ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}}
+\doxysubsubsection{\texorpdfstring{BuildRanges()}{BuildRanges()}}
+{\footnotesize\ttfamily void Im\+Font\+Glyph\+Ranges\+Builder\+::\+Build\+Ranges (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$ Im\+Wchar $>$ $\ast$}]{out\+\_\+ranges }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l03097}{3097}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{03098\ \{}
+\DoxyCodeLine{03099\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ max\_codepoint\ =\ IM\_UNICODE\_CODEPOINT\_MAX;}
+\DoxyCodeLine{03100\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ n\ =\ 0;\ n\ <=\ max\_codepoint;\ n++)}
+\DoxyCodeLine{03101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (GetBit(n))}
+\DoxyCodeLine{03102\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{03103\ \ \ \ \ \ \ \ \ \ \ \ \ out\_ranges-\/>push\_back((ImWchar)n);}
+\DoxyCodeLine{03104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (n\ <\ max\_codepoint\ \&\&\ GetBit(n\ +\ 1))}
+\DoxyCodeLine{03105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ n++;}
+\DoxyCodeLine{03106\ \ \ \ \ \ \ \ \ \ \ \ \ out\_ranges-\/>push\_back((ImWchar)n);}
+\DoxyCodeLine{03107\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{03108\ \ \ \ \ out\_ranges-\/>push\_back(0);}
+\DoxyCodeLine{03109\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_glyph_ranges_builder_a918c20b2291c13acd86b5fbbf6097b7f}\label{struct_im_font_glyph_ranges_builder_a918c20b2291c13acd86b5fbbf6097b7f}} 
+\index{ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}!Clear@{Clear}}
+\index{Clear@{Clear}!ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}}
+\doxysubsubsection{\texorpdfstring{Clear()}{Clear()}}
+{\footnotesize\ttfamily void Im\+Font\+Glyph\+Ranges\+Builder\+::\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02752}{2752}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02752\ \{\ \textcolor{keywordtype}{int}\ size\_in\_bytes\ =\ (IM\_UNICODE\_CODEPOINT\_MAX\ +\ 1)\ /\ 8;\ UsedChars.resize(size\_in\_bytes\ /\ (\textcolor{keywordtype}{int})\textcolor{keyword}{sizeof}(ImU32));\ memset(UsedChars.Data,\ 0,\ (\textcolor{keywordtype}{size\_t})size\_in\_bytes);\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_glyph_ranges_builder_a6b1480f843b82db098205872b1309f47}\label{struct_im_font_glyph_ranges_builder_a6b1480f843b82db098205872b1309f47}} 
+\index{ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}!GetBit@{GetBit}}
+\index{GetBit@{GetBit}!ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}}
+\doxysubsubsection{\texorpdfstring{GetBit()}{GetBit()}}
+{\footnotesize\ttfamily bool Im\+Font\+Glyph\+Ranges\+Builder\+::\+Get\+Bit (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02753}{2753}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02753\ \{\ \textcolor{keywordtype}{int}\ off\ =\ (int)(n\ >>\ 5);\ ImU32\ mask\ =\ 1u\ <<\ (n\ \&\ 31);\ \textcolor{keywordflow}{return}\ (UsedChars[off]\ \&\ mask)\ !=\ 0;\ \}\ \ \textcolor{comment}{//\ Get\ bit\ n\ in\ the\ array}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_glyph_ranges_builder_a12474f5e042b7097a515db0abb71e3e6}\label{struct_im_font_glyph_ranges_builder_a12474f5e042b7097a515db0abb71e3e6}} 
+\index{ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}!SetBit@{SetBit}}
+\index{SetBit@{SetBit}!ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}}
+\doxysubsubsection{\texorpdfstring{SetBit()}{SetBit()}}
+{\footnotesize\ttfamily void Im\+Font\+Glyph\+Ranges\+Builder\+::\+Set\+Bit (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02754}{2754}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02754\ \{\ \textcolor{keywordtype}{int}\ off\ =\ (int)(n\ >>\ 5);\ ImU32\ mask\ =\ 1u\ <<\ (n\ \&\ 31);\ UsedChars[off]\ |=\ mask;\ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Set\ bit\ n\ in\ the\ array}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_im_font_glyph_ranges_builder_af83d63600e78e2454a78f0d736ba8ee4}\label{struct_im_font_glyph_ranges_builder_af83d63600e78e2454a78f0d736ba8ee4}} 
+\index{ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}!UsedChars@{UsedChars}}
+\index{UsedChars@{UsedChars}!ImFontGlyphRangesBuilder@{ImFontGlyphRangesBuilder}}
+\doxysubsubsection{\texorpdfstring{UsedChars}{UsedChars}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$Im\+U32$>$ Im\+Font\+Glyph\+Ranges\+Builder\+::\+Used\+Chars}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02749}{2749}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/imgui.\+h\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/imgui\+\_\+draw.\+cpp\end{DoxyCompactItemize}

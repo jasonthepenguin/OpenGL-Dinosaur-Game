@@ -1,0 +1,53 @@
+\hypertarget{imgui__impl__glfw_8h_source}{}\doxysection{imgui\+\_\+impl\+\_\+glfw.\+h}
+\label{imgui__impl__glfw_8h_source}\index{C:/Users/jason/source/repos/assignment\_1\_397/Lab\_4/imgui\_impl\_glfw.h@{C:/Users/jason/source/repos/assignment\_1\_397/Lab\_4/imgui\_impl\_glfw.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00001}00001\ \textcolor{comment}{//\ dear\ imgui:\ Platform\ Backend\ for\ GLFW}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00002}00002\ \textcolor{comment}{//\ This\ needs\ to\ be\ used\ along\ with\ a\ Renderer\ (e.g.\ OpenGL3,\ Vulkan,\ WebGPU..)}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00003}00003\ \textcolor{comment}{//\ (Info:\ GLFW\ is\ a\ cross-\/platform\ general\ purpose\ library\ for\ handling\ windows,\ inputs,\ OpenGL/Vulkan\ graphics\ context\ creation,\ etc.)}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00005}00005\ \textcolor{comment}{//\ Implemented\ features:}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00006}00006\ \textcolor{comment}{//\ \ [X]\ Platform:\ Clipboard\ support.}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00007}00007\ \textcolor{comment}{//\ \ [X]\ Platform:\ Mouse\ support.\ Can\ discriminate\ Mouse/TouchScreen/Pen\ (Windows\ only).}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00008}00008\ \textcolor{comment}{//\ \ [X]\ Platform:\ Keyboard\ support.\ Since\ 1.87\ we\ are\ using\ the\ io.AddKeyEvent()\ function.\ Pass\ ImGuiKey\ values\ to\ all\ key\ functions\ e.g.\ ImGui::IsKeyPressed(ImGuiKey\_Space).\ [Legacy\ GLFW\_KEY\_*\ values\ will\ also\ be\ supported\ unless\ IMGUI\_DISABLE\_OBSOLETE\_KEYIO\ is\ set]}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00009}00009\ \textcolor{comment}{//\ \ [X]\ Platform:\ Gamepad\ support.\ Enable\ with\ 'io.ConfigFlags\ |=\ ImGuiConfigFlags\_NavEnableGamepad'.}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00010}00010\ \textcolor{comment}{//\ \ [X]\ Platform:\ Mouse\ cursor\ shape\ and\ visibility.\ Disable\ with\ 'io.ConfigFlags\ |=\ ImGuiConfigFlags\_NoMouseCursorChange'\ (note:\ the\ resizing\ cursors\ requires\ GLFW\ 3.4+).}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00012}00012\ \textcolor{comment}{//\ You\ can\ use\ unmodified\ imgui\_impl\_*\ files\ in\ your\ project.\ See\ examples/\ folder\ for\ examples\ of\ using\ this.}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00013}00013\ \textcolor{comment}{//\ Prefer\ including\ the\ entire\ imgui/\ repository\ into\ your\ project\ (either\ as\ a\ copy\ or\ as\ a\ submodule),\ and\ only\ build\ the\ backends\ you\ need.}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00014}00014\ \textcolor{comment}{//\ If\ you\ are\ new\ to\ Dear\ ImGui,\ read\ documentation\ from\ the\ docs/\ folder\ +\ read\ the\ top\ of\ imgui.cpp.}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00015}00015\ \textcolor{comment}{//\ Read\ online:\ https://github.com/ocornut/imgui/tree/master/docs}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00017}00017\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{pragma}\ \textcolor{preprocessor}{once}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00018}00018\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \mbox{\hyperlink{imgui_8h}{"{}imgui.h"{}}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ IMGUI\_IMPL\_API}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00020}00020\ \textcolor{keyword}{struct}\ GLFWwindow;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00021}00021\ \textcolor{keyword}{struct}\ GLFWmonitor;}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00023}00023\ \mbox{\hyperlink{imgui_8h_a665f6b404eea9a640b1222a87236fe19}{IMGUI\_IMPL\_API}}\ \textcolor{keywordtype}{bool}\ \ \ \ \ ImGui\_ImplGlfw\_InitForOpenGL(GLFWwindow*\ window,\ \textcolor{keywordtype}{bool}\ install\_callbacks);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00024}00024\ \mbox{\hyperlink{imgui_8h_a665f6b404eea9a640b1222a87236fe19}{IMGUI\_IMPL\_API}}\ \textcolor{keywordtype}{bool}\ \ \ \ \ ImGui\_ImplGlfw\_InitForVulkan(GLFWwindow*\ window,\ \textcolor{keywordtype}{bool}\ install\_callbacks);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00025}00025\ \mbox{\hyperlink{imgui_8h_a665f6b404eea9a640b1222a87236fe19}{IMGUI\_IMPL\_API}}\ \textcolor{keywordtype}{bool}\ \ \ \ \ ImGui\_ImplGlfw\_InitForOther(GLFWwindow*\ window,\ \textcolor{keywordtype}{bool}\ install\_callbacks);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00026}00026\ \mbox{\hyperlink{imgui_8h_a665f6b404eea9a640b1222a87236fe19}{IMGUI\_IMPL\_API}}\ \textcolor{keywordtype}{void}\ \ \ \ \ ImGui\_ImplGlfw\_Shutdown();}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00027}00027\ \mbox{\hyperlink{imgui_8h_a665f6b404eea9a640b1222a87236fe19}{IMGUI\_IMPL\_API}}\ \textcolor{keywordtype}{void}\ \ \ \ \ ImGui\_ImplGlfw\_NewFrame();}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00029}00029\ \textcolor{comment}{//\ GLFW\ callbacks\ install}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00030}00030\ \textcolor{comment}{//\ -\/\ When\ calling\ Init\ with\ 'install\_callbacks=true':\ ImGui\_ImplGlfw\_InstallCallbacks()\ is\ called.\ GLFW\ callbacks\ will\ be\ installed\ for\ you.\ They\ will\ chain-\/call\ user's\ previously\ installed\ callbacks,\ if\ any.}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00031}00031\ \textcolor{comment}{//\ -\/\ When\ calling\ Init\ with\ 'install\_callbacks=false':\ GLFW\ callbacks\ won't\ be\ installed.\ You\ will\ need\ to\ call\ individual\ function\ yourself\ from\ your\ own\ GLFW\ callbacks.}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00032}00032\ \mbox{\hyperlink{imgui_8h_a665f6b404eea9a640b1222a87236fe19}{IMGUI\_IMPL\_API}}\ \textcolor{keywordtype}{void}\ \ \ \ \ ImGui\_ImplGlfw\_InstallCallbacks(GLFWwindow*\ window);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00033}00033\ \mbox{\hyperlink{imgui_8h_a665f6b404eea9a640b1222a87236fe19}{IMGUI\_IMPL\_API}}\ \textcolor{keywordtype}{void}\ \ \ \ \ ImGui\_ImplGlfw\_RestoreCallbacks(GLFWwindow*\ window);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00035}00035\ \textcolor{comment}{//\ GFLW\ callbacks\ options:}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00036}00036\ \textcolor{comment}{//\ -\/\ Set\ 'chain\_for\_all\_windows=true'\ to\ enable\ chaining\ callbacks\ for\ all\ windows\ (including\ secondary\ viewports\ created\ by\ backends\ or\ by\ user)}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00037}00037\ \mbox{\hyperlink{imgui_8h_a665f6b404eea9a640b1222a87236fe19}{IMGUI\_IMPL\_API}}\ \textcolor{keywordtype}{void}\ \ \ \ \ ImGui\_ImplGlfw\_SetCallbacksChainForAllWindows(\textcolor{keywordtype}{bool}\ chain\_for\_all\_windows);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00039}00039\ \textcolor{comment}{//\ GLFW\ callbacks\ (individual\ callbacks\ to\ call\ yourself\ if\ you\ didn't\ install\ callbacks)}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00040}00040\ \mbox{\hyperlink{imgui_8h_a665f6b404eea9a640b1222a87236fe19}{IMGUI\_IMPL\_API}}\ \textcolor{keywordtype}{void}\ \ \ \ \ ImGui\_ImplGlfw\_WindowFocusCallback(GLFWwindow*\ window,\ \textcolor{keywordtype}{int}\ focused);\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Since\ 1.84}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00041}00041\ \mbox{\hyperlink{imgui_8h_a665f6b404eea9a640b1222a87236fe19}{IMGUI\_IMPL\_API}}\ \textcolor{keywordtype}{void}\ \ \ \ \ ImGui\_ImplGlfw\_CursorEnterCallback(GLFWwindow*\ window,\ \textcolor{keywordtype}{int}\ entered);\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Since\ 1.84}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00042}00042\ \mbox{\hyperlink{imgui_8h_a665f6b404eea9a640b1222a87236fe19}{IMGUI\_IMPL\_API}}\ \textcolor{keywordtype}{void}\ \ \ \ \ ImGui\_ImplGlfw\_CursorPosCallback(GLFWwindow*\ window,\ \textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ y);\ \ \ \textcolor{comment}{//\ Since\ 1.87}}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00043}00043\ \mbox{\hyperlink{imgui_8h_a665f6b404eea9a640b1222a87236fe19}{IMGUI\_IMPL\_API}}\ \textcolor{keywordtype}{void}\ \ \ \ \ ImGui\_ImplGlfw\_MouseButtonCallback(GLFWwindow*\ window,\ \textcolor{keywordtype}{int}\ button,\ \textcolor{keywordtype}{int}\ action,\ \textcolor{keywordtype}{int}\ mods);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00044}00044\ \mbox{\hyperlink{imgui_8h_a665f6b404eea9a640b1222a87236fe19}{IMGUI\_IMPL\_API}}\ \textcolor{keywordtype}{void}\ \ \ \ \ ImGui\_ImplGlfw\_ScrollCallback(GLFWwindow*\ window,\ \textcolor{keywordtype}{double}\ xoffset,\ \textcolor{keywordtype}{double}\ yoffset);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00045}00045\ \mbox{\hyperlink{imgui_8h_a665f6b404eea9a640b1222a87236fe19}{IMGUI\_IMPL\_API}}\ \textcolor{keywordtype}{void}\ \ \ \ \ ImGui\_ImplGlfw\_KeyCallback(GLFWwindow*\ window,\ \textcolor{keywordtype}{int}\ key,\ \textcolor{keywordtype}{int}\ scancode,\ \textcolor{keywordtype}{int}\ action,\ \textcolor{keywordtype}{int}\ mods);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00046}00046\ \mbox{\hyperlink{imgui_8h_a665f6b404eea9a640b1222a87236fe19}{IMGUI\_IMPL\_API}}\ \textcolor{keywordtype}{void}\ \ \ \ \ ImGui\_ImplGlfw\_CharCallback(GLFWwindow*\ window,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ c);}
+\DoxyCodeLine{\Hypertarget{imgui__impl__glfw_8h_source_l00047}00047\ \mbox{\hyperlink{imgui_8h_a665f6b404eea9a640b1222a87236fe19}{IMGUI\_IMPL\_API}}\ \textcolor{keywordtype}{void}\ \ \ \ \ ImGui\_ImplGlfw\_MonitorCallback(GLFWmonitor*\ monitor,\ \textcolor{keywordtype}{int}\ event);}
+
+\end{DoxyCode}

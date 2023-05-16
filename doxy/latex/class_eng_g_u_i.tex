@@ -1,0 +1,253 @@
+\hypertarget{class_eng_g_u_i}{}\doxysection{Eng\+GUI Class Reference}
+\label{class_eng_g_u_i}\index{EngGUI@{EngGUI}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_eng_g_u_i_a91f823819b10eab741ceec580f9b20e2}{Begin\+Frame}} ()
+\item 
+void \mbox{\hyperlink{class_eng_g_u_i_aac1f376bc59200d0591fb2297b962ac9}{End\+Frame}} ()
+\item 
+void \mbox{\hyperlink{class_eng_g_u_i_aff8c63fe4599bc366fff9c30850a97e7}{render\+Data}} ()
+\item 
+void \mbox{\hyperlink{class_eng_g_u_i_a61db498f71d0882bf87eb232f7db638a}{Main\+Menu}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_eng_g_u_i_a3ee4c9ff42f5580737eebbb1a4f3e585}{show\+\_\+demo\+\_\+window}} = true
+\item 
+bool \mbox{\hyperlink{class_eng_g_u_i_a19fa9033a5a06b3305b4042af7232835}{show\+\_\+image}} = false
+\item 
+unsigned int \mbox{\hyperlink{class_eng_g_u_i_a6c36c2c173c7b4307feba2b51bc7fde6}{image\+\_\+texture\+\_\+id}}
+\item 
+GLFWwindow $\ast$ \mbox{\hyperlink{class_eng_g_u_i_a0e9ff1ca397333da10f98f7a29de096f}{window}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_eng_g_u_i_8h_source_l00017}{17}} of file \mbox{\hyperlink{_eng_g_u_i_8h_source}{Eng\+GUI.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_eng_g_u_i_a115e21948d85a988e957780a3282f2eb}\label{class_eng_g_u_i_a115e21948d85a988e957780a3282f2eb}} 
+\index{EngGUI@{EngGUI}!EngGUI@{EngGUI}}
+\index{EngGUI@{EngGUI}!EngGUI@{EngGUI}}
+\doxysubsubsection{\texorpdfstring{EngGUI()}{EngGUI()}}
+{\footnotesize\ttfamily Eng\+GUI\+::\+Eng\+GUI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_eng_g_u_i_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{_eng_g_u_i_8cpp_source}{Eng\+GUI.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \ \ \ \ window\ =\ LabEngine::getInstance().m\_window-\/>window;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{comment}{//\ TESTING\ IMGUI}}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{comment}{//\ Initialize\ ImGui}}
+\DoxyCodeLine{00014\ \ \ \ \ IMGUI\_CHECKVERSION();}
+\DoxyCodeLine{00015\ \ \ \ \ ImGui::CreateContext();}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{struct_im_gui_i_o}{ImGuiIO}}\&\ io\ =\ ImGui::GetIO();\ (void)io;}
+\DoxyCodeLine{00017\ \ \ \ \ io.IniFilename\ =\ NULL;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{comment}{//\ Set\ ImGui\ style}}
+\DoxyCodeLine{00020\ \ \ \ \ ImGui::StyleColorsDark();}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//\ Initialize\ ImGui\ GLFW\ and\ OpenGL\ bindings}}
+\DoxyCodeLine{00023\ \ \ \ \ ImGui\_ImplGlfw\_InitForOpenGL(window,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00024\ \ \ \ \ ImGui\_ImplOpenGL3\_Init(\textcolor{stringliteral}{"{}\#version\ 330\ core"{}});}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_texture_factory}{TextureFactory}}\ textFact;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//\ -\/-\/\ INIT\ PHOTO\ FOR\ GUI}}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{auto}\ groupPhoto\ =\ textFact.createTexture(\textcolor{stringliteral}{"{}group\_photo.png"{}});}
+\DoxyCodeLine{00030\ \ \ \ \ groupPhoto-\/>load();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ image\_texture\_id\ =\ groupPhoto-\/>texture;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_eng_g_u_i_ac4a8d27e03fb07677bdbd13298ad1ea5}\label{class_eng_g_u_i_ac4a8d27e03fb07677bdbd13298ad1ea5}} 
+\index{EngGUI@{EngGUI}!````~EngGUI@{$\sim$EngGUI}}
+\index{````~EngGUI@{$\sim$EngGUI}!EngGUI@{EngGUI}}
+\doxysubsubsection{\texorpdfstring{$\sim$EngGUI()}{~EngGUI()}}
+{\footnotesize\ttfamily Eng\+GUI\+::$\sim$\+Eng\+GUI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_eng_g_u_i_8cpp_source_l00036}{36}} of file \mbox{\hyperlink{_eng_g_u_i_8cpp_source}{Eng\+GUI.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ ImGui\_ImplOpenGL3\_Shutdown();}
+\DoxyCodeLine{00039\ \ \ \ \ ImGui\_ImplGlfw\_Shutdown();}
+\DoxyCodeLine{00040\ \ \ \ \ ImGui::DestroyContext();}
+\DoxyCodeLine{00041\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_eng_g_u_i_a91f823819b10eab741ceec580f9b20e2}\label{class_eng_g_u_i_a91f823819b10eab741ceec580f9b20e2}} 
+\index{EngGUI@{EngGUI}!BeginFrame@{BeginFrame}}
+\index{BeginFrame@{BeginFrame}!EngGUI@{EngGUI}}
+\doxysubsubsection{\texorpdfstring{BeginFrame()}{BeginFrame()}}
+{\footnotesize\ttfamily void Eng\+GUI\+::\+Begin\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_eng_g_u_i_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{_eng_g_u_i_8cpp_source}{Eng\+GUI.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045\ \{}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{comment}{//auto\ window\ =\ LabEngine::getInstance().m\_window-\/>window;}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ ImGui\_ImplOpenGL3\_NewFrame();}
+\DoxyCodeLine{00050\ \ \ \ \ ImGui\_ImplGlfw\_NewFrame();}
+\DoxyCodeLine{00051\ \ \ \ \ ImGui::NewFrame();}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{if}\ (show\_demo\_window)\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{comment}{//ImGui::SetNextWindowSize(ImVec2(300,\ 200));\ //\ Set\ the\ window\ size\ }}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ ImGui::SetNextWindowSize(\mbox{\hyperlink{struct_im_vec2}{ImVec2}}(300,\ 300));\ \textcolor{comment}{//\ Set\ the\ window\ size}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ImGui\ content\ goes\ here,\ e.g.:}}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ ImGui::Begin(\textcolor{stringliteral}{"{}Welcome\ to\ our\ Demo!\ (pls\ have\ mercy)"{}});}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ ImGui::Text(\textcolor{stringliteral}{"{}-\/\ Press\ M\ to\ open\ and\ close\ this\ manual!"{}});}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ ImGui::Text(\textcolor{stringliteral}{"{}-\/\ Press\ K\ to\ go\ into\ wireframe\ mode!"{}});}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ ImGui::Text(\textcolor{stringliteral}{"{}-\/\ Press\ X\ to\ quit\ this\ demo!"{}});}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ ImGui::Text(\textcolor{stringliteral}{"{}-\/\ Press\ WASD\ keys\ to\ move!"{}});}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ ImGui::Text(\textcolor{stringliteral}{"{}-\/\ Press\ R\ key\ to\ spawn\ boxes\ (test)"{}});}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ ImGui::Text(\textcolor{stringliteral}{"{}-\/\ Press\ the\ F\ key\ to\ fly!"{}});}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ ImGui::Text(\textcolor{stringliteral}{"{}-\/\ Use\ the\ mouse\ or\ arrow\ keys\ to\ look!"{}});}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ ImGui::End();}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (show\_image)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ glfwSetInputMode(window,\ GLFW\_CURSOR,\ GLFW\_CURSOR\_NORMAL);}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//ImVec2\ image\_size(groupPhoto-\/>width,\ groupPhoto-\/>height);\ //\ Set\ the\ image\ display\ size\ to\ 300x200}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_im_vec2}{ImVec2}}\ image\_size(1000,\ 700);\ \textcolor{comment}{//\ Set\ the\ image\ display\ size\ to\ 300x200}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::Begin(\textcolor{stringliteral}{"{}Image\ Display"{}});}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::Image((\textcolor{keywordtype}{void}*)(intptr\_t)image\_texture\_id,\ image\_size,\ \mbox{\hyperlink{struct_im_vec2}{ImVec2}}(0,\ 1),\ \mbox{\hyperlink{struct_im_vec2}{ImVec2}}(1,\ 0));}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::IsItemClicked())\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ glfwSetWindowShouldClose(window,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::End();}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_eng_g_u_i_aac1f376bc59200d0591fb2297b962ac9}\label{class_eng_g_u_i_aac1f376bc59200d0591fb2297b962ac9}} 
+\index{EngGUI@{EngGUI}!EndFrame@{EndFrame}}
+\index{EndFrame@{EndFrame}!EngGUI@{EngGUI}}
+\doxysubsubsection{\texorpdfstring{EndFrame()}{EndFrame()}}
+{\footnotesize\ttfamily void Eng\+GUI\+::\+End\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_eng_g_u_i_8cpp_source_l00088}{88}} of file \mbox{\hyperlink{_eng_g_u_i_8cpp_source}{Eng\+GUI.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ ImGui::Render();}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_eng_g_u_i_a61db498f71d0882bf87eb232f7db638a}\label{class_eng_g_u_i_a61db498f71d0882bf87eb232f7db638a}} 
+\index{EngGUI@{EngGUI}!MainMenu@{MainMenu}}
+\index{MainMenu@{MainMenu}!EngGUI@{EngGUI}}
+\doxysubsubsection{\texorpdfstring{MainMenu()}{MainMenu()}}
+{\footnotesize\ttfamily void Eng\+GUI\+::\+Main\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_eng_g_u_i_8cpp_source_l00100}{100}} of file \mbox{\hyperlink{_eng_g_u_i_8cpp_source}{Eng\+GUI.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_eng_g_u_i_aff8c63fe4599bc366fff9c30850a97e7}\label{class_eng_g_u_i_aff8c63fe4599bc366fff9c30850a97e7}} 
+\index{EngGUI@{EngGUI}!renderData@{renderData}}
+\index{renderData@{renderData}!EngGUI@{EngGUI}}
+\doxysubsubsection{\texorpdfstring{renderData()}{renderData()}}
+{\footnotesize\ttfamily void Eng\+GUI\+::render\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_eng_g_u_i_8cpp_source_l00094}{94}} of file \mbox{\hyperlink{_eng_g_u_i_8cpp_source}{Eng\+GUI.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00095\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ ImGui\_ImplOpenGL3\_RenderDrawData(ImGui::GetDrawData());\ \textcolor{comment}{//\ doing\ this\ at\ the\ end\ so\ draws\ on\ top\ of\ everything\ else}}
+\DoxyCodeLine{00097\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_eng_g_u_i_a6c36c2c173c7b4307feba2b51bc7fde6}\label{class_eng_g_u_i_a6c36c2c173c7b4307feba2b51bc7fde6}} 
+\index{EngGUI@{EngGUI}!image\_texture\_id@{image\_texture\_id}}
+\index{image\_texture\_id@{image\_texture\_id}!EngGUI@{EngGUI}}
+\doxysubsubsection{\texorpdfstring{image\_texture\_id}{image\_texture\_id}}
+{\footnotesize\ttfamily unsigned int Eng\+GUI\+::image\+\_\+texture\+\_\+id}
+
+
+
+Definition at line \mbox{\hyperlink{_eng_g_u_i_8h_source_l00041}{41}} of file \mbox{\hyperlink{_eng_g_u_i_8h_source}{Eng\+GUI.\+h}}.
+
+\mbox{\Hypertarget{class_eng_g_u_i_a3ee4c9ff42f5580737eebbb1a4f3e585}\label{class_eng_g_u_i_a3ee4c9ff42f5580737eebbb1a4f3e585}} 
+\index{EngGUI@{EngGUI}!show\_demo\_window@{show\_demo\_window}}
+\index{show\_demo\_window@{show\_demo\_window}!EngGUI@{EngGUI}}
+\doxysubsubsection{\texorpdfstring{show\_demo\_window}{show\_demo\_window}}
+{\footnotesize\ttfamily bool Eng\+GUI\+::show\+\_\+demo\+\_\+window = true}
+
+
+
+Definition at line \mbox{\hyperlink{_eng_g_u_i_8h_source_l00037}{37}} of file \mbox{\hyperlink{_eng_g_u_i_8h_source}{Eng\+GUI.\+h}}.
+
+\mbox{\Hypertarget{class_eng_g_u_i_a19fa9033a5a06b3305b4042af7232835}\label{class_eng_g_u_i_a19fa9033a5a06b3305b4042af7232835}} 
+\index{EngGUI@{EngGUI}!show\_image@{show\_image}}
+\index{show\_image@{show\_image}!EngGUI@{EngGUI}}
+\doxysubsubsection{\texorpdfstring{show\_image}{show\_image}}
+{\footnotesize\ttfamily bool Eng\+GUI\+::show\+\_\+image = false}
+
+
+
+Definition at line \mbox{\hyperlink{_eng_g_u_i_8h_source_l00038}{38}} of file \mbox{\hyperlink{_eng_g_u_i_8h_source}{Eng\+GUI.\+h}}.
+
+\mbox{\Hypertarget{class_eng_g_u_i_a0e9ff1ca397333da10f98f7a29de096f}\label{class_eng_g_u_i_a0e9ff1ca397333da10f98f7a29de096f}} 
+\index{EngGUI@{EngGUI}!window@{window}}
+\index{window@{window}!EngGUI@{EngGUI}}
+\doxysubsubsection{\texorpdfstring{window}{window}}
+{\footnotesize\ttfamily GLFWwindow$\ast$ Eng\+GUI\+::window}
+
+
+
+Definition at line \mbox{\hyperlink{_eng_g_u_i_8h_source_l00044}{44}} of file \mbox{\hyperlink{_eng_g_u_i_8h_source}{Eng\+GUI.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/Eng\+GUI.\+h\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/Eng\+GUI.\+cpp\end{DoxyCompactItemize}

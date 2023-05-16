@@ -1,0 +1,1011 @@
+\hypertarget{class_terrain}{}\doxysection{Terrain Class Reference}
+\label{class_terrain}\index{Terrain@{Terrain}}
+
+
+Inheritance diagram for Terrain\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=151pt]{class_terrain__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Terrain\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=241pt]{class_terrain__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_terrain_a53747d211cded93694abdf632cd3d0f2}{load\+Heightfield}} (const char $\ast$file\+Name, const int size)
+\item 
+void \mbox{\hyperlink{class_terrain_aed836a6c149a66a61914674516079a4d}{set\+Scaling\+Factor}} (float x\+Scale, float y\+Scale, float z\+Scale)
+\item 
+void \mbox{\hyperlink{class_terrain_a545e475202584f6d231454bf19d0d72f}{brute\+Force\+Render}} ()
+\item 
+float \mbox{\hyperlink{class_terrain_af098de14a31aec4aed0d28c2efc93bfe}{get\+Height}} (int xpos, int zpos)
+\item 
+unsigned char \mbox{\hyperlink{class_terrain_a32f65a30b78665629dc04fe6670d5812}{get\+Height\+Color}} (int xpos, int zpos)
+\item 
+void \mbox{\hyperlink{class_terrain_a67150cbd0c63e427033cf9905af18c42}{normalise\+Terrain}} (float $\ast$ter\+Data)
+\item 
+void \mbox{\hyperlink{class_terrain_abee2cd746efee95e53d93d2a6d0e89d0}{load\+Terrain\+Texture}} (std\+::string texture\+Name)
+\item 
+bool \mbox{\hyperlink{class_terrain_a120ce07ae301d143f69010733da53cb4}{gen\+Fault\+Formation}} (int iterations, int h\+Size, int min\+Height, int max\+Height, float weight, bool random)
+\item 
+void \mbox{\hyperlink{class_terrain_a5347be766460d1bcd2dc8dd92f3481e7}{add\+Filter}} (float $\ast$ter\+Data, float weight)
+\item 
+void \mbox{\hyperlink{class_terrain_aa7d18875c004f8d24c17660d6894b539}{filter\+Pass}} (float $\ast$startP, int increment, float weight)
+\item 
+bool \mbox{\hyperlink{class_terrain_a93433ce112205444584e3b7d8fda3592}{set\+Up\+Terrain\+Data}} (bool has\+Texture)
+\item 
+void \mbox{\hyperlink{class_terrain_a2620ae254296986a006efd6f2091d442}{Update}} (float delta\+Time) override
+\item 
+void \mbox{\hyperlink{class_terrain_a8a16a133f0c346465adbcee5691a7e1e}{Render}} (\mbox{\hyperlink{class_shader}{Shader}} \&shader) override
+\item 
+void \mbox{\hyperlink{class_terrain_aa25ae4fc49ba583bb0b500ed4a3ab8fb}{Init}} () override
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_game_object_a44739a8b5e507580ee3100df039ab8e6}\label{class_game_object_a44739a8b5e507580ee3100df039ab8e6}} 
+virtual void {\bfseries Update} (float delta\+Time)=0
+\item 
+\mbox{\Hypertarget{class_game_object_a05f3cdd5a312b134640913077839e396}\label{class_game_object_a05f3cdd5a312b134640913077839e396}} 
+virtual void {\bfseries Render} (\mbox{\hyperlink{class_shader}{Shader}} \&shader)=0
+\item 
+\mbox{\Hypertarget{class_game_object_ab3b70fcc4e640ba2081508b1efb35536}\label{class_game_object_ab3b70fcc4e640ba2081508b1efb35536}} 
+virtual void {\bfseries Init} ()=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_terrain_a99d42fba0b97f0850d1e250edd5fd211}{size}}
+\item 
+float \mbox{\hyperlink{class_terrain_a8e3269d072b2be6caa40070f66d37458}{scaleX}}
+\item 
+float \mbox{\hyperlink{class_terrain_a2f3f1479e2bd7980efe3947bf1fb5dd7}{scaleY}}
+\item 
+float \mbox{\hyperlink{class_terrain_a7ce825d4ce496e3ae19fe750dd29af49}{scaleZ}}
+\item 
+\mbox{\hyperlink{class_shader}{Shader}} $\ast$ \mbox{\hyperlink{class_terrain_a632a2ed03b7a168ac45b450d9c285f20}{shared\+Shader}}
+\item 
+unsigned char $\ast$ \mbox{\hyperlink{class_terrain_a84685b0b5451a926e2178668045d7507}{terrain\+Data}}
+\item 
+rp3d\+::\+Rigid\+Body $\ast$ \mbox{\hyperlink{class_terrain_a6326b27fa3a42700ff8915d53c818e55}{heightfield\+Body}}
+\item 
+std\+::vector$<$ float $>$ \mbox{\hyperlink{class_terrain_ae9ccd55d6ff63f9ec69fef542b083f03}{vertices}}
+\item 
+std\+::vector$<$ float $>$ \mbox{\hyperlink{class_terrain_a17a041462bcb6b7a4caabe9db1d28741}{vert\+\_\+pos}}
+\item 
+std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{class_terrain_a63c059f65e9d688c1c1768f6dd8dabe1}{indices}}
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_terrain_aa8953f6b6cfd5e7858ea9f3063388266}{start\+Pos}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_game_object_a16e2e8c2546d7bf920bbe2e288acb278}{position}}
+\item 
+glm\+::mat4 \mbox{\hyperlink{class_game_object_a552da7cf868f6ffe8d67cf2117a8b822}{rotation}}
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_game_object_aef09a2918426012bbb70a72ce4909361}{size}}
+\item 
+\mbox{\hyperlink{class_shader}{Shader}} $\ast$ \mbox{\hyperlink{class_game_object_a1cf4da1f44a516660c6c1dde3943173e}{shared\+Shader}}
+\item 
+std\+::string \mbox{\hyperlink{class_game_object_af542b33c8de269343e22c5629e6b66c0}{name}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_terrain_8h_source_l00032}{32}} of file \mbox{\hyperlink{_terrain_8h_source}{Terrain.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_terrain_a5347be766460d1bcd2dc8dd92f3481e7}\label{class_terrain_a5347be766460d1bcd2dc8dd92f3481e7}} 
+\index{Terrain@{Terrain}!addFilter@{addFilter}}
+\index{addFilter@{addFilter}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{addFilter()}{addFilter()}}
+{\footnotesize\ttfamily void Terrain\+::add\+Filter (\begin{DoxyParamCaption}\item[{float $\ast$}]{ter\+Data,  }\item[{float}]{weight }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_terrain_8cpp_source_l00539}{539}} of file \mbox{\hyperlink{_terrain_8cpp_source}{Terrain.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00540\ \{}
+\DoxyCodeLine{00541\ }
+\DoxyCodeLine{00542\ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{00543\ }
+\DoxyCodeLine{00544\ \ \ \ \ \textcolor{comment}{//erode\ left\ to\ right,\ starting\ from\ the\ beginning\ of\ each\ row\ }}
+\DoxyCodeLine{00545\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ size;\ i++)}
+\DoxyCodeLine{00546\ \ \ \ \ \ \ \ \ filterPass(\&terData[size\ *\ i],\ 1,\ weight);}
+\DoxyCodeLine{00547\ }
+\DoxyCodeLine{00548\ \ \ \ \ \textcolor{comment}{//erode\ right\ to\ left,\ starting\ from\ the\ end\ of\ each\ row\ }}
+\DoxyCodeLine{00549\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ size;\ i++)}
+\DoxyCodeLine{00550\ \ \ \ \ \ \ \ \ filterPass(\&terData[size\ *\ i\ +\ size\ -\/\ 1],\ -\/1,\ weight);}
+\DoxyCodeLine{00551\ }
+\DoxyCodeLine{00552\ \ \ \ \ \textcolor{comment}{//erode\ top\ to\ bottom,\ starting\ from\ the\ beginning\ of\ each\ column\ }}
+\DoxyCodeLine{00553\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ size;\ i++)}
+\DoxyCodeLine{00554\ \ \ \ \ \ \ \ \ filterPass(\&terData[i],\ size,\ weight);}
+\DoxyCodeLine{00555\ }
+\DoxyCodeLine{00556\ \ \ \ \ \textcolor{comment}{//erode\ from\ bottom\ to\ top,\ starting\ from\ the\ end\ of\ each\ column\ }}
+\DoxyCodeLine{00557\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ size;\ i++)}
+\DoxyCodeLine{00558\ \ \ \ \ \ \ \ \ filterPass(\&terData[size\ *\ (size\ -\/\ 1)\ +\ i],\ -\/size,\ weight);}
+\DoxyCodeLine{00559\ }
+\DoxyCodeLine{00560\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_terrain_a545e475202584f6d231454bf19d0d72f}\label{class_terrain_a545e475202584f6d231454bf19d0d72f}} 
+\index{Terrain@{Terrain}!bruteForceRender@{bruteForceRender}}
+\index{bruteForceRender@{bruteForceRender}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{bruteForceRender()}{bruteForceRender()}}
+{\footnotesize\ttfamily void Terrain\+::brute\+Force\+Render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_terrain_8cpp_source_l00107}{107}} of file \mbox{\hyperlink{_terrain_8cpp_source}{Terrain.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ ourShader-\/>use();}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ glm::mat4\ model\ =\ glm::mat4(1.0f);}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{comment}{//\ When\ not\ using\ fault}}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{comment}{//startPos\ =\ glm::vec3(-\/64.0f\ *\ scaleX,\ -\/25.0f,\ -\/64.0\ *\ scaleZ);\ //\ Getting\ the\ terrain\ somewhat\ in\ the\ middle}}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{comment}{//startPos\ =\ glm::vec3(-\/64.0f\ *\ scaleX,\ -\/50.0f,\ -\/64.0\ *\ scaleZ);\ //\ Getting\ the\ terrain\ somewhat\ in\ the\ middle}}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{comment}{//glm::vec3\ startPos\ =\ glm::vec3(-\/64.0f\ ,\ -\/25.0f,\ -\/64.0\ );}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordflow}{if}\ (!hasTexture)\ \{}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ glBindVertexArray(VAO);}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ model\ =\ glm::translate(model,\ startPos);}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ ourShader-\/>setMat4(\textcolor{stringliteral}{"{}model"{}},\ model);}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{comment}{//glDrawArrays(GL\_TRIANGLE\_STRIP,\ 0,\ vertices.size()\ /\ 4);}}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ glDrawElements(GL\_TRIANGLES,\ indices.size(),\ GL\_UNSIGNED\_INT,\ 0);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \}}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordflow}{else}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ RENDERING\ WHEN\ USING\ TEXTURE\ COORDS}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ glBindVertexArray(VAO);}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ model\ =\ glm::translate(model,\ startPos);}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{comment}{//ourShader-\/>setMat4("{}model"{},\ model);}}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ sharedShader-\/>use();}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ sharedShader-\/>setMat4(\textcolor{stringliteral}{"{}model"{}},\ model);}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ terrainTexture-\/>bindTexture(0);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{comment}{//glDrawArrays(GL\_TRIANGLE\_STRIP,\ 0,\ vertices.size()\ /\ 5);}}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ glDrawElements(GL\_TRIANGLES,\ indices.size(),\ GL\_UNSIGNED\_INT,\ 0);}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ terrainTexture-\/>unbind();}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \}}
+\DoxyCodeLine{00149\ \ \ \ \ }
+\DoxyCodeLine{00150\ \ \ \ \ }
+\DoxyCodeLine{00151\ \ \ \ \ }
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ glBindVertexArray(0);}
+\DoxyCodeLine{00154\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_terrain_aa7d18875c004f8d24c17660d6894b539}\label{class_terrain_aa7d18875c004f8d24c17660d6894b539}} 
+\index{Terrain@{Terrain}!filterPass@{filterPass}}
+\index{filterPass@{filterPass}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{filterPass()}{filterPass()}}
+{\footnotesize\ttfamily void Terrain\+::filter\+Pass (\begin{DoxyParamCaption}\item[{float $\ast$}]{startP,  }\item[{int}]{increment,  }\item[{float}]{weight }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_terrain_8cpp_source_l00562}{562}} of file \mbox{\hyperlink{_terrain_8cpp_source}{Terrain.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00563\ \{}
+\DoxyCodeLine{00564\ \ \ \ \ \textcolor{keywordtype}{float}\ yprev\ =\ *startP;\ \ \ \textcolor{comment}{//\ the\ starting\ point\ in\ the\ terrain\ array\ }}
+\DoxyCodeLine{00565\ \ \ \ \ \textcolor{keywordtype}{int}\ j\ =\ increment;\ \ \ \textcolor{comment}{//\ must\ be\ either\ +1,\ -\/1,\ +size,\ or\ -\/size\ }}
+\DoxyCodeLine{00566\ \ \ \ \ \textcolor{keywordtype}{float}\ k\ =\ weight;}
+\DoxyCodeLine{00567\ }
+\DoxyCodeLine{00568\ \ \ \ \ \textcolor{comment}{//\ loop\ through\ either\ \ }}
+\DoxyCodeLine{00569\ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ one\ row\ from\ left\ to\ right\ if\ increment\ =\ +1,\ or\ }}
+\DoxyCodeLine{00570\ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ one\ row\ from\ right\ to\ left\ if\ increment\ =\ -\/1,\ or\ }}
+\DoxyCodeLine{00571\ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ one\ column\ from\ top\ to\ bottom\ if\ increment\ =\ +size,\ or\ }}
+\DoxyCodeLine{00572\ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ one\ column\ from\ bottom\ to\ top\ if\ increment\ =\ -\/size\ }}
+\DoxyCodeLine{00573\ }
+\DoxyCodeLine{00574\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ size;\ i++)\ \{}
+\DoxyCodeLine{00575\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ yi\ =\ k\ yi-\/1\ +\ (1-\/k)\ xi\ }}
+\DoxyCodeLine{00576\ \ \ \ \ \ \ \ \ *(startP\ +\ j)\ =\ k\ *\ yprev\ +\ (1\ -\/\ k)\ *\ (*(startP\ +\ j));}
+\DoxyCodeLine{00577\ \ \ \ \ \ \ \ \ yprev\ =\ *(startP\ +\ j);}
+\DoxyCodeLine{00578\ \ \ \ \ \ \ \ \ j\ +=\ increment;}
+\DoxyCodeLine{00579\ \ \ \ \ \}}
+\DoxyCodeLine{00580\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_terrain_a120ce07ae301d143f69010733da53cb4}\label{class_terrain_a120ce07ae301d143f69010733da53cb4}} 
+\index{Terrain@{Terrain}!genFaultFormation@{genFaultFormation}}
+\index{genFaultFormation@{genFaultFormation}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{genFaultFormation()}{genFaultFormation()}}
+{\footnotesize\ttfamily bool Terrain\+::gen\+Fault\+Formation (\begin{DoxyParamCaption}\item[{int}]{iterations,  }\item[{int}]{h\+Size,  }\item[{int}]{min\+Height,  }\item[{int}]{max\+Height,  }\item[{float}]{weight,  }\item[{bool}]{random }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_terrain_8cpp_source_l00465}{465}} of file \mbox{\hyperlink{_terrain_8cpp_source}{Terrain.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00466\ \{}
+\DoxyCodeLine{00467\ \ \ \ \ \textcolor{keywordtype}{int}\ x1,\ x2,\ z1,\ z2;}
+\DoxyCodeLine{00468\ \ \ \ \ \textcolor{keywordtype}{float}*\ heights\ =\ NULL;}
+\DoxyCodeLine{00469\ \ \ \ \ \textcolor{keywordtype}{int}\ displacement;}
+\DoxyCodeLine{00470\ }
+\DoxyCodeLine{00471\ \ \ \ \ \textcolor{keywordflow}{if}\ (hSize\ <=\ 0)\ \{}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00473\ \ \ \ \ \}}
+\DoxyCodeLine{00474\ \ \ \ \ \textcolor{keywordflow}{if}\ (random)\ \textcolor{comment}{//\ create\ truly\ random\ map}}
+\DoxyCodeLine{00475\ \ \ \ \ \{}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ srand(time(NULL));}
+\DoxyCodeLine{00477\ \ \ \ \ \}}
+\DoxyCodeLine{00478\ }
+\DoxyCodeLine{00479\ \ \ \ \ \textcolor{comment}{//\ allocate\ memory\ for\ heightfield\ array}}
+\DoxyCodeLine{00480\ \ \ \ \ size\ =\ hSize;}
+\DoxyCodeLine{00481\ \ \ \ \ heights\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{float}[size\ *\ size];\ \textcolor{comment}{//\ allocate\ memory}}
+\DoxyCodeLine{00482\ \ \ \ \ terrainData\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}[size\ *\ size];\ \textcolor{comment}{//\ terrainData\ is\ declared\ in\ terrain\ class}}
+\DoxyCodeLine{00483\ \ \ \ \ \textcolor{keywordflow}{if}\ (heights\ ==\ NULL\ ||\ terrainData\ ==\ NULL)\ \{}
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00485\ \ \ \ \ \}}
+\DoxyCodeLine{00486\ \ \ \ \ }
+\DoxyCodeLine{00487\ \ \ \ \ \textcolor{comment}{//\ initialise\ the\ heightfield\ array\ to\ all\ zeros}}
+\DoxyCodeLine{00488\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size\ *\ size;\ i++)}
+\DoxyCodeLine{00489\ \ \ \ \ \{}
+\DoxyCodeLine{00490\ \ \ \ \ \ \ \ \ heights[i]\ =\ 0.0;}
+\DoxyCodeLine{00491\ \ \ \ \ \}}
+\DoxyCodeLine{00492\ }
+\DoxyCodeLine{00493\ \ \ \ \ \textcolor{comment}{//\ generate\ heightfield}}
+\DoxyCodeLine{00494\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ iterations;\ j++)\ \{}
+\DoxyCodeLine{00495\ }
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \textcolor{comment}{//calculate\ the\ displacement\ value\ for\ the\ current\ iteration\ }}
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ displacement\ =\ maxHeight\ -\/\ ((maxHeight\ -\/\ minHeight)\ *\ j)\ /\ iterations;}
+\DoxyCodeLine{00498\ }
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ \textcolor{comment}{//pick\ the\ first\ random\ point\ P1(x1,\ z1)\ from\ the\ height\ map\ }}
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ x1\ =\ (rand()\ \%\ size);}
+\DoxyCodeLine{00501\ \ \ \ \ \ \ \ \ z1\ =\ (rand()\ \%\ size);}
+\DoxyCodeLine{00502\ }
+\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ pick\ up\ the\ second\ random\ point\ P2(x2,\ z2)\ and\ make\ sure\ it\ is\ }}
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ different\ from\ the\ first\ point\ }}
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ \ \ \ \ x2\ =\ (rand()\ \%\ size);}
+\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ \ \ \ \ z2\ =\ (rand()\ \%\ size);}
+\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (x2\ ==\ x1\ \&\&\ z2\ ==\ z1);}
+\DoxyCodeLine{00509\ }
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ \textcolor{comment}{//for\ each\ point\ P(x,\ z)\ in\ the\ field,\ calculate\ the\ new\ height\ values\ }}
+\DoxyCodeLine{00511\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ z\ =\ 0;\ z\ <\ size;\ z++)\ \{}
+\DoxyCodeLine{00512\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ =\ 0;\ x\ <\ size;\ x++)\ \{}
+\DoxyCodeLine{00513\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ determine\ which\ side\ of\ the\ line\ P1P2\ the\ point\ P\ lies\ in\ }}
+\DoxyCodeLine{00514\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (((x\ -\/\ x1)\ *\ (z2\ -\/\ z1)\ -\/\ (x2\ -\/\ x1)\ *\ (z\ -\/\ z1))\ >\ 0)\ \{}
+\DoxyCodeLine{00515\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ heights[(z\ *\ size)\ +\ x]\ +=\ (\textcolor{keywordtype}{float})displacement;}
+\DoxyCodeLine{00516\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00517\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00518\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00519\ \ \ \ \ \ \ \ \ addFilter(heights,\ weight);}
+\DoxyCodeLine{00520\ \ \ \ \ \}}
+\DoxyCodeLine{00521\ }
+\DoxyCodeLine{00522\ \ \ \ \ \textcolor{comment}{//\ normalise\ the\ heightfield}}
+\DoxyCodeLine{00523\ \ \ \ \ normaliseTerrain(heights);}
+\DoxyCodeLine{00524\ }
+\DoxyCodeLine{00525\ \ \ \ \ \textcolor{comment}{//\ copy\ the\ float\ heightfield\ to\ terrainData\ (in\ unsign\ char)\ }}
+\DoxyCodeLine{00526\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ z\ =\ 0;\ z\ <\ size;\ z++)\ \{}
+\DoxyCodeLine{00527\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ =\ 0;\ x\ <\ size;\ x++)\ \{}
+\DoxyCodeLine{00528\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//setHeightAtPoint((unsigned\ char)heights[(z\ *\ size)\ +\ x],\ x,\ z);}}
+\DoxyCodeLine{00529\ \ \ \ \ \ \ \ \ \ \ \ \ terrainData[(z\ *\ size)\ +\ x]\ =\ heights[(z\ *\ size)\ +\ x];\ \textcolor{comment}{//\ DOUBLE\ CHECK\ THIS\ PLEASE\ FOR\ THE\ LOVE\ OF\ GOD}}
+\DoxyCodeLine{00530\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00531\ \ \ \ \ \}}
+\DoxyCodeLine{00532\ }
+\DoxyCodeLine{00533\ \ \ \ \ \textcolor{comment}{//\ dispose\ of\ the\ temporary\ array\ heights\ }}
+\DoxyCodeLine{00534\ \ \ \ \ \textcolor{keyword}{delete}[]\ heights;}
+\DoxyCodeLine{00535\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00536\ }
+\DoxyCodeLine{00537\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_terrain_af098de14a31aec4aed0d28c2efc93bfe}\label{class_terrain_af098de14a31aec4aed0d28c2efc93bfe}} 
+\index{Terrain@{Terrain}!getHeight@{getHeight}}
+\index{getHeight@{getHeight}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{getHeight()}{getHeight()}}
+{\footnotesize\ttfamily float Terrain\+::get\+Height (\begin{DoxyParamCaption}\item[{int}]{xpos,  }\item[{int}]{zpos }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_terrain_8cpp_source_l00440}{440}} of file \mbox{\hyperlink{_terrain_8cpp_source}{Terrain.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00441\ }
+\DoxyCodeLine{00442\ \ \ \ \ \textcolor{keywordflow}{if}\ (xpos\ <\ size\ \&\&\ zpos\ <\ size\ \&\&\ xpos\ >=0\ \&\&\ zpos\ >=\ 0)\ \{}
+\DoxyCodeLine{00443\ }
+\DoxyCodeLine{00444\ }
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ((\textcolor{keywordtype}{float})(terrainData[(zpos\ *\ size)\ +\ xpos])\ *\ scaleY);}
+\DoxyCodeLine{00446\ \ \ \ \ \}}
+\DoxyCodeLine{00447\ \ \ \ \ }
+\DoxyCodeLine{00448\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_terrain_a32f65a30b78665629dc04fe6670d5812}\label{class_terrain_a32f65a30b78665629dc04fe6670d5812}} 
+\index{Terrain@{Terrain}!getHeightColor@{getHeightColor}}
+\index{getHeightColor@{getHeightColor}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{getHeightColor()}{getHeightColor()}}
+{\footnotesize\ttfamily unsigned char Terrain\+::get\+Height\+Color (\begin{DoxyParamCaption}\item[{int}]{xpos,  }\item[{int}]{zpos }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_terrain_8cpp_source_l00449}{449}} of file \mbox{\hyperlink{_terrain_8cpp_source}{Terrain.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00450\ }
+\DoxyCodeLine{00451\ \ \ \ \ \textcolor{comment}{//if\ (inbounds(xpos,\ zpos))\ \{}}
+\DoxyCodeLine{00452\ \ \ \ \ \textcolor{comment}{//\ \ return\ terrainData[zpos\ *\ size\ +\ xpos];}}
+\DoxyCodeLine{00453\ \ \ \ \ \textcolor{comment}{//\}}}
+\DoxyCodeLine{00454\ }
+\DoxyCodeLine{00455\ \ \ \ \ \textcolor{keywordflow}{if}\ (xpos\ <\ size\ \&\&\ zpos\ <\ size)\ \{}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ terrainData[zpos\ *\ size\ +\ xpos];}
+\DoxyCodeLine{00457\ \ \ \ \ \}}
+\DoxyCodeLine{00458\ }
+\DoxyCodeLine{00459\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00460\ }
+\DoxyCodeLine{00461\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_terrain_aa25ae4fc49ba583bb0b500ed4a3ab8fb}\label{class_terrain_aa25ae4fc49ba583bb0b500ed4a3ab8fb}} 
+\index{Terrain@{Terrain}!Init@{Init}}
+\index{Init@{Init}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void Terrain\+::\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_game_object}{Game\+Object}}.
+
+
+
+Definition at line \mbox{\hyperlink{_terrain_8cpp_source_l00016}{16}} of file \mbox{\hyperlink{_terrain_8cpp_source}{Terrain.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{auto}\ world\ =\ LabEngine::getInstance().\mbox{\hyperlink{class_lab_engine_a4e301e032612ac6e4e2ccb00a0774e1c}{world}};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{//const\ int\ nbVertices\ =\ simpleTerrain-\/>vert\_pos.size()\ /\ 3;}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ nbVertices\ =\ vert\_pos.size()\ /\ 3;}
+\DoxyCodeLine{00023\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}num\ of\ vert\ pos\ :\ "{}}\ <<\ nbVertices\ <<\ std::endl;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//const\ int\ nbTriangles\ =\ simpleTerrain-\/>indices.size()\ /\ 3;}}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ nbTriangles\ =\ indices.size()\ /\ 3;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//float\ vertices[3\ *\ nbVertices]\ =\ ...;}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{//int\ indices[3\ *\ nbTriangles]\ =\ ...;}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ TriangleVertexArray*\ triangleArray\ =}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{comment}{//new\ TriangleVertexArray(nbVertices,\ simpleTerrain-\/>vert\_pos.data(),\ 3\ *\ sizeof(}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ TriangleVertexArray(nbVertices,\ vert\_pos.data(),\ 3\ *\ \textcolor{keyword}{sizeof}(}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}),\ nbTriangles,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//simpleTerrain-\/>indices.data(),\ 3\ *\ sizeof(int),}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ indices.data(),\ 3\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}),}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ TriangleVertexArray::VertexDataType::VERTEX\_FLOAT\_TYPE,}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ TriangleVertexArray::IndexDataType::INDEX\_INTEGER\_TYPE);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ TriangleMesh*\ triangleMesh\ =\ LabEngine::getInstance().\mbox{\hyperlink{class_lab_engine_a4342942371b8d4ae002beebab9a3aaa9}{physicsCommon}}.createTriangleMesh();}
+\DoxyCodeLine{00042\ \ \ \ \ triangleMesh-\/>addSubpart(triangleArray);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ ConcaveMeshShape*\ concaveMesh\ =\ LabEngine::getInstance().\mbox{\hyperlink{class_lab_engine_a4342942371b8d4ae002beebab9a3aaa9}{physicsCommon}}.createConcaveMeshShape(triangleMesh);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{comment}{//\ create\ a\ heightfield\ map}}
+\DoxyCodeLine{00047\ \ \ \ \ rp3d::Vector3\ heightfieldMapPos(0.0f,\ 0.0f,\ 0.0f);}
+\DoxyCodeLine{00048\ \ \ \ \ rp3d::Quaternion\ heightfieldOrientation\ =\ rp3d::Quaternion::identity();}
+\DoxyCodeLine{00049\ \ \ \ \ rp3d::Transform\ heightfieldTransform(heightfieldMapPos,\ heightfieldOrientation);}
+\DoxyCodeLine{00050\ \ \ \ \ heightfieldBody\ =\ world-\/>createRigidBody(heightfieldTransform);}
+\DoxyCodeLine{00051\ \ \ \ \ heightfieldBody-\/>setType(rp3d::BodyType::STATIC);\ \textcolor{comment}{//\ <-\/-\/\ set\ heightmap\ to\ static}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{comment}{//\ add\ collider}}
+\DoxyCodeLine{00054\ \ \ \ \ rp3d::Collider*\ heightmapCollider;}
+\DoxyCodeLine{00055\ \ \ \ \ heightmapCollider\ =\ heightfieldBody-\/>addCollider(concaveMesh,\ rp3d::Transform::identity());}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_terrain_a53747d211cded93694abdf632cd3d0f2}\label{class_terrain_a53747d211cded93694abdf632cd3d0f2}} 
+\index{Terrain@{Terrain}!loadHeightfield@{loadHeightfield}}
+\index{loadHeightfield@{loadHeightfield}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{loadHeightfield()}{loadHeightfield()}}
+{\footnotesize\ttfamily bool Terrain\+::load\+Heightfield (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file\+Name,  }\item[{const int}]{size }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_terrain_8cpp_source_l00062}{62}} of file \mbox{\hyperlink{_terrain_8cpp_source}{Terrain.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//\ open\ for\ binary\ read}}
+\DoxyCodeLine{00065\ \ \ \ \ std::ifstream\ infile(filename,\ std::ios::binary);}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{if}\ (!infile)\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Cannot\ open\ file!\ :\ "{}}\ <<\ filename\ <<\ std::endl;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{//\ allocate\ memory}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{if}\ (terrainData)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ terrainData;}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{if}\ (size\ >\ 0)\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ terrainData\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}[size\ *\ size];}
+\DoxyCodeLine{00077\ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{if}\ (terrainData\ ==\ NULL)\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//\ read\ in\ heightfield}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ get\ length\ of\ file}}
+\DoxyCodeLine{00084\ \ \ \ \ infile.seekg(0,\ std::ios::end);}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{int}\ length\ =\ infile.tellg();}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{comment}{//\ read\ data\ as\ a\ block}}
+\DoxyCodeLine{00088\ \ \ \ \ infile.seekg(0,\ std::ios::beg);}
+\DoxyCodeLine{00089\ \ \ \ \ infile.read(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(terrainData),\ length);}
+\DoxyCodeLine{00090\ \ \ \ \ infile.close();}
+\DoxyCodeLine{00091\ \ \ \ \ this-\/>size\ =\ size;}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_terrain_abee2cd746efee95e53d93d2a6d0e89d0}\label{class_terrain_abee2cd746efee95e53d93d2a6d0e89d0}} 
+\index{Terrain@{Terrain}!loadTerrainTexture@{loadTerrainTexture}}
+\index{loadTerrainTexture@{loadTerrainTexture}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{loadTerrainTexture()}{loadTerrainTexture()}}
+{\footnotesize\ttfamily void Terrain\+::load\+Terrain\+Texture (\begin{DoxyParamCaption}\item[{std\+::string}]{texture\+Name }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_terrain_8cpp_source_l00427}{427}} of file \mbox{\hyperlink{_terrain_8cpp_source}{Terrain.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00428\ \{}
+\DoxyCodeLine{00429\ }
+\DoxyCodeLine{00430\ }
+\DoxyCodeLine{00431\ \ \ \ \ \textcolor{comment}{//\ Terrain\ texture\ data}}
+\DoxyCodeLine{00432\ \ \ \ \ \mbox{\hyperlink{class_texture_factory}{TextureFactory}}\ textFact;\ \textcolor{comment}{//\ temporarily\ placing\ this\ here.}}
+\DoxyCodeLine{00433\ \ \ \ \ \textcolor{comment}{//auto\ terrainTexture\ =\ textFact.createTexture("{}container.jpg"{});\ //\ returns\ unique\ pointer}}
+\DoxyCodeLine{00434\ \ \ \ \ terrainTexture\ =\ textFact.createTexture(textureName);\ \textcolor{comment}{//\ returns\ unique\ pointer}}
+\DoxyCodeLine{00435\ \ \ \ \ terrainTexture-\/>load();}
+\DoxyCodeLine{00436\ }
+\DoxyCodeLine{00437\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_terrain_a67150cbd0c63e427033cf9905af18c42}\label{class_terrain_a67150cbd0c63e427033cf9905af18c42}} 
+\index{Terrain@{Terrain}!normaliseTerrain@{normaliseTerrain}}
+\index{normaliseTerrain@{normaliseTerrain}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{normaliseTerrain()}{normaliseTerrain()}}
+{\footnotesize\ttfamily void Terrain\+::normalise\+Terrain (\begin{DoxyParamCaption}\item[{float $\ast$}]{ter\+Data }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_terrain_8cpp_source_l00583}{583}} of file \mbox{\hyperlink{_terrain_8cpp_source}{Terrain.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00584\ \{}
+\DoxyCodeLine{00585\ \ \ \ \ \textcolor{keywordtype}{float}\ fMin\ =\ terData[0];}
+\DoxyCodeLine{00586\ \ \ \ \ \textcolor{keywordtype}{float}\ fMax\ =\ terData[0];}
+\DoxyCodeLine{00587\ \ \ \ \ \textcolor{keywordtype}{float}\ fHeight;}
+\DoxyCodeLine{00588\ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{00589\ }
+\DoxyCodeLine{00590\ \ \ \ \ \textcolor{comment}{//\ find\ the\ min\ and\ max\ values\ of\ the\ height\ terrainData}}
+\DoxyCodeLine{00591\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 1;\ i\ <\ size\ *\ size;\ i++)\ \{}
+\DoxyCodeLine{00592\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (terData[i]\ >\ fMax)}
+\DoxyCodeLine{00593\ \ \ \ \ \ \ \ \ \ \ \ \ fMax\ =\ terData[i];}
+\DoxyCodeLine{00594\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (terData[i]\ <\ fMin)}
+\DoxyCodeLine{00595\ \ \ \ \ \ \ \ \ \ \ \ \ fMin\ =\ terData[i];}
+\DoxyCodeLine{00596\ \ \ \ \ \}}
+\DoxyCodeLine{00597\ \ \ \ \ \textcolor{comment}{//find\ the\ range\ of\ the\ altitude\ }}
+\DoxyCodeLine{00598\ \ \ \ \ \textcolor{keywordflow}{if}\ (fMax\ <=\ fMin)}
+\DoxyCodeLine{00599\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00600\ \ \ \ \ fHeight\ =\ fMax\ -\/\ fMin;}
+\DoxyCodeLine{00601\ \ \ \ \ \textcolor{comment}{//scale\ the\ values\ to\ a\ range\ of\ 0-\/255}}
+\DoxyCodeLine{00602\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ size\ *\ size;\ i++)}
+\DoxyCodeLine{00603\ \ \ \ \ \{}
+\DoxyCodeLine{00604\ \ \ \ \ \ \ \ \ terData[i]\ =\ ((terData[i]\ -\/\ fMin)\ /\ fHeight)\ *\ 255.0f;}
+\DoxyCodeLine{00605\ \ \ \ \ \}}
+\DoxyCodeLine{00606\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_terrain_a8a16a133f0c346465adbcee5691a7e1e}\label{class_terrain_a8a16a133f0c346465adbcee5691a7e1e}} 
+\index{Terrain@{Terrain}!Render@{Render}}
+\index{Render@{Render}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily void Terrain\+::\+Render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_shader}{Shader}} \&}]{shader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_game_object}{Game\+Object}}.
+
+
+
+Definition at line \mbox{\hyperlink{_terrain_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{_terrain_8cpp_source}{Terrain.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ bruteForceRender();}
+\DoxyCodeLine{00014\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_terrain_aed836a6c149a66a61914674516079a4d}\label{class_terrain_aed836a6c149a66a61914674516079a4d}} 
+\index{Terrain@{Terrain}!setScalingFactor@{setScalingFactor}}
+\index{setScalingFactor@{setScalingFactor}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{setScalingFactor()}{setScalingFactor()}}
+{\footnotesize\ttfamily void Terrain\+::set\+Scaling\+Factor (\begin{DoxyParamCaption}\item[{float}]{x\+Scale,  }\item[{float}]{y\+Scale,  }\item[{float}]{z\+Scale }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_terrain_8cpp_source_l00098}{98}} of file \mbox{\hyperlink{_terrain_8cpp_source}{Terrain.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ scaleX\ =\ xScale;}
+\DoxyCodeLine{00101\ \ \ \ \ scaleY\ =\ yScale;}
+\DoxyCodeLine{00102\ \ \ \ \ scaleZ\ =\ zScale;}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_terrain_a93433ce112205444584e3b7d8fda3592}\label{class_terrain_a93433ce112205444584e3b7d8fda3592}} 
+\index{Terrain@{Terrain}!setUpTerrainData@{setUpTerrainData}}
+\index{setUpTerrainData@{setUpTerrainData}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{setUpTerrainData()}{setUpTerrainData()}}
+{\footnotesize\ttfamily bool Terrain\+::set\+Up\+Terrain\+Data (\begin{DoxyParamCaption}\item[{bool}]{has\+Texture }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_terrain_8cpp_source_l00156}{156}} of file \mbox{\hyperlink{_terrain_8cpp_source}{Terrain.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00157\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ this-\/>hasTexture\ =\ hasTexture;}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordflow}{if}\ (hasTexture\ ==\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ use\ shaders\ for\ no\ texture\ terrain}}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ ourShader\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_shader}{Shader}}(\textcolor{stringliteral}{"{}shaders/vertexShader\_terrain.shader"{}},\ \textcolor{stringliteral}{"{}shaders/fragmentShader\_terrain.shader"{}});}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ step\ 1)\ :\ set\ up\ new\ vertex\ array}}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00166\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ plan: }}
+\DoxyCodeLine{00167\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/Each\ byte\ from\ the\ height\ map\ I\ guess\ represents\ 3\ points.\ Use\ a\ Vector\ of\ floats?\ (\ fill\ up\ Vector\ of\ floats\ with\ vertex\ data\ (\ pos\ +\ color) }}
+\DoxyCodeLine{00168\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/Use\ the\ algorithm\ from\ the\ lecture\ render()\ function\ to\ fill\ the\ vector\ instead\ of\ using\ it\ to\ render\ (\ render\ later\ ) }}
+\DoxyCodeLine{00169\ \textcolor{comment}{}}
+\DoxyCodeLine{00170\ \textcolor{comment}{}}
+\DoxyCodeLine{00171\ \textcolor{comment}{\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ hcolor;\ \ \textcolor{comment}{//color\ of\ the\ height\ }}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{comment}{//normaliseTerrain();}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \ \textcolor{comment}{//loop\ through\ the\ z\ axis\ }}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ z\ =\ 0;\ z\ <\ size\ ;\ z++)\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//loop\ through\ the\ x\ axis\ }}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//glBegin(GL\_TRIANGLE\_STRIP);}}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ =\ 0;\ x\ <\ size;\ x++)\ \{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//create\ the\ the\ first\ point\ in\ the\ triangle\ strip\ }}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hcolor\ =\ getHeightColor(x,\ z);}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertices.push\_back((\textcolor{keywordtype}{float})x\ *\ scaleX);}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertices.push\_back(getHeight(x,\ z));}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertices.push\_back((\textcolor{keywordtype}{float})z\ *\ scaleZ);}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//vertices.push\_back(hcolor);}}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertices.push\_back((\textcolor{keywordtype}{float})hcolor);}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Only\ generate\ indices\ if\ NOT\ at\ the\ edge\ of\ the\ terrain\ data\ grid}}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ <\ size\ -\/\ 1\ \&\&\ z\ <\ size\ -\/\ 1)\ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ topLeft\ =\ z\ *\ size\ +\ x;}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ topRight\ =\ topLeft\ +\ 1;}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ bottomLeft\ =\ topLeft\ +\ size;}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ bottomRight\ =\ bottomLeft\ +\ 1;}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ First\ triangle}}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ indices.push\_back(topLeft);}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ indices.push\_back(bottomLeft);}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ indices.push\_back(topRight);}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Second\ triangle}}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ indices.push\_back(topRight);}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ indices.push\_back(bottomLeft);}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ indices.push\_back(bottomRight);}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \ \ \ \ }
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//glEnd();}}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Number\ of\ elements\ =\ "{}}\ <<\ vertices.size()\ <<\ std::endl;}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ step\ 2)\ :\ set\ up\ VAO\ and\ VBO}}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ glGenVertexArrays(1,\ \&VAO);}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ glGenBuffers(1,\ \&VBO);}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ glGenBuffers(1,\ \&EBO);}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ bind\ the\ Vertex\ Array\ Object\ first,\ then\ bind\ and\ set\ vertex\ buffer(s),\ and\ then\ configure\ vertex\ attributes(s).}}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ glBindVertexArray(VAO);}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ glBindBuffer(GL\_ARRAY\_BUFFER,\ VBO);}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \textcolor{comment}{//glBufferData(GL\_ARRAY\_BUFFER,\ sizeof(vertices),\ vertices,\ GL\_STATIC\_DRAW);}}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ glBufferData(GL\_ARRAY\_BUFFER,\ vertices.size()\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}),\ vertices.data(),\ GL\_STATIC\_DRAW);}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \textcolor{comment}{//glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER,\ EBO);}}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \textcolor{comment}{//glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER,\ sizeof(indices),\ indices,\ GL\_STATIC\_DRAW);}}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER,\ EBO);}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER,\ indices.size()\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}),\ indices.data(),\ GL\_STATIC\_DRAW);}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ position\ attribute}}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ glVertexAttribPointer(0,\ 3,\ GL\_FLOAT,\ GL\_FALSE,\ 4\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}),\ (\textcolor{keywordtype}{void}*)0);}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ glEnableVertexAttribArray(0);}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ color\ attribute}}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ glVertexAttribPointer(1,\ 1,\ GL\_FLOAT,\ GL\_FALSE,\ 4\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}),\ (\textcolor{keywordtype}{void}*)(3\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float})));}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \textcolor{comment}{//glVertexAttribPointer(1,\ 1,\ GL\_FLOAT,\ GL\_TRUE,\ 4\ *\ sizeof(float),\ (void*)(3\ *\ sizeof(float))\ \ );}}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \textcolor{comment}{//glVertexAttribPointer(1,\ 1,\ GL\_UNSIGNED\_BYTE,\ GL\_TRUE,\ 4\ *\ sizeof(float),\ (void*)(3\ *\ sizeof(float)));}}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ glEnableVertexAttribArray(1);}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ note\ that\ this\ is\ allowed,\ the\ call\ to\ glVertexAttribPointer\ registered\ VBO\ as\ the\ vertex\ attribute's\ bound\ vertex\ buffer\ object\ so\ afterwards\ we\ can\ safely\ unbind}}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ glBindBuffer(GL\_ARRAY\_BUFFER,\ 0);}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ glBindVertexArray(0);}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00255\ \ \ \ \ \}}
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ setting\ up\ vertex\ to\ include\ Texture\ Coorindates}}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ use\ shaders\ for\ textured\ terrain}}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ ourShader\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_shader}{Shader}}(\textcolor{stringliteral}{"{}shaders/vertexShader.shader"{}},\ \textcolor{stringliteral}{"{}shaders/fragmentShader.shader"{}});}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ INSTEAD\ USE\ SHARED\ SHADER\ WHEN\ DRAWING}}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ hcolor;\ \ \textcolor{comment}{//color\ of\ the\ height\ }}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ texLeft;}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ texBottom;}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ texTop;}
+\DoxyCodeLine{00267\ \ \ \ \ }
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TESTING\ TO\ SEE\ IF\ THIS\ DRAWS\ BETTER,\ IF\ NOT\ THEN\ DELETE\ THIS,\ DELETE\ EBO\ CHANGE,\ AND\ REVERT\ BACK\ TO\ DRAW\ ARRAYS}}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ z\ =\ 0;\ z\ <\ size;\ z++)\ \{}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ =\ 0;\ x\ <\ size;\ x++)\ \{}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ the\ vertex\ at\ (x,\ z)}}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hcolor\ =\ getHeightColor(x,\ z);}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertices.push\_back((\textcolor{keywordtype}{float})x\ *\ scaleX);}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertices.push\_back(getHeight(x,\ z));}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertices.push\_back((\textcolor{keywordtype}{float})z\ *\ scaleZ);}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ just\ storing\ the\ vertex\ pos\ separately\ just\ to\ test\ something\ (\ delete\ this\ once\ done\ )}}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vert\_pos.push\_back((\textcolor{keywordtype}{float})x*\ scaleX);}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vert\_pos.push\_back(getHeight(x,\ z));}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vert\_pos.push\_back((\textcolor{keywordtype}{float})z*\ scaleZ);}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Calculate\ normals}}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ currentX\ =\ (float)x\ *\ scaleX;}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ currentY\ =\ getHeight(x,\ z);}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ currentZ\ =\ (float)z\ *\ scaleZ;}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ get\ height\ values\ of\ the\ left,\ right\ vertices\ along\ the\ x-\/axis}}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ get\ height\ values\ of\ the\ up\ and\ down\ vertices\ along\ the\ z-\/axis}}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ create\ a\ vector\ using\ the\ differences\ in\ height\ values\ along\ the\ X\ and\ Z\ axes}}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ constant\ y\ value\ to\ ensure\ normals\ have\ a\ consistent\ length\ along\ the\ y-\/axis}}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ normalise\ the\ resulting\ vector\ to\ obtain\ the\ current\ vertex}}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ heightLeft\ =\ x\ >\ 0\ ?\ getHeight(x\ -\/\ 1,\ z)\ :\ currentY;}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ heightRight\ =\ x\ <\ size\ -\/\ 1\ ?\ getHeight(x\ +\ 1,\ z)\ :\ currentY;}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ heightUp\ =\ z\ >\ 0\ ?\ getHeight(x,\ z\ -\/\ 1)\ :\ currentY;}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ heightDown\ =\ z\ <\ size\ -\/\ 1\ ?\ getHeight(x,\ z\ +\ 1)\ :\ currentY;}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec3\ normal\ =\ glm::normalize(glm::vec3(}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ heightLeft\ -\/\ heightRight,}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2.0f,}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ heightUp\ -\/\ heightDown}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ));}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertices.push\_back(normal.x);}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertices.push\_back(normal.y);}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertices.push\_back(normal.z);}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00311\ }
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Add\ texture\ coordinates}}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ texLeft\ =\ (float)x\ /\ size;}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ texBottom\ =\ (float)z\ /\ size;}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertices.push\_back(texLeft);}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertices.push\_back(texBottom);}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Only\ generate\ indices\ if\ NOT\ at\ the\ edge\ of\ the\ terrain\ data\ grid}}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ <\ size\ -\/\ 1\ \&\&\ z\ <\ size\ -\/\ 1)\ \{}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ topLeft\ =\ z\ *\ size\ +\ x;}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ topRight\ =\ topLeft\ +\ 1;}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ bottomLeft\ =\ topLeft\ +\ size;}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ bottomRight\ =\ bottomLeft\ +\ 1;}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ First\ triangle}}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ indices.push\_back(topLeft);}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ indices.push\_back(bottomLeft);}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ indices.push\_back(topRight);}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Second\ triangle}}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ indices.push\_back(topRight);}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ indices.push\_back(bottomLeft);}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ indices.push\_back(bottomRight);}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Example\ of\ the\ formula\ }}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00340\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ The\ grid\ is\ of\ size\ size\ x\ size,\ so\ there\ are\ size\ number\ of\ vertices\ in\ each\ row. }}
+\DoxyCodeLine{00341\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ For\ each\ row\ z,\ there\ are\ size*\ z\ vertices\ that\ come\ before\ the\ current\ row\ in\ the\ vertices\ vector. }}
+\DoxyCodeLine{00342\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Within\ the\ current\ row,\ there\ are\ x\ vertices\ that\ come\ before\ the\ topLeft\ vertex. }}
+\DoxyCodeLine{00343\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ So,\ to\ find\ the\ index\ of\ the\ topLeft\ vertex,\ we\ sum\ the\ number\ of\ vertices\ that\ came\ before\ it\ in\ previous\ rows(size*\ z) }}
+\DoxyCodeLine{00344\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ and\ the\ number\ of\ vertices\ that\ came\ before\ it\ in\ the\ current\ row(x). }}
+\DoxyCodeLine{00345\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00346\ }
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00351\ }
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ step\ 2)\ set\ up\ VAO\ and\ VBO}}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ glGenVertexArrays(1,\ \&VAO);}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ glGenBuffers(1,\ \&VBO);}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ glGenBuffers(1,\ \&EBO);}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ bind\ the\ Vertex\ Array\ Object\ first,\ then\ bind\ and\ set\ vertex\ buffer(s),\ and\ then\ configure\ vertex\ attributes(s).}}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ glBindVertexArray(VAO);}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ glBindBuffer(GL\_ARRAY\_BUFFER,\ VBO);}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ glBufferData(GL\_ARRAY\_BUFFER,\ vertices.size()\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}),\ vertices.data(),\ GL\_STATIC\_DRAW);}
+\DoxyCodeLine{00362\ }
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TESTING\ THE\ INDICES\ DRAW}}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \textcolor{comment}{//glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER,\ EBO);}}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \textcolor{comment}{//glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER,\ sizeof(indices),\ indices,\ GL\_STATIC\_DRAW);}}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER,\ EBO);}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER,\ indices.size()\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}),\ indices.data(),\ GL\_STATIC\_DRAW);}
+\DoxyCodeLine{00369\ }
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00371\ }
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00373\ \textcolor{comment}{\ \ \ \ \ \ \ \ //\ position\ attribute }}
+\DoxyCodeLine{00374\ \textcolor{comment}{\ \ \ \ \ \ \ \ glVertexAttribPointer(0,\ 3,\ GL\_FLOAT,\ GL\_FALSE,\ 5\ *\ sizeof(float),\ (void*)0); }}
+\DoxyCodeLine{00375\ \textcolor{comment}{\ \ \ \ \ \ \ \ glEnableVertexAttribArray(0); }}
+\DoxyCodeLine{00376\ \textcolor{comment}{}}
+\DoxyCodeLine{00377\ \textcolor{comment}{\ \ \ \ \ \ \ \ //\ texture\ coords }}
+\DoxyCodeLine{00378\ \textcolor{comment}{\ \ \ \ \ \ \ \ glVertexAttribPointer(1,\ 2,\ GL\_FLOAT,\ GL\_FALSE,\ 5\ *\ sizeof(float),\ (void*)(3\ *\ sizeof(float))); }}
+\DoxyCodeLine{00379\ \textcolor{comment}{\ \ \ \ \ \ \ \ glEnableVertexAttribArray(1); }}
+\DoxyCodeLine{00380\ \textcolor{comment}{\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ position\ attribute}}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ glVertexAttribPointer(0,\ 3,\ GL\_FLOAT,\ GL\_FALSE,\ 8\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}),\ (\textcolor{keywordtype}{void}*)0);}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ glEnableVertexAttribArray(0);}
+\DoxyCodeLine{00385\ }
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ normals}}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ glVertexAttribPointer(1,\ 3,\ GL\_FLOAT,\ GL\_FALSE,\ 8\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}),\ (\textcolor{keywordtype}{void}*)(3\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float})));}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ glEnableVertexAttribArray(1);}
+\DoxyCodeLine{00389\ }
+\DoxyCodeLine{00390\ }
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ texture\ coords}}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ glVertexAttribPointer(2,\ 2,\ GL\_FLOAT,\ GL\_FALSE,\ 8\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}),\ (\textcolor{keywordtype}{void}*)(6\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float})));}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ glEnableVertexAttribArray(2);}
+\DoxyCodeLine{00394\ }
+\DoxyCodeLine{00395\ }
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ note\ that\ this\ is\ allowed,\ the\ call\ to\ glVertexAttribPointer\ registered\ VBO\ as\ the\ vertex\ attribute's\ bound\ vertex\ buffer\ object\ so\ afterwards\ we\ can\ safely\ unbind}}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ glBindBuffer(GL\_ARRAY\_BUFFER,\ 0);}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ remember:\ do\ NOT\ unbind\ the\ EBO\ while\ a\ VAO\ is\ active\ as\ the\ bound\ element\ buffer\ object\ IS\ stored\ in\ the\ VAO;\ keep\ the\ EBO\ bound.}}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \textcolor{comment}{//glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER,\ 0);}}
+\DoxyCodeLine{00401\ }
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ You\ can\ unbind\ the\ VAO\ afterwards\ so\ other\ VAO\ calls\ won't\ accidentally\ modify\ this\ VAO,\ but\ this\ rarely\ happens.\ Modifying\ other}}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ VAOs\ requires\ a\ call\ to\ glBindVertexArray\ anyways\ so\ we\ generally\ don't\ unbind\ VAOs\ (nor\ VBOs)\ when\ it's\ not\ directly\ necessary.}}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ glBindVertexArray(0);}
+\DoxyCodeLine{00405\ }
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ ourShader-\/>use();\ \textcolor{comment}{//\ below\ we\ are\ telling\ OpenGL\ which\ texture\ unit\ each\ shader\ sampler\ belongs\ to\ }}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ ourShader-\/>setInt(\textcolor{stringliteral}{"{}texture1"{}},\ 0);}
+\DoxyCodeLine{00409\ }
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00411\ }
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00413\ \textcolor{comment}{\ \ \ \ \ \ \ \ //\ Terrain\ texture\ data }}
+\DoxyCodeLine{00414\ \textcolor{comment}{\ \ \ \ \ \ \ \ TextureFactory\ textFact;\ //\ temporarily\ placing\ this\ here. }}
+\DoxyCodeLine{00415\ \textcolor{comment}{\ \ \ \ \ \ \ \ //auto\ terrainTexture\ =\ textFact.createTexture("{}container.jpg"{});\ //\ returns\ unique\ pointer }}
+\DoxyCodeLine{00416\ \textcolor{comment}{\ \ \ \ \ \ \ \ terrainTexture\ =\ textFact.createTexture("{}grass.jpg"{});\ //\ returns\ unique\ pointer }}
+\DoxyCodeLine{00417\ \textcolor{comment}{\ \ \ \ \ \ \ \ terrainTexture-\/>load(); }}
+\DoxyCodeLine{00418\ \textcolor{comment}{\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00419\ }
+\DoxyCodeLine{00420\ \ \ \ \ \}}
+\DoxyCodeLine{00421\ }
+\DoxyCodeLine{00422\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00423\ }
+\DoxyCodeLine{00424\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_terrain_a2620ae254296986a006efd6f2091d442}\label{class_terrain_a2620ae254296986a006efd6f2091d442}} 
+\index{Terrain@{Terrain}!Update@{Update}}
+\index{Update@{Update}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Terrain\+::\+Update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_game_object}{Game\+Object}}.
+
+
+
+Definition at line \mbox{\hyperlink{_terrain_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{_terrain_8cpp_source}{Terrain.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_terrain_a6326b27fa3a42700ff8915d53c818e55}\label{class_terrain_a6326b27fa3a42700ff8915d53c818e55}} 
+\index{Terrain@{Terrain}!heightfieldBody@{heightfieldBody}}
+\index{heightfieldBody@{heightfieldBody}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{heightfieldBody}{heightfieldBody}}
+{\footnotesize\ttfamily rp3d\+::\+Rigid\+Body$\ast$ Terrain\+::heightfield\+Body}
+
+
+
+Definition at line \mbox{\hyperlink{_terrain_8h_source_l00054}{54}} of file \mbox{\hyperlink{_terrain_8h_source}{Terrain.\+h}}.
+
+\mbox{\Hypertarget{class_terrain_a63c059f65e9d688c1c1768f6dd8dabe1}\label{class_terrain_a63c059f65e9d688c1c1768f6dd8dabe1}} 
+\index{Terrain@{Terrain}!indices@{indices}}
+\index{indices@{indices}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{indices}{indices}}
+{\footnotesize\ttfamily std\+::vector$<$unsigned int$>$ Terrain\+::indices}
+
+
+
+Definition at line \mbox{\hyperlink{_terrain_8h_source_l00061}{61}} of file \mbox{\hyperlink{_terrain_8h_source}{Terrain.\+h}}.
+
+\mbox{\Hypertarget{class_terrain_a8e3269d072b2be6caa40070f66d37458}\label{class_terrain_a8e3269d072b2be6caa40070f66d37458}} 
+\index{Terrain@{Terrain}!scaleX@{scaleX}}
+\index{scaleX@{scaleX}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{scaleX}{scaleX}}
+{\footnotesize\ttfamily float Terrain\+::scaleX}
+
+
+
+Definition at line \mbox{\hyperlink{_terrain_8h_source_l00046}{46}} of file \mbox{\hyperlink{_terrain_8h_source}{Terrain.\+h}}.
+
+\mbox{\Hypertarget{class_terrain_a2f3f1479e2bd7980efe3947bf1fb5dd7}\label{class_terrain_a2f3f1479e2bd7980efe3947bf1fb5dd7}} 
+\index{Terrain@{Terrain}!scaleY@{scaleY}}
+\index{scaleY@{scaleY}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{scaleY}{scaleY}}
+{\footnotesize\ttfamily float Terrain\+::scaleY}
+
+
+
+Definition at line \mbox{\hyperlink{_terrain_8h_source_l00047}{47}} of file \mbox{\hyperlink{_terrain_8h_source}{Terrain.\+h}}.
+
+\mbox{\Hypertarget{class_terrain_a7ce825d4ce496e3ae19fe750dd29af49}\label{class_terrain_a7ce825d4ce496e3ae19fe750dd29af49}} 
+\index{Terrain@{Terrain}!scaleZ@{scaleZ}}
+\index{scaleZ@{scaleZ}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{scaleZ}{scaleZ}}
+{\footnotesize\ttfamily float Terrain\+::scaleZ}
+
+
+
+Definition at line \mbox{\hyperlink{_terrain_8h_source_l00048}{48}} of file \mbox{\hyperlink{_terrain_8h_source}{Terrain.\+h}}.
+
+\mbox{\Hypertarget{class_terrain_a632a2ed03b7a168ac45b450d9c285f20}\label{class_terrain_a632a2ed03b7a168ac45b450d9c285f20}} 
+\index{Terrain@{Terrain}!sharedShader@{sharedShader}}
+\index{sharedShader@{sharedShader}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{sharedShader}{sharedShader}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_shader}{Shader}}$\ast$ Terrain\+::shared\+Shader}
+
+
+
+Definition at line \mbox{\hyperlink{_terrain_8h_source_l00051}{51}} of file \mbox{\hyperlink{_terrain_8h_source}{Terrain.\+h}}.
+
+\mbox{\Hypertarget{class_terrain_a99d42fba0b97f0850d1e250edd5fd211}\label{class_terrain_a99d42fba0b97f0850d1e250edd5fd211}} 
+\index{Terrain@{Terrain}!size@{size}}
+\index{size@{size}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily int Terrain\+::size}
+
+
+
+Definition at line \mbox{\hyperlink{_terrain_8h_source_l00043}{43}} of file \mbox{\hyperlink{_terrain_8h_source}{Terrain.\+h}}.
+
+\mbox{\Hypertarget{class_terrain_aa8953f6b6cfd5e7858ea9f3063388266}\label{class_terrain_aa8953f6b6cfd5e7858ea9f3063388266}} 
+\index{Terrain@{Terrain}!startPos@{startPos}}
+\index{startPos@{startPos}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{startPos}{startPos}}
+{\footnotesize\ttfamily glm\+::vec3 Terrain\+::start\+Pos}
+
+
+
+Definition at line \mbox{\hyperlink{_terrain_8h_source_l00088}{88}} of file \mbox{\hyperlink{_terrain_8h_source}{Terrain.\+h}}.
+
+\mbox{\Hypertarget{class_terrain_a84685b0b5451a926e2178668045d7507}\label{class_terrain_a84685b0b5451a926e2178668045d7507}} 
+\index{Terrain@{Terrain}!terrainData@{terrainData}}
+\index{terrainData@{terrainData}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{terrainData}{terrainData}}
+{\footnotesize\ttfamily unsigned char$\ast$ Terrain\+::terrain\+Data}
+
+
+
+Definition at line \mbox{\hyperlink{_terrain_8h_source_l00053}{53}} of file \mbox{\hyperlink{_terrain_8h_source}{Terrain.\+h}}.
+
+\mbox{\Hypertarget{class_terrain_a17a041462bcb6b7a4caabe9db1d28741}\label{class_terrain_a17a041462bcb6b7a4caabe9db1d28741}} 
+\index{Terrain@{Terrain}!vert\_pos@{vert\_pos}}
+\index{vert\_pos@{vert\_pos}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{vert\_pos}{vert\_pos}}
+{\footnotesize\ttfamily std\+::vector$<$float$>$ Terrain\+::vert\+\_\+pos}
+
+
+
+Definition at line \mbox{\hyperlink{_terrain_8h_source_l00059}{59}} of file \mbox{\hyperlink{_terrain_8h_source}{Terrain.\+h}}.
+
+\mbox{\Hypertarget{class_terrain_ae9ccd55d6ff63f9ec69fef542b083f03}\label{class_terrain_ae9ccd55d6ff63f9ec69fef542b083f03}} 
+\index{Terrain@{Terrain}!vertices@{vertices}}
+\index{vertices@{vertices}!Terrain@{Terrain}}
+\doxysubsubsection{\texorpdfstring{vertices}{vertices}}
+{\footnotesize\ttfamily std\+::vector$<$float$>$ Terrain\+::vertices}
+
+
+
+Definition at line \mbox{\hyperlink{_terrain_8h_source_l00057}{57}} of file \mbox{\hyperlink{_terrain_8h_source}{Terrain.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/Terrain.\+h\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/Terrain.\+cpp\end{DoxyCompactItemize}

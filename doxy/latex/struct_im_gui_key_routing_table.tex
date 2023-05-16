@@ -1,0 +1,107 @@
+\hypertarget{struct_im_gui_key_routing_table}{}\doxysection{Im\+Gui\+Key\+Routing\+Table Struct Reference}
+\label{struct_im_gui_key_routing_table}\index{ImGuiKeyRoutingTable@{ImGuiKeyRoutingTable}}
+
+
+Collaboration diagram for Im\+Gui\+Key\+Routing\+Table\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{struct_im_gui_key_routing_table__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{struct_im_gui_key_routing_table_ae8180926fc30691edcc29d0a74d13d24}{Clear}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Im\+Gui\+Key\+Routing\+Index \mbox{\hyperlink{struct_im_gui_key_routing_table_ad17c1d407b883870a1149e294ee173cc}{Index}} \mbox{[}Im\+Gui\+Key\+\_\+\+Named\+Key\+\_\+\+COUNT\mbox{]}
+\item 
+\mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$ \mbox{\hyperlink{struct_im_gui_key_routing_data}{Im\+Gui\+Key\+Routing\+Data}} $>$ \mbox{\hyperlink{struct_im_gui_key_routing_table_abe4d175a6b58c3fb2dac9706b4debd92}{Entries}}
+\item 
+\mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$ \mbox{\hyperlink{struct_im_gui_key_routing_data}{Im\+Gui\+Key\+Routing\+Data}} $>$ \mbox{\hyperlink{struct_im_gui_key_routing_table_ac176df6b8732d9a4784ab278a0b890c3}{Entries\+Next}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01323}{1323}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_im_gui_key_routing_table_a5c2c9adf9d1e9e8741d2f0f9334b7664}\label{struct_im_gui_key_routing_table_a5c2c9adf9d1e9e8741d2f0f9334b7664}} 
+\index{ImGuiKeyRoutingTable@{ImGuiKeyRoutingTable}!ImGuiKeyRoutingTable@{ImGuiKeyRoutingTable}}
+\index{ImGuiKeyRoutingTable@{ImGuiKeyRoutingTable}!ImGuiKeyRoutingTable@{ImGuiKeyRoutingTable}}
+\doxysubsubsection{\texorpdfstring{ImGuiKeyRoutingTable()}{ImGuiKeyRoutingTable()}}
+{\footnotesize\ttfamily Im\+Gui\+Key\+Routing\+Table\+::\+Im\+Gui\+Key\+Routing\+Table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01329}{1329}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01329\ \{\ Clear();\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_im_gui_key_routing_table_ae8180926fc30691edcc29d0a74d13d24}\label{struct_im_gui_key_routing_table_ae8180926fc30691edcc29d0a74d13d24}} 
+\index{ImGuiKeyRoutingTable@{ImGuiKeyRoutingTable}!Clear@{Clear}}
+\index{Clear@{Clear}!ImGuiKeyRoutingTable@{ImGuiKeyRoutingTable}}
+\doxysubsubsection{\texorpdfstring{Clear()}{Clear()}}
+{\footnotesize\ttfamily void Im\+Gui\+Key\+Routing\+Table\+::\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01330}{1330}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01330\ \{\ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ n\ =\ 0;\ n\ <\ IM\_ARRAYSIZE(Index);\ n++)\ Index[n]\ =\ -\/1;\ Entries.clear();\ EntriesNext.clear();\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_im_gui_key_routing_table_abe4d175a6b58c3fb2dac9706b4debd92}\label{struct_im_gui_key_routing_table_abe4d175a6b58c3fb2dac9706b4debd92}} 
+\index{ImGuiKeyRoutingTable@{ImGuiKeyRoutingTable}!Entries@{Entries}}
+\index{Entries@{Entries}!ImGuiKeyRoutingTable@{ImGuiKeyRoutingTable}}
+\doxysubsubsection{\texorpdfstring{Entries}{Entries}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$\mbox{\hyperlink{struct_im_gui_key_routing_data}{Im\+Gui\+Key\+Routing\+Data}}$>$ Im\+Gui\+Key\+Routing\+Table\+::\+Entries}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01326}{1326}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_key_routing_table_ac176df6b8732d9a4784ab278a0b890c3}\label{struct_im_gui_key_routing_table_ac176df6b8732d9a4784ab278a0b890c3}} 
+\index{ImGuiKeyRoutingTable@{ImGuiKeyRoutingTable}!EntriesNext@{EntriesNext}}
+\index{EntriesNext@{EntriesNext}!ImGuiKeyRoutingTable@{ImGuiKeyRoutingTable}}
+\doxysubsubsection{\texorpdfstring{EntriesNext}{EntriesNext}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$\mbox{\hyperlink{struct_im_gui_key_routing_data}{Im\+Gui\+Key\+Routing\+Data}}$>$ Im\+Gui\+Key\+Routing\+Table\+::\+Entries\+Next}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01327}{1327}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_key_routing_table_ad17c1d407b883870a1149e294ee173cc}\label{struct_im_gui_key_routing_table_ad17c1d407b883870a1149e294ee173cc}} 
+\index{ImGuiKeyRoutingTable@{ImGuiKeyRoutingTable}!Index@{Index}}
+\index{Index@{Index}!ImGuiKeyRoutingTable@{ImGuiKeyRoutingTable}}
+\doxysubsubsection{\texorpdfstring{Index}{Index}}
+{\footnotesize\ttfamily Im\+Gui\+Key\+Routing\+Index Im\+Gui\+Key\+Routing\+Table\+::\+Index\mbox{[}Im\+Gui\+Key\+\_\+\+Named\+Key\+\_\+\+COUNT\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01325}{1325}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/imgui\+\_\+internal.\+h\end{DoxyCompactItemize}

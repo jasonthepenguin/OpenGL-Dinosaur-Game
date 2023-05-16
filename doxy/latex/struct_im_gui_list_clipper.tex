@@ -1,0 +1,314 @@
+\hypertarget{struct_im_gui_list_clipper}{}\doxysection{Im\+Gui\+List\+Clipper Struct Reference}
+\label{struct_im_gui_list_clipper}\index{ImGuiListClipper@{ImGuiListClipper}}
+
+
+Collaboration diagram for Im\+Gui\+List\+Clipper\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_gui_list_clipper__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_gui_list_clipper_a746fbd724a41dbe88fef4875a2b1e9c7}{Begin}} (int items\+\_\+count, float items\+\_\+height=-\/1.\+0f)
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_gui_list_clipper_a3e6aec0db317985319a78513fc2c8068}{End}} ()
+\item 
+IMGUI\+\_\+\+API bool \mbox{\hyperlink{struct_im_gui_list_clipper_ac3e115812c3c4e5a39578a7aa955379a}{Step}} ()
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_gui_list_clipper_a65dabd7fe41071f079c83a3615f48be9}{Force\+Display\+Range\+By\+Indices}} (int item\+\_\+min, int item\+\_\+max)
+\item 
+\mbox{\hyperlink{struct_im_gui_list_clipper_aa102d8c5cde9d8bf8dc5707c1d6fb96e}{Im\+Gui\+List\+Clipper}} (int items\+\_\+count, float items\+\_\+height=-\/1.\+0f)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_im_gui_context}{Im\+Gui\+Context}} $\ast$ \mbox{\hyperlink{struct_im_gui_list_clipper_a4c983c526d4653cd51684a65aa134eaf}{Ctx}}
+\item 
+int \mbox{\hyperlink{struct_im_gui_list_clipper_a9d096e06e5633fd77a8a209c00fe454a}{Display\+Start}}
+\item 
+int \mbox{\hyperlink{struct_im_gui_list_clipper_aa49e30d04ad8f8b95fbaa62dfbb4ea3e}{Display\+End}}
+\item 
+int \mbox{\hyperlink{struct_im_gui_list_clipper_a4e2b4e8efe10615d04ad2aeea467f522}{Items\+Count}}
+\item 
+float \mbox{\hyperlink{struct_im_gui_list_clipper_a19762cb78ff0adccb414027c25678a60}{Items\+Height}}
+\item 
+float \mbox{\hyperlink{struct_im_gui_list_clipper_affee91b338520cd4bd59b5b680dcb5ae}{Start\+PosY}}
+\item 
+void $\ast$ \mbox{\hyperlink{struct_im_gui_list_clipper_a596215ed18fa6d4094d9bf4da975e1be}{Temp\+Data}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02325}{2325}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_im_gui_list_clipper_af42c878888a906ead11489a600cb6768}\label{struct_im_gui_list_clipper_af42c878888a906ead11489a600cb6768}} 
+\index{ImGuiListClipper@{ImGuiListClipper}!ImGuiListClipper@{ImGuiListClipper}}
+\index{ImGuiListClipper@{ImGuiListClipper}!ImGuiListClipper@{ImGuiListClipper}}
+\doxysubsubsection{\texorpdfstring{ImGuiListClipper()}{ImGuiListClipper()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Im\+Gui\+List\+Clipper\+::\+Im\+Gui\+List\+Clipper (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8cpp_source_l02746}{2746}} of file \mbox{\hyperlink{imgui_8cpp_source}{imgui.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02747\ \{}
+\DoxyCodeLine{02748\ \ \ \ \ memset(\textcolor{keyword}{this},\ 0,\ \textcolor{keyword}{sizeof}(*\textcolor{keyword}{this}));}
+\DoxyCodeLine{02749\ \ \ \ \ Ctx\ =\ ImGui::GetCurrentContext();}
+\DoxyCodeLine{02750\ \ \ \ \ IM\_ASSERT(Ctx\ !=\ NULL);}
+\DoxyCodeLine{02751\ \ \ \ \ ItemsCount\ =\ -\/1;}
+\DoxyCodeLine{02752\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_gui_list_clipper_ada915f0ae4446df73c1a2372bde65293}\label{struct_im_gui_list_clipper_ada915f0ae4446df73c1a2372bde65293}} 
+\index{ImGuiListClipper@{ImGuiListClipper}!````~ImGuiListClipper@{$\sim$ImGuiListClipper}}
+\index{````~ImGuiListClipper@{$\sim$ImGuiListClipper}!ImGuiListClipper@{ImGuiListClipper}}
+\doxysubsubsection{\texorpdfstring{$\sim$ImGuiListClipper()}{~ImGuiListClipper()}}
+{\footnotesize\ttfamily Im\+Gui\+List\+Clipper\+::$\sim$\+Im\+Gui\+List\+Clipper (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8cpp_source_l02754}{2754}} of file \mbox{\hyperlink{imgui_8cpp_source}{imgui.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02755\ \{}
+\DoxyCodeLine{02756\ \ \ \ \ End();}
+\DoxyCodeLine{02757\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_gui_list_clipper_aa102d8c5cde9d8bf8dc5707c1d6fb96e}\label{struct_im_gui_list_clipper_aa102d8c5cde9d8bf8dc5707c1d6fb96e}} 
+\index{ImGuiListClipper@{ImGuiListClipper}!ImGuiListClipper@{ImGuiListClipper}}
+\index{ImGuiListClipper@{ImGuiListClipper}!ImGuiListClipper@{ImGuiListClipper}}
+\doxysubsubsection{\texorpdfstring{ImGuiListClipper()}{ImGuiListClipper()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Im\+Gui\+List\+Clipper\+::\+Im\+Gui\+List\+Clipper (\begin{DoxyParamCaption}\item[{int}]{items\+\_\+count,  }\item[{float}]{items\+\_\+height = {\ttfamily -\/1.0f} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02347}{2347}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02347\ \{\ memset(\textcolor{keyword}{this},\ 0,\ \textcolor{keyword}{sizeof}(*\textcolor{keyword}{this}));\ ItemsCount\ =\ -\/1;\ Begin(items\_count,\ items\_height);\ \}\ \textcolor{comment}{//\ [removed\ in\ 1.79]}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_im_gui_list_clipper_a746fbd724a41dbe88fef4875a2b1e9c7}\label{struct_im_gui_list_clipper_a746fbd724a41dbe88fef4875a2b1e9c7}} 
+\index{ImGuiListClipper@{ImGuiListClipper}!Begin@{Begin}}
+\index{Begin@{Begin}!ImGuiListClipper@{ImGuiListClipper}}
+\doxysubsubsection{\texorpdfstring{Begin()}{Begin()}}
+{\footnotesize\ttfamily void Im\+Gui\+List\+Clipper\+::\+Begin (\begin{DoxyParamCaption}\item[{int}]{items\+\_\+count,  }\item[{float}]{items\+\_\+height = {\ttfamily -\/1.0f} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8cpp_source_l02759}{2759}} of file \mbox{\hyperlink{imgui_8cpp_source}{imgui.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02760\ \{}
+\DoxyCodeLine{02761\ \ \ \ \ \mbox{\hyperlink{struct_im_gui_context}{ImGuiContext}}\&\ g\ =\ *Ctx;}
+\DoxyCodeLine{02762\ \ \ \ \ \mbox{\hyperlink{struct_im_gui_window}{ImGuiWindow}}*\ window\ =\ g.CurrentWindow;}
+\DoxyCodeLine{02763\ \ \ \ \ IMGUI\_DEBUG\_LOG\_CLIPPER(\textcolor{stringliteral}{"{}Clipper:\ Begin(\%d,\%.2f)\ in\ '\%s'\(\backslash\)n"{}},\ items\_count,\ items\_height,\ window-\/>Name);}
+\DoxyCodeLine{02764\ }
+\DoxyCodeLine{02765\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{struct_im_gui_table}{ImGuiTable}}*\ table\ =\ g.CurrentTable)}
+\DoxyCodeLine{02766\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (table-\/>IsInsideRow)}
+\DoxyCodeLine{02767\ \ \ \ \ \ \ \ \ \ \ \ \ ImGui::TableEndRow(table);}
+\DoxyCodeLine{02768\ }
+\DoxyCodeLine{02769\ \ \ \ \ StartPosY\ =\ window-\/>DC.CursorPos.y;}
+\DoxyCodeLine{02770\ \ \ \ \ ItemsHeight\ =\ items\_height;}
+\DoxyCodeLine{02771\ \ \ \ \ ItemsCount\ =\ items\_count;}
+\DoxyCodeLine{02772\ \ \ \ \ DisplayStart\ =\ -\/1;}
+\DoxyCodeLine{02773\ \ \ \ \ DisplayEnd\ =\ 0;}
+\DoxyCodeLine{02774\ }
+\DoxyCodeLine{02775\ \ \ \ \ \textcolor{comment}{//\ Acquire\ temporary\ buffer}}
+\DoxyCodeLine{02776\ \ \ \ \ \textcolor{keywordflow}{if}\ (++g.ClipperTempDataStacked\ >\ g.ClipperTempData.Size)}
+\DoxyCodeLine{02777\ \ \ \ \ \ \ \ \ g.ClipperTempData.resize(g.ClipperTempDataStacked,\ \mbox{\hyperlink{struct_im_gui_list_clipper_data}{ImGuiListClipperData}}());}
+\DoxyCodeLine{02778\ \ \ \ \ \mbox{\hyperlink{struct_im_gui_list_clipper_data}{ImGuiListClipperData}}*\ data\ =\ \&g.ClipperTempData[g.ClipperTempDataStacked\ -\/\ 1];}
+\DoxyCodeLine{02779\ \ \ \ \ data-\/>Reset(\textcolor{keyword}{this});}
+\DoxyCodeLine{02780\ \ \ \ \ data-\/>LossynessOffset\ =\ window-\/>DC.CursorStartPosLossyness.y;}
+\DoxyCodeLine{02781\ \ \ \ \ TempData\ =\ data;}
+\DoxyCodeLine{02782\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_gui_list_clipper_a3e6aec0db317985319a78513fc2c8068}\label{struct_im_gui_list_clipper_a3e6aec0db317985319a78513fc2c8068}} 
+\index{ImGuiListClipper@{ImGuiListClipper}!End@{End}}
+\index{End@{End}!ImGuiListClipper@{ImGuiListClipper}}
+\doxysubsubsection{\texorpdfstring{End()}{End()}}
+{\footnotesize\ttfamily void Im\+Gui\+List\+Clipper\+::\+End (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8cpp_source_l02784}{2784}} of file \mbox{\hyperlink{imgui_8cpp_source}{imgui.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02785\ \{}
+\DoxyCodeLine{02786\ \ \ \ \ \mbox{\hyperlink{struct_im_gui_context}{ImGuiContext}}\&\ g\ =\ *Ctx;}
+\DoxyCodeLine{02787\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{struct_im_gui_list_clipper_data}{ImGuiListClipperData}}*\ data\ =\ (\mbox{\hyperlink{struct_im_gui_list_clipper_data}{ImGuiListClipperData}}*)TempData)}
+\DoxyCodeLine{02788\ \ \ \ \ \{}
+\DoxyCodeLine{02789\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ In\ theory\ here\ we\ should\ assert\ that\ we\ are\ already\ at\ the\ right\ position,\ but\ it\ seems\ saner\ to\ just\ seek\ at\ the\ end\ and\ not\ assert/crash\ the\ user.}}
+\DoxyCodeLine{02790\ \ \ \ \ \ \ \ \ IMGUI\_DEBUG\_LOG\_CLIPPER(\textcolor{stringliteral}{"{}Clipper:\ End()\ in\ '\%s'\(\backslash\)n"{}},\ g.CurrentWindow-\/>Name);}
+\DoxyCodeLine{02791\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ItemsCount\ >=\ 0\ \&\&\ ItemsCount\ <\ INT\_MAX\ \&\&\ DisplayStart\ >=\ 0)}
+\DoxyCodeLine{02792\ \ \ \ \ \ \ \ \ \ \ \ \ ImGuiListClipper\_SeekCursorForItem(\textcolor{keyword}{this},\ ItemsCount);}
+\DoxyCodeLine{02793\ }
+\DoxyCodeLine{02794\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Restore\ temporary\ buffer\ and\ fix\ back\ pointers\ which\ may\ be\ invalidated\ when\ nesting}}
+\DoxyCodeLine{02795\ \ \ \ \ \ \ \ \ IM\_ASSERT(data-\/>ListClipper\ ==\ \textcolor{keyword}{this});}
+\DoxyCodeLine{02796\ \ \ \ \ \ \ \ \ data-\/>StepNo\ =\ data-\/>Ranges.Size;}
+\DoxyCodeLine{02797\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (-\/-\/g.ClipperTempDataStacked\ >\ 0)}
+\DoxyCodeLine{02798\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02799\ \ \ \ \ \ \ \ \ \ \ \ \ data\ =\ \&g.ClipperTempData[g.ClipperTempDataStacked\ -\/\ 1];}
+\DoxyCodeLine{02800\ \ \ \ \ \ \ \ \ \ \ \ \ data-\/>ListClipper-\/>TempData\ =\ data;}
+\DoxyCodeLine{02801\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02802\ \ \ \ \ \ \ \ \ TempData\ =\ NULL;}
+\DoxyCodeLine{02803\ \ \ \ \ \}}
+\DoxyCodeLine{02804\ \ \ \ \ ItemsCount\ =\ -\/1;}
+\DoxyCodeLine{02805\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_gui_list_clipper_a65dabd7fe41071f079c83a3615f48be9}\label{struct_im_gui_list_clipper_a65dabd7fe41071f079c83a3615f48be9}} 
+\index{ImGuiListClipper@{ImGuiListClipper}!ForceDisplayRangeByIndices@{ForceDisplayRangeByIndices}}
+\index{ForceDisplayRangeByIndices@{ForceDisplayRangeByIndices}!ImGuiListClipper@{ImGuiListClipper}}
+\doxysubsubsection{\texorpdfstring{ForceDisplayRangeByIndices()}{ForceDisplayRangeByIndices()}}
+{\footnotesize\ttfamily void Im\+Gui\+List\+Clipper\+::\+Force\+Display\+Range\+By\+Indices (\begin{DoxyParamCaption}\item[{int}]{item\+\_\+min,  }\item[{int}]{item\+\_\+max }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8cpp_source_l02807}{2807}} of file \mbox{\hyperlink{imgui_8cpp_source}{imgui.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02808\ \{}
+\DoxyCodeLine{02809\ \ \ \ \ \mbox{\hyperlink{struct_im_gui_list_clipper_data}{ImGuiListClipperData}}*\ data\ =\ (\mbox{\hyperlink{struct_im_gui_list_clipper_data}{ImGuiListClipperData}}*)TempData;}
+\DoxyCodeLine{02810\ \ \ \ \ IM\_ASSERT(DisplayStart\ <\ 0);\ \textcolor{comment}{//\ Only\ allowed\ after\ Begin()\ and\ if\ there\ has\ not\ been\ a\ specified\ range\ yet.}}
+\DoxyCodeLine{02811\ \ \ \ \ IM\_ASSERT(item\_min\ <=\ item\_max);}
+\DoxyCodeLine{02812\ \ \ \ \ \textcolor{keywordflow}{if}\ (item\_min\ <\ item\_max)}
+\DoxyCodeLine{02813\ \ \ \ \ \ \ \ \ data-\/>Ranges.push\_back(ImGuiListClipperRange::FromIndices(item\_min,\ item\_max));}
+\DoxyCodeLine{02814\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_gui_list_clipper_ac3e115812c3c4e5a39578a7aa955379a}\label{struct_im_gui_list_clipper_ac3e115812c3c4e5a39578a7aa955379a}} 
+\index{ImGuiListClipper@{ImGuiListClipper}!Step@{Step}}
+\index{Step@{Step}!ImGuiListClipper@{ImGuiListClipper}}
+\doxysubsubsection{\texorpdfstring{Step()}{Step()}}
+{\footnotesize\ttfamily bool Im\+Gui\+List\+Clipper\+::\+Step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8cpp_source_l02939}{2939}} of file \mbox{\hyperlink{imgui_8cpp_source}{imgui.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02940\ \{}
+\DoxyCodeLine{02941\ \ \ \ \ \mbox{\hyperlink{struct_im_gui_context}{ImGuiContext}}\&\ g\ =\ *Ctx;}
+\DoxyCodeLine{02942\ \ \ \ \ \textcolor{keywordtype}{bool}\ need\_items\_height\ =\ (ItemsHeight\ <=\ 0.0f);}
+\DoxyCodeLine{02943\ \ \ \ \ \textcolor{keywordtype}{bool}\ ret\ =\ ImGuiListClipper\_StepInternal(\textcolor{keyword}{this});}
+\DoxyCodeLine{02944\ \ \ \ \ \textcolor{keywordflow}{if}\ (ret\ \&\&\ (DisplayStart\ ==\ DisplayEnd))}
+\DoxyCodeLine{02945\ \ \ \ \ \ \ \ \ ret\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{02946\ \ \ \ \ \textcolor{keywordflow}{if}\ (g.CurrentTable\ \&\&\ g.CurrentTable-\/>IsUnfrozenRows\ ==\ \textcolor{keyword}{false})}
+\DoxyCodeLine{02947\ \ \ \ \ \ \ \ \ IMGUI\_DEBUG\_LOG\_CLIPPER(\textcolor{stringliteral}{"{}Clipper:\ Step():\ inside\ frozen\ table\ row.\(\backslash\)n"{}});}
+\DoxyCodeLine{02948\ \ \ \ \ \textcolor{keywordflow}{if}\ (need\_items\_height\ \&\&\ ItemsHeight\ >\ 0.0f)}
+\DoxyCodeLine{02949\ \ \ \ \ \ \ \ \ IMGUI\_DEBUG\_LOG\_CLIPPER(\textcolor{stringliteral}{"{}Clipper:\ Step():\ computed\ ItemsHeight:\ \%.2f.\(\backslash\)n"{}},\ ItemsHeight);}
+\DoxyCodeLine{02950\ \ \ \ \ \textcolor{keywordflow}{if}\ (ret)}
+\DoxyCodeLine{02951\ \ \ \ \ \{}
+\DoxyCodeLine{02952\ \ \ \ \ \ \ \ \ IMGUI\_DEBUG\_LOG\_CLIPPER(\textcolor{stringliteral}{"{}Clipper:\ Step():\ display\ \%d\ to\ \%d.\(\backslash\)n"{}},\ DisplayStart,\ DisplayEnd);}
+\DoxyCodeLine{02953\ \ \ \ \ \}}
+\DoxyCodeLine{02954\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{02955\ \ \ \ \ \{}
+\DoxyCodeLine{02956\ \ \ \ \ \ \ \ \ IMGUI\_DEBUG\_LOG\_CLIPPER(\textcolor{stringliteral}{"{}Clipper:\ Step():\ End.\(\backslash\)n"{}});}
+\DoxyCodeLine{02957\ \ \ \ \ \ \ \ \ End();}
+\DoxyCodeLine{02958\ \ \ \ \ \}}
+\DoxyCodeLine{02959\ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{02960\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_im_gui_list_clipper_a4c983c526d4653cd51684a65aa134eaf}\label{struct_im_gui_list_clipper_a4c983c526d4653cd51684a65aa134eaf}} 
+\index{ImGuiListClipper@{ImGuiListClipper}!Ctx@{Ctx}}
+\index{Ctx@{Ctx}!ImGuiListClipper@{ImGuiListClipper}}
+\doxysubsubsection{\texorpdfstring{Ctx}{Ctx}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_gui_context}{Im\+Gui\+Context}}$\ast$ Im\+Gui\+List\+Clipper\+::\+Ctx}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02327}{2327}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_list_clipper_aa49e30d04ad8f8b95fbaa62dfbb4ea3e}\label{struct_im_gui_list_clipper_aa49e30d04ad8f8b95fbaa62dfbb4ea3e}} 
+\index{ImGuiListClipper@{ImGuiListClipper}!DisplayEnd@{DisplayEnd}}
+\index{DisplayEnd@{DisplayEnd}!ImGuiListClipper@{ImGuiListClipper}}
+\doxysubsubsection{\texorpdfstring{DisplayEnd}{DisplayEnd}}
+{\footnotesize\ttfamily int Im\+Gui\+List\+Clipper\+::\+Display\+End}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02329}{2329}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_list_clipper_a9d096e06e5633fd77a8a209c00fe454a}\label{struct_im_gui_list_clipper_a9d096e06e5633fd77a8a209c00fe454a}} 
+\index{ImGuiListClipper@{ImGuiListClipper}!DisplayStart@{DisplayStart}}
+\index{DisplayStart@{DisplayStart}!ImGuiListClipper@{ImGuiListClipper}}
+\doxysubsubsection{\texorpdfstring{DisplayStart}{DisplayStart}}
+{\footnotesize\ttfamily int Im\+Gui\+List\+Clipper\+::\+Display\+Start}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02328}{2328}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_list_clipper_a4e2b4e8efe10615d04ad2aeea467f522}\label{struct_im_gui_list_clipper_a4e2b4e8efe10615d04ad2aeea467f522}} 
+\index{ImGuiListClipper@{ImGuiListClipper}!ItemsCount@{ItemsCount}}
+\index{ItemsCount@{ItemsCount}!ImGuiListClipper@{ImGuiListClipper}}
+\doxysubsubsection{\texorpdfstring{ItemsCount}{ItemsCount}}
+{\footnotesize\ttfamily int Im\+Gui\+List\+Clipper\+::\+Items\+Count}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02330}{2330}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_list_clipper_a19762cb78ff0adccb414027c25678a60}\label{struct_im_gui_list_clipper_a19762cb78ff0adccb414027c25678a60}} 
+\index{ImGuiListClipper@{ImGuiListClipper}!ItemsHeight@{ItemsHeight}}
+\index{ItemsHeight@{ItemsHeight}!ImGuiListClipper@{ImGuiListClipper}}
+\doxysubsubsection{\texorpdfstring{ItemsHeight}{ItemsHeight}}
+{\footnotesize\ttfamily float Im\+Gui\+List\+Clipper\+::\+Items\+Height}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02331}{2331}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_list_clipper_affee91b338520cd4bd59b5b680dcb5ae}\label{struct_im_gui_list_clipper_affee91b338520cd4bd59b5b680dcb5ae}} 
+\index{ImGuiListClipper@{ImGuiListClipper}!StartPosY@{StartPosY}}
+\index{StartPosY@{StartPosY}!ImGuiListClipper@{ImGuiListClipper}}
+\doxysubsubsection{\texorpdfstring{StartPosY}{StartPosY}}
+{\footnotesize\ttfamily float Im\+Gui\+List\+Clipper\+::\+Start\+PosY}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02332}{2332}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_list_clipper_a596215ed18fa6d4094d9bf4da975e1be}\label{struct_im_gui_list_clipper_a596215ed18fa6d4094d9bf4da975e1be}} 
+\index{ImGuiListClipper@{ImGuiListClipper}!TempData@{TempData}}
+\index{TempData@{TempData}!ImGuiListClipper@{ImGuiListClipper}}
+\doxysubsubsection{\texorpdfstring{TempData}{TempData}}
+{\footnotesize\ttfamily void$\ast$ Im\+Gui\+List\+Clipper\+::\+Temp\+Data}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02333}{2333}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/imgui.\+h\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/imgui.\+cpp\end{DoxyCompactItemize}

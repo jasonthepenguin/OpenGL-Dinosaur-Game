@@ -1,0 +1,208 @@
+\hypertarget{class_open_g_l_texture}{}\doxysection{Open\+GLTexture Class Reference}
+\label{class_open_g_l_texture}\index{OpenGLTexture@{OpenGLTexture}}
+
+
+Inheritance diagram for Open\+GLTexture\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=165pt]{class_open_g_l_texture__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Open\+GLTexture\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=165pt]{class_open_g_l_texture__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_open_g_l_texture_ac79cb41ef42fb6cc5113669594b85910}{Open\+GLTexture}} (std\+::string filename)
+\item 
+virtual void \mbox{\hyperlink{class_open_g_l_texture_a405ce0f45732a7a9e2e877d4f0663dbd}{load}} () override
+\item 
+virtual void \mbox{\hyperlink{class_open_g_l_texture_a81eb9689f1462351bc052efbf17a33ae}{bind\+Texture}} (int texture\+Unit) override
+\item 
+virtual void \mbox{\hyperlink{class_open_g_l_texture_a983f60e762ff08ced524caec259349e2}{unbind}} () override
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_texture_accd3ac19e658c3057c4889d6a61f9cca}\label{class_texture_accd3ac19e658c3057c4889d6a61f9cca}} 
+virtual void {\bfseries load} ()=0
+\item 
+\mbox{\Hypertarget{class_texture_a2240b34fb038c146a2e32e66f2febe3d}\label{class_texture_a2240b34fb038c146a2e32e66f2febe3d}} 
+virtual void {\bfseries bind\+Texture} (int texture\+Unit)=0
+\item 
+\mbox{\Hypertarget{class_texture_aef9fd811c0c4927892effbae00137998}\label{class_texture_aef9fd811c0c4927892effbae00137998}} 
+virtual void {\bfseries unbind} ()=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{class_texture}{Texture}}}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{class_texture_ac54718cb08fddb9e291adb62962213ad}{texture}}
+\item 
+int \mbox{\hyperlink{class_texture_a06a0246cb31343557c3441c5733349cd}{width}}
+\item 
+int \mbox{\hyperlink{class_texture_ad37c395c65ff8bde86230908027a6fcd}{height}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_texture}{Texture}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{class_texture_af5f12e2b32503c66f24d02ee82d63c1a}{file\+Name}}
+\item 
+unsigned char $\ast$ \mbox{\hyperlink{class_texture_ab0308cd773b72a1ba4e061f2145f5bfc}{data}}
+\item 
+int \mbox{\hyperlink{class_texture_ab3a093045e516713b523d7ee40fe7689}{nr\+Channels}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_texture_8h_source_l00047}{47}} of file \mbox{\hyperlink{_texture_8h_source}{Texture.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_open_g_l_texture_ac79cb41ef42fb6cc5113669594b85910}\label{class_open_g_l_texture_ac79cb41ef42fb6cc5113669594b85910}} 
+\index{OpenGLTexture@{OpenGLTexture}!OpenGLTexture@{OpenGLTexture}}
+\index{OpenGLTexture@{OpenGLTexture}!OpenGLTexture@{OpenGLTexture}}
+\doxysubsubsection{\texorpdfstring{OpenGLTexture()}{OpenGLTexture()}}
+{\footnotesize\ttfamily Open\+GLTexture\+::\+Open\+GLTexture (\begin{DoxyParamCaption}\item[{std\+::string}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_texture_8h_source_l00052}{52}} of file \mbox{\hyperlink{_texture_8h_source}{Texture.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ fileName\ =\ filename;}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_open_g_l_texture_a81eb9689f1462351bc052efbf17a33ae}\label{class_open_g_l_texture_a81eb9689f1462351bc052efbf17a33ae}} 
+\index{OpenGLTexture@{OpenGLTexture}!bindTexture@{bindTexture}}
+\index{bindTexture@{bindTexture}!OpenGLTexture@{OpenGLTexture}}
+\doxysubsubsection{\texorpdfstring{bindTexture()}{bindTexture()}}
+{\footnotesize\ttfamily virtual void Open\+GLTexture\+::bind\+Texture (\begin{DoxyParamCaption}\item[{int}]{texture\+Unit }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_texture}{Texture}}.
+
+
+
+Definition at line \mbox{\hyperlink{_texture_8h_source_l00106}{106}} of file \mbox{\hyperlink{_texture_8h_source}{Texture.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00107\ \ \ \ \ \{}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ glActiveTexture(GL\_TEXTURE0\ +\ textureUnit);\ \ \ \textcolor{comment}{//\ modify\ this\ function\ in\ the\ future\ to\ specify\ which\ texture\ unit?\ eg\ 0,\ 1\ ..}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ glBindTexture(GL\_TEXTURE\_2D,\ texture);}
+\DoxyCodeLine{00111\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_open_g_l_texture_a405ce0f45732a7a9e2e877d4f0663dbd}\label{class_open_g_l_texture_a405ce0f45732a7a9e2e877d4f0663dbd}} 
+\index{OpenGLTexture@{OpenGLTexture}!load@{load}}
+\index{load@{load}!OpenGLTexture@{OpenGLTexture}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily virtual void Open\+GLTexture\+::load (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_texture}{Texture}}.
+
+
+
+Definition at line \mbox{\hyperlink{_texture_8h_source_l00056}{56}} of file \mbox{\hyperlink{_texture_8h_source}{Texture.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ glGenTextures(1,\ \&texture);\ \textcolor{comment}{//\ generating\ texture\ ID,\ creating\ "{}1"{}\ texture}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ would\ need\ to\ check\ for\ type\ of\ image\ file,\ etc....\ (\ Probably\ have\ some\ textre\ factory\ creator/manager\ in\ the\ future?\ )}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ glBindTexture(GL\_TEXTURE\_2D,\ texture);\ \textcolor{comment}{//\ binding\ it\ so\ subsequent\ code\ will\ configure\ this\ bound\ texture}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ setting\ the\ texture\ wrapping/filtering\ options\ (on\ the\ currently\ bound\ texture\ object)}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ glTexParameteri(GL\_TEXTURE\_2D,\ GL\_TEXTURE\_WRAP\_S,\ GL\_REPEAT);}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ glTexParameteri(GL\_TEXTURE\_2D,\ GL\_TEXTURE\_WRAP\_T,\ GL\_REPEAT);}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ glTexParameteri(GL\_TEXTURE\_2D,\ GL\_TEXTURE\_MIN\_FILTER,\ GL\_LINEAR\_MIPMAP\_LINEAR);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ glTexParameteri(GL\_TEXTURE\_2D,\ GL\_TEXTURE\_MAG\_FILTER,\ GL\_LINEAR);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ stbi\_set\_flip\_vertically\_on\_load(\textcolor{keyword}{true});}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ data\ =\ stbi\_load(fileName.c\_str(),\ \&width,\ \&height,\ \&nrChannels,\ 0);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (data)}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ GLenum\ format;}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (nrChannels\ ==\ 1)}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ format\ =\ GL\_RED;}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (nrChannels\ ==\ 3)}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ format\ =\ GL\_RGB;}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (nrChannels\ ==\ 4)}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ format\ =\ GL\_RGBA;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ glTexImage2D(GL\_TEXTURE\_2D,\ 0,\ format,\ width,\ height,\ 0,\ format,\ GL\_UNSIGNED\_BYTE,\ data);}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ glGenerateMipmap(GL\_TEXTURE\_2D);}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Failed\ to\ load\ texture!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ free\ the\ image\ memory}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ stbi\_image\_free(data);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_open_g_l_texture_a983f60e762ff08ced524caec259349e2}\label{class_open_g_l_texture_a983f60e762ff08ced524caec259349e2}} 
+\index{OpenGLTexture@{OpenGLTexture}!unbind@{unbind}}
+\index{unbind@{unbind}!OpenGLTexture@{OpenGLTexture}}
+\doxysubsubsection{\texorpdfstring{unbind()}{unbind()}}
+{\footnotesize\ttfamily virtual void Open\+GLTexture\+::unbind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_texture}{Texture}}.
+
+
+
+Definition at line \mbox{\hyperlink{_texture_8h_source_l00113}{113}} of file \mbox{\hyperlink{_texture_8h_source}{Texture.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00114\ \ \ \ \ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ glBindTexture(GL\_TEXTURE\_2D,\ 0);}
+\DoxyCodeLine{00116\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/Texture.\+h\end{DoxyCompactItemize}

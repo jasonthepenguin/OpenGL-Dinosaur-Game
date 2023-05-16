@@ -1,0 +1,73 @@
+\hypertarget{struct_im_gui_once_upon_a_frame}{}\doxysection{Im\+Gui\+Once\+Upon\+AFrame Struct Reference}
+\label{struct_im_gui_once_upon_a_frame}\index{ImGuiOnceUponAFrame@{ImGuiOnceUponAFrame}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_im_gui_once_upon_a_frame_a3c912b79bc333ce746356001431c2504}{operator bool}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{struct_im_gui_once_upon_a_frame_a2d44776b8e7bdeec217f88be9f832e08}{Ref\+Frame}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02200}{2200}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_im_gui_once_upon_a_frame_ac9513f72a884f6fe844869b157b23f1f}\label{struct_im_gui_once_upon_a_frame_ac9513f72a884f6fe844869b157b23f1f}} 
+\index{ImGuiOnceUponAFrame@{ImGuiOnceUponAFrame}!ImGuiOnceUponAFrame@{ImGuiOnceUponAFrame}}
+\index{ImGuiOnceUponAFrame@{ImGuiOnceUponAFrame}!ImGuiOnceUponAFrame@{ImGuiOnceUponAFrame}}
+\doxysubsubsection{\texorpdfstring{ImGuiOnceUponAFrame()}{ImGuiOnceUponAFrame()}}
+{\footnotesize\ttfamily Im\+Gui\+Once\+Upon\+AFrame\+::\+Im\+Gui\+Once\+Upon\+AFrame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02202}{2202}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02202\ \{\ RefFrame\ =\ -\/1;\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_im_gui_once_upon_a_frame_a3c912b79bc333ce746356001431c2504}\label{struct_im_gui_once_upon_a_frame_a3c912b79bc333ce746356001431c2504}} 
+\index{ImGuiOnceUponAFrame@{ImGuiOnceUponAFrame}!operator bool@{operator bool}}
+\index{operator bool@{operator bool}!ImGuiOnceUponAFrame@{ImGuiOnceUponAFrame}}
+\doxysubsubsection{\texorpdfstring{operator bool()}{operator bool()}}
+{\footnotesize\ttfamily Im\+Gui\+Once\+Upon\+AFrame\+::operator bool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02204}{2204}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02204\ \{\ \textcolor{keywordtype}{int}\ current\_frame\ =\ ImGui::GetFrameCount();\ \textcolor{keywordflow}{if}\ (RefFrame\ ==\ current\_frame)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ RefFrame\ =\ current\_frame;\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_im_gui_once_upon_a_frame_a2d44776b8e7bdeec217f88be9f832e08}\label{struct_im_gui_once_upon_a_frame_a2d44776b8e7bdeec217f88be9f832e08}} 
+\index{ImGuiOnceUponAFrame@{ImGuiOnceUponAFrame}!RefFrame@{RefFrame}}
+\index{RefFrame@{RefFrame}!ImGuiOnceUponAFrame@{ImGuiOnceUponAFrame}}
+\doxysubsubsection{\texorpdfstring{RefFrame}{RefFrame}}
+{\footnotesize\ttfamily int Im\+Gui\+Once\+Upon\+AFrame\+::\+Ref\+Frame\hspace{0.3cm}{\ttfamily [mutable]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02203}{2203}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/imgui.\+h\end{DoxyCompactItemize}

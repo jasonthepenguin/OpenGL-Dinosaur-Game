@@ -1,0 +1,227 @@
+\hypertarget{struct_im_draw_data}{}\doxysection{Im\+Draw\+Data Struct Reference}
+\label{struct_im_draw_data}\index{ImDrawData@{ImDrawData}}
+
+
+Collaboration diagram for Im\+Draw\+Data\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_draw_data__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{struct_im_draw_data_ab6a90612bd22eaff0d42539875e2e5c9}{Clear}} ()
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_draw_data_a88ae746e958b79ee527fe94dee29d57c}{De\+Index\+All\+Buffers}} ()
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_draw_data_a951fbe824674c7a5c2f6a478f3654ca8}{Scale\+Clip\+Rects}} (const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&fb\+\_\+scale)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{struct_im_draw_data_ad01ab9ce5e8843b7860ccbb3eb9a6554}{Valid}}
+\item 
+int \mbox{\hyperlink{struct_im_draw_data_adc0bbc2881c15f78bdabe51d82582f4e}{Cmd\+Lists\+Count}}
+\item 
+int \mbox{\hyperlink{struct_im_draw_data_a1ac8a5d441f464628295ef91a0602fc5}{Total\+Idx\+Count}}
+\item 
+int \mbox{\hyperlink{struct_im_draw_data_af0035b52cdf91932b25eaf2da853965a}{Total\+Vtx\+Count}}
+\item 
+\mbox{\hyperlink{struct_im_draw_list}{Im\+Draw\+List}} $\ast$$\ast$ \mbox{\hyperlink{struct_im_draw_data_a9e93fe7e620eb2e9f61e3b689d617edc}{Cmd\+Lists}}
+\item 
+\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \mbox{\hyperlink{struct_im_draw_data_a1e7755e98f5e24b1f4d9152766e6346e}{Display\+Pos}}
+\item 
+\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \mbox{\hyperlink{struct_im_draw_data_a74d53447c8882a3ce6dc7aaa3e081f39}{Display\+Size}}
+\item 
+\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \mbox{\hyperlink{struct_im_draw_data_ad57d704d2e5aecd79454c98c8a8111ec}{Framebuffer\+Scale}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02684}{2684}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_im_draw_data_a96b50c40107c997e9eea7ac3ba1a6138}\label{struct_im_draw_data_a96b50c40107c997e9eea7ac3ba1a6138}} 
+\index{ImDrawData@{ImDrawData}!ImDrawData@{ImDrawData}}
+\index{ImDrawData@{ImDrawData}!ImDrawData@{ImDrawData}}
+\doxysubsubsection{\texorpdfstring{ImDrawData()}{ImDrawData()}}
+{\footnotesize\ttfamily Im\+Draw\+Data\+::\+Im\+Draw\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02696}{2696}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02696\ \{\ Clear();\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_im_draw_data_ab6a90612bd22eaff0d42539875e2e5c9}\label{struct_im_draw_data_ab6a90612bd22eaff0d42539875e2e5c9}} 
+\index{ImDrawData@{ImDrawData}!Clear@{Clear}}
+\index{Clear@{Clear}!ImDrawData@{ImDrawData}}
+\doxysubsubsection{\texorpdfstring{Clear()}{Clear()}}
+{\footnotesize\ttfamily void Im\+Draw\+Data\+::\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02697}{2697}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02697\ \{\ memset(\textcolor{keyword}{this},\ 0,\ \textcolor{keyword}{sizeof}(*\textcolor{keyword}{this}));\ \}\ \ \ \ \ \textcolor{comment}{//\ The\ ImDrawList\ are\ owned\ by\ ImGuiContext!}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_draw_data_a88ae746e958b79ee527fe94dee29d57c}\label{struct_im_draw_data_a88ae746e958b79ee527fe94dee29d57c}} 
+\index{ImDrawData@{ImDrawData}!DeIndexAllBuffers@{DeIndexAllBuffers}}
+\index{DeIndexAllBuffers@{DeIndexAllBuffers}!ImDrawData@{ImDrawData}}
+\doxysubsubsection{\texorpdfstring{DeIndexAllBuffers()}{DeIndexAllBuffers()}}
+{\footnotesize\ttfamily void Im\+Draw\+Data\+::\+De\+Index\+All\+Buffers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l01812}{1812}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01813\ \{}
+\DoxyCodeLine{01814\ \ \ \ \ \mbox{\hyperlink{struct_im_vector}{ImVector<ImDrawVert>}}\ new\_vtx\_buffer;}
+\DoxyCodeLine{01815\ \ \ \ \ TotalVtxCount\ =\ TotalIdxCount\ =\ 0;}
+\DoxyCodeLine{01816\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ CmdListsCount;\ i++)}
+\DoxyCodeLine{01817\ \ \ \ \ \{}
+\DoxyCodeLine{01818\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_im_draw_list}{ImDrawList}}*\ cmd\_list\ =\ CmdLists[i];}
+\DoxyCodeLine{01819\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cmd\_list-\/>IdxBuffer.empty())}
+\DoxyCodeLine{01820\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{01821\ \ \ \ \ \ \ \ \ new\_vtx\_buffer.resize(cmd\_list-\/>IdxBuffer.Size);}
+\DoxyCodeLine{01822\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ cmd\_list-\/>IdxBuffer.Size;\ j++)}
+\DoxyCodeLine{01823\ \ \ \ \ \ \ \ \ \ \ \ \ new\_vtx\_buffer[j]\ =\ cmd\_list-\/>VtxBuffer[cmd\_list-\/>IdxBuffer[j]];}
+\DoxyCodeLine{01824\ \ \ \ \ \ \ \ \ cmd\_list-\/>VtxBuffer.swap(new\_vtx\_buffer);}
+\DoxyCodeLine{01825\ \ \ \ \ \ \ \ \ cmd\_list-\/>IdxBuffer.resize(0);}
+\DoxyCodeLine{01826\ \ \ \ \ \ \ \ \ TotalVtxCount\ +=\ cmd\_list-\/>VtxBuffer.Size;}
+\DoxyCodeLine{01827\ \ \ \ \ \}}
+\DoxyCodeLine{01828\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_draw_data_a951fbe824674c7a5c2f6a478f3654ca8}\label{struct_im_draw_data_a951fbe824674c7a5c2f6a478f3654ca8}} 
+\index{ImDrawData@{ImDrawData}!ScaleClipRects@{ScaleClipRects}}
+\index{ScaleClipRects@{ScaleClipRects}!ImDrawData@{ImDrawData}}
+\doxysubsubsection{\texorpdfstring{ScaleClipRects()}{ScaleClipRects()}}
+{\footnotesize\ttfamily void Im\+Draw\+Data\+::\+Scale\+Clip\+Rects (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{fb\+\_\+scale }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l01833}{1833}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01834\ \{}
+\DoxyCodeLine{01835\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ CmdListsCount;\ i++)}
+\DoxyCodeLine{01836\ \ \ \ \ \{}
+\DoxyCodeLine{01837\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_im_draw_list}{ImDrawList}}*\ cmd\_list\ =\ CmdLists[i];}
+\DoxyCodeLine{01838\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ cmd\_i\ =\ 0;\ cmd\_i\ <\ cmd\_list-\/>CmdBuffer.Size;\ cmd\_i++)}
+\DoxyCodeLine{01839\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01840\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_im_draw_cmd}{ImDrawCmd}}*\ cmd\ =\ \&cmd\_list-\/>CmdBuffer[cmd\_i];}
+\DoxyCodeLine{01841\ \ \ \ \ \ \ \ \ \ \ \ \ cmd-\/>ClipRect\ =\ \mbox{\hyperlink{struct_im_vec4}{ImVec4}}(cmd-\/>ClipRect.x\ *\ fb\_scale.x,\ cmd-\/>ClipRect.y\ *\ fb\_scale.y,\ cmd-\/>ClipRect.z\ *\ fb\_scale.x,\ cmd-\/>ClipRect.w\ *\ fb\_scale.y);}
+\DoxyCodeLine{01842\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01843\ \ \ \ \ \}}
+\DoxyCodeLine{01844\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_im_draw_data_a9e93fe7e620eb2e9f61e3b689d617edc}\label{struct_im_draw_data_a9e93fe7e620eb2e9f61e3b689d617edc}} 
+\index{ImDrawData@{ImDrawData}!CmdLists@{CmdLists}}
+\index{CmdLists@{CmdLists}!ImDrawData@{ImDrawData}}
+\doxysubsubsection{\texorpdfstring{CmdLists}{CmdLists}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_draw_list}{Im\+Draw\+List}}$\ast$$\ast$ Im\+Draw\+Data\+::\+Cmd\+Lists}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02690}{2690}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_draw_data_adc0bbc2881c15f78bdabe51d82582f4e}\label{struct_im_draw_data_adc0bbc2881c15f78bdabe51d82582f4e}} 
+\index{ImDrawData@{ImDrawData}!CmdListsCount@{CmdListsCount}}
+\index{CmdListsCount@{CmdListsCount}!ImDrawData@{ImDrawData}}
+\doxysubsubsection{\texorpdfstring{CmdListsCount}{CmdListsCount}}
+{\footnotesize\ttfamily int Im\+Draw\+Data\+::\+Cmd\+Lists\+Count}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02687}{2687}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_draw_data_a1e7755e98f5e24b1f4d9152766e6346e}\label{struct_im_draw_data_a1e7755e98f5e24b1f4d9152766e6346e}} 
+\index{ImDrawData@{ImDrawData}!DisplayPos@{DisplayPos}}
+\index{DisplayPos@{DisplayPos}!ImDrawData@{ImDrawData}}
+\doxysubsubsection{\texorpdfstring{DisplayPos}{DisplayPos}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} Im\+Draw\+Data\+::\+Display\+Pos}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02691}{2691}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_draw_data_a74d53447c8882a3ce6dc7aaa3e081f39}\label{struct_im_draw_data_a74d53447c8882a3ce6dc7aaa3e081f39}} 
+\index{ImDrawData@{ImDrawData}!DisplaySize@{DisplaySize}}
+\index{DisplaySize@{DisplaySize}!ImDrawData@{ImDrawData}}
+\doxysubsubsection{\texorpdfstring{DisplaySize}{DisplaySize}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} Im\+Draw\+Data\+::\+Display\+Size}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02692}{2692}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_draw_data_ad57d704d2e5aecd79454c98c8a8111ec}\label{struct_im_draw_data_ad57d704d2e5aecd79454c98c8a8111ec}} 
+\index{ImDrawData@{ImDrawData}!FramebufferScale@{FramebufferScale}}
+\index{FramebufferScale@{FramebufferScale}!ImDrawData@{ImDrawData}}
+\doxysubsubsection{\texorpdfstring{FramebufferScale}{FramebufferScale}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} Im\+Draw\+Data\+::\+Framebuffer\+Scale}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02693}{2693}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_draw_data_a1ac8a5d441f464628295ef91a0602fc5}\label{struct_im_draw_data_a1ac8a5d441f464628295ef91a0602fc5}} 
+\index{ImDrawData@{ImDrawData}!TotalIdxCount@{TotalIdxCount}}
+\index{TotalIdxCount@{TotalIdxCount}!ImDrawData@{ImDrawData}}
+\doxysubsubsection{\texorpdfstring{TotalIdxCount}{TotalIdxCount}}
+{\footnotesize\ttfamily int Im\+Draw\+Data\+::\+Total\+Idx\+Count}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02688}{2688}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_draw_data_af0035b52cdf91932b25eaf2da853965a}\label{struct_im_draw_data_af0035b52cdf91932b25eaf2da853965a}} 
+\index{ImDrawData@{ImDrawData}!TotalVtxCount@{TotalVtxCount}}
+\index{TotalVtxCount@{TotalVtxCount}!ImDrawData@{ImDrawData}}
+\doxysubsubsection{\texorpdfstring{TotalVtxCount}{TotalVtxCount}}
+{\footnotesize\ttfamily int Im\+Draw\+Data\+::\+Total\+Vtx\+Count}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02689}{2689}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_draw_data_ad01ab9ce5e8843b7860ccbb3eb9a6554}\label{struct_im_draw_data_ad01ab9ce5e8843b7860ccbb3eb9a6554}} 
+\index{ImDrawData@{ImDrawData}!Valid@{Valid}}
+\index{Valid@{Valid}!ImDrawData@{ImDrawData}}
+\doxysubsubsection{\texorpdfstring{Valid}{Valid}}
+{\footnotesize\ttfamily bool Im\+Draw\+Data\+::\+Valid}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02686}{2686}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/imgui.\+h\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/imgui\+\_\+draw.\+cpp\end{DoxyCompactItemize}

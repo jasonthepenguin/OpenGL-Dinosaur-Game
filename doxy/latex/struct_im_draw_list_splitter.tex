@@ -1,0 +1,318 @@
+\hypertarget{struct_im_draw_list_splitter}{}\doxysection{Im\+Draw\+List\+Splitter Struct Reference}
+\label{struct_im_draw_list_splitter}\index{ImDrawListSplitter@{ImDrawListSplitter}}
+
+
+Collaboration diagram for Im\+Draw\+List\+Splitter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_draw_list_splitter__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{struct_im_draw_list_splitter_ac6865e5a2f180419fa282b681bf08c9c}{Clear}} ()
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_draw_list_splitter_a95dbdaa7ea2a0328a85732ed210a549b}{Clear\+Free\+Memory}} ()
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_draw_list_splitter_aa491c5b1e10b2f5340e7db4949d31255}{Split}} (\mbox{\hyperlink{struct_im_draw_list}{Im\+Draw\+List}} $\ast$draw\+\_\+list, int count)
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_draw_list_splitter_af3fc4bad2abca9e481d476d1877ba5be}{Merge}} (\mbox{\hyperlink{struct_im_draw_list}{Im\+Draw\+List}} $\ast$draw\+\_\+list)
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_draw_list_splitter_ad3797b0755caa07f3d69a9e3566eb0e5}{Set\+Current\+Channel}} (\mbox{\hyperlink{struct_im_draw_list}{Im\+Draw\+List}} $\ast$draw\+\_\+list, int channel\+\_\+idx)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{struct_im_draw_list_splitter_a99a46d62e09810f31d0a6efd4a0d2b09}{\+\_\+\+Current}}
+\item 
+int \mbox{\hyperlink{struct_im_draw_list_splitter_ae3a1593ee05bc52e6284943eab3c97a2}{\+\_\+\+Count}}
+\item 
+\mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$ \mbox{\hyperlink{struct_im_draw_channel}{Im\+Draw\+Channel}} $>$ \mbox{\hyperlink{struct_im_draw_list_splitter_ab3b0bdddacaa7b347c41735c2d9952dc}{\+\_\+\+Channels}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02502}{2502}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_im_draw_list_splitter_a2f832d1adedde7663c991af366847c75}\label{struct_im_draw_list_splitter_a2f832d1adedde7663c991af366847c75}} 
+\index{ImDrawListSplitter@{ImDrawListSplitter}!ImDrawListSplitter@{ImDrawListSplitter}}
+\index{ImDrawListSplitter@{ImDrawListSplitter}!ImDrawListSplitter@{ImDrawListSplitter}}
+\doxysubsubsection{\texorpdfstring{ImDrawListSplitter()}{ImDrawListSplitter()}}
+{\footnotesize\ttfamily Im\+Draw\+List\+Splitter\+::\+Im\+Draw\+List\+Splitter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02508}{2508}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02508\ \{\ memset(\textcolor{keyword}{this},\ 0,\ \textcolor{keyword}{sizeof}(*\textcolor{keyword}{this}));\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_draw_list_splitter_a712b8ba85de1e4095db67a86a3b80e21}\label{struct_im_draw_list_splitter_a712b8ba85de1e4095db67a86a3b80e21}} 
+\index{ImDrawListSplitter@{ImDrawListSplitter}!````~ImDrawListSplitter@{$\sim$ImDrawListSplitter}}
+\index{````~ImDrawListSplitter@{$\sim$ImDrawListSplitter}!ImDrawListSplitter@{ImDrawListSplitter}}
+\doxysubsubsection{\texorpdfstring{$\sim$ImDrawListSplitter()}{~ImDrawListSplitter()}}
+{\footnotesize\ttfamily Im\+Draw\+List\+Splitter\+::$\sim$\+Im\+Draw\+List\+Splitter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02509}{2509}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02509\ \{\ ClearFreeMemory();\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_im_draw_list_splitter_ac6865e5a2f180419fa282b681bf08c9c}\label{struct_im_draw_list_splitter_ac6865e5a2f180419fa282b681bf08c9c}} 
+\index{ImDrawListSplitter@{ImDrawListSplitter}!Clear@{Clear}}
+\index{Clear@{Clear}!ImDrawListSplitter@{ImDrawListSplitter}}
+\doxysubsubsection{\texorpdfstring{Clear()}{Clear()}}
+{\footnotesize\ttfamily void Im\+Draw\+List\+Splitter\+::\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02510}{2510}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02510\ \{\ \_Current\ =\ 0;\ \_Count\ =\ 1;\ \}\ \textcolor{comment}{//\ Do\ not\ clear\ Channels[]\ so\ our\ allocations\ are\ reused\ next\ frame}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_draw_list_splitter_a95dbdaa7ea2a0328a85732ed210a549b}\label{struct_im_draw_list_splitter_a95dbdaa7ea2a0328a85732ed210a549b}} 
+\index{ImDrawListSplitter@{ImDrawListSplitter}!ClearFreeMemory@{ClearFreeMemory}}
+\index{ClearFreeMemory@{ClearFreeMemory}!ImDrawListSplitter@{ImDrawListSplitter}}
+\doxysubsubsection{\texorpdfstring{ClearFreeMemory()}{ClearFreeMemory()}}
+{\footnotesize\ttfamily void Im\+Draw\+List\+Splitter\+::\+Clear\+Free\+Memory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l01668}{1668}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01669\ \{}
+\DoxyCodeLine{01670\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \_Channels.Size;\ i++)}
+\DoxyCodeLine{01671\ \ \ \ \ \{}
+\DoxyCodeLine{01672\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ \_Current)}
+\DoxyCodeLine{01673\ \ \ \ \ \ \ \ \ \ \ \ \ memset(\&\_Channels[i],\ 0,\ \textcolor{keyword}{sizeof}(\_Channels[i]));\ \ \textcolor{comment}{//\ Current\ channel\ is\ a\ copy\ of\ CmdBuffer/IdxBuffer,\ don't\ destruct\ again}}
+\DoxyCodeLine{01674\ \ \ \ \ \ \ \ \ \_Channels[i].\_CmdBuffer.clear();}
+\DoxyCodeLine{01675\ \ \ \ \ \ \ \ \ \_Channels[i].\_IdxBuffer.clear();}
+\DoxyCodeLine{01676\ \ \ \ \ \}}
+\DoxyCodeLine{01677\ \ \ \ \ \_Current\ =\ 0;}
+\DoxyCodeLine{01678\ \ \ \ \ \_Count\ =\ 1;}
+\DoxyCodeLine{01679\ \ \ \ \ \_Channels.clear();}
+\DoxyCodeLine{01680\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_draw_list_splitter_af3fc4bad2abca9e481d476d1877ba5be}\label{struct_im_draw_list_splitter_af3fc4bad2abca9e481d476d1877ba5be}} 
+\index{ImDrawListSplitter@{ImDrawListSplitter}!Merge@{Merge}}
+\index{Merge@{Merge}!ImDrawListSplitter@{ImDrawListSplitter}}
+\doxysubsubsection{\texorpdfstring{Merge()}{Merge()}}
+{\footnotesize\ttfamily void Im\+Draw\+List\+Splitter\+::\+Merge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_im_draw_list}{Im\+Draw\+List}} $\ast$}]{draw\+\_\+list }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l01712}{1712}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01713\ \{}
+\DoxyCodeLine{01714\ \ \ \ \ \textcolor{comment}{//\ Note\ that\ we\ never\ use\ or\ rely\ on\ \_Channels.Size\ because\ it\ is\ merely\ a\ buffer\ that\ we\ never\ shrink\ back\ to\ 0\ to\ keep\ all\ sub-\/buffers\ ready\ for\ use.}}
+\DoxyCodeLine{01715\ \ \ \ \ \textcolor{keywordflow}{if}\ (\_Count\ <=\ 1)}
+\DoxyCodeLine{01716\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01717\ }
+\DoxyCodeLine{01718\ \ \ \ \ SetCurrentChannel(draw\_list,\ 0);}
+\DoxyCodeLine{01719\ \ \ \ \ draw\_list-\/>\_PopUnusedDrawCmd();}
+\DoxyCodeLine{01720\ }
+\DoxyCodeLine{01721\ \ \ \ \ \textcolor{comment}{//\ Calculate\ our\ final\ buffer\ sizes.\ Also\ fix\ the\ incorrect\ IdxOffset\ values\ in\ each\ command.}}
+\DoxyCodeLine{01722\ \ \ \ \ \textcolor{keywordtype}{int}\ new\_cmd\_buffer\_count\ =\ 0;}
+\DoxyCodeLine{01723\ \ \ \ \ \textcolor{keywordtype}{int}\ new\_idx\_buffer\_count\ =\ 0;}
+\DoxyCodeLine{01724\ \ \ \ \ \mbox{\hyperlink{struct_im_draw_cmd}{ImDrawCmd}}*\ last\_cmd\ =\ (\_Count\ >\ 0\ \&\&\ draw\_list-\/>CmdBuffer.Size\ >\ 0)\ ?\ \&draw\_list-\/>CmdBuffer.back()\ :\ NULL;}
+\DoxyCodeLine{01725\ \ \ \ \ \textcolor{keywordtype}{int}\ idx\_offset\ =\ last\_cmd\ ?\ last\_cmd-\/>IdxOffset\ +\ last\_cmd-\/>ElemCount\ :\ 0;}
+\DoxyCodeLine{01726\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ \_Count;\ i++)}
+\DoxyCodeLine{01727\ \ \ \ \ \{}
+\DoxyCodeLine{01728\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_im_draw_channel}{ImDrawChannel}}\&\ ch\ =\ \_Channels[i];}
+\DoxyCodeLine{01729\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ch.\_CmdBuffer.Size\ >\ 0\ \&\&\ ch.\_CmdBuffer.back().ElemCount\ ==\ 0\ \&\&\ ch.\_CmdBuffer.back().UserCallback\ ==\ NULL)\ \textcolor{comment}{//\ Equivalent\ of\ PopUnusedDrawCmd()}}
+\DoxyCodeLine{01730\ \ \ \ \ \ \ \ \ \ \ \ \ ch.\_CmdBuffer.pop\_back();}
+\DoxyCodeLine{01731\ }
+\DoxyCodeLine{01732\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ch.\_CmdBuffer.Size\ >\ 0\ \&\&\ last\_cmd\ !=\ NULL)}
+\DoxyCodeLine{01733\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01734\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Do\ not\ include\ ImDrawCmd\_AreSequentialIdxOffset()\ in\ the\ compare\ as\ we\ rebuild\ IdxOffset\ values\ ourselves.}}
+\DoxyCodeLine{01735\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Manipulating\ IdxOffset\ (e.g.\ by\ reordering\ draw\ commands\ like\ done\ by\ RenderDimmedBackgroundBehindWindow())\ is\ not\ supported\ within\ a\ splitter.}}
+\DoxyCodeLine{01736\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_im_draw_cmd}{ImDrawCmd}}*\ next\_cmd\ =\ \&ch.\_CmdBuffer[0];}
+\DoxyCodeLine{01737\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImDrawCmd\_HeaderCompare(last\_cmd,\ next\_cmd)\ ==\ 0\ \&\&\ last\_cmd-\/>UserCallback\ ==\ NULL\ \&\&\ next\_cmd-\/>UserCallback\ ==\ NULL)}
+\DoxyCodeLine{01738\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01739\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Merge\ previous\ channel\ last\ draw\ command\ with\ current\ channel\ first\ draw\ command\ if\ matching.}}
+\DoxyCodeLine{01740\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ last\_cmd-\/>ElemCount\ +=\ next\_cmd-\/>ElemCount;}
+\DoxyCodeLine{01741\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ idx\_offset\ +=\ next\_cmd-\/>ElemCount;}
+\DoxyCodeLine{01742\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ch.\_CmdBuffer.erase(ch.\_CmdBuffer.Data);\ \textcolor{comment}{//\ FIXME-\/OPT:\ Improve\ for\ multiple\ merges.}}
+\DoxyCodeLine{01743\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01744\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01745\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ch.\_CmdBuffer.Size\ >\ 0)}
+\DoxyCodeLine{01746\ \ \ \ \ \ \ \ \ \ \ \ \ last\_cmd\ =\ \&ch.\_CmdBuffer.back();}
+\DoxyCodeLine{01747\ \ \ \ \ \ \ \ \ new\_cmd\_buffer\_count\ +=\ ch.\_CmdBuffer.Size;}
+\DoxyCodeLine{01748\ \ \ \ \ \ \ \ \ new\_idx\_buffer\_count\ +=\ ch.\_IdxBuffer.Size;}
+\DoxyCodeLine{01749\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ cmd\_n\ =\ 0;\ cmd\_n\ <\ ch.\_CmdBuffer.Size;\ cmd\_n++)}
+\DoxyCodeLine{01750\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01751\ \ \ \ \ \ \ \ \ \ \ \ \ ch.\_CmdBuffer.Data[cmd\_n].IdxOffset\ =\ idx\_offset;}
+\DoxyCodeLine{01752\ \ \ \ \ \ \ \ \ \ \ \ \ idx\_offset\ +=\ ch.\_CmdBuffer.Data[cmd\_n].ElemCount;}
+\DoxyCodeLine{01753\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01754\ \ \ \ \ \}}
+\DoxyCodeLine{01755\ \ \ \ \ draw\_list-\/>CmdBuffer.resize(draw\_list-\/>CmdBuffer.Size\ +\ new\_cmd\_buffer\_count);}
+\DoxyCodeLine{01756\ \ \ \ \ draw\_list-\/>IdxBuffer.resize(draw\_list-\/>IdxBuffer.Size\ +\ new\_idx\_buffer\_count);}
+\DoxyCodeLine{01757\ }
+\DoxyCodeLine{01758\ \ \ \ \ \textcolor{comment}{//\ Write\ commands\ and\ indices\ in\ order\ (they\ are\ fairly\ small\ structures,\ we\ don't\ copy\ vertices\ only\ indices)}}
+\DoxyCodeLine{01759\ \ \ \ \ \mbox{\hyperlink{struct_im_draw_cmd}{ImDrawCmd}}*\ cmd\_write\ =\ draw\_list-\/>CmdBuffer.Data\ +\ draw\_list-\/>CmdBuffer.Size\ -\/\ new\_cmd\_buffer\_count;}
+\DoxyCodeLine{01760\ \ \ \ \ ImDrawIdx*\ idx\_write\ =\ draw\_list-\/>IdxBuffer.Data\ +\ draw\_list-\/>IdxBuffer.Size\ -\/\ new\_idx\_buffer\_count;}
+\DoxyCodeLine{01761\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ \_Count;\ i++)}
+\DoxyCodeLine{01762\ \ \ \ \ \{}
+\DoxyCodeLine{01763\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_im_draw_channel}{ImDrawChannel}}\&\ ch\ =\ \_Channels[i];}
+\DoxyCodeLine{01764\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{int}\ sz\ =\ ch.\_CmdBuffer.Size)\ \{\ memcpy(cmd\_write,\ ch.\_CmdBuffer.Data,\ sz\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_im_draw_cmd}{ImDrawCmd}}));\ cmd\_write\ +=\ sz;\ \}}
+\DoxyCodeLine{01765\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{int}\ sz\ =\ ch.\_IdxBuffer.Size)\ \{\ memcpy(idx\_write,\ ch.\_IdxBuffer.Data,\ sz\ *\ \textcolor{keyword}{sizeof}(ImDrawIdx));\ idx\_write\ +=\ sz;\ \}}
+\DoxyCodeLine{01766\ \ \ \ \ \}}
+\DoxyCodeLine{01767\ \ \ \ \ draw\_list-\/>\_IdxWritePtr\ =\ idx\_write;}
+\DoxyCodeLine{01768\ }
+\DoxyCodeLine{01769\ \ \ \ \ \textcolor{comment}{//\ Ensure\ there's\ always\ a\ non-\/callback\ draw\ command\ trailing\ the\ command-\/buffer}}
+\DoxyCodeLine{01770\ \ \ \ \ \textcolor{keywordflow}{if}\ (draw\_list-\/>CmdBuffer.Size\ ==\ 0\ ||\ draw\_list-\/>CmdBuffer.back().UserCallback\ !=\ NULL)}
+\DoxyCodeLine{01771\ \ \ \ \ \ \ \ \ draw\_list-\/>AddDrawCmd();}
+\DoxyCodeLine{01772\ }
+\DoxyCodeLine{01773\ \ \ \ \ \textcolor{comment}{//\ If\ current\ command\ is\ used\ with\ different\ settings\ we\ need\ to\ add\ a\ new\ command}}
+\DoxyCodeLine{01774\ \ \ \ \ \mbox{\hyperlink{struct_im_draw_cmd}{ImDrawCmd}}*\ curr\_cmd\ =\ \&draw\_list-\/>CmdBuffer.Data[draw\_list-\/>CmdBuffer.Size\ -\/\ 1];}
+\DoxyCodeLine{01775\ \ \ \ \ \textcolor{keywordflow}{if}\ (curr\_cmd-\/>ElemCount\ ==\ 0)}
+\DoxyCodeLine{01776\ \ \ \ \ \ \ \ \ ImDrawCmd\_HeaderCopy(curr\_cmd,\ \&draw\_list-\/>\_CmdHeader);\ \textcolor{comment}{//\ Copy\ ClipRect,\ TextureId,\ VtxOffset}}
+\DoxyCodeLine{01777\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (ImDrawCmd\_HeaderCompare(curr\_cmd,\ \&draw\_list-\/>\_CmdHeader)\ !=\ 0)}
+\DoxyCodeLine{01778\ \ \ \ \ \ \ \ \ draw\_list-\/>AddDrawCmd();}
+\DoxyCodeLine{01779\ }
+\DoxyCodeLine{01780\ \ \ \ \ \_Count\ =\ 1;}
+\DoxyCodeLine{01781\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_draw_list_splitter_ad3797b0755caa07f3d69a9e3566eb0e5}\label{struct_im_draw_list_splitter_ad3797b0755caa07f3d69a9e3566eb0e5}} 
+\index{ImDrawListSplitter@{ImDrawListSplitter}!SetCurrentChannel@{SetCurrentChannel}}
+\index{SetCurrentChannel@{SetCurrentChannel}!ImDrawListSplitter@{ImDrawListSplitter}}
+\doxysubsubsection{\texorpdfstring{SetCurrentChannel()}{SetCurrentChannel()}}
+{\footnotesize\ttfamily void Im\+Draw\+List\+Splitter\+::\+Set\+Current\+Channel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_im_draw_list}{Im\+Draw\+List}} $\ast$}]{draw\+\_\+list,  }\item[{int}]{channel\+\_\+idx }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l01783}{1783}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01784\ \{}
+\DoxyCodeLine{01785\ \ \ \ \ IM\_ASSERT(idx\ >=\ 0\ \&\&\ idx\ <\ \_Count);}
+\DoxyCodeLine{01786\ \ \ \ \ \textcolor{keywordflow}{if}\ (\_Current\ ==\ idx)}
+\DoxyCodeLine{01787\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01788\ }
+\DoxyCodeLine{01789\ \ \ \ \ \textcolor{comment}{//\ Overwrite\ ImVector\ (12/16\ bytes),\ four\ times.\ This\ is\ merely\ a\ silly\ optimization\ instead\ of\ doing\ .swap()}}
+\DoxyCodeLine{01790\ \ \ \ \ memcpy(\&\_Channels.Data[\_Current].\_CmdBuffer,\ \&draw\_list-\/>CmdBuffer,\ \textcolor{keyword}{sizeof}(draw\_list-\/>CmdBuffer));}
+\DoxyCodeLine{01791\ \ \ \ \ memcpy(\&\_Channels.Data[\_Current].\_IdxBuffer,\ \&draw\_list-\/>IdxBuffer,\ \textcolor{keyword}{sizeof}(draw\_list-\/>IdxBuffer));}
+\DoxyCodeLine{01792\ \ \ \ \ \_Current\ =\ idx;}
+\DoxyCodeLine{01793\ \ \ \ \ memcpy(\&draw\_list-\/>CmdBuffer,\ \&\_Channels.Data[idx].\_CmdBuffer,\ \textcolor{keyword}{sizeof}(draw\_list-\/>CmdBuffer));}
+\DoxyCodeLine{01794\ \ \ \ \ memcpy(\&draw\_list-\/>IdxBuffer,\ \&\_Channels.Data[idx].\_IdxBuffer,\ \textcolor{keyword}{sizeof}(draw\_list-\/>IdxBuffer));}
+\DoxyCodeLine{01795\ \ \ \ \ draw\_list-\/>\_IdxWritePtr\ =\ draw\_list-\/>IdxBuffer.Data\ +\ draw\_list-\/>IdxBuffer.Size;}
+\DoxyCodeLine{01796\ }
+\DoxyCodeLine{01797\ \ \ \ \ \textcolor{comment}{//\ If\ current\ command\ is\ used\ with\ different\ settings\ we\ need\ to\ add\ a\ new\ command}}
+\DoxyCodeLine{01798\ \ \ \ \ \mbox{\hyperlink{struct_im_draw_cmd}{ImDrawCmd}}*\ curr\_cmd\ =\ (draw\_list-\/>CmdBuffer.Size\ ==\ 0)\ ?\ NULL\ :\ \&draw\_list-\/>CmdBuffer.Data[draw\_list-\/>CmdBuffer.Size\ -\/\ 1];}
+\DoxyCodeLine{01799\ \ \ \ \ if\ (curr\_cmd\ ==\ NULL)}
+\DoxyCodeLine{01800\ \ \ \ \ \ \ \ \ draw\_list-\/>AddDrawCmd();}
+\DoxyCodeLine{01801\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (curr\_cmd-\/>ElemCount\ ==\ 0)}
+\DoxyCodeLine{01802\ \ \ \ \ \ \ \ \ ImDrawCmd\_HeaderCopy(curr\_cmd,\ \&draw\_list-\/>\_CmdHeader);\ \textcolor{comment}{//\ Copy\ ClipRect,\ TextureId,\ VtxOffset}}
+\DoxyCodeLine{01803\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (ImDrawCmd\_HeaderCompare(curr\_cmd,\ \&draw\_list-\/>\_CmdHeader)\ !=\ 0)}
+\DoxyCodeLine{01804\ \ \ \ \ \ \ \ \ draw\_list-\/>AddDrawCmd();}
+\DoxyCodeLine{01805\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_draw_list_splitter_aa491c5b1e10b2f5340e7db4949d31255}\label{struct_im_draw_list_splitter_aa491c5b1e10b2f5340e7db4949d31255}} 
+\index{ImDrawListSplitter@{ImDrawListSplitter}!Split@{Split}}
+\index{Split@{Split}!ImDrawListSplitter@{ImDrawListSplitter}}
+\doxysubsubsection{\texorpdfstring{Split()}{Split()}}
+{\footnotesize\ttfamily void Im\+Draw\+List\+Splitter\+::\+Split (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_im_draw_list}{Im\+Draw\+List}} $\ast$}]{draw\+\_\+list,  }\item[{int}]{count }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l01682}{1682}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01683\ \{}
+\DoxyCodeLine{01684\ \ \ \ \ IM\_UNUSED(draw\_list);}
+\DoxyCodeLine{01685\ \ \ \ \ IM\_ASSERT(\_Current\ ==\ 0\ \&\&\ \_Count\ <=\ 1\ \&\&\ \textcolor{stringliteral}{"{}Nested\ channel\ splitting\ is\ not\ supported.\ Please\ use\ separate\ instances\ of\ ImDrawListSplitter."{}});}
+\DoxyCodeLine{01686\ \ \ \ \ \textcolor{keywordtype}{int}\ old\_channels\_count\ =\ \_Channels.Size;}
+\DoxyCodeLine{01687\ \ \ \ \ \textcolor{keywordflow}{if}\ (old\_channels\_count\ <\ channels\_count)}
+\DoxyCodeLine{01688\ \ \ \ \ \{}
+\DoxyCodeLine{01689\ \ \ \ \ \ \ \ \ \_Channels.reserve(channels\_count);\ \textcolor{comment}{//\ Avoid\ over\ reserving\ since\ this\ is\ likely\ to\ stay\ stable}}
+\DoxyCodeLine{01690\ \ \ \ \ \ \ \ \ \_Channels.resize(channels\_count);}
+\DoxyCodeLine{01691\ \ \ \ \ \}}
+\DoxyCodeLine{01692\ \ \ \ \ \_Count\ =\ channels\_count;}
+\DoxyCodeLine{01693\ }
+\DoxyCodeLine{01694\ \ \ \ \ \textcolor{comment}{//\ Channels[]\ (24/32\ bytes\ each)\ hold\ storage\ that\ we'll\ swap\ with\ draw\_list-\/>\_CmdBuffer/\_IdxBuffer}}
+\DoxyCodeLine{01695\ \ \ \ \ \textcolor{comment}{//\ The\ content\ of\ Channels[0]\ at\ this\ point\ doesn't\ matter.\ We\ clear\ it\ to\ make\ state\ tidy\ in\ a\ debugger\ but\ we\ don't\ strictly\ need\ to.}}
+\DoxyCodeLine{01696\ \ \ \ \ \textcolor{comment}{//\ When\ we\ switch\ to\ the\ next\ channel,\ we'll\ copy\ draw\_list-\/>\_CmdBuffer/\_IdxBuffer\ into\ Channels[0]\ and\ then\ Channels[1]\ into\ draw\_list-\/>CmdBuffer/\_IdxBuffer}}
+\DoxyCodeLine{01697\ \ \ \ \ memset(\&\_Channels[0],\ 0,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_im_draw_channel}{ImDrawChannel}}));}
+\DoxyCodeLine{01698\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ channels\_count;\ i++)}
+\DoxyCodeLine{01699\ \ \ \ \ \{}
+\DoxyCodeLine{01700\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >=\ old\_channels\_count)}
+\DoxyCodeLine{01701\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01702\ \ \ \ \ \ \ \ \ \ \ \ \ IM\_PLACEMENT\_NEW(\&\_Channels[i])\ \mbox{\hyperlink{struct_im_draw_channel}{ImDrawChannel}}();}
+\DoxyCodeLine{01703\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01704\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01705\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01706\ \ \ \ \ \ \ \ \ \ \ \ \ \_Channels[i].\_CmdBuffer.resize(0);}
+\DoxyCodeLine{01707\ \ \ \ \ \ \ \ \ \ \ \ \ \_Channels[i].\_IdxBuffer.resize(0);}
+\DoxyCodeLine{01708\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01709\ \ \ \ \ \}}
+\DoxyCodeLine{01710\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_im_draw_list_splitter_ab3b0bdddacaa7b347c41735c2d9952dc}\label{struct_im_draw_list_splitter_ab3b0bdddacaa7b347c41735c2d9952dc}} 
+\index{ImDrawListSplitter@{ImDrawListSplitter}!\_Channels@{\_Channels}}
+\index{\_Channels@{\_Channels}!ImDrawListSplitter@{ImDrawListSplitter}}
+\doxysubsubsection{\texorpdfstring{\_Channels}{\_Channels}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$\mbox{\hyperlink{struct_im_draw_channel}{Im\+Draw\+Channel}}$>$ Im\+Draw\+List\+Splitter\+::\+\_\+\+Channels}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02506}{2506}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_draw_list_splitter_ae3a1593ee05bc52e6284943eab3c97a2}\label{struct_im_draw_list_splitter_ae3a1593ee05bc52e6284943eab3c97a2}} 
+\index{ImDrawListSplitter@{ImDrawListSplitter}!\_Count@{\_Count}}
+\index{\_Count@{\_Count}!ImDrawListSplitter@{ImDrawListSplitter}}
+\doxysubsubsection{\texorpdfstring{\_Count}{\_Count}}
+{\footnotesize\ttfamily int Im\+Draw\+List\+Splitter\+::\+\_\+\+Count}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02505}{2505}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_draw_list_splitter_a99a46d62e09810f31d0a6efd4a0d2b09}\label{struct_im_draw_list_splitter_a99a46d62e09810f31d0a6efd4a0d2b09}} 
+\index{ImDrawListSplitter@{ImDrawListSplitter}!\_Current@{\_Current}}
+\index{\_Current@{\_Current}!ImDrawListSplitter@{ImDrawListSplitter}}
+\doxysubsubsection{\texorpdfstring{\_Current}{\_Current}}
+{\footnotesize\ttfamily int Im\+Draw\+List\+Splitter\+::\+\_\+\+Current}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02504}{2504}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/imgui.\+h\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/imgui\+\_\+draw.\+cpp\end{DoxyCompactItemize}

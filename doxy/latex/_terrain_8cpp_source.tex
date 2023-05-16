@@ -1,0 +1,612 @@
+\hypertarget{_terrain_8cpp_source}{}\doxysection{Terrain.\+cpp}
+\label{_terrain_8cpp_source}\index{C:/Users/jason/source/repos/assignment\_1\_397/Lab\_4/Terrain.cpp@{C:/Users/jason/source/repos/assignment\_1\_397/Lab\_4/Terrain.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \mbox{\hyperlink{_terrain_8h}{"{}Terrain.h"{}}}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \mbox{\hyperlink{_lab_engine_8h}{"{}LabEngine.h"{}}}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00006}00006\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_terrain}{Terrain}}::Update(\textcolor{keywordtype}{float}\ deltaTime)}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00007}00007\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00009}00009\ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00011}00011\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_terrain}{Terrain}}::Render(\mbox{\hyperlink{class_shader}{Shader}}\&\ shader)}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00012}00012\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00013}00013\ \ \ \ \ bruteForceRender();}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00014}00014\ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00016}00016\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_terrain}{Terrain}}::Init()}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00017}00017\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00018}00018\ \ \ \ \ \textcolor{keyword}{auto}\ world\ =\ \mbox{\hyperlink{class_lab_engine}{LabEngine}}::getInstance().world;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{comment}{//const\ int\ nbVertices\ =\ simpleTerrain-\/>vert\_pos.size()\ /\ 3;}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00022}00022\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ nbVertices\ =\ vert\_pos.size()\ /\ 3;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00023}00023\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}num\ of\ vert\ pos\ :\ "{}}\ <<\ nbVertices\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{comment}{//const\ int\ nbTriangles\ =\ simpleTerrain-\/>indices.size()\ /\ 3;}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00027}00027\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ nbTriangles\ =\ indices.size()\ /\ 3;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00029}00029\ \ \ \ \ \textcolor{comment}{//float\ vertices[3\ *\ nbVertices]\ =\ ...;}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{comment}{//int\ indices[3\ *\ nbTriangles]\ =\ ...;}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00032}00032\ \ \ \ \ TriangleVertexArray*\ triangleArray\ =}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{comment}{//new\ TriangleVertexArray(nbVertices,\ simpleTerrain-\/>vert\_pos.data(),\ 3\ *\ sizeof(}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ TriangleVertexArray(nbVertices,\ vert\_pos.data(),\ 3\ *\ \textcolor{keyword}{sizeof}(}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}),\ nbTriangles,}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//simpleTerrain-\/>indices.data(),\ 3\ *\ sizeof(int),}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ indices.data(),\ 3\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}),}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ TriangleVertexArray::VertexDataType::VERTEX\_FLOAT\_TYPE,}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ TriangleVertexArray::IndexDataType::INDEX\_INTEGER\_TYPE);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00041}00041\ \ \ \ \ TriangleMesh*\ triangleMesh\ =\ LabEngine::getInstance().physicsCommon.createTriangleMesh();}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00042}00042\ \ \ \ \ triangleMesh-\/>addSubpart(triangleArray);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00044}00044\ \ \ \ \ ConcaveMeshShape*\ concaveMesh\ =\ LabEngine::getInstance().physicsCommon.createConcaveMeshShape(triangleMesh);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00046}00046\ \ \ \ \ \textcolor{comment}{//\ create\ a\ heightfield\ map}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00047}00047\ \ \ \ \ rp3d::Vector3\ heightfieldMapPos(0.0f,\ 0.0f,\ 0.0f);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00048}00048\ \ \ \ \ rp3d::Quaternion\ heightfieldOrientation\ =\ rp3d::Quaternion::identity();}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00049}00049\ \ \ \ \ rp3d::Transform\ heightfieldTransform(heightfieldMapPos,\ heightfieldOrientation);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00050}00050\ \ \ \ \ heightfieldBody\ =\ world-\/>createRigidBody(heightfieldTransform);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00051}00051\ \ \ \ \ heightfieldBody-\/>setType(rp3d::BodyType::STATIC);\ \textcolor{comment}{//\ <-\/-\/\ set\ heightmap\ to\ static}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00053}00053\ \ \ \ \ \textcolor{comment}{//\ add\ collider}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00054}00054\ \ \ \ \ rp3d::Collider*\ heightmapCollider;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00055}00055\ \ \ \ \ heightmapCollider\ =\ heightfieldBody-\/>addCollider(concaveMesh,\ rp3d::Transform::identity());}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00059}00059\ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00061}00061\ \textcolor{comment}{//\ step\ 2\ :\ load\ heightfield}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00062}00062\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_terrain}{Terrain}}::loadHeightfield(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ filename,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ size)\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00064}00064\ \ \ \ \ \textcolor{comment}{//\ open\ for\ binary\ read}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00065}00065\ \ \ \ \ std::ifstream\ infile(filename,\ std::ios::binary);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00066}00066\ \ \ \ \ \textcolor{keywordflow}{if}\ (!infile)\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Cannot\ open\ file!\ :\ "{}}\ <<\ filename\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00069}00069\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00071}00071\ \ \ \ \ \textcolor{comment}{//\ allocate\ memory}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00072}00072\ \ \ \ \ \textcolor{keywordflow}{if}\ (terrainData)\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ terrainData;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00074}00074\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00075}00075\ \ \ \ \ \textcolor{keywordflow}{if}\ (size\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ terrainData\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}[size\ *\ size];}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00077}00077\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00078}00078\ \ \ \ \ \textcolor{keywordflow}{if}\ (terrainData\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00080}00080\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00082}00082\ \ \ \ \ \textcolor{comment}{//\ read\ in\ heightfield}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ get\ length\ of\ file}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00084}00084\ \ \ \ \ infile.seekg(0,\ std::ios::end);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00085}00085\ \ \ \ \ \textcolor{keywordtype}{int}\ length\ =\ infile.tellg();}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00087}00087\ \ \ \ \ \textcolor{comment}{//\ read\ data\ as\ a\ block}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00088}00088\ \ \ \ \ infile.seekg(0,\ std::ios::beg);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00089}00089\ \ \ \ \ infile.read(\textcolor{keyword}{reinterpret\_cast}<\textcolor{keywordtype}{char}*>(terrainData),\ length);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00090}00090\ \ \ \ \ infile.close();}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00091}00091\ \ \ \ \ \textcolor{keyword}{this}-\/>size\ =\ size;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00093}00093\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00095}00095\ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00097}00097\ \textcolor{comment}{//\ step\ 3\ :\ set\ scaling\ values}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00098}00098\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_terrain}{Terrain}}::setScalingFactor(\textcolor{keywordtype}{float}\ xScale,\ \textcolor{keywordtype}{float}\ yScale,\ \textcolor{keywordtype}{float}\ zScale)\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00100}00100\ \ \ \ \ scaleX\ =\ xScale;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00101}00101\ \ \ \ \ scaleY\ =\ yScale;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00102}00102\ \ \ \ \ scaleZ\ =\ zScale;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00104}00104\ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00106}00106\ \textcolor{comment}{//\ step\ 4\ :\ brute\ force\ render}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00107}00107\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_terrain}{Terrain}}::bruteForceRender()\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00109}00109\ \ \ \ \ ourShader-\/>use();}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00112}00112\ \ \ \ \ glm::mat4\ model\ =\ glm::mat4(1.0f);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00114}00114\ \ \ \ \ \textcolor{comment}{//\ When\ not\ using\ fault}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00115}00115\ \ \ \ \ \textcolor{comment}{//startPos\ =\ glm::vec3(-\/64.0f\ *\ scaleX,\ -\/25.0f,\ -\/64.0\ *\ scaleZ);\ //\ Getting\ the\ terrain\ somewhat\ in\ the\ middle}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00116}00116\ \ \ \ \ \textcolor{comment}{//startPos\ =\ glm::vec3(-\/64.0f\ *\ scaleX,\ -\/50.0f,\ -\/64.0\ *\ scaleZ);\ //\ Getting\ the\ terrain\ somewhat\ in\ the\ middle}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00117}00117\ \ \ \ \ \textcolor{comment}{//glm::vec3\ startPos\ =\ glm::vec3(-\/64.0f\ ,\ -\/25.0f,\ -\/64.0\ );}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00119}00119\ \ \ \ \ \textcolor{keywordflow}{if}\ (!hasTexture)\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00121}00121\ \ \ \ \ \ \ \ \ glBindVertexArray(VAO);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ model\ =\ glm::translate(model,\ startPos);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ ourShader-\/>setMat4(\textcolor{stringliteral}{"{}model"{}},\ model);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00125}00125\ \ \ \ \ \ \ \ \ \textcolor{comment}{//glDrawArrays(GL\_TRIANGLE\_STRIP,\ 0,\ vertices.size()\ /\ 4);}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ glDrawElements(GL\_TRIANGLES,\ indices.size(),\ GL\_UNSIGNED\_INT,\ 0);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00129}00129\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00130}00130\ \ \ \ \ \textcolor{keywordflow}{else}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ RENDERING\ WHEN\ USING\ TEXTURE\ COORDS}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ glBindVertexArray(VAO);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ model\ =\ glm::translate(model,\ startPos);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ \textcolor{comment}{//ourShader-\/>setMat4("{}model"{},\ model);}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ sharedShader-\/>use();}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ sharedShader-\/>setMat4(\textcolor{stringliteral}{"{}model"{}},\ model);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ terrainTexture-\/>bindTexture(0);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \textcolor{comment}{//glDrawArrays(GL\_TRIANGLE\_STRIP,\ 0,\ vertices.size()\ /\ 5);}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ glDrawElements(GL\_TRIANGLES,\ indices.size(),\ GL\_UNSIGNED\_INT,\ 0);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ terrainTexture-\/>unbind();}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00148}00148\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00153}00153\ \ \ \ \ glBindVertexArray(0);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00154}00154\ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00156}00156\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_terrain}{Terrain}}::setUpTerrainData(\textcolor{keywordtype}{bool}\ hasTexture)}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00157}00157\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00158}00158\ \ \ \ \ \textcolor{keyword}{this}-\/>hasTexture\ =\ hasTexture;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00159}00159\ \ \ \ \ \textcolor{keywordflow}{if}\ (hasTexture\ ==\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ use\ shaders\ for\ no\ texture\ terrain}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00161}00161\ \ \ \ \ \ \ \ \ ourShader\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_shader}{Shader}}(\textcolor{stringliteral}{"{}shaders/vertexShader\_terrain.shader"{}},\ \textcolor{stringliteral}{"{}shaders/fragmentShader\_terrain.shader"{}});}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ step\ 1)\ :\ set\ up\ new\ vertex\ array}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00165}00165\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00166\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ plan:}}
+\DoxyCodeLine{00167\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/Each\ byte\ from\ the\ height\ map\ I\ guess\ represents\ 3\ points.\ Use\ a\ Vector\ of\ floats?\ (\ fill\ up\ Vector\ of\ floats\ with\ vertex\ data\ (\ pos\ +\ color)}}
+\DoxyCodeLine{00168\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/Use\ the\ algorithm\ from\ the\ lecture\ render()\ function\ to\ fill\ the\ vector\ instead\ of\ using\ it\ to\ render\ (\ render\ later\ )}}
+\DoxyCodeLine{00169\ \textcolor{comment}{}}
+\DoxyCodeLine{00170\ \textcolor{comment}{}}
+\DoxyCodeLine{00171\ \textcolor{comment}{\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00173}00173\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ hcolor;\ \ \textcolor{comment}{//color\ of\ the\ height\ }}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00175}00175\ \ \ \ \ \ \ \ \ \textcolor{comment}{//normaliseTerrain();}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00177}00177\ \ \ \ \ \ \textcolor{comment}{//loop\ through\ the\ z\ axis\ }}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00178}00178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ z\ =\ 0;\ z\ <\ size\ ;\ z++)\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//loop\ through\ the\ x\ axis\ }}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//glBegin(GL\_TRIANGLE\_STRIP);}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ =\ 0;\ x\ <\ size;\ x++)\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//create\ the\ the\ first\ point\ in\ the\ triangle\ strip\ }}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hcolor\ =\ getHeightColor(x,\ z);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertices.push\_back((\textcolor{keywordtype}{float})x\ *\ scaleX);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertices.push\_back(getHeight(x,\ z));}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertices.push\_back((\textcolor{keywordtype}{float})z\ *\ scaleZ);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//vertices.push\_back(hcolor);}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00190}00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertices.push\_back((\textcolor{keywordtype}{float})hcolor);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Only\ generate\ indices\ if\ NOT\ at\ the\ edge\ of\ the\ terrain\ data\ grid}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ <\ size\ -\/\ 1\ \&\&\ z\ <\ size\ -\/\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ topLeft\ =\ z\ *\ size\ +\ x;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ topRight\ =\ topLeft\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ bottomLeft\ =\ topLeft\ +\ size;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ bottomRight\ =\ bottomLeft\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00198}00198\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ First\ triangle}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ indices.push\_back(topLeft);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ indices.push\_back(bottomLeft);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ indices.push\_back(topRight);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Second\ triangle}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ indices.push\_back(topRight);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ indices.push\_back(bottomLeft);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ indices.push\_back(bottomRight);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00212}00212\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//glEnd();}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00213}00213\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00215}00215\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Number\ of\ elements\ =\ "{}}\ <<\ vertices.size()\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00216}00216\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00217}00217\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00218}00218\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ step\ 2)\ :\ set\ up\ VAO\ and\ VBO}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00219}00219\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00220}00220\ \ \ \ \ \ \ \ \ glGenVertexArrays(1,\ \&VAO);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00221}00221\ \ \ \ \ \ \ \ \ glGenBuffers(1,\ \&VBO);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00222}00222\ \ \ \ \ \ \ \ \ glGenBuffers(1,\ \&EBO);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00223}00223\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ bind\ the\ Vertex\ Array\ Object\ first,\ then\ bind\ and\ set\ vertex\ buffer(s),\ and\ then\ configure\ vertex\ attributes(s).}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00224}00224\ \ \ \ \ \ \ \ \ glBindVertexArray(VAO);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00225}00225\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00226}00226\ \ \ \ \ \ \ \ \ glBindBuffer(GL\_ARRAY\_BUFFER,\ VBO);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00227}00227\ \ \ \ \ \ \ \ \ \textcolor{comment}{//glBufferData(GL\_ARRAY\_BUFFER,\ sizeof(vertices),\ vertices,\ GL\_STATIC\_DRAW);}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00228}00228\ \ \ \ \ \ \ \ \ glBufferData(GL\_ARRAY\_BUFFER,\ vertices.size()\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}),\ vertices.data(),\ GL\_STATIC\_DRAW);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00229}00229\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00230}00230\ \ \ \ \ \ \ \ \ \textcolor{comment}{//glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER,\ EBO);}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00231}00231\ \ \ \ \ \ \ \ \ \textcolor{comment}{//glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER,\ sizeof(indices),\ indices,\ GL\_STATIC\_DRAW);}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00232}00232\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00233}00233\ \ \ \ \ \ \ \ \ glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER,\ EBO);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00234}00234\ \ \ \ \ \ \ \ \ glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER,\ indices.size()\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}),\ indices.data(),\ GL\_STATIC\_DRAW);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00235}00235\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00236}00236\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ position\ attribute}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00237}00237\ \ \ \ \ \ \ \ \ glVertexAttribPointer(0,\ 3,\ GL\_FLOAT,\ GL\_FALSE,\ 4\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}),\ (\textcolor{keywordtype}{void}*)0);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00238}00238\ \ \ \ \ \ \ \ \ glEnableVertexAttribArray(0);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00239}00239\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00240}00240\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ color\ attribute}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00241}00241\ \ \ \ \ \ \ \ \ glVertexAttribPointer(1,\ 1,\ GL\_FLOAT,\ GL\_FALSE,\ 4\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}),\ (\textcolor{keywordtype}{void}*)(3\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float})));}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00242}00242\ \ \ \ \ \ \ \ \ \textcolor{comment}{//glVertexAttribPointer(1,\ 1,\ GL\_FLOAT,\ GL\_TRUE,\ 4\ *\ sizeof(float),\ (void*)(3\ *\ sizeof(float))\ \ );}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00243}00243\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00244}00244\ \ \ \ \ \ \ \ \ \textcolor{comment}{//glVertexAttribPointer(1,\ 1,\ GL\_UNSIGNED\_BYTE,\ GL\_TRUE,\ 4\ *\ sizeof(float),\ (void*)(3\ *\ sizeof(float)));}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00245}00245\ \ \ \ \ \ \ \ \ glEnableVertexAttribArray(1);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00246}00246\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00247}00247\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00248}00248\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ note\ that\ this\ is\ allowed,\ the\ call\ to\ glVertexAttribPointer\ registered\ VBO\ as\ the\ vertex\ attribute's\ bound\ vertex\ buffer\ object\ so\ afterwards\ we\ can\ safely\ unbind}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00249}00249\ \ \ \ \ \ \ \ \ glBindBuffer(GL\_ARRAY\_BUFFER,\ 0);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00250}00250\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00251}00251\ \ \ \ \ \ \ \ \ glBindVertexArray(0);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00252}00252\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00254}00254\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00255}00255\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00256}00256\ \ \ \ \ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ setting\ up\ vertex\ to\ include\ Texture\ Coorindates}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00257}00257\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00258}00258\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ use\ shaders\ for\ textured\ terrain}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00259}00259\ \ \ \ \ \ \ \ \ ourShader\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_shader}{Shader}}(\textcolor{stringliteral}{"{}shaders/vertexShader.shader"{}},\ \textcolor{stringliteral}{"{}shaders/fragmentShader.shader"{}});}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00260}00260\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ INSTEAD\ USE\ SHARED\ SHADER\ WHEN\ DRAWING}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00261}00261\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00262}00262\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00263}00263\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ hcolor;\ \ \textcolor{comment}{//color\ of\ the\ height\ }}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00264}00264\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ texLeft;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00265}00265\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ texBottom;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00266}00266\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ texTop;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00267}00267\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00268}00268\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TESTING\ TO\ SEE\ IF\ THIS\ DRAWS\ BETTER,\ IF\ NOT\ THEN\ DELETE\ THIS,\ DELETE\ EBO\ CHANGE,\ AND\ REVERT\ BACK\ TO\ DRAW\ ARRAYS}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00269}00269\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ z\ =\ 0;\ z\ <\ size;\ z++)\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00270}00270\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ =\ 0;\ x\ <\ size;\ x++)\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00271}00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ the\ vertex\ at\ (x,\ z)}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00272}00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hcolor\ =\ getHeightColor(x,\ z);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00273}00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertices.push\_back((\textcolor{keywordtype}{float})x\ *\ scaleX);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00274}00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertices.push\_back(getHeight(x,\ z));}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00275}00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertices.push\_back((\textcolor{keywordtype}{float})z\ *\ scaleZ);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00276}00276\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00277}00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ just\ storing\ the\ vertex\ pos\ separately\ just\ to\ test\ something\ (\ delete\ this\ once\ done\ )}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00278}00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vert\_pos.push\_back((\textcolor{keywordtype}{float})x*\ scaleX);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00279}00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vert\_pos.push\_back(getHeight(x,\ z));}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00280}00280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vert\_pos.push\_back((\textcolor{keywordtype}{float})z*\ scaleZ);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00281}00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00282}00282\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00283}00283\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00284}00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Calculate\ normals}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00285}00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ currentX\ =\ (\textcolor{keywordtype}{float})x\ *\ scaleX;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00286}00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ currentY\ =\ getHeight(x,\ z);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00287}00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ currentZ\ =\ (\textcolor{keywordtype}{float})z\ *\ scaleZ;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00288}00288\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00289}00289\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ get\ height\ values\ of\ the\ left,\ right\ vertices\ along\ the\ x-\/axis}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00290}00290\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ get\ height\ values\ of\ the\ up\ and\ down\ vertices\ along\ the\ z-\/axis}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00291}00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ create\ a\ vector\ using\ the\ differences\ in\ height\ values\ along\ the\ X\ and\ Z\ axes}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00292}00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ constant\ y\ value\ to\ ensure\ normals\ have\ a\ consistent\ length\ along\ the\ y-\/axis}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00293}00293\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ normalise\ the\ resulting\ vector\ to\ obtain\ the\ current\ vertex}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00294}00294\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00295}00295\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ heightLeft\ =\ x\ >\ 0\ ?\ getHeight(x\ -\/\ 1,\ z)\ :\ currentY;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00296}00296\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ heightRight\ =\ x\ <\ size\ -\/\ 1\ ?\ getHeight(x\ +\ 1,\ z)\ :\ currentY;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00297}00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ heightUp\ =\ z\ >\ 0\ ?\ getHeight(x,\ z\ -\/\ 1)\ :\ currentY;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00298}00298\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ heightDown\ =\ z\ <\ size\ -\/\ 1\ ?\ getHeight(x,\ z\ +\ 1)\ :\ currentY;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00299}00299\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00300}00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec3\ normal\ =\ glm::normalize(glm::vec3(}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00301}00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ heightLeft\ -\/\ heightRight,}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00302}00302\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2.0f,}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00303}00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ heightUp\ -\/\ heightDown}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00304}00304\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ));}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00305}00305\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00306}00306\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertices.push\_back(normal.x);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00307}00307\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertices.push\_back(normal.y);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00308}00308\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertices.push\_back(normal.z);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00309}00309\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00310}00310\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00311}00311\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00312}00312\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Add\ texture\ coordinates}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00313}00313\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ texLeft\ =\ (\textcolor{keywordtype}{float})x\ /\ size;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00314}00314\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ texBottom\ =\ (\textcolor{keywordtype}{float})z\ /\ size;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00315}00315\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertices.push\_back(texLeft);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00316}00316\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertices.push\_back(texBottom);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00317}00317\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00318}00318\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00319}00319\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00320}00320\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Only\ generate\ indices\ if\ NOT\ at\ the\ edge\ of\ the\ terrain\ data\ grid}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00321}00321\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ <\ size\ -\/\ 1\ \&\&\ z\ <\ size\ -\/\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00322}00322\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ topLeft\ =\ z\ *\ size\ +\ x;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00323}00323\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ topRight\ =\ topLeft\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00324}00324\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ bottomLeft\ =\ topLeft\ +\ size;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00325}00325\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ bottomRight\ =\ bottomLeft\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00326}00326\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00327}00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ First\ triangle}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00328}00328\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ indices.push\_back(topLeft);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00329}00329\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ indices.push\_back(bottomLeft);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00330}00330\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ indices.push\_back(topRight);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00331}00331\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00332}00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Second\ triangle}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00333}00333\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ indices.push\_back(topRight);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00334}00334\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ indices.push\_back(bottomLeft);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00335}00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ indices.push\_back(bottomRight);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00336}00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00337}00337\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00338}00338\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Example\ of\ the\ formula\ }}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00339}00339\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00340\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ The\ grid\ is\ of\ size\ size\ x\ size,\ so\ there\ are\ size\ number\ of\ vertices\ in\ each\ row.}}
+\DoxyCodeLine{00341\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ For\ each\ row\ z,\ there\ are\ size*\ z\ vertices\ that\ come\ before\ the\ current\ row\ in\ the\ vertices\ vector.}}
+\DoxyCodeLine{00342\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Within\ the\ current\ row,\ there\ are\ x\ vertices\ that\ come\ before\ the\ topLeft\ vertex.}}
+\DoxyCodeLine{00343\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ So,\ to\ find\ the\ index\ of\ the\ topLeft\ vertex,\ we\ sum\ the\ number\ of\ vertices\ that\ came\ before\ it\ in\ previous\ rows(size*\ z)}}
+\DoxyCodeLine{00344\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ and\ the\ number\ of\ vertices\ that\ came\ before\ it\ in\ the\ current\ row(x).}}
+\DoxyCodeLine{00345\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00346}00346\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00347}00347\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00348}00348\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00349}00349\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00350}00350\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00351}00351\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00352}00352\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00353}00353\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ step\ 2)\ set\ up\ VAO\ and\ VBO}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00354}00354\ \ \ \ \ \ \ \ \ glGenVertexArrays(1,\ \&VAO);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00355}00355\ \ \ \ \ \ \ \ \ glGenBuffers(1,\ \&VBO);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00356}00356\ \ \ \ \ \ \ \ \ glGenBuffers(1,\ \&EBO);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00357}00357\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ bind\ the\ Vertex\ Array\ Object\ first,\ then\ bind\ and\ set\ vertex\ buffer(s),\ and\ then\ configure\ vertex\ attributes(s).}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00358}00358\ \ \ \ \ \ \ \ \ glBindVertexArray(VAO);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00359}00359\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00360}00360\ \ \ \ \ \ \ \ \ glBindBuffer(GL\_ARRAY\_BUFFER,\ VBO);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00361}00361\ \ \ \ \ \ \ \ \ glBufferData(GL\_ARRAY\_BUFFER,\ vertices.size()\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}),\ vertices.data(),\ GL\_STATIC\_DRAW);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00362}00362\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00363}00363\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TESTING\ THE\ INDICES\ DRAW}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00364}00364\ \ \ \ \ \ \ \ \ \textcolor{comment}{//glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER,\ EBO);}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00365}00365\ \ \ \ \ \ \ \ \ \textcolor{comment}{//glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER,\ sizeof(indices),\ indices,\ GL\_STATIC\_DRAW);}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00366}00366\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00367}00367\ \ \ \ \ \ \ \ \ glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER,\ EBO);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00368}00368\ \ \ \ \ \ \ \ \ glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER,\ indices.size()\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}),\ indices.data(),\ GL\_STATIC\_DRAW);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00369}00369\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00370}00370\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00371}00371\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00372}00372\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00373\ \textcolor{comment}{\ \ \ \ \ \ \ \ //\ position\ attribute}}
+\DoxyCodeLine{00374\ \textcolor{comment}{\ \ \ \ \ \ \ \ glVertexAttribPointer(0,\ 3,\ GL\_FLOAT,\ GL\_FALSE,\ 5\ *\ sizeof(float),\ (void*)0);}}
+\DoxyCodeLine{00375\ \textcolor{comment}{\ \ \ \ \ \ \ \ glEnableVertexAttribArray(0);}}
+\DoxyCodeLine{00376\ \textcolor{comment}{}}
+\DoxyCodeLine{00377\ \textcolor{comment}{\ \ \ \ \ \ \ \ //\ texture\ coords}}
+\DoxyCodeLine{00378\ \textcolor{comment}{\ \ \ \ \ \ \ \ glVertexAttribPointer(1,\ 2,\ GL\_FLOAT,\ GL\_FALSE,\ 5\ *\ sizeof(float),\ (void*)(3\ *\ sizeof(float)));}}
+\DoxyCodeLine{00379\ \textcolor{comment}{\ \ \ \ \ \ \ \ glEnableVertexAttribArray(1);}}
+\DoxyCodeLine{00380\ \textcolor{comment}{\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00381}00381\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00382}00382\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ position\ attribute}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00383}00383\ \ \ \ \ \ \ \ \ glVertexAttribPointer(0,\ 3,\ GL\_FLOAT,\ GL\_FALSE,\ 8\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}),\ (\textcolor{keywordtype}{void}*)0);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00384}00384\ \ \ \ \ \ \ \ \ glEnableVertexAttribArray(0);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00385}00385\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00386}00386\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ normals}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00387}00387\ \ \ \ \ \ \ \ \ glVertexAttribPointer(1,\ 3,\ GL\_FLOAT,\ GL\_FALSE,\ 8\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}),\ (\textcolor{keywordtype}{void}*)(3\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float})));}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00388}00388\ \ \ \ \ \ \ \ \ glEnableVertexAttribArray(1);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00389}00389\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00390}00390\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00391}00391\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ texture\ coords}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00392}00392\ \ \ \ \ \ \ \ \ glVertexAttribPointer(2,\ 2,\ GL\_FLOAT,\ GL\_FALSE,\ 8\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}),\ (\textcolor{keywordtype}{void}*)(6\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float})));}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00393}00393\ \ \ \ \ \ \ \ \ glEnableVertexAttribArray(2);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00394}00394\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00395}00395\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00396}00396\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ note\ that\ this\ is\ allowed,\ the\ call\ to\ glVertexAttribPointer\ registered\ VBO\ as\ the\ vertex\ attribute's\ bound\ vertex\ buffer\ object\ so\ afterwards\ we\ can\ safely\ unbind}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00397}00397\ \ \ \ \ \ \ \ \ glBindBuffer(GL\_ARRAY\_BUFFER,\ 0);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00398}00398\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00399}00399\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ remember:\ do\ NOT\ unbind\ the\ EBO\ while\ a\ VAO\ is\ active\ as\ the\ bound\ element\ buffer\ object\ IS\ stored\ in\ the\ VAO;\ keep\ the\ EBO\ bound.}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00400}00400\ \ \ \ \ \ \ \ \ \textcolor{comment}{//glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER,\ 0);}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00401}00401\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00402}00402\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ You\ can\ unbind\ the\ VAO\ afterwards\ so\ other\ VAO\ calls\ won't\ accidentally\ modify\ this\ VAO,\ but\ this\ rarely\ happens.\ Modifying\ other}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00403}00403\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ VAOs\ requires\ a\ call\ to\ glBindVertexArray\ anyways\ so\ we\ generally\ don't\ unbind\ VAOs\ (nor\ VBOs)\ when\ it's\ not\ directly\ necessary.}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00404}00404\ \ \ \ \ \ \ \ \ glBindVertexArray(0);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00405}00405\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00406}00406\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00407}00407\ \ \ \ \ \ \ \ \ ourShader-\/>use();\ \textcolor{comment}{//\ below\ we\ are\ telling\ OpenGL\ which\ texture\ unit\ each\ shader\ sampler\ belongs\ to\ }}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00408}00408\ \ \ \ \ \ \ \ \ ourShader-\/>setInt(\textcolor{stringliteral}{"{}texture1"{}},\ 0);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00409}00409\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00410}00410\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00411}00411\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00412}00412\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00413\ \textcolor{comment}{\ \ \ \ \ \ \ \ //\ Terrain\ texture\ data}}
+\DoxyCodeLine{00414\ \textcolor{comment}{\ \ \ \ \ \ \ \ TextureFactory\ textFact;\ //\ temporarily\ placing\ this\ here.}}
+\DoxyCodeLine{00415\ \textcolor{comment}{\ \ \ \ \ \ \ \ //auto\ terrainTexture\ =\ textFact.createTexture("{}container.jpg"{});\ //\ returns\ unique\ pointer}}
+\DoxyCodeLine{00416\ \textcolor{comment}{\ \ \ \ \ \ \ \ terrainTexture\ =\ textFact.createTexture("{}grass.jpg"{});\ //\ returns\ unique\ pointer}}
+\DoxyCodeLine{00417\ \textcolor{comment}{\ \ \ \ \ \ \ \ terrainTexture-\/>load();}}
+\DoxyCodeLine{00418\ \textcolor{comment}{\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00419}00419\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00420}00420\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00421}00421\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00422}00422\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00423}00423\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00424}00424\ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00425}00425\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00426}00426\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00427}00427\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_terrain}{Terrain}}::loadTerrainTexture(std::string\ textureName)}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00428}00428\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00429}00429\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00430}00430\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00431}00431\ \ \ \ \ \textcolor{comment}{//\ Terrain\ texture\ data}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00432}00432\ \ \ \ \ \mbox{\hyperlink{class_texture_factory}{TextureFactory}}\ textFact;\ \textcolor{comment}{//\ temporarily\ placing\ this\ here.}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00433}00433\ \ \ \ \ \textcolor{comment}{//auto\ terrainTexture\ =\ textFact.createTexture("{}container.jpg"{});\ //\ returns\ unique\ pointer}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00434}00434\ \ \ \ \ terrainTexture\ =\ textFact.createTexture(textureName);\ \textcolor{comment}{//\ returns\ unique\ pointer}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00435}00435\ \ \ \ \ terrainTexture-\/>load();}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00436}00436\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00437}00437\ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00438}00438\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00439}00439\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00440}00440\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_terrain}{Terrain}}::getHeight(\textcolor{keywordtype}{int}\ xpos,\ \textcolor{keywordtype}{int}\ zpos)\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00441}00441\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00442}00442\ \ \ \ \ \textcolor{keywordflow}{if}\ (xpos\ <\ size\ \&\&\ zpos\ <\ size\ \&\&\ xpos\ >=0\ \&\&\ zpos\ >=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00443}00443\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00444}00444\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00445}00445\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ((\textcolor{keywordtype}{float})(terrainData[(zpos\ *\ size)\ +\ xpos])\ *\ scaleY);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00446}00446\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00447}00447\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00448}00448\ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00449}00449\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_terrain}{Terrain}}::getHeightColor(\textcolor{keywordtype}{int}\ xpos,\ \textcolor{keywordtype}{int}\ zpos)\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00450}00450\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00451}00451\ \ \ \ \ \textcolor{comment}{//if\ (inbounds(xpos,\ zpos))\ \{}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00452}00452\ \ \ \ \ \textcolor{comment}{//\ \ return\ terrainData[zpos\ *\ size\ +\ xpos];}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00453}00453\ \ \ \ \ \textcolor{comment}{//\}}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00454}00454\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00455}00455\ \ \ \ \ \textcolor{keywordflow}{if}\ (xpos\ <\ size\ \&\&\ zpos\ <\ size)\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00456}00456\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ terrainData[zpos\ *\ size\ +\ xpos];}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00457}00457\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00458}00458\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00459}00459\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00460}00460\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00461}00461\ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00462}00462\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00463}00463\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00464}00464\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00465}00465\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_terrain}{Terrain}}::genFaultFormation(\textcolor{keywordtype}{int}\ iterations,\ \textcolor{keywordtype}{int}\ hSize,\ \textcolor{keywordtype}{int}\ minHeight,\ \textcolor{keywordtype}{int}\ maxHeight,\ \textcolor{keywordtype}{float}\ weight,\ \textcolor{keywordtype}{bool}\ random)}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00466}00466\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00467}00467\ \ \ \ \ \textcolor{keywordtype}{int}\ x1,\ x2,\ z1,\ z2;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00468}00468\ \ \ \ \ \textcolor{keywordtype}{float}*\ heights\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00469}00469\ \ \ \ \ \textcolor{keywordtype}{int}\ displacement;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00470}00470\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00471}00471\ \ \ \ \ \textcolor{keywordflow}{if}\ (hSize\ <=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00472}00472\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00473}00473\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00474}00474\ \ \ \ \ \textcolor{keywordflow}{if}\ (random)\ \textcolor{comment}{//\ create\ truly\ random\ map}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00475}00475\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00476}00476\ \ \ \ \ \ \ \ \ srand(time(NULL));}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00477}00477\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00478}00478\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00479}00479\ \ \ \ \ \textcolor{comment}{//\ allocate\ memory\ for\ heightfield\ array}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00480}00480\ \ \ \ \ size\ =\ hSize;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00481}00481\ \ \ \ \ heights\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{float}[size\ *\ size];\ \textcolor{comment}{//\ allocate\ memory}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00482}00482\ \ \ \ \ terrainData\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}[size\ *\ size];\ \textcolor{comment}{//\ terrainData\ is\ declared\ in\ terrain\ class}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00483}00483\ \ \ \ \ \textcolor{keywordflow}{if}\ (heights\ ==\ NULL\ ||\ terrainData\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00484}00484\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00485}00485\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00486}00486\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00487}00487\ \ \ \ \ \textcolor{comment}{//\ initialise\ the\ heightfield\ array\ to\ all\ zeros}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00488}00488\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size\ *\ size;\ i++)}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00489}00489\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00490}00490\ \ \ \ \ \ \ \ \ heights[i]\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00491}00491\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00492}00492\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00493}00493\ \ \ \ \ \textcolor{comment}{//\ generate\ heightfield}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00494}00494\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ iterations;\ j++)\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00495}00495\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00496}00496\ \ \ \ \ \ \ \ \ \textcolor{comment}{//calculate\ the\ displacement\ value\ for\ the\ current\ iteration\ }}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00497}00497\ \ \ \ \ \ \ \ \ displacement\ =\ maxHeight\ -\/\ ((maxHeight\ -\/\ minHeight)\ *\ j)\ /\ iterations;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00498}00498\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00499}00499\ \ \ \ \ \ \ \ \ \textcolor{comment}{//pick\ the\ first\ random\ point\ P1(x1,\ z1)\ from\ the\ height\ map\ }}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00500}00500\ \ \ \ \ \ \ \ \ x1\ =\ (rand()\ \%\ size);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00501}00501\ \ \ \ \ \ \ \ \ z1\ =\ (rand()\ \%\ size);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00502}00502\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00503}00503\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ pick\ up\ the\ second\ random\ point\ P2(x2,\ z2)\ and\ make\ sure\ it\ is\ }}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00504}00504\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ different\ from\ the\ first\ point\ }}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00505}00505\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00506}00506\ \ \ \ \ \ \ \ \ \ \ \ \ x2\ =\ (rand()\ \%\ size);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00507}00507\ \ \ \ \ \ \ \ \ \ \ \ \ z2\ =\ (rand()\ \%\ size);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00508}00508\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (x2\ ==\ x1\ \&\&\ z2\ ==\ z1);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00509}00509\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00510}00510\ \ \ \ \ \ \ \ \ \textcolor{comment}{//for\ each\ point\ P(x,\ z)\ in\ the\ field,\ calculate\ the\ new\ height\ values\ }}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00511}00511\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ z\ =\ 0;\ z\ <\ size;\ z++)\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00512}00512\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ =\ 0;\ x\ <\ size;\ x++)\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00513}00513\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ determine\ which\ side\ of\ the\ line\ P1P2\ the\ point\ P\ lies\ in\ }}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00514}00514\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (((x\ -\/\ x1)\ *\ (z2\ -\/\ z1)\ -\/\ (x2\ -\/\ x1)\ *\ (z\ -\/\ z1))\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00515}00515\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ heights[(z\ *\ size)\ +\ x]\ +=\ (\textcolor{keywordtype}{float})displacement;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00516}00516\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00517}00517\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00518}00518\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00519}00519\ \ \ \ \ \ \ \ \ addFilter(heights,\ weight);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00520}00520\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00521}00521\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00522}00522\ \ \ \ \ \textcolor{comment}{//\ normalise\ the\ heightfield}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00523}00523\ \ \ \ \ normaliseTerrain(heights);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00524}00524\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00525}00525\ \ \ \ \ \textcolor{comment}{//\ copy\ the\ float\ heightfield\ to\ terrainData\ (in\ unsign\ char)\ }}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00526}00526\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ z\ =\ 0;\ z\ <\ size;\ z++)\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00527}00527\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ x\ =\ 0;\ x\ <\ size;\ x++)\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00528}00528\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//setHeightAtPoint((unsigned\ char)heights[(z\ *\ size)\ +\ x],\ x,\ z);}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00529}00529\ \ \ \ \ \ \ \ \ \ \ \ \ terrainData[(z\ *\ size)\ +\ x]\ =\ heights[(z\ *\ size)\ +\ x];\ \textcolor{comment}{//\ DOUBLE\ CHECK\ THIS\ PLEASE\ FOR\ THE\ LOVE\ OF\ GOD}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00530}00530\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00531}00531\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00532}00532\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00533}00533\ \ \ \ \ \textcolor{comment}{//\ dispose\ of\ the\ temporary\ array\ heights\ }}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00534}00534\ \ \ \ \ \textcolor{keyword}{delete}[]\ heights;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00535}00535\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00536}00536\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00537}00537\ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00538}00538\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00539}00539\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_terrain}{Terrain}}::addFilter(\textcolor{keywordtype}{float}*\ terData,\ \textcolor{keywordtype}{float}\ weight)}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00540}00540\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00541}00541\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00542}00542\ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00543}00543\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00544}00544\ \ \ \ \ \textcolor{comment}{//erode\ left\ to\ right,\ starting\ from\ the\ beginning\ of\ each\ row\ }}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00545}00545\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ size;\ i++)}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00546}00546\ \ \ \ \ \ \ \ \ filterPass(\&terData[size\ *\ i],\ 1,\ weight);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00547}00547\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00548}00548\ \ \ \ \ \textcolor{comment}{//erode\ right\ to\ left,\ starting\ from\ the\ end\ of\ each\ row\ }}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00549}00549\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ size;\ i++)}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00550}00550\ \ \ \ \ \ \ \ \ filterPass(\&terData[size\ *\ i\ +\ size\ -\/\ 1],\ -\/1,\ weight);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00551}00551\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00552}00552\ \ \ \ \ \textcolor{comment}{//erode\ top\ to\ bottom,\ starting\ from\ the\ beginning\ of\ each\ column\ }}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00553}00553\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ size;\ i++)}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00554}00554\ \ \ \ \ \ \ \ \ filterPass(\&terData[i],\ size,\ weight);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00555}00555\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00556}00556\ \ \ \ \ \textcolor{comment}{//erode\ from\ bottom\ to\ top,\ starting\ from\ the\ end\ of\ each\ column\ }}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00557}00557\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ size;\ i++)}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00558}00558\ \ \ \ \ \ \ \ \ filterPass(\&terData[size\ *\ (size\ -\/\ 1)\ +\ i],\ -\/size,\ weight);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00559}00559\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00560}00560\ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00561}00561\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00562}00562\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_terrain}{Terrain}}::filterPass(\textcolor{keywordtype}{float}*\ startP,\ \textcolor{keywordtype}{int}\ increment,\ \textcolor{keywordtype}{float}\ weight)}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00563}00563\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00564}00564\ \ \ \ \ \textcolor{keywordtype}{float}\ yprev\ =\ *startP;\ \ \ \textcolor{comment}{//\ the\ starting\ point\ in\ the\ terrain\ array\ }}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00565}00565\ \ \ \ \ \textcolor{keywordtype}{int}\ j\ =\ increment;\ \ \ \textcolor{comment}{//\ must\ be\ either\ +1,\ -\/1,\ +size,\ or\ -\/size\ }}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00566}00566\ \ \ \ \ \textcolor{keywordtype}{float}\ k\ =\ weight;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00567}00567\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00568}00568\ \ \ \ \ \textcolor{comment}{//\ loop\ through\ either\ \ }}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00569}00569\ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ one\ row\ from\ left\ to\ right\ if\ increment\ =\ +1,\ or\ }}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00570}00570\ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ one\ row\ from\ right\ to\ left\ if\ increment\ =\ -\/1,\ or\ }}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00571}00571\ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ one\ column\ from\ top\ to\ bottom\ if\ increment\ =\ +size,\ or\ }}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00572}00572\ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ one\ column\ from\ bottom\ to\ top\ if\ increment\ =\ -\/size\ }}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00573}00573\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00574}00574\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ size;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00575}00575\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ yi\ =\ k\ yi-\/1\ +\ (1-\/k)\ xi\ }}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00576}00576\ \ \ \ \ \ \ \ \ *(startP\ +\ j)\ =\ k\ *\ yprev\ +\ (1\ -\/\ k)\ *\ (*(startP\ +\ j));}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00577}00577\ \ \ \ \ \ \ \ \ yprev\ =\ *(startP\ +\ j);}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00578}00578\ \ \ \ \ \ \ \ \ j\ +=\ increment;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00579}00579\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00580}00580\ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00581}00581\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00582}00582\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00583}00583\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_terrain}{Terrain}}::normaliseTerrain(\textcolor{keywordtype}{float}*\ terData)}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00584}00584\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00585}00585\ \ \ \ \ \textcolor{keywordtype}{float}\ fMin\ =\ terData[0];}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00586}00586\ \ \ \ \ \textcolor{keywordtype}{float}\ fMax\ =\ terData[0];}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00587}00587\ \ \ \ \ \textcolor{keywordtype}{float}\ fHeight;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00588}00588\ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00589}00589\ }
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00590}00590\ \ \ \ \ \textcolor{comment}{//\ find\ the\ min\ and\ max\ values\ of\ the\ height\ terrainData}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00591}00591\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 1;\ i\ <\ size\ *\ size;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00592}00592\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (terData[i]\ >\ fMax)}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00593}00593\ \ \ \ \ \ \ \ \ \ \ \ \ fMax\ =\ terData[i];}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00594}00594\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (terData[i]\ <\ fMin)}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00595}00595\ \ \ \ \ \ \ \ \ \ \ \ \ fMin\ =\ terData[i];}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00596}00596\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00597}00597\ \ \ \ \ \textcolor{comment}{//find\ the\ range\ of\ the\ altitude\ }}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00598}00598\ \ \ \ \ \textcolor{keywordflow}{if}\ (fMax\ <=\ fMin)}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00599}00599\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00600}00600\ \ \ \ \ fHeight\ =\ fMax\ -\/\ fMin;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00601}00601\ \ \ \ \ \textcolor{comment}{//scale\ the\ values\ to\ a\ range\ of\ 0-\/255}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00602}00602\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ size\ *\ size;\ i++)}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00603}00603\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00604}00604\ \ \ \ \ \ \ \ \ terData[i]\ =\ ((terData[i]\ -\/\ fMin)\ /\ fHeight)\ *\ 255.0f;}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00605}00605\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_terrain_8cpp_source_l00606}00606\ \}}
+
+\end{DoxyCode}

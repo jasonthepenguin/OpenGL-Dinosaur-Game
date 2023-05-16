@@ -1,0 +1,1675 @@
+\hypertarget{struct_im_gui_i_o}{}\doxysection{Im\+Gui\+IO Struct Reference}
+\label{struct_im_gui_i_o}\index{ImGuiIO@{ImGuiIO}}
+
+
+Collaboration diagram for Im\+Gui\+IO\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_gui_i_o__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_gui_i_o_a50c3ab6883647aacdf5153a4dbe2cdbe}{Add\+Key\+Event}} (Im\+Gui\+Key key, bool down)
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_gui_i_o_ac88dcffd1c6785d00eedd5616315e48c}{Add\+Key\+Analog\+Event}} (Im\+Gui\+Key key, bool down, float v)
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_gui_i_o_ab6423058bbb3503c3cf66e0e45ee606d}{Add\+Mouse\+Pos\+Event}} (float x, float y)
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_gui_i_o_a9fa5df74047424bb03d7cb29c6fb6ea1}{Add\+Mouse\+Button\+Event}} (int button, bool down)
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_gui_i_o_a3c5ad00141194e3a01c9efbcb53cd5a1}{Add\+Mouse\+Wheel\+Event}} (float wheel\+\_\+x, float wheel\+\_\+y)
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_gui_i_o_adc3cac2515e40a80c6dc961800ed221f}{Add\+Mouse\+Source\+Event}} (Im\+Gui\+Mouse\+Source source)
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_gui_i_o_a051243815ff6305cdcd3db8f84c2dfef}{Add\+Focus\+Event}} (bool focused)
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_gui_i_o_a0ded7ab1043ea14b65e1d81819878ccc}{Add\+Input\+Character}} (unsigned int c)
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_gui_i_o_a09ce496becb406f0fbe94dc35915af64}{Add\+Input\+Character\+UTF16}} (Im\+Wchar16 c)
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_gui_i_o_abf60d6dc365fab19136059f64680bdcc}{Add\+Input\+Characters\+UTF8}} (const char $\ast$str)
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_gui_i_o_a6b2fa57fb6af5aa1c99f58115542e1dc}{Set\+Key\+Event\+Native\+Data}} (Im\+Gui\+Key key, int native\+\_\+keycode, int native\+\_\+scancode, int native\+\_\+legacy\+\_\+index=-\/1)
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_gui_i_o_a8ec563cbffee4818a89840654b8c4404}{Set\+App\+Accepting\+Events}} (bool accepting\+\_\+events)
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_gui_i_o_a82d8794e14e628efbb026af4202c70ca}{Clear\+Input\+Characters}} ()
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_gui_i_o_a5d87fb4f10e366ef8a4603ac57e39da1}{Clear\+Input\+Keys}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Im\+Gui\+Config\+Flags \mbox{\hyperlink{struct_im_gui_i_o_a6267b8a1ffa964035e6540f5e4296e39}{Config\+Flags}}
+\item 
+Im\+Gui\+Backend\+Flags \mbox{\hyperlink{struct_im_gui_i_o_a92288d3e802788c8c408eac2c12e709c}{Backend\+Flags}}
+\item 
+\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \mbox{\hyperlink{struct_im_gui_i_o_a042cfb90bdc9ccfe37f86b92ade759fd}{Display\+Size}}
+\item 
+float \mbox{\hyperlink{struct_im_gui_i_o_a5068d5414a19c2a1bf58029bd732a7c7}{Delta\+Time}}
+\item 
+float \mbox{\hyperlink{struct_im_gui_i_o_a9b37eea17baa240a93b1288673a6eeb9}{Ini\+Saving\+Rate}}
+\item 
+const char $\ast$ \mbox{\hyperlink{struct_im_gui_i_o_a89e8efe8f82b539c961dc22cc2499402}{Ini\+Filename}}
+\item 
+const char $\ast$ \mbox{\hyperlink{struct_im_gui_i_o_ae77a1beed11820366800645232a6ad1c}{Log\+Filename}}
+\item 
+float \mbox{\hyperlink{struct_im_gui_i_o_aee056f6ed15363e0bcd8d879b312da7c}{Mouse\+Double\+Click\+Time}}
+\item 
+float \mbox{\hyperlink{struct_im_gui_i_o_a13334c1522aadc12af0ce3b31b0eb3a1}{Mouse\+Double\+Click\+Max\+Dist}}
+\item 
+float \mbox{\hyperlink{struct_im_gui_i_o_ad8b9a9924b0d6bde6a0fa35c17aa54ae}{Mouse\+Drag\+Threshold}}
+\item 
+float \mbox{\hyperlink{struct_im_gui_i_o_a390537e7cba21b98a8f89df857ea59fb}{Key\+Repeat\+Delay}}
+\item 
+float \mbox{\hyperlink{struct_im_gui_i_o_accd71987c895c4aec6d1a8c368cc9e0e}{Key\+Repeat\+Rate}}
+\item 
+float \mbox{\hyperlink{struct_im_gui_i_o_adf38bc0b3d5f77249b444f0872edc039}{Hover\+Delay\+Normal}}
+\item 
+float \mbox{\hyperlink{struct_im_gui_i_o_a1908fcfa605ff6ae0591891fee77c88d}{Hover\+Delay\+Short}}
+\item 
+void $\ast$ \mbox{\hyperlink{struct_im_gui_i_o_a8c5e74fd39c2655455329e09529da7d3}{User\+Data}}
+\item 
+\mbox{\hyperlink{struct_im_font_atlas}{Im\+Font\+Atlas}} $\ast$ \mbox{\hyperlink{struct_im_gui_i_o_a24e4f5201fe8780267abc2acfc24254c}{Fonts}}
+\item 
+float \mbox{\hyperlink{struct_im_gui_i_o_a74a64a74dcbe2a6ef0c1ef56ba328094}{Font\+Global\+Scale}}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_af5fc6eae7ce68cce8473f006431f530e}{Font\+Allow\+User\+Scaling}}
+\item 
+\mbox{\hyperlink{struct_im_font}{Im\+Font}} $\ast$ \mbox{\hyperlink{struct_im_gui_i_o_a11016e4aefa603523bce61315b66bf00}{Font\+Default}}
+\item 
+\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \mbox{\hyperlink{struct_im_gui_i_o_a703cad6bd4c9e8972d056116104d27e8}{Display\+Framebuffer\+Scale}}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_a9b240460966bf2bd35c30f27b8db4028}{Mouse\+Draw\+Cursor}}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_ab2b62c3ee538d4037e7467bf934fd7a2}{Config\+Mac\+OSXBehaviors}}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_af38a4c1ec57a1721dc1bbf81ccc16dc7}{Config\+Input\+Trickle\+Event\+Queue}}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_ad17e398044a43d0020f692af8a72a9ac}{Config\+Input\+Text\+Cursor\+Blink}}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_abdd7e183fe87d70c779c2d28ee63eb4d}{Config\+Input\+Text\+Enter\+Keep\+Active}}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_a8ecd103855fbd0bb9090d5998bc994bc}{Config\+Drag\+Click\+To\+Input\+Text}}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_aaa627c27ae9e957f738e74a67629bed6}{Config\+Windows\+Resize\+From\+Edges}}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_a17f4703e015c69263170396441b321d9}{Config\+Windows\+Move\+From\+Title\+Bar\+Only}}
+\item 
+float \mbox{\hyperlink{struct_im_gui_i_o_aedd3ba8bfc9c682e5a7a66ffdd480df2}{Config\+Memory\+Compact\+Timer}}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_a0bb96382080ca9fdd071a5a0aeff6301}{Config\+Debug\+Begin\+Return\+Value\+Once}}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_a66892ea6cb0f64c681be2ca2e33830f8}{Config\+Debug\+Begin\+Return\+Value\+Loop}}
+\item 
+const char $\ast$ \mbox{\hyperlink{struct_im_gui_i_o_a58510e764707bf979d086f6bc4c8b670}{Backend\+Platform\+Name}}
+\item 
+const char $\ast$ \mbox{\hyperlink{struct_im_gui_i_o_ad0902d7c892cff675fc0a685e8f1481d}{Backend\+Renderer\+Name}}
+\item 
+void $\ast$ \mbox{\hyperlink{struct_im_gui_i_o_a6c0c878d0d5ca6ef90f0968bd59309d3}{Backend\+Platform\+User\+Data}}
+\item 
+void $\ast$ \mbox{\hyperlink{struct_im_gui_i_o_a9d1b2553e914286e9f92ab62f3d38265}{Backend\+Renderer\+User\+Data}}
+\item 
+void $\ast$ \mbox{\hyperlink{struct_im_gui_i_o_ad5dc2e55e630b44208ef07bbbef161ea}{Backend\+Language\+User\+Data}}
+\item 
+const char $\ast$($\ast$ \mbox{\hyperlink{struct_im_gui_i_o_a974c08e33e5f2abcdd23981c9b9350ae}{Get\+Clipboard\+Text\+Fn}} )(void $\ast$user\+\_\+data)
+\item 
+void($\ast$ \mbox{\hyperlink{struct_im_gui_i_o_a1ee9c0763df33f7f3a9819235ce85078}{Set\+Clipboard\+Text\+Fn}} )(void $\ast$user\+\_\+data, const char $\ast$text)
+\item 
+void $\ast$ \mbox{\hyperlink{struct_im_gui_i_o_a162d9da988e8985df05d262640f2f91c}{Clipboard\+User\+Data}}
+\item 
+void($\ast$ \mbox{\hyperlink{struct_im_gui_i_o_a000283dfba912e6af1b607ea19677fd2}{Set\+Platform\+Ime\+Data\+Fn}} )(\mbox{\hyperlink{struct_im_gui_viewport}{Im\+Gui\+Viewport}} $\ast$viewport, \mbox{\hyperlink{struct_im_gui_platform_ime_data}{Im\+Gui\+Platform\+Ime\+Data}} $\ast$data)
+\item 
+void $\ast$ \mbox{\hyperlink{struct_im_gui_i_o_a8baa252c4f76764eb866b920f227cfa2}{Ime\+Window\+Handle}}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_af5b8add76c5d833a65df19b5456acd7e}{Want\+Capture\+Mouse}}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_a458e4ca98d896adb16e3a41ec6d2b811}{Want\+Capture\+Keyboard}}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_a0e53197e96187a57b2d86720bf163f4d}{Want\+Text\+Input}}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_a877f6adba2c961f361df7697f908649a}{Want\+Set\+Mouse\+Pos}}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_a68d3fb726b3f243fa974107fae291d8e}{Want\+Save\+Ini\+Settings}}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_aa63cf74a15e9dd0ad469ff09ca840ddf}{Nav\+Active}}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_a904bb563ee00c92cc6b6b072df2c7405}{Nav\+Visible}}
+\item 
+float \mbox{\hyperlink{struct_im_gui_i_o_a8c6c2be54ddeda3cfb4a73cf95701a54}{Framerate}}
+\item 
+int \mbox{\hyperlink{struct_im_gui_i_o_a8ec9d203f4543047a8820366c5734529}{Metrics\+Render\+Vertices}}
+\item 
+int \mbox{\hyperlink{struct_im_gui_i_o_a19daed6a7fa22819fe187dfc2a2f5683}{Metrics\+Render\+Indices}}
+\item 
+int \mbox{\hyperlink{struct_im_gui_i_o_aec04d38a9b3799d12259a672c42e7c7e}{Metrics\+Render\+Windows}}
+\item 
+int \mbox{\hyperlink{struct_im_gui_i_o_ae47a71018cc9b0c7b55912a4bfa9149c}{Metrics\+Active\+Windows}}
+\item 
+int \mbox{\hyperlink{struct_im_gui_i_o_a206a2d9a6b3adf9503b4d4c40abc6f7a}{Metrics\+Active\+Allocations}}
+\item 
+\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \mbox{\hyperlink{struct_im_gui_i_o_a5b5cc0c171104337e3e7e13a8f7b0938}{Mouse\+Delta}}
+\item 
+int \mbox{\hyperlink{struct_im_gui_i_o_aa1cd0083960f8e5361eb6d49973c8823}{Key\+Map}} \mbox{[}Im\+Gui\+Key\+\_\+\+COUNT\mbox{]}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_a59f88f4933f391741450f8548cb46eab}{Keys\+Down}} \mbox{[}Im\+Gui\+Key\+\_\+\+COUNT\mbox{]}
+\item 
+float \mbox{\hyperlink{struct_im_gui_i_o_a1e6e8142c2c2e09a715fa5efaa0db9fa}{Nav\+Inputs}} \mbox{[}Im\+Gui\+Nav\+Input\+\_\+\+COUNT\mbox{]}
+\item 
+\mbox{\hyperlink{struct_im_gui_context}{Im\+Gui\+Context}} $\ast$ \mbox{\hyperlink{struct_im_gui_i_o_a8fdf06720bff6066ebc17aa2f3d249ce}{Ctx}}
+\item 
+\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \mbox{\hyperlink{struct_im_gui_i_o_ad2e9e547cb4d2abe8e7d27407efffeb8}{Mouse\+Pos}}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_a8f4613baafc93026175d9cdaf4e82d21}{Mouse\+Down}} \mbox{[}5\mbox{]}
+\item 
+float \mbox{\hyperlink{struct_im_gui_i_o_a21d3ca4928989a2c838b7b4ea95e5824}{Mouse\+Wheel}}
+\item 
+float \mbox{\hyperlink{struct_im_gui_i_o_a25bed9de908b086e583854438ca7927d}{Mouse\+WheelH}}
+\item 
+Im\+Gui\+Mouse\+Source \mbox{\hyperlink{struct_im_gui_i_o_ae1d8f50f11941cfaa968cfba98e751fd}{Mouse\+Source}}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_a51de8f65dcabb80ef4e0d3c759ffcd7f}{Key\+Ctrl}}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_a3c7642214f88862af5b8467f98ac35c9}{Key\+Shift}}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_a1e64ef08a4448a2cac874496130992cb}{Key\+Alt}}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_afda9e11e21b7ba21573671c38d9f4a81}{Key\+Super}}
+\item 
+Im\+Gui\+Key\+Chord \mbox{\hyperlink{struct_im_gui_i_o_a77133a351ecaf34ea5df82866690dcaa}{Key\+Mods}}
+\item 
+\mbox{\hyperlink{struct_im_gui_key_data}{Im\+Gui\+Key\+Data}} \mbox{\hyperlink{struct_im_gui_i_o_a6efeb8f2a11a463a0c7b1f8401532e88}{Keys\+Data}} \mbox{[}Im\+Gui\+Key\+\_\+\+Keys\+Data\+\_\+\+SIZE\mbox{]}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_a088bdc608b0c695eb3a8fac4a06e859b}{Want\+Capture\+Mouse\+Unless\+Popup\+Close}}
+\item 
+\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \mbox{\hyperlink{struct_im_gui_i_o_a0fa6601a709eb9e34460e6abc7e77ad7}{Mouse\+Pos\+Prev}}
+\item 
+\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \mbox{\hyperlink{struct_im_gui_i_o_a23c9c6c48a51774fee36b7f0bb75d331}{Mouse\+Clicked\+Pos}} \mbox{[}5\mbox{]}
+\item 
+double \mbox{\hyperlink{struct_im_gui_i_o_afc5a5a5250fdee3c558f45c4f0268308}{Mouse\+Clicked\+Time}} \mbox{[}5\mbox{]}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_a8655587202ff9001e5b0ccc6ade42d93}{Mouse\+Clicked}} \mbox{[}5\mbox{]}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_a8bc01048733dc554de3d03f40f57b9ca}{Mouse\+Double\+Clicked}} \mbox{[}5\mbox{]}
+\item 
+Im\+U16 \mbox{\hyperlink{struct_im_gui_i_o_ac3e700b171e730f8e527b4fa08cf6fad}{Mouse\+Clicked\+Count}} \mbox{[}5\mbox{]}
+\item 
+Im\+U16 \mbox{\hyperlink{struct_im_gui_i_o_aef8407268836888e9954c86afcc0b42a}{Mouse\+Clicked\+Last\+Count}} \mbox{[}5\mbox{]}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_a3a2e7d52289eecfdbe8571e034e41b53}{Mouse\+Released}} \mbox{[}5\mbox{]}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_a682f98d817f99058136cb47cf8a9bcc3}{Mouse\+Down\+Owned}} \mbox{[}5\mbox{]}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_a5ed7eb38ec2cb214981671f1bc48fb38}{Mouse\+Down\+Owned\+Unless\+Popup\+Close}} \mbox{[}5\mbox{]}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_ac93fd310a6e0a3c1062bb4d0b0ee0190}{Mouse\+Wheel\+Request\+Axis\+Swap}}
+\item 
+float \mbox{\hyperlink{struct_im_gui_i_o_ab464bf317051bbdf1c93ab36802fe3b7}{Mouse\+Down\+Duration}} \mbox{[}5\mbox{]}
+\item 
+float \mbox{\hyperlink{struct_im_gui_i_o_a59d19cf7ad831e57ce15f90295871881}{Mouse\+Down\+Duration\+Prev}} \mbox{[}5\mbox{]}
+\item 
+float \mbox{\hyperlink{struct_im_gui_i_o_a86c7fe77349fd82a60ab7a279aa27f01}{Mouse\+Drag\+Max\+Distance\+Sqr}} \mbox{[}5\mbox{]}
+\item 
+float \mbox{\hyperlink{struct_im_gui_i_o_adb663a185ac88f81cad4ece4d67beea5}{Pen\+Pressure}}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_a6f907c3044fe77b706f48ee6d7eaa1b2}{App\+Focus\+Lost}}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_aadb8a762b7a874e9d1f47230a5d62239}{App\+Accepting\+Events}}
+\item 
+Im\+S8 \mbox{\hyperlink{struct_im_gui_i_o_a71d9fa7f004072892216d3504163cd12}{Backend\+Using\+Legacy\+Key\+Arrays}}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_i_o_aa9a50114735531c89671b9c591bf1f3b}{Backend\+Using\+Legacy\+Nav\+Input\+Array}}
+\item 
+Im\+Wchar16 \mbox{\hyperlink{struct_im_gui_i_o_a4740dc94f803920e809747d2c602d571}{Input\+Queue\+Surrogate}}
+\item 
+\mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$ Im\+Wchar $>$ \mbox{\hyperlink{struct_im_gui_i_o_a4d9fb1151f10f1f6f7597bb3a21e1447}{Input\+Queue\+Characters}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01914}{1914}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_im_gui_i_o_a0ad8d993e50108b81b0d279d2d43f69d}\label{struct_im_gui_i_o_a0ad8d993e50108b81b0d279d2d43f69d}} 
+\index{ImGuiIO@{ImGuiIO}!ImGuiIO@{ImGuiIO}}
+\index{ImGuiIO@{ImGuiIO}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{ImGuiIO()}{ImGuiIO()}}
+{\footnotesize\ttfamily Im\+Gui\+IO\+::\+Im\+Gui\+IO (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8cpp_source_l01192}{1192}} of file \mbox{\hyperlink{imgui_8cpp_source}{imgui.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01193\ \{}
+\DoxyCodeLine{01194\ \ \ \ \ \textcolor{comment}{//\ Most\ fields\ are\ initialized\ with\ zero}}
+\DoxyCodeLine{01195\ \ \ \ \ memset(\textcolor{keyword}{this},\ 0,\ \textcolor{keyword}{sizeof}(*\textcolor{keyword}{this}));}
+\DoxyCodeLine{01196\ \ \ \ \ IM\_STATIC\_ASSERT(IM\_ARRAYSIZE(ImGuiIO::MouseDown)\ ==\ ImGuiMouseButton\_COUNT\ \&\&\ IM\_ARRAYSIZE(ImGuiIO::MouseClicked)\ ==\ ImGuiMouseButton\_COUNT);}
+\DoxyCodeLine{01197\ }
+\DoxyCodeLine{01198\ \ \ \ \ \textcolor{comment}{//\ Settings}}
+\DoxyCodeLine{01199\ \ \ \ \ ConfigFlags\ =\ ImGuiConfigFlags\_None;}
+\DoxyCodeLine{01200\ \ \ \ \ BackendFlags\ =\ ImGuiBackendFlags\_None;}
+\DoxyCodeLine{01201\ \ \ \ \ DisplaySize\ =\ \mbox{\hyperlink{struct_im_vec2}{ImVec2}}(-\/1.0f,\ -\/1.0f);}
+\DoxyCodeLine{01202\ \ \ \ \ DeltaTime\ =\ 1.0f\ /\ 60.0f;}
+\DoxyCodeLine{01203\ \ \ \ \ IniSavingRate\ =\ 5.0f;}
+\DoxyCodeLine{01204\ \ \ \ \ IniFilename\ =\ \textcolor{stringliteral}{"{}imgui.ini"{}};\ \textcolor{comment}{//\ Important:\ "{}imgui.ini"{}\ is\ relative\ to\ current\ working\ dir,\ most\ apps\ will\ want\ to\ lock\ this\ to\ an\ absolute\ path\ (e.g.\ same\ path\ as\ executables).}}
+\DoxyCodeLine{01205\ \ \ \ \ LogFilename\ =\ \textcolor{stringliteral}{"{}imgui\_log.txt"{}};}
+\DoxyCodeLine{01206\ \ \ \ \ MouseDoubleClickTime\ =\ 0.30f;}
+\DoxyCodeLine{01207\ \ \ \ \ MouseDoubleClickMaxDist\ =\ 6.0f;}
+\DoxyCodeLine{01208\ \textcolor{preprocessor}{\#ifndef\ IMGUI\_DISABLE\_OBSOLETE\_KEYIO}}
+\DoxyCodeLine{01209\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ ImGuiKey\_COUNT;\ i++)}
+\DoxyCodeLine{01210\ \ \ \ \ \ \ \ \ KeyMap[i]\ =\ -\/1;}
+\DoxyCodeLine{01211\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01212\ \ \ \ \ KeyRepeatDelay\ =\ 0.275f;}
+\DoxyCodeLine{01213\ \ \ \ \ KeyRepeatRate\ =\ 0.050f;}
+\DoxyCodeLine{01214\ \ \ \ \ HoverDelayNormal\ =\ 0.30f;}
+\DoxyCodeLine{01215\ \ \ \ \ HoverDelayShort\ =\ 0.10f;}
+\DoxyCodeLine{01216\ \ \ \ \ UserData\ =\ NULL;}
+\DoxyCodeLine{01217\ }
+\DoxyCodeLine{01218\ \ \ \ \ Fonts\ =\ NULL;}
+\DoxyCodeLine{01219\ \ \ \ \ FontGlobalScale\ =\ 1.0f;}
+\DoxyCodeLine{01220\ \ \ \ \ FontDefault\ =\ NULL;}
+\DoxyCodeLine{01221\ \ \ \ \ FontAllowUserScaling\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01222\ \ \ \ \ DisplayFramebufferScale\ =\ \mbox{\hyperlink{struct_im_vec2}{ImVec2}}(1.0f,\ 1.0f);}
+\DoxyCodeLine{01223\ }
+\DoxyCodeLine{01224\ \ \ \ \ \textcolor{comment}{//\ Miscellaneous\ options}}
+\DoxyCodeLine{01225\ \ \ \ \ MouseDrawCursor\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01226\ \textcolor{preprocessor}{\#ifdef\ \_\_APPLE\_\_}}
+\DoxyCodeLine{01227\ \ \ \ \ ConfigMacOSXBehaviors\ =\ \textcolor{keyword}{true};\ \ \textcolor{comment}{//\ Set\ Mac\ OS\ X\ style\ defaults\ based\ on\ \_\_APPLE\_\_\ compile\ time\ flag}}
+\DoxyCodeLine{01228\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{01229\ \ \ \ \ ConfigMacOSXBehaviors\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01230\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01231\ \ \ \ \ ConfigInputTrickleEventQueue\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01232\ \ \ \ \ ConfigInputTextCursorBlink\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01233\ \ \ \ \ ConfigInputTextEnterKeepActive\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01234\ \ \ \ \ ConfigDragClickToInputText\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01235\ \ \ \ \ ConfigWindowsResizeFromEdges\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01236\ \ \ \ \ ConfigWindowsMoveFromTitleBarOnly\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01237\ \ \ \ \ ConfigMemoryCompactTimer\ =\ 60.0f;}
+\DoxyCodeLine{01238\ \ \ \ \ ConfigDebugBeginReturnValueOnce\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01239\ \ \ \ \ ConfigDebugBeginReturnValueLoop\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01240\ }
+\DoxyCodeLine{01241\ \ \ \ \ \textcolor{comment}{//\ Platform\ Functions}}
+\DoxyCodeLine{01242\ \ \ \ \ \textcolor{comment}{//\ Note:\ Initialize()\ will\ setup\ default\ clipboard/ime\ handlers.}}
+\DoxyCodeLine{01243\ \ \ \ \ BackendPlatformName\ =\ BackendRendererName\ =\ NULL;}
+\DoxyCodeLine{01244\ \ \ \ \ BackendPlatformUserData\ =\ BackendRendererUserData\ =\ BackendLanguageUserData\ =\ NULL;}
+\DoxyCodeLine{01245\ }
+\DoxyCodeLine{01246\ \ \ \ \ \textcolor{comment}{//\ Input\ (NB:\ we\ already\ have\ memset\ zero\ the\ entire\ structure!)}}
+\DoxyCodeLine{01247\ \ \ \ \ MousePos\ =\ \mbox{\hyperlink{struct_im_vec2}{ImVec2}}(-\/FLT\_MAX,\ -\/FLT\_MAX);}
+\DoxyCodeLine{01248\ \ \ \ \ MousePosPrev\ =\ \mbox{\hyperlink{struct_im_vec2}{ImVec2}}(-\/FLT\_MAX,\ -\/FLT\_MAX);}
+\DoxyCodeLine{01249\ \ \ \ \ MouseSource\ =\ ImGuiMouseSource\_Mouse;}
+\DoxyCodeLine{01250\ \ \ \ \ MouseDragThreshold\ =\ 6.0f;}
+\DoxyCodeLine{01251\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ IM\_ARRAYSIZE(MouseDownDuration);\ i++)\ MouseDownDuration[i]\ =\ MouseDownDurationPrev[i]\ =\ -\/1.0f;}
+\DoxyCodeLine{01252\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ IM\_ARRAYSIZE(KeysData);\ i++)\ \{\ KeysData[i].DownDuration\ =\ KeysData[i].DownDurationPrev\ =\ -\/1.0f;\ \}}
+\DoxyCodeLine{01253\ \ \ \ \ AppAcceptingEvents\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01254\ \ \ \ \ BackendUsingLegacyKeyArrays\ =\ (ImS8)-\/1;}
+\DoxyCodeLine{01255\ \ \ \ \ BackendUsingLegacyNavInputArray\ =\ \textcolor{keyword}{true};\ \textcolor{comment}{//\ assume\ using\ legacy\ array\ until\ proven\ wrong}}
+\DoxyCodeLine{01256\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_im_gui_i_o_a051243815ff6305cdcd3db8f84c2dfef}\label{struct_im_gui_i_o_a051243815ff6305cdcd3db8f84c2dfef}} 
+\index{ImGuiIO@{ImGuiIO}!AddFocusEvent@{AddFocusEvent}}
+\index{AddFocusEvent@{AddFocusEvent}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{AddFocusEvent()}{AddFocusEvent()}}
+{\footnotesize\ttfamily void Im\+Gui\+IO\+::\+Add\+Focus\+Event (\begin{DoxyParamCaption}\item[{bool}]{focused }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8cpp_source_l01536}{1536}} of file \mbox{\hyperlink{imgui_8cpp_source}{imgui.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01537\ \{}
+\DoxyCodeLine{01538\ \ \ \ \ IM\_ASSERT(Ctx\ !=\ NULL);}
+\DoxyCodeLine{01539\ \ \ \ \ \mbox{\hyperlink{struct_im_gui_context}{ImGuiContext}}\&\ g\ =\ *Ctx;}
+\DoxyCodeLine{01540\ }
+\DoxyCodeLine{01541\ \ \ \ \ \textcolor{comment}{//\ Filter\ duplicate}}
+\DoxyCodeLine{01542\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_im_gui_input_event}{ImGuiInputEvent}}*\ latest\_event\ =\ FindLatestInputEvent(\&g,\ ImGuiInputEventType\_Focus);}
+\DoxyCodeLine{01543\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ latest\_focused\ =\ latest\_event\ ?\ latest\_event-\/>AppFocused.Focused\ :\ !g.IO.AppFocusLost;}
+\DoxyCodeLine{01544\ \ \ \ \ \textcolor{keywordflow}{if}\ (latest\_focused\ ==\ focused)}
+\DoxyCodeLine{01545\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01546\ }
+\DoxyCodeLine{01547\ \ \ \ \ \mbox{\hyperlink{struct_im_gui_input_event}{ImGuiInputEvent}}\ e;}
+\DoxyCodeLine{01548\ \ \ \ \ e.Type\ =\ ImGuiInputEventType\_Focus;}
+\DoxyCodeLine{01549\ \ \ \ \ e.EventId\ =\ g.InputEventsNextEventId++;}
+\DoxyCodeLine{01550\ \ \ \ \ e.AppFocused.Focused\ =\ focused;}
+\DoxyCodeLine{01551\ \ \ \ \ g.InputEventsQueue.push\_back(e);}
+\DoxyCodeLine{01552\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_gui_i_o_a0ded7ab1043ea14b65e1d81819878ccc}\label{struct_im_gui_i_o_a0ded7ab1043ea14b65e1d81819878ccc}} 
+\index{ImGuiIO@{ImGuiIO}!AddInputCharacter@{AddInputCharacter}}
+\index{AddInputCharacter@{AddInputCharacter}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{AddInputCharacter()}{AddInputCharacter()}}
+{\footnotesize\ttfamily void Im\+Gui\+IO\+::\+Add\+Input\+Character (\begin{DoxyParamCaption}\item[{unsigned int}]{c }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8cpp_source_l01262}{1262}} of file \mbox{\hyperlink{imgui_8cpp_source}{imgui.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01263\ \{}
+\DoxyCodeLine{01264\ \ \ \ \ IM\_ASSERT(Ctx\ !=\ NULL);}
+\DoxyCodeLine{01265\ \ \ \ \ \mbox{\hyperlink{struct_im_gui_context}{ImGuiContext}}\&\ g\ =\ *Ctx;}
+\DoxyCodeLine{01266\ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ ==\ 0\ ||\ !AppAcceptingEvents)}
+\DoxyCodeLine{01267\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01268\ }
+\DoxyCodeLine{01269\ \ \ \ \ \mbox{\hyperlink{struct_im_gui_input_event}{ImGuiInputEvent}}\ e;}
+\DoxyCodeLine{01270\ \ \ \ \ e.Type\ =\ ImGuiInputEventType\_Text;}
+\DoxyCodeLine{01271\ \ \ \ \ e.Source\ =\ ImGuiInputSource\_Keyboard;}
+\DoxyCodeLine{01272\ \ \ \ \ e.EventId\ =\ g.InputEventsNextEventId++;}
+\DoxyCodeLine{01273\ \ \ \ \ e.Text.Char\ =\ c;}
+\DoxyCodeLine{01274\ \ \ \ \ g.InputEventsQueue.push\_back(e);}
+\DoxyCodeLine{01275\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_gui_i_o_abf60d6dc365fab19136059f64680bdcc}\label{struct_im_gui_i_o_abf60d6dc365fab19136059f64680bdcc}} 
+\index{ImGuiIO@{ImGuiIO}!AddInputCharactersUTF8@{AddInputCharactersUTF8}}
+\index{AddInputCharactersUTF8@{AddInputCharactersUTF8}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{AddInputCharactersUTF8()}{AddInputCharactersUTF8()}}
+{\footnotesize\ttfamily void Im\+Gui\+IO\+::\+Add\+Input\+Characters\+UTF8 (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8cpp_source_l01313}{1313}} of file \mbox{\hyperlink{imgui_8cpp_source}{imgui.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01314\ \{}
+\DoxyCodeLine{01315\ \ \ \ \ \textcolor{keywordflow}{if}\ (!AppAcceptingEvents)}
+\DoxyCodeLine{01316\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01317\ \ \ \ \ \textcolor{keywordflow}{while}\ (*utf8\_chars\ !=\ 0)}
+\DoxyCodeLine{01318\ \ \ \ \ \{}
+\DoxyCodeLine{01319\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ c\ =\ 0;}
+\DoxyCodeLine{01320\ \ \ \ \ \ \ \ \ utf8\_chars\ +=\ ImTextCharFromUtf8(\&c,\ utf8\_chars,\ NULL);}
+\DoxyCodeLine{01321\ \ \ \ \ \ \ \ \ AddInputCharacter(c);}
+\DoxyCodeLine{01322\ \ \ \ \ \}}
+\DoxyCodeLine{01323\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_gui_i_o_a09ce496becb406f0fbe94dc35915af64}\label{struct_im_gui_i_o_a09ce496becb406f0fbe94dc35915af64}} 
+\index{ImGuiIO@{ImGuiIO}!AddInputCharacterUTF16@{AddInputCharacterUTF16}}
+\index{AddInputCharacterUTF16@{AddInputCharacterUTF16}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{AddInputCharacterUTF16()}{AddInputCharacterUTF16()}}
+{\footnotesize\ttfamily void Im\+Gui\+IO\+::\+Add\+Input\+Character\+UTF16 (\begin{DoxyParamCaption}\item[{Im\+Wchar16}]{c }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8cpp_source_l01279}{1279}} of file \mbox{\hyperlink{imgui_8cpp_source}{imgui.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01280\ \{}
+\DoxyCodeLine{01281\ \ \ \ \ \textcolor{keywordflow}{if}\ ((c\ ==\ 0\ \&\&\ InputQueueSurrogate\ ==\ 0)\ ||\ !AppAcceptingEvents)}
+\DoxyCodeLine{01282\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01283\ }
+\DoxyCodeLine{01284\ \ \ \ \ \textcolor{keywordflow}{if}\ ((c\ \&\ 0xFC00)\ ==\ 0xD800)\ \textcolor{comment}{//\ High\ surrogate,\ must\ save}}
+\DoxyCodeLine{01285\ \ \ \ \ \{}
+\DoxyCodeLine{01286\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (InputQueueSurrogate\ !=\ 0)}
+\DoxyCodeLine{01287\ \ \ \ \ \ \ \ \ \ \ \ \ AddInputCharacter(IM\_UNICODE\_CODEPOINT\_INVALID);}
+\DoxyCodeLine{01288\ \ \ \ \ \ \ \ \ InputQueueSurrogate\ =\ c;}
+\DoxyCodeLine{01289\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01290\ \ \ \ \ \}}
+\DoxyCodeLine{01291\ }
+\DoxyCodeLine{01292\ \ \ \ \ ImWchar\ cp\ =\ c;}
+\DoxyCodeLine{01293\ \ \ \ \ \textcolor{keywordflow}{if}\ (InputQueueSurrogate\ !=\ 0)}
+\DoxyCodeLine{01294\ \ \ \ \ \{}
+\DoxyCodeLine{01295\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((c\ \&\ 0xFC00)\ !=\ 0xDC00)\ \textcolor{comment}{//\ Invalid\ low\ surrogate}}
+\DoxyCodeLine{01296\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01297\ \ \ \ \ \ \ \ \ \ \ \ \ AddInputCharacter(IM\_UNICODE\_CODEPOINT\_INVALID);}
+\DoxyCodeLine{01298\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01299\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01300\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01301\ \textcolor{preprocessor}{\#if\ IM\_UNICODE\_CODEPOINT\_MAX\ ==\ 0xFFFF}}
+\DoxyCodeLine{01302\ \ \ \ \ \ \ \ \ \ \ \ \ cp\ =\ IM\_UNICODE\_CODEPOINT\_INVALID;\ \textcolor{comment}{//\ Codepoint\ will\ not\ fit\ in\ ImWchar}}
+\DoxyCodeLine{01303\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{01304\ \ \ \ \ \ \ \ \ \ \ \ \ cp\ =\ (ImWchar)(((InputQueueSurrogate\ -\/\ 0xD800)\ <<\ 10)\ +\ (c\ -\/\ 0xDC00)\ +\ 0x10000);}
+\DoxyCodeLine{01305\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01306\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01307\ }
+\DoxyCodeLine{01308\ \ \ \ \ \ \ \ \ InputQueueSurrogate\ =\ 0;}
+\DoxyCodeLine{01309\ \ \ \ \ \}}
+\DoxyCodeLine{01310\ \ \ \ \ AddInputCharacter((\textcolor{keywordtype}{unsigned})cp);}
+\DoxyCodeLine{01311\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_gui_i_o_ac88dcffd1c6785d00eedd5616315e48c}\label{struct_im_gui_i_o_ac88dcffd1c6785d00eedd5616315e48c}} 
+\index{ImGuiIO@{ImGuiIO}!AddKeyAnalogEvent@{AddKeyAnalogEvent}}
+\index{AddKeyAnalogEvent@{AddKeyAnalogEvent}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{AddKeyAnalogEvent()}{AddKeyAnalogEvent()}}
+{\footnotesize\ttfamily void Im\+Gui\+IO\+::\+Add\+Key\+Analog\+Event (\begin{DoxyParamCaption}\item[{Im\+Gui\+Key}]{key,  }\item[{bool}]{down,  }\item[{float}]{v }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8cpp_source_l01377}{1377}} of file \mbox{\hyperlink{imgui_8cpp_source}{imgui.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01378\ \{}
+\DoxyCodeLine{01379\ \ \ \ \ \textcolor{comment}{//if\ (e-\/>Down)\ \{\ IMGUI\_DEBUG\_LOG\_IO("{}AddKeyEvent()\ Key='\%s'\ \%d,\ NativeKeycode\ =\ \%d,\ NativeScancode\ =\ \%d\(\backslash\)n"{},\ ImGui::GetKeyName(e-\/>Key),\ e-\/>Down,\ e-\/>NativeKeycode,\ e-\/>NativeScancode);\ \}}}
+\DoxyCodeLine{01380\ \ \ \ \ IM\_ASSERT(Ctx\ !=\ NULL);}
+\DoxyCodeLine{01381\ \ \ \ \ \textcolor{keywordflow}{if}\ (key\ ==\ ImGuiKey\_None\ ||\ !AppAcceptingEvents)}
+\DoxyCodeLine{01382\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01383\ \ \ \ \ \mbox{\hyperlink{struct_im_gui_context}{ImGuiContext}}\&\ g\ =\ *Ctx;}
+\DoxyCodeLine{01384\ \ \ \ \ IM\_ASSERT(ImGui::IsNamedKeyOrModKey(key));\ \textcolor{comment}{//\ Backend\ needs\ to\ pass\ a\ valid\ ImGuiKey\_\ constant.\ 0..511\ values\ are\ legacy\ native\ key\ codes\ which\ are\ not\ accepted\ by\ this\ API.}}
+\DoxyCodeLine{01385\ \ \ \ \ IM\_ASSERT(ImGui::IsAliasKey(key)\ ==\ \textcolor{keyword}{false});\ \textcolor{comment}{//\ Backend\ cannot\ submit\ ImGuiKey\_MouseXXX\ values\ they\ are\ automatically\ inferred\ from\ AddMouseXXX()\ events.}}
+\DoxyCodeLine{01386\ \ \ \ \ IM\_ASSERT(key\ !=\ ImGuiMod\_Shortcut);\ \textcolor{comment}{//\ We\ could\ easily\ support\ the\ translation\ here\ but\ it\ seems\ saner\ to\ not\ accept\ it\ (TestEngine\ perform\ a\ translation\ itself)}}
+\DoxyCodeLine{01387\ }
+\DoxyCodeLine{01388\ \ \ \ \ \textcolor{comment}{//\ Verify\ that\ backend\ isn't\ mixing\ up\ using\ new\ io.AddKeyEvent()\ api\ and\ old\ io.KeysDown[]\ +\ io.KeyMap[]\ data.}}
+\DoxyCodeLine{01389\ \textcolor{preprocessor}{\#ifndef\ IMGUI\_DISABLE\_OBSOLETE\_KEYIO}}
+\DoxyCodeLine{01390\ \ \ \ \ IM\_ASSERT((BackendUsingLegacyKeyArrays\ ==\ -\/1\ ||\ BackendUsingLegacyKeyArrays\ ==\ 0)\ \&\&\ \textcolor{stringliteral}{"{}Backend\ needs\ to\ either\ only\ use\ io.AddKeyEvent(),\ either\ only\ fill\ legacy\ io.KeysDown[]\ +\ io.KeyMap[].\ Not\ both!"{}});}
+\DoxyCodeLine{01391\ \ \ \ \ \textcolor{keywordflow}{if}\ (BackendUsingLegacyKeyArrays\ ==\ -\/1)}
+\DoxyCodeLine{01392\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ n\ =\ ImGuiKey\_NamedKey\_BEGIN;\ n\ <\ ImGuiKey\_NamedKey\_END;\ n++)}
+\DoxyCodeLine{01393\ \ \ \ \ \ \ \ \ \ \ \ \ IM\_ASSERT(KeyMap[n]\ ==\ -\/1\ \&\&\ \textcolor{stringliteral}{"{}Backend\ needs\ to\ either\ only\ use\ io.AddKeyEvent(),\ either\ only\ fill\ legacy\ io.KeysDown[]\ +\ io.KeyMap[].\ Not\ both!"{}});}
+\DoxyCodeLine{01394\ \ \ \ \ BackendUsingLegacyKeyArrays\ =\ 0;}
+\DoxyCodeLine{01395\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01396\ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::IsGamepadKey(key))}
+\DoxyCodeLine{01397\ \ \ \ \ \ \ \ \ BackendUsingLegacyNavInputArray\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01398\ }
+\DoxyCodeLine{01399\ \ \ \ \ \textcolor{comment}{//\ Filter\ duplicate\ (in\ particular:\ key\ mods\ and\ gamepad\ analog\ values\ are\ commonly\ spammed)}}
+\DoxyCodeLine{01400\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_im_gui_input_event}{ImGuiInputEvent}}*\ latest\_event\ =\ FindLatestInputEvent(\&g,\ ImGuiInputEventType\_Key,\ (\textcolor{keywordtype}{int})key);}
+\DoxyCodeLine{01401\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_im_gui_key_data}{ImGuiKeyData}}*\ key\_data\ =\ ImGui::GetKeyData(\&g,\ key);}
+\DoxyCodeLine{01402\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ latest\_key\_down\ =\ latest\_event\ ?\ latest\_event-\/>Key.Down\ :\ key\_data-\/>Down;}
+\DoxyCodeLine{01403\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ latest\_key\_analog\ =\ latest\_event\ ?\ latest\_event-\/>Key.AnalogValue\ :\ key\_data-\/>AnalogValue;}
+\DoxyCodeLine{01404\ \ \ \ \ \textcolor{keywordflow}{if}\ (latest\_key\_down\ ==\ down\ \&\&\ latest\_key\_analog\ ==\ analog\_value)}
+\DoxyCodeLine{01405\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01406\ }
+\DoxyCodeLine{01407\ \ \ \ \ \textcolor{comment}{//\ Add\ event}}
+\DoxyCodeLine{01408\ \ \ \ \ \mbox{\hyperlink{struct_im_gui_input_event}{ImGuiInputEvent}}\ e;}
+\DoxyCodeLine{01409\ \ \ \ \ e.Type\ =\ ImGuiInputEventType\_Key;}
+\DoxyCodeLine{01410\ \ \ \ \ e.Source\ =\ ImGui::IsGamepadKey(key)\ ?\ ImGuiInputSource\_Gamepad\ :\ ImGuiInputSource\_Keyboard;}
+\DoxyCodeLine{01411\ \ \ \ \ e.EventId\ =\ g.InputEventsNextEventId++;}
+\DoxyCodeLine{01412\ \ \ \ \ e.Key.Key\ =\ key;}
+\DoxyCodeLine{01413\ \ \ \ \ e.Key.Down\ =\ down;}
+\DoxyCodeLine{01414\ \ \ \ \ e.Key.AnalogValue\ =\ analog\_value;}
+\DoxyCodeLine{01415\ \ \ \ \ g.InputEventsQueue.push\_back(e);}
+\DoxyCodeLine{01416\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_gui_i_o_a50c3ab6883647aacdf5153a4dbe2cdbe}\label{struct_im_gui_i_o_a50c3ab6883647aacdf5153a4dbe2cdbe}} 
+\index{ImGuiIO@{ImGuiIO}!AddKeyEvent@{AddKeyEvent}}
+\index{AddKeyEvent@{AddKeyEvent}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{AddKeyEvent()}{AddKeyEvent()}}
+{\footnotesize\ttfamily void Im\+Gui\+IO\+::\+Add\+Key\+Event (\begin{DoxyParamCaption}\item[{Im\+Gui\+Key}]{key,  }\item[{bool}]{down }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8cpp_source_l01418}{1418}} of file \mbox{\hyperlink{imgui_8cpp_source}{imgui.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01419\ \{}
+\DoxyCodeLine{01420\ \ \ \ \ \textcolor{keywordflow}{if}\ (!AppAcceptingEvents)}
+\DoxyCodeLine{01421\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01422\ \ \ \ \ AddKeyAnalogEvent(key,\ down,\ down\ ?\ 1.0f\ :\ 0.0f);}
+\DoxyCodeLine{01423\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_gui_i_o_a9fa5df74047424bb03d7cb29c6fb6ea1}\label{struct_im_gui_i_o_a9fa5df74047424bb03d7cb29c6fb6ea1}} 
+\index{ImGuiIO@{ImGuiIO}!AddMouseButtonEvent@{AddMouseButtonEvent}}
+\index{AddMouseButtonEvent@{AddMouseButtonEvent}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{AddMouseButtonEvent()}{AddMouseButtonEvent()}}
+{\footnotesize\ttfamily void Im\+Gui\+IO\+::\+Add\+Mouse\+Button\+Event (\begin{DoxyParamCaption}\item[{int}]{button,  }\item[{bool}]{down }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8cpp_source_l01483}{1483}} of file \mbox{\hyperlink{imgui_8cpp_source}{imgui.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01484\ \{}
+\DoxyCodeLine{01485\ \ \ \ \ IM\_ASSERT(Ctx\ !=\ NULL);}
+\DoxyCodeLine{01486\ \ \ \ \ \mbox{\hyperlink{struct_im_gui_context}{ImGuiContext}}\&\ g\ =\ *Ctx;}
+\DoxyCodeLine{01487\ \ \ \ \ IM\_ASSERT(mouse\_button\ >=\ 0\ \&\&\ mouse\_button\ <\ ImGuiMouseButton\_COUNT);}
+\DoxyCodeLine{01488\ \ \ \ \ \textcolor{keywordflow}{if}\ (!AppAcceptingEvents)}
+\DoxyCodeLine{01489\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01490\ }
+\DoxyCodeLine{01491\ \ \ \ \ \textcolor{comment}{//\ Filter\ duplicate}}
+\DoxyCodeLine{01492\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_im_gui_input_event}{ImGuiInputEvent}}*\ latest\_event\ =\ FindLatestInputEvent(\&g,\ ImGuiInputEventType\_MouseButton,\ (\textcolor{keywordtype}{int})mouse\_button);}
+\DoxyCodeLine{01493\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ latest\_button\_down\ =\ latest\_event\ ?\ latest\_event-\/>MouseButton.Down\ :\ g.IO.MouseDown[mouse\_button];}
+\DoxyCodeLine{01494\ \ \ \ \ \textcolor{keywordflow}{if}\ (latest\_button\_down\ ==\ down)}
+\DoxyCodeLine{01495\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01496\ }
+\DoxyCodeLine{01497\ \ \ \ \ \mbox{\hyperlink{struct_im_gui_input_event}{ImGuiInputEvent}}\ e;}
+\DoxyCodeLine{01498\ \ \ \ \ e.Type\ =\ ImGuiInputEventType\_MouseButton;}
+\DoxyCodeLine{01499\ \ \ \ \ e.Source\ =\ ImGuiInputSource\_Mouse;}
+\DoxyCodeLine{01500\ \ \ \ \ e.EventId\ =\ g.InputEventsNextEventId++;}
+\DoxyCodeLine{01501\ \ \ \ \ e.MouseButton.Button\ =\ mouse\_button;}
+\DoxyCodeLine{01502\ \ \ \ \ e.MouseButton.Down\ =\ down;}
+\DoxyCodeLine{01503\ \ \ \ \ e.MouseWheel.MouseSource\ =\ g.InputEventsNextMouseSource;}
+\DoxyCodeLine{01504\ \ \ \ \ g.InputEventsQueue.push\_back(e);}
+\DoxyCodeLine{01505\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_gui_i_o_ab6423058bbb3503c3cf66e0e45ee606d}\label{struct_im_gui_i_o_ab6423058bbb3503c3cf66e0e45ee606d}} 
+\index{ImGuiIO@{ImGuiIO}!AddMousePosEvent@{AddMousePosEvent}}
+\index{AddMousePosEvent@{AddMousePosEvent}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{AddMousePosEvent()}{AddMousePosEvent()}}
+{\footnotesize\ttfamily void Im\+Gui\+IO\+::\+Add\+Mouse\+Pos\+Event (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8cpp_source_l01457}{1457}} of file \mbox{\hyperlink{imgui_8cpp_source}{imgui.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01458\ \{}
+\DoxyCodeLine{01459\ \ \ \ \ IM\_ASSERT(Ctx\ !=\ NULL);}
+\DoxyCodeLine{01460\ \ \ \ \ \mbox{\hyperlink{struct_im_gui_context}{ImGuiContext}}\&\ g\ =\ *Ctx;}
+\DoxyCodeLine{01461\ \ \ \ \ \textcolor{keywordflow}{if}\ (!AppAcceptingEvents)}
+\DoxyCodeLine{01462\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01463\ }
+\DoxyCodeLine{01464\ \ \ \ \ \textcolor{comment}{//\ Apply\ same\ flooring\ as\ UpdateMouseInputs()}}
+\DoxyCodeLine{01465\ \ \ \ \ \mbox{\hyperlink{struct_im_vec2}{ImVec2}}\ pos((x\ >\ -\/FLT\_MAX)\ ?\ ImFloorSigned(x)\ :\ x,\ (y\ >\ -\/FLT\_MAX)\ ?\ ImFloorSigned(y)\ :\ y);}
+\DoxyCodeLine{01466\ }
+\DoxyCodeLine{01467\ \ \ \ \ \textcolor{comment}{//\ Filter\ duplicate}}
+\DoxyCodeLine{01468\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_im_gui_input_event}{ImGuiInputEvent}}*\ latest\_event\ =\ FindLatestInputEvent(\&g,\ ImGuiInputEventType\_MousePos);}
+\DoxyCodeLine{01469\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_im_vec2}{ImVec2}}\ latest\_pos\ =\ latest\_event\ ?\ \mbox{\hyperlink{struct_im_vec2}{ImVec2}}(latest\_event-\/>MousePos.PosX,\ latest\_event-\/>MousePos.PosY)\ :\ g.IO.MousePos;}
+\DoxyCodeLine{01470\ \ \ \ \ \textcolor{keywordflow}{if}\ (latest\_pos.x\ ==\ pos.x\ \&\&\ latest\_pos.y\ ==\ pos.y)}
+\DoxyCodeLine{01471\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01472\ }
+\DoxyCodeLine{01473\ \ \ \ \ \mbox{\hyperlink{struct_im_gui_input_event}{ImGuiInputEvent}}\ e;}
+\DoxyCodeLine{01474\ \ \ \ \ e.Type\ =\ ImGuiInputEventType\_MousePos;}
+\DoxyCodeLine{01475\ \ \ \ \ e.Source\ =\ ImGuiInputSource\_Mouse;}
+\DoxyCodeLine{01476\ \ \ \ \ e.EventId\ =\ g.InputEventsNextEventId++;}
+\DoxyCodeLine{01477\ \ \ \ \ e.MousePos.PosX\ =\ pos.x;}
+\DoxyCodeLine{01478\ \ \ \ \ e.MousePos.PosY\ =\ pos.y;}
+\DoxyCodeLine{01479\ \ \ \ \ e.MouseWheel.MouseSource\ =\ g.InputEventsNextMouseSource;}
+\DoxyCodeLine{01480\ \ \ \ \ g.InputEventsQueue.push\_back(e);}
+\DoxyCodeLine{01481\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_gui_i_o_adc3cac2515e40a80c6dc961800ed221f}\label{struct_im_gui_i_o_adc3cac2515e40a80c6dc961800ed221f}} 
+\index{ImGuiIO@{ImGuiIO}!AddMouseSourceEvent@{AddMouseSourceEvent}}
+\index{AddMouseSourceEvent@{AddMouseSourceEvent}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{AddMouseSourceEvent()}{AddMouseSourceEvent()}}
+{\footnotesize\ttfamily void Im\+Gui\+IO\+::\+Add\+Mouse\+Source\+Event (\begin{DoxyParamCaption}\item[{Im\+Gui\+Mouse\+Source}]{source }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8cpp_source_l01529}{1529}} of file \mbox{\hyperlink{imgui_8cpp_source}{imgui.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01530\ \{}
+\DoxyCodeLine{01531\ \ \ \ \ IM\_ASSERT(Ctx\ !=\ NULL);}
+\DoxyCodeLine{01532\ \ \ \ \ \mbox{\hyperlink{struct_im_gui_context}{ImGuiContext}}\&\ g\ =\ *Ctx;}
+\DoxyCodeLine{01533\ \ \ \ \ g.InputEventsNextMouseSource\ =\ source;}
+\DoxyCodeLine{01534\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_gui_i_o_a3c5ad00141194e3a01c9efbcb53cd5a1}\label{struct_im_gui_i_o_a3c5ad00141194e3a01c9efbcb53cd5a1}} 
+\index{ImGuiIO@{ImGuiIO}!AddMouseWheelEvent@{AddMouseWheelEvent}}
+\index{AddMouseWheelEvent@{AddMouseWheelEvent}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{AddMouseWheelEvent()}{AddMouseWheelEvent()}}
+{\footnotesize\ttfamily void Im\+Gui\+IO\+::\+Add\+Mouse\+Wheel\+Event (\begin{DoxyParamCaption}\item[{float}]{wheel\+\_\+x,  }\item[{float}]{wheel\+\_\+y }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8cpp_source_l01508}{1508}} of file \mbox{\hyperlink{imgui_8cpp_source}{imgui.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01509\ \{}
+\DoxyCodeLine{01510\ \ \ \ \ IM\_ASSERT(Ctx\ !=\ NULL);}
+\DoxyCodeLine{01511\ \ \ \ \ \mbox{\hyperlink{struct_im_gui_context}{ImGuiContext}}\&\ g\ =\ *Ctx;}
+\DoxyCodeLine{01512\ }
+\DoxyCodeLine{01513\ \ \ \ \ \textcolor{comment}{//\ Filter\ duplicate\ (unlike\ most\ events,\ wheel\ values\ are\ relative\ and\ easy\ to\ filter)}}
+\DoxyCodeLine{01514\ \ \ \ \ \textcolor{keywordflow}{if}\ (!AppAcceptingEvents\ ||\ (wheel\_x\ ==\ 0.0f\ \&\&\ wheel\_y\ ==\ 0.0f))}
+\DoxyCodeLine{01515\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01516\ }
+\DoxyCodeLine{01517\ \ \ \ \ \mbox{\hyperlink{struct_im_gui_input_event}{ImGuiInputEvent}}\ e;}
+\DoxyCodeLine{01518\ \ \ \ \ e.Type\ =\ ImGuiInputEventType\_MouseWheel;}
+\DoxyCodeLine{01519\ \ \ \ \ e.Source\ =\ ImGuiInputSource\_Mouse;}
+\DoxyCodeLine{01520\ \ \ \ \ e.EventId\ =\ g.InputEventsNextEventId++;}
+\DoxyCodeLine{01521\ \ \ \ \ e.MouseWheel.WheelX\ =\ wheel\_x;}
+\DoxyCodeLine{01522\ \ \ \ \ e.MouseWheel.WheelY\ =\ wheel\_y;}
+\DoxyCodeLine{01523\ \ \ \ \ e.MouseWheel.MouseSource\ =\ g.InputEventsNextMouseSource;}
+\DoxyCodeLine{01524\ \ \ \ \ g.InputEventsQueue.push\_back(e);}
+\DoxyCodeLine{01525\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_gui_i_o_a82d8794e14e628efbb026af4202c70ca}\label{struct_im_gui_i_o_a82d8794e14e628efbb026af4202c70ca}} 
+\index{ImGuiIO@{ImGuiIO}!ClearInputCharacters@{ClearInputCharacters}}
+\index{ClearInputCharacters@{ClearInputCharacters}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{ClearInputCharacters()}{ClearInputCharacters()}}
+{\footnotesize\ttfamily void Im\+Gui\+IO\+::\+Clear\+Input\+Characters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8cpp_source_l01326}{1326}} of file \mbox{\hyperlink{imgui_8cpp_source}{imgui.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01327\ \{}
+\DoxyCodeLine{01328\ \ \ \ \ InputQueueCharacters.resize(0);}
+\DoxyCodeLine{01329\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_gui_i_o_a5d87fb4f10e366ef8a4603ac57e39da1}\label{struct_im_gui_i_o_a5d87fb4f10e366ef8a4603ac57e39da1}} 
+\index{ImGuiIO@{ImGuiIO}!ClearInputKeys@{ClearInputKeys}}
+\index{ClearInputKeys@{ClearInputKeys}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{ClearInputKeys()}{ClearInputKeys()}}
+{\footnotesize\ttfamily void Im\+Gui\+IO\+::\+Clear\+Input\+Keys (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8cpp_source_l01332}{1332}} of file \mbox{\hyperlink{imgui_8cpp_source}{imgui.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01333\ \{}
+\DoxyCodeLine{01334\ \textcolor{preprocessor}{\#ifndef\ IMGUI\_DISABLE\_OBSOLETE\_KEYIO}}
+\DoxyCodeLine{01335\ \ \ \ \ memset(KeysDown,\ 0,\ \textcolor{keyword}{sizeof}(KeysDown));}
+\DoxyCodeLine{01336\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01337\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ n\ =\ 0;\ n\ <\ IM\_ARRAYSIZE(KeysData);\ n++)}
+\DoxyCodeLine{01338\ \ \ \ \ \{}
+\DoxyCodeLine{01339\ \ \ \ \ \ \ \ \ KeysData[n].Down\ \ \ \ \ \ \ \ \ \ \ \ \ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01340\ \ \ \ \ \ \ \ \ KeysData[n].DownDuration\ \ \ \ \ =\ -\/1.0f;}
+\DoxyCodeLine{01341\ \ \ \ \ \ \ \ \ KeysData[n].DownDurationPrev\ =\ -\/1.0f;}
+\DoxyCodeLine{01342\ \ \ \ \ \}}
+\DoxyCodeLine{01343\ \ \ \ \ KeyCtrl\ =\ KeyShift\ =\ KeyAlt\ =\ KeySuper\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01344\ \ \ \ \ KeyMods\ =\ ImGuiMod\_None;}
+\DoxyCodeLine{01345\ \ \ \ \ MousePos\ =\ \mbox{\hyperlink{struct_im_vec2}{ImVec2}}(-\/FLT\_MAX,\ -\/FLT\_MAX);}
+\DoxyCodeLine{01346\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ n\ =\ 0;\ n\ <\ IM\_ARRAYSIZE(MouseDown);\ n++)}
+\DoxyCodeLine{01347\ \ \ \ \ \{}
+\DoxyCodeLine{01348\ \ \ \ \ \ \ \ \ MouseDown[n]\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01349\ \ \ \ \ \ \ \ \ MouseDownDuration[n]\ =\ MouseDownDurationPrev[n]\ =\ -\/1.0f;}
+\DoxyCodeLine{01350\ \ \ \ \ \}}
+\DoxyCodeLine{01351\ \ \ \ \ MouseWheel\ =\ MouseWheelH\ =\ 0.0f;}
+\DoxyCodeLine{01352\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_gui_i_o_a8ec563cbffee4818a89840654b8c4404}\label{struct_im_gui_i_o_a8ec563cbffee4818a89840654b8c4404}} 
+\index{ImGuiIO@{ImGuiIO}!SetAppAcceptingEvents@{SetAppAcceptingEvents}}
+\index{SetAppAcceptingEvents@{SetAppAcceptingEvents}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{SetAppAcceptingEvents()}{SetAppAcceptingEvents()}}
+{\footnotesize\ttfamily void Im\+Gui\+IO\+::\+Set\+App\+Accepting\+Events (\begin{DoxyParamCaption}\item[{bool}]{accepting\+\_\+events }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8cpp_source_l01451}{1451}} of file \mbox{\hyperlink{imgui_8cpp_source}{imgui.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01452\ \{}
+\DoxyCodeLine{01453\ \ \ \ \ AppAcceptingEvents\ =\ accepting\_events;}
+\DoxyCodeLine{01454\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_gui_i_o_a6b2fa57fb6af5aa1c99f58115542e1dc}\label{struct_im_gui_i_o_a6b2fa57fb6af5aa1c99f58115542e1dc}} 
+\index{ImGuiIO@{ImGuiIO}!SetKeyEventNativeData@{SetKeyEventNativeData}}
+\index{SetKeyEventNativeData@{SetKeyEventNativeData}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{SetKeyEventNativeData()}{SetKeyEventNativeData()}}
+{\footnotesize\ttfamily void Im\+Gui\+IO\+::\+Set\+Key\+Event\+Native\+Data (\begin{DoxyParamCaption}\item[{Im\+Gui\+Key}]{key,  }\item[{int}]{native\+\_\+keycode,  }\item[{int}]{native\+\_\+scancode,  }\item[{int}]{native\+\_\+legacy\+\_\+index = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8cpp_source_l01428}{1428}} of file \mbox{\hyperlink{imgui_8cpp_source}{imgui.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01429\ \{}
+\DoxyCodeLine{01430\ \ \ \ \ \textcolor{keywordflow}{if}\ (key\ ==\ ImGuiKey\_None)}
+\DoxyCodeLine{01431\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01432\ \ \ \ \ IM\_ASSERT(ImGui::IsNamedKey(key));\ \textcolor{comment}{//\ >=\ 512}}
+\DoxyCodeLine{01433\ \ \ \ \ IM\_ASSERT(native\_legacy\_index\ ==\ -\/1\ ||\ ImGui::IsLegacyKey((ImGuiKey)native\_legacy\_index));\ \textcolor{comment}{//\ >=\ 0\ \&\&\ <=\ 511}}
+\DoxyCodeLine{01434\ \ \ \ \ IM\_UNUSED(native\_keycode);\ \ \textcolor{comment}{//\ Yet\ unused}}
+\DoxyCodeLine{01435\ \ \ \ \ IM\_UNUSED(native\_scancode);\ \textcolor{comment}{//\ Yet\ unused}}
+\DoxyCodeLine{01436\ }
+\DoxyCodeLine{01437\ \ \ \ \ \textcolor{comment}{//\ Build\ native-\/>imgui\ map\ so\ old\ user\ code\ can\ still\ call\ key\ functions\ with\ native\ 0..511\ values.}}
+\DoxyCodeLine{01438\ \textcolor{preprocessor}{\#ifndef\ IMGUI\_DISABLE\_OBSOLETE\_KEYIO}}
+\DoxyCodeLine{01439\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ legacy\_key\ =\ (native\_legacy\_index\ !=\ -\/1)\ ?\ native\_legacy\_index\ :\ native\_keycode;}
+\DoxyCodeLine{01440\ \ \ \ \ \textcolor{keywordflow}{if}\ (!ImGui::IsLegacyKey((ImGuiKey)legacy\_key))}
+\DoxyCodeLine{01441\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01442\ \ \ \ \ KeyMap[legacy\_key]\ =\ key;}
+\DoxyCodeLine{01443\ \ \ \ \ KeyMap[key]\ =\ legacy\_key;}
+\DoxyCodeLine{01444\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{01445\ \ \ \ \ IM\_UNUSED(key);}
+\DoxyCodeLine{01446\ \ \ \ \ IM\_UNUSED(native\_legacy\_index);}
+\DoxyCodeLine{01447\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01448\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_im_gui_i_o_aadb8a762b7a874e9d1f47230a5d62239}\label{struct_im_gui_i_o_aadb8a762b7a874e9d1f47230a5d62239}} 
+\index{ImGuiIO@{ImGuiIO}!AppAcceptingEvents@{AppAcceptingEvents}}
+\index{AppAcceptingEvents@{AppAcceptingEvents}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{AppAcceptingEvents}{AppAcceptingEvents}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+App\+Accepting\+Events}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02078}{2078}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a6f907c3044fe77b706f48ee6d7eaa1b2}\label{struct_im_gui_i_o_a6f907c3044fe77b706f48ee6d7eaa1b2}} 
+\index{ImGuiIO@{ImGuiIO}!AppFocusLost@{AppFocusLost}}
+\index{AppFocusLost@{AppFocusLost}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{AppFocusLost}{AppFocusLost}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+App\+Focus\+Lost}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02077}{2077}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a92288d3e802788c8c408eac2c12e709c}\label{struct_im_gui_i_o_a92288d3e802788c8c408eac2c12e709c}} 
+\index{ImGuiIO@{ImGuiIO}!BackendFlags@{BackendFlags}}
+\index{BackendFlags@{BackendFlags}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{BackendFlags}{BackendFlags}}
+{\footnotesize\ttfamily Im\+Gui\+Backend\+Flags Im\+Gui\+IO\+::\+Backend\+Flags}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01921}{1921}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_ad5dc2e55e630b44208ef07bbbef161ea}\label{struct_im_gui_i_o_ad5dc2e55e630b44208ef07bbbef161ea}} 
+\index{ImGuiIO@{ImGuiIO}!BackendLanguageUserData@{BackendLanguageUserData}}
+\index{BackendLanguageUserData@{BackendLanguageUserData}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{BackendLanguageUserData}{BackendLanguageUserData}}
+{\footnotesize\ttfamily void$\ast$ Im\+Gui\+IO\+::\+Backend\+Language\+User\+Data}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01971}{1971}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a58510e764707bf979d086f6bc4c8b670}\label{struct_im_gui_i_o_a58510e764707bf979d086f6bc4c8b670}} 
+\index{ImGuiIO@{ImGuiIO}!BackendPlatformName@{BackendPlatformName}}
+\index{BackendPlatformName@{BackendPlatformName}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{BackendPlatformName}{BackendPlatformName}}
+{\footnotesize\ttfamily const char$\ast$ Im\+Gui\+IO\+::\+Backend\+Platform\+Name}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01967}{1967}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a6c0c878d0d5ca6ef90f0968bd59309d3}\label{struct_im_gui_i_o_a6c0c878d0d5ca6ef90f0968bd59309d3}} 
+\index{ImGuiIO@{ImGuiIO}!BackendPlatformUserData@{BackendPlatformUserData}}
+\index{BackendPlatformUserData@{BackendPlatformUserData}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{BackendPlatformUserData}{BackendPlatformUserData}}
+{\footnotesize\ttfamily void$\ast$ Im\+Gui\+IO\+::\+Backend\+Platform\+User\+Data}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01969}{1969}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_ad0902d7c892cff675fc0a685e8f1481d}\label{struct_im_gui_i_o_ad0902d7c892cff675fc0a685e8f1481d}} 
+\index{ImGuiIO@{ImGuiIO}!BackendRendererName@{BackendRendererName}}
+\index{BackendRendererName@{BackendRendererName}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{BackendRendererName}{BackendRendererName}}
+{\footnotesize\ttfamily const char$\ast$ Im\+Gui\+IO\+::\+Backend\+Renderer\+Name}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01968}{1968}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a9d1b2553e914286e9f92ab62f3d38265}\label{struct_im_gui_i_o_a9d1b2553e914286e9f92ab62f3d38265}} 
+\index{ImGuiIO@{ImGuiIO}!BackendRendererUserData@{BackendRendererUserData}}
+\index{BackendRendererUserData@{BackendRendererUserData}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{BackendRendererUserData}{BackendRendererUserData}}
+{\footnotesize\ttfamily void$\ast$ Im\+Gui\+IO\+::\+Backend\+Renderer\+User\+Data}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01970}{1970}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a71d9fa7f004072892216d3504163cd12}\label{struct_im_gui_i_o_a71d9fa7f004072892216d3504163cd12}} 
+\index{ImGuiIO@{ImGuiIO}!BackendUsingLegacyKeyArrays@{BackendUsingLegacyKeyArrays}}
+\index{BackendUsingLegacyKeyArrays@{BackendUsingLegacyKeyArrays}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{BackendUsingLegacyKeyArrays}{BackendUsingLegacyKeyArrays}}
+{\footnotesize\ttfamily Im\+S8 Im\+Gui\+IO\+::\+Backend\+Using\+Legacy\+Key\+Arrays}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02079}{2079}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_aa9a50114735531c89671b9c591bf1f3b}\label{struct_im_gui_i_o_aa9a50114735531c89671b9c591bf1f3b}} 
+\index{ImGuiIO@{ImGuiIO}!BackendUsingLegacyNavInputArray@{BackendUsingLegacyNavInputArray}}
+\index{BackendUsingLegacyNavInputArray@{BackendUsingLegacyNavInputArray}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{BackendUsingLegacyNavInputArray}{BackendUsingLegacyNavInputArray}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Backend\+Using\+Legacy\+Nav\+Input\+Array}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02080}{2080}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a162d9da988e8985df05d262640f2f91c}\label{struct_im_gui_i_o_a162d9da988e8985df05d262640f2f91c}} 
+\index{ImGuiIO@{ImGuiIO}!ClipboardUserData@{ClipboardUserData}}
+\index{ClipboardUserData@{ClipboardUserData}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{ClipboardUserData}{ClipboardUserData}}
+{\footnotesize\ttfamily void$\ast$ Im\+Gui\+IO\+::\+Clipboard\+User\+Data}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01977}{1977}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a66892ea6cb0f64c681be2ca2e33830f8}\label{struct_im_gui_i_o_a66892ea6cb0f64c681be2ca2e33830f8}} 
+\index{ImGuiIO@{ImGuiIO}!ConfigDebugBeginReturnValueLoop@{ConfigDebugBeginReturnValueLoop}}
+\index{ConfigDebugBeginReturnValueLoop@{ConfigDebugBeginReturnValueLoop}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{ConfigDebugBeginReturnValueLoop}{ConfigDebugBeginReturnValueLoop}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Config\+Debug\+Begin\+Return\+Value\+Loop}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01959}{1959}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a0bb96382080ca9fdd071a5a0aeff6301}\label{struct_im_gui_i_o_a0bb96382080ca9fdd071a5a0aeff6301}} 
+\index{ImGuiIO@{ImGuiIO}!ConfigDebugBeginReturnValueOnce@{ConfigDebugBeginReturnValueOnce}}
+\index{ConfigDebugBeginReturnValueOnce@{ConfigDebugBeginReturnValueOnce}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{ConfigDebugBeginReturnValueOnce}{ConfigDebugBeginReturnValueOnce}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Config\+Debug\+Begin\+Return\+Value\+Once}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01958}{1958}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a8ecd103855fbd0bb9090d5998bc994bc}\label{struct_im_gui_i_o_a8ecd103855fbd0bb9090d5998bc994bc}} 
+\index{ImGuiIO@{ImGuiIO}!ConfigDragClickToInputText@{ConfigDragClickToInputText}}
+\index{ConfigDragClickToInputText@{ConfigDragClickToInputText}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{ConfigDragClickToInputText}{ConfigDragClickToInputText}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Config\+Drag\+Click\+To\+Input\+Text}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01948}{1948}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a6267b8a1ffa964035e6540f5e4296e39}\label{struct_im_gui_i_o_a6267b8a1ffa964035e6540f5e4296e39}} 
+\index{ImGuiIO@{ImGuiIO}!ConfigFlags@{ConfigFlags}}
+\index{ConfigFlags@{ConfigFlags}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{ConfigFlags}{ConfigFlags}}
+{\footnotesize\ttfamily Im\+Gui\+Config\+Flags Im\+Gui\+IO\+::\+Config\+Flags}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01920}{1920}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_ad17e398044a43d0020f692af8a72a9ac}\label{struct_im_gui_i_o_ad17e398044a43d0020f692af8a72a9ac}} 
+\index{ImGuiIO@{ImGuiIO}!ConfigInputTextCursorBlink@{ConfigInputTextCursorBlink}}
+\index{ConfigInputTextCursorBlink@{ConfigInputTextCursorBlink}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{ConfigInputTextCursorBlink}{ConfigInputTextCursorBlink}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Config\+Input\+Text\+Cursor\+Blink}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01946}{1946}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_abdd7e183fe87d70c779c2d28ee63eb4d}\label{struct_im_gui_i_o_abdd7e183fe87d70c779c2d28ee63eb4d}} 
+\index{ImGuiIO@{ImGuiIO}!ConfigInputTextEnterKeepActive@{ConfigInputTextEnterKeepActive}}
+\index{ConfigInputTextEnterKeepActive@{ConfigInputTextEnterKeepActive}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{ConfigInputTextEnterKeepActive}{ConfigInputTextEnterKeepActive}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Config\+Input\+Text\+Enter\+Keep\+Active}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01947}{1947}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_af38a4c1ec57a1721dc1bbf81ccc16dc7}\label{struct_im_gui_i_o_af38a4c1ec57a1721dc1bbf81ccc16dc7}} 
+\index{ImGuiIO@{ImGuiIO}!ConfigInputTrickleEventQueue@{ConfigInputTrickleEventQueue}}
+\index{ConfigInputTrickleEventQueue@{ConfigInputTrickleEventQueue}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{ConfigInputTrickleEventQueue}{ConfigInputTrickleEventQueue}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Config\+Input\+Trickle\+Event\+Queue}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01945}{1945}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_ab2b62c3ee538d4037e7467bf934fd7a2}\label{struct_im_gui_i_o_ab2b62c3ee538d4037e7467bf934fd7a2}} 
+\index{ImGuiIO@{ImGuiIO}!ConfigMacOSXBehaviors@{ConfigMacOSXBehaviors}}
+\index{ConfigMacOSXBehaviors@{ConfigMacOSXBehaviors}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{ConfigMacOSXBehaviors}{ConfigMacOSXBehaviors}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Config\+Mac\+OSXBehaviors}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01944}{1944}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_aedd3ba8bfc9c682e5a7a66ffdd480df2}\label{struct_im_gui_i_o_aedd3ba8bfc9c682e5a7a66ffdd480df2}} 
+\index{ImGuiIO@{ImGuiIO}!ConfigMemoryCompactTimer@{ConfigMemoryCompactTimer}}
+\index{ConfigMemoryCompactTimer@{ConfigMemoryCompactTimer}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{ConfigMemoryCompactTimer}{ConfigMemoryCompactTimer}}
+{\footnotesize\ttfamily float Im\+Gui\+IO\+::\+Config\+Memory\+Compact\+Timer}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01951}{1951}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a17f4703e015c69263170396441b321d9}\label{struct_im_gui_i_o_a17f4703e015c69263170396441b321d9}} 
+\index{ImGuiIO@{ImGuiIO}!ConfigWindowsMoveFromTitleBarOnly@{ConfigWindowsMoveFromTitleBarOnly}}
+\index{ConfigWindowsMoveFromTitleBarOnly@{ConfigWindowsMoveFromTitleBarOnly}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{ConfigWindowsMoveFromTitleBarOnly}{ConfigWindowsMoveFromTitleBarOnly}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Config\+Windows\+Move\+From\+Title\+Bar\+Only}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01950}{1950}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_aaa627c27ae9e957f738e74a67629bed6}\label{struct_im_gui_i_o_aaa627c27ae9e957f738e74a67629bed6}} 
+\index{ImGuiIO@{ImGuiIO}!ConfigWindowsResizeFromEdges@{ConfigWindowsResizeFromEdges}}
+\index{ConfigWindowsResizeFromEdges@{ConfigWindowsResizeFromEdges}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{ConfigWindowsResizeFromEdges}{ConfigWindowsResizeFromEdges}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Config\+Windows\+Resize\+From\+Edges}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01949}{1949}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a8fdf06720bff6066ebc17aa2f3d249ce}\label{struct_im_gui_i_o_a8fdf06720bff6066ebc17aa2f3d249ce}} 
+\index{ImGuiIO@{ImGuiIO}!Ctx@{Ctx}}
+\index{Ctx@{Ctx}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{Ctx}{Ctx}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_gui_context}{Im\+Gui\+Context}}$\ast$ Im\+Gui\+IO\+::\+Ctx}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02043}{2043}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a5068d5414a19c2a1bf58029bd732a7c7}\label{struct_im_gui_i_o_a5068d5414a19c2a1bf58029bd732a7c7}} 
+\index{ImGuiIO@{ImGuiIO}!DeltaTime@{DeltaTime}}
+\index{DeltaTime@{DeltaTime}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{DeltaTime}{DeltaTime}}
+{\footnotesize\ttfamily float Im\+Gui\+IO\+::\+Delta\+Time}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01923}{1923}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a703cad6bd4c9e8972d056116104d27e8}\label{struct_im_gui_i_o_a703cad6bd4c9e8972d056116104d27e8}} 
+\index{ImGuiIO@{ImGuiIO}!DisplayFramebufferScale@{DisplayFramebufferScale}}
+\index{DisplayFramebufferScale@{DisplayFramebufferScale}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{DisplayFramebufferScale}{DisplayFramebufferScale}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} Im\+Gui\+IO\+::\+Display\+Framebuffer\+Scale}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01940}{1940}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a042cfb90bdc9ccfe37f86b92ade759fd}\label{struct_im_gui_i_o_a042cfb90bdc9ccfe37f86b92ade759fd}} 
+\index{ImGuiIO@{ImGuiIO}!DisplaySize@{DisplaySize}}
+\index{DisplaySize@{DisplaySize}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{DisplaySize}{DisplaySize}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} Im\+Gui\+IO\+::\+Display\+Size}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01922}{1922}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_af5fc6eae7ce68cce8473f006431f530e}\label{struct_im_gui_i_o_af5fc6eae7ce68cce8473f006431f530e}} 
+\index{ImGuiIO@{ImGuiIO}!FontAllowUserScaling@{FontAllowUserScaling}}
+\index{FontAllowUserScaling@{FontAllowUserScaling}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{FontAllowUserScaling}{FontAllowUserScaling}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Font\+Allow\+User\+Scaling}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01938}{1938}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a11016e4aefa603523bce61315b66bf00}\label{struct_im_gui_i_o_a11016e4aefa603523bce61315b66bf00}} 
+\index{ImGuiIO@{ImGuiIO}!FontDefault@{FontDefault}}
+\index{FontDefault@{FontDefault}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{FontDefault}{FontDefault}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_font}{Im\+Font}}$\ast$ Im\+Gui\+IO\+::\+Font\+Default}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01939}{1939}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a74a64a74dcbe2a6ef0c1ef56ba328094}\label{struct_im_gui_i_o_a74a64a74dcbe2a6ef0c1ef56ba328094}} 
+\index{ImGuiIO@{ImGuiIO}!FontGlobalScale@{FontGlobalScale}}
+\index{FontGlobalScale@{FontGlobalScale}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{FontGlobalScale}{FontGlobalScale}}
+{\footnotesize\ttfamily float Im\+Gui\+IO\+::\+Font\+Global\+Scale}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01937}{1937}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a24e4f5201fe8780267abc2acfc24254c}\label{struct_im_gui_i_o_a24e4f5201fe8780267abc2acfc24254c}} 
+\index{ImGuiIO@{ImGuiIO}!Fonts@{Fonts}}
+\index{Fonts@{Fonts}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{Fonts}{Fonts}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_font_atlas}{Im\+Font\+Atlas}}$\ast$ Im\+Gui\+IO\+::\+Fonts}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01936}{1936}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a8c6c2be54ddeda3cfb4a73cf95701a54}\label{struct_im_gui_i_o_a8c6c2be54ddeda3cfb4a73cf95701a54}} 
+\index{ImGuiIO@{ImGuiIO}!Framerate@{Framerate}}
+\index{Framerate@{Framerate}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{Framerate}{Framerate}}
+{\footnotesize\ttfamily float Im\+Gui\+IO\+::\+Framerate}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02022}{2022}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a974c08e33e5f2abcdd23981c9b9350ae}\label{struct_im_gui_i_o_a974c08e33e5f2abcdd23981c9b9350ae}} 
+\index{ImGuiIO@{ImGuiIO}!GetClipboardTextFn@{GetClipboardTextFn}}
+\index{GetClipboardTextFn@{GetClipboardTextFn}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{GetClipboardTextFn}{GetClipboardTextFn}}
+{\footnotesize\ttfamily const char $\ast$($\ast$ Im\+Gui\+IO\+::\+Get\+Clipboard\+Text\+Fn) (void $\ast$user\+\_\+data)}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01975}{1975}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_adf38bc0b3d5f77249b444f0872edc039}\label{struct_im_gui_i_o_adf38bc0b3d5f77249b444f0872edc039}} 
+\index{ImGuiIO@{ImGuiIO}!HoverDelayNormal@{HoverDelayNormal}}
+\index{HoverDelayNormal@{HoverDelayNormal}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{HoverDelayNormal}{HoverDelayNormal}}
+{\footnotesize\ttfamily float Im\+Gui\+IO\+::\+Hover\+Delay\+Normal}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01932}{1932}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a1908fcfa605ff6ae0591891fee77c88d}\label{struct_im_gui_i_o_a1908fcfa605ff6ae0591891fee77c88d}} 
+\index{ImGuiIO@{ImGuiIO}!HoverDelayShort@{HoverDelayShort}}
+\index{HoverDelayShort@{HoverDelayShort}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{HoverDelayShort}{HoverDelayShort}}
+{\footnotesize\ttfamily float Im\+Gui\+IO\+::\+Hover\+Delay\+Short}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01933}{1933}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a8baa252c4f76764eb866b920f227cfa2}\label{struct_im_gui_i_o_a8baa252c4f76764eb866b920f227cfa2}} 
+\index{ImGuiIO@{ImGuiIO}!ImeWindowHandle@{ImeWindowHandle}}
+\index{ImeWindowHandle@{ImeWindowHandle}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{ImeWindowHandle}{ImeWindowHandle}}
+{\footnotesize\ttfamily void$\ast$ Im\+Gui\+IO\+::\+Ime\+Window\+Handle}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01983}{1983}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a89e8efe8f82b539c961dc22cc2499402}\label{struct_im_gui_i_o_a89e8efe8f82b539c961dc22cc2499402}} 
+\index{ImGuiIO@{ImGuiIO}!IniFilename@{IniFilename}}
+\index{IniFilename@{IniFilename}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{IniFilename}{IniFilename}}
+{\footnotesize\ttfamily const char$\ast$ Im\+Gui\+IO\+::\+Ini\+Filename}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01925}{1925}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a9b37eea17baa240a93b1288673a6eeb9}\label{struct_im_gui_i_o_a9b37eea17baa240a93b1288673a6eeb9}} 
+\index{ImGuiIO@{ImGuiIO}!IniSavingRate@{IniSavingRate}}
+\index{IniSavingRate@{IniSavingRate}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{IniSavingRate}{IniSavingRate}}
+{\footnotesize\ttfamily float Im\+Gui\+IO\+::\+Ini\+Saving\+Rate}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01924}{1924}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a4d9fb1151f10f1f6f7597bb3a21e1447}\label{struct_im_gui_i_o_a4d9fb1151f10f1f6f7597bb3a21e1447}} 
+\index{ImGuiIO@{ImGuiIO}!InputQueueCharacters@{InputQueueCharacters}}
+\index{InputQueueCharacters@{InputQueueCharacters}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{InputQueueCharacters}{InputQueueCharacters}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$Im\+Wchar$>$ Im\+Gui\+IO\+::\+Input\+Queue\+Characters}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02082}{2082}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a4740dc94f803920e809747d2c602d571}\label{struct_im_gui_i_o_a4740dc94f803920e809747d2c602d571}} 
+\index{ImGuiIO@{ImGuiIO}!InputQueueSurrogate@{InputQueueSurrogate}}
+\index{InputQueueSurrogate@{InputQueueSurrogate}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{InputQueueSurrogate}{InputQueueSurrogate}}
+{\footnotesize\ttfamily Im\+Wchar16 Im\+Gui\+IO\+::\+Input\+Queue\+Surrogate}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02081}{2081}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a1e64ef08a4448a2cac874496130992cb}\label{struct_im_gui_i_o_a1e64ef08a4448a2cac874496130992cb}} 
+\index{ImGuiIO@{ImGuiIO}!KeyAlt@{KeyAlt}}
+\index{KeyAlt@{KeyAlt}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{KeyAlt}{KeyAlt}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Key\+Alt}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02055}{2055}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a51de8f65dcabb80ef4e0d3c759ffcd7f}\label{struct_im_gui_i_o_a51de8f65dcabb80ef4e0d3c759ffcd7f}} 
+\index{ImGuiIO@{ImGuiIO}!KeyCtrl@{KeyCtrl}}
+\index{KeyCtrl@{KeyCtrl}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{KeyCtrl}{KeyCtrl}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Key\+Ctrl}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02053}{2053}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_aa1cd0083960f8e5361eb6d49973c8823}\label{struct_im_gui_i_o_aa1cd0083960f8e5361eb6d49973c8823}} 
+\index{ImGuiIO@{ImGuiIO}!KeyMap@{KeyMap}}
+\index{KeyMap@{KeyMap}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{KeyMap}{KeyMap}}
+{\footnotesize\ttfamily int Im\+Gui\+IO\+::\+Key\+Map\mbox{[}Im\+Gui\+Key\+\_\+\+COUNT\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02034}{2034}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a77133a351ecaf34ea5df82866690dcaa}\label{struct_im_gui_i_o_a77133a351ecaf34ea5df82866690dcaa}} 
+\index{ImGuiIO@{ImGuiIO}!KeyMods@{KeyMods}}
+\index{KeyMods@{KeyMods}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{KeyMods}{KeyMods}}
+{\footnotesize\ttfamily Im\+Gui\+Key\+Chord Im\+Gui\+IO\+::\+Key\+Mods}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02059}{2059}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a390537e7cba21b98a8f89df857ea59fb}\label{struct_im_gui_i_o_a390537e7cba21b98a8f89df857ea59fb}} 
+\index{ImGuiIO@{ImGuiIO}!KeyRepeatDelay@{KeyRepeatDelay}}
+\index{KeyRepeatDelay@{KeyRepeatDelay}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{KeyRepeatDelay}{KeyRepeatDelay}}
+{\footnotesize\ttfamily float Im\+Gui\+IO\+::\+Key\+Repeat\+Delay}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01930}{1930}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_accd71987c895c4aec6d1a8c368cc9e0e}\label{struct_im_gui_i_o_accd71987c895c4aec6d1a8c368cc9e0e}} 
+\index{ImGuiIO@{ImGuiIO}!KeyRepeatRate@{KeyRepeatRate}}
+\index{KeyRepeatRate@{KeyRepeatRate}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{KeyRepeatRate}{KeyRepeatRate}}
+{\footnotesize\ttfamily float Im\+Gui\+IO\+::\+Key\+Repeat\+Rate}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01931}{1931}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a6efeb8f2a11a463a0c7b1f8401532e88}\label{struct_im_gui_i_o_a6efeb8f2a11a463a0c7b1f8401532e88}} 
+\index{ImGuiIO@{ImGuiIO}!KeysData@{KeysData}}
+\index{KeysData@{KeysData}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{KeysData}{KeysData}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_gui_key_data}{Im\+Gui\+Key\+Data}} Im\+Gui\+IO\+::\+Keys\+Data\mbox{[}Im\+Gui\+Key\+\_\+\+Keys\+Data\+\_\+\+SIZE\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02060}{2060}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a59f88f4933f391741450f8548cb46eab}\label{struct_im_gui_i_o_a59f88f4933f391741450f8548cb46eab}} 
+\index{ImGuiIO@{ImGuiIO}!KeysDown@{KeysDown}}
+\index{KeysDown@{KeysDown}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{KeysDown}{KeysDown}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Keys\+Down\mbox{[}Im\+Gui\+Key\+\_\+\+COUNT\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02035}{2035}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a3c7642214f88862af5b8467f98ac35c9}\label{struct_im_gui_i_o_a3c7642214f88862af5b8467f98ac35c9}} 
+\index{ImGuiIO@{ImGuiIO}!KeyShift@{KeyShift}}
+\index{KeyShift@{KeyShift}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{KeyShift}{KeyShift}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Key\+Shift}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02054}{2054}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_afda9e11e21b7ba21573671c38d9f4a81}\label{struct_im_gui_i_o_afda9e11e21b7ba21573671c38d9f4a81}} 
+\index{ImGuiIO@{ImGuiIO}!KeySuper@{KeySuper}}
+\index{KeySuper@{KeySuper}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{KeySuper}{KeySuper}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Key\+Super}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02056}{2056}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_ae77a1beed11820366800645232a6ad1c}\label{struct_im_gui_i_o_ae77a1beed11820366800645232a6ad1c}} 
+\index{ImGuiIO@{ImGuiIO}!LogFilename@{LogFilename}}
+\index{LogFilename@{LogFilename}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{LogFilename}{LogFilename}}
+{\footnotesize\ttfamily const char$\ast$ Im\+Gui\+IO\+::\+Log\+Filename}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01926}{1926}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a206a2d9a6b3adf9503b4d4c40abc6f7a}\label{struct_im_gui_i_o_a206a2d9a6b3adf9503b4d4c40abc6f7a}} 
+\index{ImGuiIO@{ImGuiIO}!MetricsActiveAllocations@{MetricsActiveAllocations}}
+\index{MetricsActiveAllocations@{MetricsActiveAllocations}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{MetricsActiveAllocations}{MetricsActiveAllocations}}
+{\footnotesize\ttfamily int Im\+Gui\+IO\+::\+Metrics\+Active\+Allocations}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02027}{2027}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_ae47a71018cc9b0c7b55912a4bfa9149c}\label{struct_im_gui_i_o_ae47a71018cc9b0c7b55912a4bfa9149c}} 
+\index{ImGuiIO@{ImGuiIO}!MetricsActiveWindows@{MetricsActiveWindows}}
+\index{MetricsActiveWindows@{MetricsActiveWindows}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{MetricsActiveWindows}{MetricsActiveWindows}}
+{\footnotesize\ttfamily int Im\+Gui\+IO\+::\+Metrics\+Active\+Windows}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02026}{2026}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a19daed6a7fa22819fe187dfc2a2f5683}\label{struct_im_gui_i_o_a19daed6a7fa22819fe187dfc2a2f5683}} 
+\index{ImGuiIO@{ImGuiIO}!MetricsRenderIndices@{MetricsRenderIndices}}
+\index{MetricsRenderIndices@{MetricsRenderIndices}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{MetricsRenderIndices}{MetricsRenderIndices}}
+{\footnotesize\ttfamily int Im\+Gui\+IO\+::\+Metrics\+Render\+Indices}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02024}{2024}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a8ec9d203f4543047a8820366c5734529}\label{struct_im_gui_i_o_a8ec9d203f4543047a8820366c5734529}} 
+\index{ImGuiIO@{ImGuiIO}!MetricsRenderVertices@{MetricsRenderVertices}}
+\index{MetricsRenderVertices@{MetricsRenderVertices}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{MetricsRenderVertices}{MetricsRenderVertices}}
+{\footnotesize\ttfamily int Im\+Gui\+IO\+::\+Metrics\+Render\+Vertices}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02023}{2023}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_aec04d38a9b3799d12259a672c42e7c7e}\label{struct_im_gui_i_o_aec04d38a9b3799d12259a672c42e7c7e}} 
+\index{ImGuiIO@{ImGuiIO}!MetricsRenderWindows@{MetricsRenderWindows}}
+\index{MetricsRenderWindows@{MetricsRenderWindows}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{MetricsRenderWindows}{MetricsRenderWindows}}
+{\footnotesize\ttfamily int Im\+Gui\+IO\+::\+Metrics\+Render\+Windows}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02025}{2025}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a8655587202ff9001e5b0ccc6ade42d93}\label{struct_im_gui_i_o_a8655587202ff9001e5b0ccc6ade42d93}} 
+\index{ImGuiIO@{ImGuiIO}!MouseClicked@{MouseClicked}}
+\index{MouseClicked@{MouseClicked}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{MouseClicked}{MouseClicked}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Mouse\+Clicked\mbox{[}5\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02065}{2065}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_ac3e700b171e730f8e527b4fa08cf6fad}\label{struct_im_gui_i_o_ac3e700b171e730f8e527b4fa08cf6fad}} 
+\index{ImGuiIO@{ImGuiIO}!MouseClickedCount@{MouseClickedCount}}
+\index{MouseClickedCount@{MouseClickedCount}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{MouseClickedCount}{MouseClickedCount}}
+{\footnotesize\ttfamily Im\+U16 Im\+Gui\+IO\+::\+Mouse\+Clicked\+Count\mbox{[}5\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02067}{2067}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_aef8407268836888e9954c86afcc0b42a}\label{struct_im_gui_i_o_aef8407268836888e9954c86afcc0b42a}} 
+\index{ImGuiIO@{ImGuiIO}!MouseClickedLastCount@{MouseClickedLastCount}}
+\index{MouseClickedLastCount@{MouseClickedLastCount}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{MouseClickedLastCount}{MouseClickedLastCount}}
+{\footnotesize\ttfamily Im\+U16 Im\+Gui\+IO\+::\+Mouse\+Clicked\+Last\+Count\mbox{[}5\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02068}{2068}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a23c9c6c48a51774fee36b7f0bb75d331}\label{struct_im_gui_i_o_a23c9c6c48a51774fee36b7f0bb75d331}} 
+\index{ImGuiIO@{ImGuiIO}!MouseClickedPos@{MouseClickedPos}}
+\index{MouseClickedPos@{MouseClickedPos}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{MouseClickedPos}{MouseClickedPos}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} Im\+Gui\+IO\+::\+Mouse\+Clicked\+Pos\mbox{[}5\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02063}{2063}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_afc5a5a5250fdee3c558f45c4f0268308}\label{struct_im_gui_i_o_afc5a5a5250fdee3c558f45c4f0268308}} 
+\index{ImGuiIO@{ImGuiIO}!MouseClickedTime@{MouseClickedTime}}
+\index{MouseClickedTime@{MouseClickedTime}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{MouseClickedTime}{MouseClickedTime}}
+{\footnotesize\ttfamily double Im\+Gui\+IO\+::\+Mouse\+Clicked\+Time\mbox{[}5\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02064}{2064}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a5b5cc0c171104337e3e7e13a8f7b0938}\label{struct_im_gui_i_o_a5b5cc0c171104337e3e7e13a8f7b0938}} 
+\index{ImGuiIO@{ImGuiIO}!MouseDelta@{MouseDelta}}
+\index{MouseDelta@{MouseDelta}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{MouseDelta}{MouseDelta}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} Im\+Gui\+IO\+::\+Mouse\+Delta}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02028}{2028}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a8bc01048733dc554de3d03f40f57b9ca}\label{struct_im_gui_i_o_a8bc01048733dc554de3d03f40f57b9ca}} 
+\index{ImGuiIO@{ImGuiIO}!MouseDoubleClicked@{MouseDoubleClicked}}
+\index{MouseDoubleClicked@{MouseDoubleClicked}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{MouseDoubleClicked}{MouseDoubleClicked}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Mouse\+Double\+Clicked\mbox{[}5\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02066}{2066}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a13334c1522aadc12af0ce3b31b0eb3a1}\label{struct_im_gui_i_o_a13334c1522aadc12af0ce3b31b0eb3a1}} 
+\index{ImGuiIO@{ImGuiIO}!MouseDoubleClickMaxDist@{MouseDoubleClickMaxDist}}
+\index{MouseDoubleClickMaxDist@{MouseDoubleClickMaxDist}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{MouseDoubleClickMaxDist}{MouseDoubleClickMaxDist}}
+{\footnotesize\ttfamily float Im\+Gui\+IO\+::\+Mouse\+Double\+Click\+Max\+Dist}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01928}{1928}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_aee056f6ed15363e0bcd8d879b312da7c}\label{struct_im_gui_i_o_aee056f6ed15363e0bcd8d879b312da7c}} 
+\index{ImGuiIO@{ImGuiIO}!MouseDoubleClickTime@{MouseDoubleClickTime}}
+\index{MouseDoubleClickTime@{MouseDoubleClickTime}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{MouseDoubleClickTime}{MouseDoubleClickTime}}
+{\footnotesize\ttfamily float Im\+Gui\+IO\+::\+Mouse\+Double\+Click\+Time}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01927}{1927}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a8f4613baafc93026175d9cdaf4e82d21}\label{struct_im_gui_i_o_a8f4613baafc93026175d9cdaf4e82d21}} 
+\index{ImGuiIO@{ImGuiIO}!MouseDown@{MouseDown}}
+\index{MouseDown@{MouseDown}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{MouseDown}{MouseDown}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Mouse\+Down\mbox{[}5\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02049}{2049}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_ab464bf317051bbdf1c93ab36802fe3b7}\label{struct_im_gui_i_o_ab464bf317051bbdf1c93ab36802fe3b7}} 
+\index{ImGuiIO@{ImGuiIO}!MouseDownDuration@{MouseDownDuration}}
+\index{MouseDownDuration@{MouseDownDuration}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{MouseDownDuration}{MouseDownDuration}}
+{\footnotesize\ttfamily float Im\+Gui\+IO\+::\+Mouse\+Down\+Duration\mbox{[}5\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02073}{2073}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a59d19cf7ad831e57ce15f90295871881}\label{struct_im_gui_i_o_a59d19cf7ad831e57ce15f90295871881}} 
+\index{ImGuiIO@{ImGuiIO}!MouseDownDurationPrev@{MouseDownDurationPrev}}
+\index{MouseDownDurationPrev@{MouseDownDurationPrev}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{MouseDownDurationPrev}{MouseDownDurationPrev}}
+{\footnotesize\ttfamily float Im\+Gui\+IO\+::\+Mouse\+Down\+Duration\+Prev\mbox{[}5\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02074}{2074}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a682f98d817f99058136cb47cf8a9bcc3}\label{struct_im_gui_i_o_a682f98d817f99058136cb47cf8a9bcc3}} 
+\index{ImGuiIO@{ImGuiIO}!MouseDownOwned@{MouseDownOwned}}
+\index{MouseDownOwned@{MouseDownOwned}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{MouseDownOwned}{MouseDownOwned}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Mouse\+Down\+Owned\mbox{[}5\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02070}{2070}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a5ed7eb38ec2cb214981671f1bc48fb38}\label{struct_im_gui_i_o_a5ed7eb38ec2cb214981671f1bc48fb38}} 
+\index{ImGuiIO@{ImGuiIO}!MouseDownOwnedUnlessPopupClose@{MouseDownOwnedUnlessPopupClose}}
+\index{MouseDownOwnedUnlessPopupClose@{MouseDownOwnedUnlessPopupClose}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{MouseDownOwnedUnlessPopupClose}{MouseDownOwnedUnlessPopupClose}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Mouse\+Down\+Owned\+Unless\+Popup\+Close\mbox{[}5\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02071}{2071}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a86c7fe77349fd82a60ab7a279aa27f01}\label{struct_im_gui_i_o_a86c7fe77349fd82a60ab7a279aa27f01}} 
+\index{ImGuiIO@{ImGuiIO}!MouseDragMaxDistanceSqr@{MouseDragMaxDistanceSqr}}
+\index{MouseDragMaxDistanceSqr@{MouseDragMaxDistanceSqr}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{MouseDragMaxDistanceSqr}{MouseDragMaxDistanceSqr}}
+{\footnotesize\ttfamily float Im\+Gui\+IO\+::\+Mouse\+Drag\+Max\+Distance\+Sqr\mbox{[}5\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02075}{2075}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_ad8b9a9924b0d6bde6a0fa35c17aa54ae}\label{struct_im_gui_i_o_ad8b9a9924b0d6bde6a0fa35c17aa54ae}} 
+\index{ImGuiIO@{ImGuiIO}!MouseDragThreshold@{MouseDragThreshold}}
+\index{MouseDragThreshold@{MouseDragThreshold}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{MouseDragThreshold}{MouseDragThreshold}}
+{\footnotesize\ttfamily float Im\+Gui\+IO\+::\+Mouse\+Drag\+Threshold}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01929}{1929}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a9b240460966bf2bd35c30f27b8db4028}\label{struct_im_gui_i_o_a9b240460966bf2bd35c30f27b8db4028}} 
+\index{ImGuiIO@{ImGuiIO}!MouseDrawCursor@{MouseDrawCursor}}
+\index{MouseDrawCursor@{MouseDrawCursor}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{MouseDrawCursor}{MouseDrawCursor}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Mouse\+Draw\+Cursor}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01943}{1943}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_ad2e9e547cb4d2abe8e7d27407efffeb8}\label{struct_im_gui_i_o_ad2e9e547cb4d2abe8e7d27407efffeb8}} 
+\index{ImGuiIO@{ImGuiIO}!MousePos@{MousePos}}
+\index{MousePos@{MousePos}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{MousePos}{MousePos}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} Im\+Gui\+IO\+::\+Mouse\+Pos}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02048}{2048}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a0fa6601a709eb9e34460e6abc7e77ad7}\label{struct_im_gui_i_o_a0fa6601a709eb9e34460e6abc7e77ad7}} 
+\index{ImGuiIO@{ImGuiIO}!MousePosPrev@{MousePosPrev}}
+\index{MousePosPrev@{MousePosPrev}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{MousePosPrev}{MousePosPrev}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} Im\+Gui\+IO\+::\+Mouse\+Pos\+Prev}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02062}{2062}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a3a2e7d52289eecfdbe8571e034e41b53}\label{struct_im_gui_i_o_a3a2e7d52289eecfdbe8571e034e41b53}} 
+\index{ImGuiIO@{ImGuiIO}!MouseReleased@{MouseReleased}}
+\index{MouseReleased@{MouseReleased}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{MouseReleased}{MouseReleased}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Mouse\+Released\mbox{[}5\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02069}{2069}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_ae1d8f50f11941cfaa968cfba98e751fd}\label{struct_im_gui_i_o_ae1d8f50f11941cfaa968cfba98e751fd}} 
+\index{ImGuiIO@{ImGuiIO}!MouseSource@{MouseSource}}
+\index{MouseSource@{MouseSource}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{MouseSource}{MouseSource}}
+{\footnotesize\ttfamily Im\+Gui\+Mouse\+Source Im\+Gui\+IO\+::\+Mouse\+Source}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02052}{2052}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a21d3ca4928989a2c838b7b4ea95e5824}\label{struct_im_gui_i_o_a21d3ca4928989a2c838b7b4ea95e5824}} 
+\index{ImGuiIO@{ImGuiIO}!MouseWheel@{MouseWheel}}
+\index{MouseWheel@{MouseWheel}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{MouseWheel}{MouseWheel}}
+{\footnotesize\ttfamily float Im\+Gui\+IO\+::\+Mouse\+Wheel}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02050}{2050}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a25bed9de908b086e583854438ca7927d}\label{struct_im_gui_i_o_a25bed9de908b086e583854438ca7927d}} 
+\index{ImGuiIO@{ImGuiIO}!MouseWheelH@{MouseWheelH}}
+\index{MouseWheelH@{MouseWheelH}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{MouseWheelH}{MouseWheelH}}
+{\footnotesize\ttfamily float Im\+Gui\+IO\+::\+Mouse\+WheelH}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02051}{2051}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_ac93fd310a6e0a3c1062bb4d0b0ee0190}\label{struct_im_gui_i_o_ac93fd310a6e0a3c1062bb4d0b0ee0190}} 
+\index{ImGuiIO@{ImGuiIO}!MouseWheelRequestAxisSwap@{MouseWheelRequestAxisSwap}}
+\index{MouseWheelRequestAxisSwap@{MouseWheelRequestAxisSwap}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{MouseWheelRequestAxisSwap}{MouseWheelRequestAxisSwap}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Mouse\+Wheel\+Request\+Axis\+Swap}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02072}{2072}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_aa63cf74a15e9dd0ad469ff09ca840ddf}\label{struct_im_gui_i_o_aa63cf74a15e9dd0ad469ff09ca840ddf}} 
+\index{ImGuiIO@{ImGuiIO}!NavActive@{NavActive}}
+\index{NavActive@{NavActive}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{NavActive}{NavActive}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Nav\+Active}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02020}{2020}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a1e6e8142c2c2e09a715fa5efaa0db9fa}\label{struct_im_gui_i_o_a1e6e8142c2c2e09a715fa5efaa0db9fa}} 
+\index{ImGuiIO@{ImGuiIO}!NavInputs@{NavInputs}}
+\index{NavInputs@{NavInputs}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{NavInputs}{NavInputs}}
+{\footnotesize\ttfamily float Im\+Gui\+IO\+::\+Nav\+Inputs\mbox{[}Im\+Gui\+Nav\+Input\+\_\+\+COUNT\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02036}{2036}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a904bb563ee00c92cc6b6b072df2c7405}\label{struct_im_gui_i_o_a904bb563ee00c92cc6b6b072df2c7405}} 
+\index{ImGuiIO@{ImGuiIO}!NavVisible@{NavVisible}}
+\index{NavVisible@{NavVisible}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{NavVisible}{NavVisible}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Nav\+Visible}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02021}{2021}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_adb663a185ac88f81cad4ece4d67beea5}\label{struct_im_gui_i_o_adb663a185ac88f81cad4ece4d67beea5}} 
+\index{ImGuiIO@{ImGuiIO}!PenPressure@{PenPressure}}
+\index{PenPressure@{PenPressure}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{PenPressure}{PenPressure}}
+{\footnotesize\ttfamily float Im\+Gui\+IO\+::\+Pen\+Pressure}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02076}{2076}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a1ee9c0763df33f7f3a9819235ce85078}\label{struct_im_gui_i_o_a1ee9c0763df33f7f3a9819235ce85078}} 
+\index{ImGuiIO@{ImGuiIO}!SetClipboardTextFn@{SetClipboardTextFn}}
+\index{SetClipboardTextFn@{SetClipboardTextFn}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{SetClipboardTextFn}{SetClipboardTextFn}}
+{\footnotesize\ttfamily void($\ast$ Im\+Gui\+IO\+::\+Set\+Clipboard\+Text\+Fn) (void $\ast$user\+\_\+data, const char $\ast$text)}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01976}{1976}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a000283dfba912e6af1b607ea19677fd2}\label{struct_im_gui_i_o_a000283dfba912e6af1b607ea19677fd2}} 
+\index{ImGuiIO@{ImGuiIO}!SetPlatformImeDataFn@{SetPlatformImeDataFn}}
+\index{SetPlatformImeDataFn@{SetPlatformImeDataFn}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{SetPlatformImeDataFn}{SetPlatformImeDataFn}}
+{\footnotesize\ttfamily void($\ast$ Im\+Gui\+IO\+::\+Set\+Platform\+Ime\+Data\+Fn) (\mbox{\hyperlink{struct_im_gui_viewport}{Im\+Gui\+Viewport}} $\ast$viewport, \mbox{\hyperlink{struct_im_gui_platform_ime_data}{Im\+Gui\+Platform\+Ime\+Data}} $\ast$data)}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01981}{1981}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a8c5e74fd39c2655455329e09529da7d3}\label{struct_im_gui_i_o_a8c5e74fd39c2655455329e09529da7d3}} 
+\index{ImGuiIO@{ImGuiIO}!UserData@{UserData}}
+\index{UserData@{UserData}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{UserData}{UserData}}
+{\footnotesize\ttfamily void$\ast$ Im\+Gui\+IO\+::\+User\+Data}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l01934}{1934}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a458e4ca98d896adb16e3a41ec6d2b811}\label{struct_im_gui_i_o_a458e4ca98d896adb16e3a41ec6d2b811}} 
+\index{ImGuiIO@{ImGuiIO}!WantCaptureKeyboard@{WantCaptureKeyboard}}
+\index{WantCaptureKeyboard@{WantCaptureKeyboard}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{WantCaptureKeyboard}{WantCaptureKeyboard}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Want\+Capture\+Keyboard}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02016}{2016}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_af5b8add76c5d833a65df19b5456acd7e}\label{struct_im_gui_i_o_af5b8add76c5d833a65df19b5456acd7e}} 
+\index{ImGuiIO@{ImGuiIO}!WantCaptureMouse@{WantCaptureMouse}}
+\index{WantCaptureMouse@{WantCaptureMouse}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{WantCaptureMouse}{WantCaptureMouse}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Want\+Capture\+Mouse}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02015}{2015}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a088bdc608b0c695eb3a8fac4a06e859b}\label{struct_im_gui_i_o_a088bdc608b0c695eb3a8fac4a06e859b}} 
+\index{ImGuiIO@{ImGuiIO}!WantCaptureMouseUnlessPopupClose@{WantCaptureMouseUnlessPopupClose}}
+\index{WantCaptureMouseUnlessPopupClose@{WantCaptureMouseUnlessPopupClose}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{WantCaptureMouseUnlessPopupClose}{WantCaptureMouseUnlessPopupClose}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Want\+Capture\+Mouse\+Unless\+Popup\+Close}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02061}{2061}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a68d3fb726b3f243fa974107fae291d8e}\label{struct_im_gui_i_o_a68d3fb726b3f243fa974107fae291d8e}} 
+\index{ImGuiIO@{ImGuiIO}!WantSaveIniSettings@{WantSaveIniSettings}}
+\index{WantSaveIniSettings@{WantSaveIniSettings}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{WantSaveIniSettings}{WantSaveIniSettings}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Want\+Save\+Ini\+Settings}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02019}{2019}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a877f6adba2c961f361df7697f908649a}\label{struct_im_gui_i_o_a877f6adba2c961f361df7697f908649a}} 
+\index{ImGuiIO@{ImGuiIO}!WantSetMousePos@{WantSetMousePos}}
+\index{WantSetMousePos@{WantSetMousePos}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{WantSetMousePos}{WantSetMousePos}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Want\+Set\+Mouse\+Pos}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02018}{2018}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_i_o_a0e53197e96187a57b2d86720bf163f4d}\label{struct_im_gui_i_o_a0e53197e96187a57b2d86720bf163f4d}} 
+\index{ImGuiIO@{ImGuiIO}!WantTextInput@{WantTextInput}}
+\index{WantTextInput@{WantTextInput}!ImGuiIO@{ImGuiIO}}
+\doxysubsubsection{\texorpdfstring{WantTextInput}{WantTextInput}}
+{\footnotesize\ttfamily bool Im\+Gui\+IO\+::\+Want\+Text\+Input}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02017}{2017}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/imgui.\+h\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/imgui.\+cpp\end{DoxyCompactItemize}

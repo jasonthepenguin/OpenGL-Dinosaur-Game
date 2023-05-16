@@ -1,0 +1,1289 @@
+\hypertarget{struct_im_font_atlas}{}\doxysection{Im\+Font\+Atlas Struct Reference}
+\label{struct_im_font_atlas}\index{ImFontAtlas@{ImFontAtlas}}
+
+
+Collaboration diagram for Im\+Font\+Atlas\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_im_font_atlas__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+IMGUI\+\_\+\+API \mbox{\hyperlink{struct_im_font}{Im\+Font}} $\ast$ \mbox{\hyperlink{struct_im_font_atlas_ad01c0f19a95d37a9e5ebab1e54525625}{Add\+Font}} (const \mbox{\hyperlink{struct_im_font_config}{Im\+Font\+Config}} $\ast$font\+\_\+cfg)
+\item 
+IMGUI\+\_\+\+API \mbox{\hyperlink{struct_im_font}{Im\+Font}} $\ast$ \mbox{\hyperlink{struct_im_font_atlas_a9d2b4a94579bf603a0d2662cd8348cbd}{Add\+Font\+Default}} (const \mbox{\hyperlink{struct_im_font_config}{Im\+Font\+Config}} $\ast$font\+\_\+cfg=NULL)
+\item 
+IMGUI\+\_\+\+API \mbox{\hyperlink{struct_im_font}{Im\+Font}} $\ast$ \mbox{\hyperlink{struct_im_font_atlas_a26d0333bae95222ca2c2fd2886eae562}{Add\+Font\+From\+File\+TTF}} (const char $\ast$filename, float size\+\_\+pixels, const \mbox{\hyperlink{struct_im_font_config}{Im\+Font\+Config}} $\ast$font\+\_\+cfg=NULL, const Im\+Wchar $\ast$glyph\+\_\+ranges=NULL)
+\item 
+IMGUI\+\_\+\+API \mbox{\hyperlink{struct_im_font}{Im\+Font}} $\ast$ \mbox{\hyperlink{struct_im_font_atlas_adb01397920998a18e25bd8fed3f791a7}{Add\+Font\+From\+Memory\+TTF}} (void $\ast$font\+\_\+data, int font\+\_\+size, float size\+\_\+pixels, const \mbox{\hyperlink{struct_im_font_config}{Im\+Font\+Config}} $\ast$font\+\_\+cfg=NULL, const Im\+Wchar $\ast$glyph\+\_\+ranges=NULL)
+\item 
+IMGUI\+\_\+\+API \mbox{\hyperlink{struct_im_font}{Im\+Font}} $\ast$ \mbox{\hyperlink{struct_im_font_atlas_a579bb434bd116ea9ac4f892652ccefdb}{Add\+Font\+From\+Memory\+Compressed\+TTF}} (const void $\ast$compressed\+\_\+font\+\_\+data, int compressed\+\_\+font\+\_\+size, float size\+\_\+pixels, const \mbox{\hyperlink{struct_im_font_config}{Im\+Font\+Config}} $\ast$font\+\_\+cfg=NULL, const Im\+Wchar $\ast$glyph\+\_\+ranges=NULL)
+\item 
+IMGUI\+\_\+\+API \mbox{\hyperlink{struct_im_font}{Im\+Font}} $\ast$ \mbox{\hyperlink{struct_im_font_atlas_ab43b930beb57c0b998f42f4586677956}{Add\+Font\+From\+Memory\+Compressed\+Base85\+TTF}} (const char $\ast$compressed\+\_\+font\+\_\+data\+\_\+base85, float size\+\_\+pixels, const \mbox{\hyperlink{struct_im_font_config}{Im\+Font\+Config}} $\ast$font\+\_\+cfg=NULL, const Im\+Wchar $\ast$glyph\+\_\+ranges=NULL)
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_font_atlas_a3f5bcbb7a2683b1af106fcf4e1217662}{Clear\+Input\+Data}} ()
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_font_atlas_a3ede4bd513bec044c77ac392ad9c6e86}{Clear\+Tex\+Data}} ()
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_font_atlas_ad5c2560d708bd0c389e9bd9da2d9b055}{Clear\+Fonts}} ()
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_font_atlas_a8f6d01c671d8670f991ba651bbaf7e77}{Clear}} ()
+\item 
+IMGUI\+\_\+\+API bool \mbox{\hyperlink{struct_im_font_atlas_a81e39e30dffa4dd7e458a53297451e27}{Build}} ()
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_font_atlas_aeff1a1044a1ab68d8f27bb2819cd9f44}{Get\+Tex\+Data\+As\+Alpha8}} (unsigned char $\ast$$\ast$out\+\_\+pixels, int $\ast$out\+\_\+width, int $\ast$out\+\_\+height, int $\ast$out\+\_\+bytes\+\_\+per\+\_\+pixel=NULL)
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_font_atlas_a8abb0c4e67ebb38249d4df71218c4eec}{Get\+Tex\+Data\+As\+RGBA32}} (unsigned char $\ast$$\ast$out\+\_\+pixels, int $\ast$out\+\_\+width, int $\ast$out\+\_\+height, int $\ast$out\+\_\+bytes\+\_\+per\+\_\+pixel=NULL)
+\item 
+bool \mbox{\hyperlink{struct_im_font_atlas_a142ba1470099bbd4b67bdb47be92d475}{Is\+Built}} () const
+\item 
+void \mbox{\hyperlink{struct_im_font_atlas_a96ffd1956c11dac4f79b43c095828445}{Set\+Tex\+ID}} (Im\+Texture\+ID id)
+\item 
+IMGUI\+\_\+\+API const Im\+Wchar $\ast$ \mbox{\hyperlink{struct_im_font_atlas_adec0df140eb1dc01c2a22a5253d62820}{Get\+Glyph\+Ranges\+Default}} ()
+\item 
+IMGUI\+\_\+\+API const Im\+Wchar $\ast$ \mbox{\hyperlink{struct_im_font_atlas_a46d65b05462b548396d3a8ee6644f3ee}{Get\+Glyph\+Ranges\+Greek}} ()
+\item 
+IMGUI\+\_\+\+API const Im\+Wchar $\ast$ \mbox{\hyperlink{struct_im_font_atlas_ac70e07bd35913661c8fc50413b3bf969}{Get\+Glyph\+Ranges\+Korean}} ()
+\item 
+IMGUI\+\_\+\+API const Im\+Wchar $\ast$ \mbox{\hyperlink{struct_im_font_atlas_a2654afbbf73835bf08278cdc6c181a96}{Get\+Glyph\+Ranges\+Japanese}} ()
+\item 
+IMGUI\+\_\+\+API const Im\+Wchar $\ast$ \mbox{\hyperlink{struct_im_font_atlas_ab32e8e79cc4f3b36ef447f70034e7c57}{Get\+Glyph\+Ranges\+Chinese\+Full}} ()
+\item 
+IMGUI\+\_\+\+API const Im\+Wchar $\ast$ \mbox{\hyperlink{struct_im_font_atlas_a3a6b1a8afb01ba5e7c4d86957d6d2625}{Get\+Glyph\+Ranges\+Chinese\+Simplified\+Common}} ()
+\item 
+IMGUI\+\_\+\+API const Im\+Wchar $\ast$ \mbox{\hyperlink{struct_im_font_atlas_a5aaff3357d9ed401ce451c39942e869e}{Get\+Glyph\+Ranges\+Cyrillic}} ()
+\item 
+IMGUI\+\_\+\+API const Im\+Wchar $\ast$ \mbox{\hyperlink{struct_im_font_atlas_a4985c51d8a5270ff027f13fa44a14371}{Get\+Glyph\+Ranges\+Thai}} ()
+\item 
+IMGUI\+\_\+\+API const Im\+Wchar $\ast$ \mbox{\hyperlink{struct_im_font_atlas_acc0e66fd4637600ad344c2f415a0ef60}{Get\+Glyph\+Ranges\+Vietnamese}} ()
+\item 
+IMGUI\+\_\+\+API int \mbox{\hyperlink{struct_im_font_atlas_af048760e2d58ec93446e345deb887259}{Add\+Custom\+Rect\+Regular}} (int width, int height)
+\item 
+IMGUI\+\_\+\+API int \mbox{\hyperlink{struct_im_font_atlas_a5643182be4e3f1a442cfa6cdc0321c7c}{Add\+Custom\+Rect\+Font\+Glyph}} (\mbox{\hyperlink{struct_im_font}{Im\+Font}} $\ast$font, Im\+Wchar id, int width, int height, float advance\+\_\+x, const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&offset=\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}}(0, 0))
+\item 
+\mbox{\hyperlink{struct_im_font_atlas_custom_rect}{Im\+Font\+Atlas\+Custom\+Rect}} $\ast$ \mbox{\hyperlink{struct_im_font_atlas_a6a4c5f59c12c88a5c0429d6a6ec06481}{Get\+Custom\+Rect\+By\+Index}} (int index)
+\item 
+IMGUI\+\_\+\+API void \mbox{\hyperlink{struct_im_font_atlas_a66bb70a3c3dab00bd714fc52e2195882}{Calc\+Custom\+Rect\+UV}} (const \mbox{\hyperlink{struct_im_font_atlas_custom_rect}{Im\+Font\+Atlas\+Custom\+Rect}} $\ast$rect, \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} $\ast$out\+\_\+uv\+\_\+min, \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} $\ast$out\+\_\+uv\+\_\+max) const
+\item 
+IMGUI\+\_\+\+API bool \mbox{\hyperlink{struct_im_font_atlas_a6d27a36fe034851310dd00d7dc5253c3}{Get\+Mouse\+Cursor\+Tex\+Data}} (Im\+Gui\+Mouse\+Cursor cursor, \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} $\ast$out\+\_\+offset, \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} $\ast$out\+\_\+size, \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} out\+\_\+uv\+\_\+border\mbox{[}2\mbox{]}, \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} out\+\_\+uv\+\_\+fill\mbox{[}2\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Im\+Font\+Atlas\+Flags \mbox{\hyperlink{struct_im_font_atlas_adf2f2d04b46911ad01cfbef0f59e1f11}{Flags}}
+\item 
+Im\+Texture\+ID \mbox{\hyperlink{struct_im_font_atlas_a1d7be9a6190c75706f80bda16c87f28e}{Tex\+ID}}
+\item 
+int \mbox{\hyperlink{struct_im_font_atlas_aa1d62d7da5633f894dbe881547e9de7c}{Tex\+Desired\+Width}}
+\item 
+int \mbox{\hyperlink{struct_im_font_atlas_a32034b2aac4616d8c27ee666a1fd1b62}{Tex\+Glyph\+Padding}}
+\item 
+bool \mbox{\hyperlink{struct_im_font_atlas_a2222ff64ba974a8ee7a286617f879f9b}{Locked}}
+\item 
+void $\ast$ \mbox{\hyperlink{struct_im_font_atlas_ac848a29825d36edf8629b31b419dc21e}{User\+Data}}
+\item 
+bool \mbox{\hyperlink{struct_im_font_atlas_a9d28236e71f9a21a21d8f4f7eac39299}{Tex\+Ready}}
+\item 
+bool \mbox{\hyperlink{struct_im_font_atlas_a4bc426a6a9c2fd3ab1ad3893142613ff}{Tex\+Pixels\+Use\+Colors}}
+\item 
+unsigned char $\ast$ \mbox{\hyperlink{struct_im_font_atlas_a443ea9e7c4cf85ee791ffe891280eff3}{Tex\+Pixels\+Alpha8}}
+\item 
+unsigned int $\ast$ \mbox{\hyperlink{struct_im_font_atlas_a41163489a5b8060f405c56e22590cba5}{Tex\+Pixels\+RGBA32}}
+\item 
+int \mbox{\hyperlink{struct_im_font_atlas_a2d0662502433e7a87b3aa4681ba17aa3}{Tex\+Width}}
+\item 
+int \mbox{\hyperlink{struct_im_font_atlas_a5ef74d37ec01d9e8aac5c57433296ce3}{Tex\+Height}}
+\item 
+\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \mbox{\hyperlink{struct_im_font_atlas_adbe3a6b1fd501108649fe04f882b8664}{Tex\+Uv\+Scale}}
+\item 
+\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \mbox{\hyperlink{struct_im_font_atlas_af1d05221e9a1607d7f625df92a4f9b7e}{Tex\+Uv\+White\+Pixel}}
+\item 
+\mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$ \mbox{\hyperlink{struct_im_font}{Im\+Font}} $\ast$ $>$ \mbox{\hyperlink{struct_im_font_atlas_a0198aeb17ef8bb810ccc8db103b93b1f}{Fonts}}
+\item 
+\mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$ \mbox{\hyperlink{struct_im_font_atlas_custom_rect}{Im\+Font\+Atlas\+Custom\+Rect}} $>$ \mbox{\hyperlink{struct_im_font_atlas_ae3752e66f7454a42e5ae5ec052af537c}{Custom\+Rects}}
+\item 
+\mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$ \mbox{\hyperlink{struct_im_font_config}{Im\+Font\+Config}} $>$ \mbox{\hyperlink{struct_im_font_atlas_afa4f7459807763d032fe2d0022fc0823}{Config\+Data}}
+\item 
+\mbox{\hyperlink{struct_im_vec4}{Im\+Vec4}} \mbox{\hyperlink{struct_im_font_atlas_abf794895d5fb9597bf2a96ab68eb7048}{Tex\+Uv\+Lines}} \mbox{[}IM\+\_\+\+DRAWLIST\+\_\+\+TEX\+\_\+\+LINES\+\_\+\+WIDTH\+\_\+\+MAX+1\mbox{]}
+\item 
+const \mbox{\hyperlink{struct_im_font_builder_i_o}{Im\+Font\+Builder\+IO}} $\ast$ \mbox{\hyperlink{struct_im_font_atlas_a43337693a61cd40ec0110c83da628f09}{Font\+Builder\+IO}}
+\item 
+unsigned int \mbox{\hyperlink{struct_im_font_atlas_ad149b9a00b3dd033c0568abaf45256c3}{Font\+Builder\+Flags}}
+\item 
+int \mbox{\hyperlink{struct_im_font_atlas_afc92fd54d52cab4fe787e364e7e4f652}{Pack\+Id\+Mouse\+Cursors}}
+\item 
+int \mbox{\hyperlink{struct_im_font_atlas_a0964aa42e665dbd423066309b3c7461b}{Pack\+Id\+Lines}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02800}{2800}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_im_font_atlas_aa34e7909d30440d5c35aaef990ac741e}\label{struct_im_font_atlas_aa34e7909d30440d5c35aaef990ac741e}} 
+\index{ImFontAtlas@{ImFontAtlas}!ImFontAtlas@{ImFontAtlas}}
+\index{ImFontAtlas@{ImFontAtlas}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{ImFontAtlas()}{ImFontAtlas()}}
+{\footnotesize\ttfamily Im\+Font\+Atlas\+::\+Im\+Font\+Atlas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l01968}{1968}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01969\ \{}
+\DoxyCodeLine{01970\ \ \ \ \ memset(\textcolor{keyword}{this},\ 0,\ \textcolor{keyword}{sizeof}(*\textcolor{keyword}{this}));}
+\DoxyCodeLine{01971\ \ \ \ \ TexGlyphPadding\ =\ 1;}
+\DoxyCodeLine{01972\ \ \ \ \ PackIdMouseCursors\ =\ PackIdLines\ =\ -\/1;}
+\DoxyCodeLine{01973\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_atlas_a950b4f7586ad7786ae251b957d67a268}\label{struct_im_font_atlas_a950b4f7586ad7786ae251b957d67a268}} 
+\index{ImFontAtlas@{ImFontAtlas}!````~ImFontAtlas@{$\sim$ImFontAtlas}}
+\index{````~ImFontAtlas@{$\sim$ImFontAtlas}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{$\sim$ImFontAtlas()}{~ImFontAtlas()}}
+{\footnotesize\ttfamily Im\+Font\+Atlas\+::$\sim$\+Im\+Font\+Atlas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l01975}{1975}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01976\ \{}
+\DoxyCodeLine{01977\ \ \ \ \ IM\_ASSERT(!Locked\ \&\&\ \textcolor{stringliteral}{"{}Cannot\ modify\ a\ locked\ ImFontAtlas\ between\ NewFrame()\ and\ EndFrame/Render()!"{}});}
+\DoxyCodeLine{01978\ \ \ \ \ Clear();}
+\DoxyCodeLine{01979\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_im_font_atlas_a5643182be4e3f1a442cfa6cdc0321c7c}\label{struct_im_font_atlas_a5643182be4e3f1a442cfa6cdc0321c7c}} 
+\index{ImFontAtlas@{ImFontAtlas}!AddCustomRectFontGlyph@{AddCustomRectFontGlyph}}
+\index{AddCustomRectFontGlyph@{AddCustomRectFontGlyph}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{AddCustomRectFontGlyph()}{AddCustomRectFontGlyph()}}
+{\footnotesize\ttfamily int Im\+Font\+Atlas\+::\+Add\+Custom\+Rect\+Font\+Glyph (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_im_font}{Im\+Font}} $\ast$}]{font,  }\item[{Im\+Wchar}]{id,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{float}]{advance\+\_\+x,  }\item[{const \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} \&}]{offset = {\ttfamily \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}}(0,~0)} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l02205}{2205}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02206\ \{}
+\DoxyCodeLine{02207\ \textcolor{preprocessor}{\#ifdef\ IMGUI\_USE\_WCHAR32}}
+\DoxyCodeLine{02208\ \ \ \ \ IM\_ASSERT(\textcolor{keywordtype}{id}\ <=\ IM\_UNICODE\_CODEPOINT\_MAX);}
+\DoxyCodeLine{02209\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{02210\ \ \ \ \ IM\_ASSERT(font\ !=\ NULL);}
+\DoxyCodeLine{02211\ \ \ \ \ IM\_ASSERT(width\ >\ 0\ \&\&\ width\ <=\ 0xFFFF);}
+\DoxyCodeLine{02212\ \ \ \ \ IM\_ASSERT(height\ >\ 0\ \&\&\ height\ <=\ 0xFFFF);}
+\DoxyCodeLine{02213\ \ \ \ \ \mbox{\hyperlink{struct_im_font_atlas_custom_rect}{ImFontAtlasCustomRect}}\ r;}
+\DoxyCodeLine{02214\ \ \ \ \ r.Width\ =\ (\textcolor{keywordtype}{unsigned}\ short)width;}
+\DoxyCodeLine{02215\ \ \ \ \ r.Height\ =\ (\textcolor{keywordtype}{unsigned}\ short)height;}
+\DoxyCodeLine{02216\ \ \ \ \ r.GlyphID\ =\ id;}
+\DoxyCodeLine{02217\ \ \ \ \ r.GlyphAdvanceX\ =\ advance\_x;}
+\DoxyCodeLine{02218\ \ \ \ \ r.GlyphOffset\ =\ offset;}
+\DoxyCodeLine{02219\ \ \ \ \ r.Font\ =\ font;}
+\DoxyCodeLine{02220\ \ \ \ \ CustomRects.push\_back(r);}
+\DoxyCodeLine{02221\ \ \ \ \ \textcolor{keywordflow}{return}\ CustomRects.Size\ -\/\ 1;\ \textcolor{comment}{//\ Return\ index}}
+\DoxyCodeLine{02222\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_atlas_af048760e2d58ec93446e345deb887259}\label{struct_im_font_atlas_af048760e2d58ec93446e345deb887259}} 
+\index{ImFontAtlas@{ImFontAtlas}!AddCustomRectRegular@{AddCustomRectRegular}}
+\index{AddCustomRectRegular@{AddCustomRectRegular}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{AddCustomRectRegular()}{AddCustomRectRegular()}}
+{\footnotesize\ttfamily int Im\+Font\+Atlas\+::\+Add\+Custom\+Rect\+Regular (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l02194}{2194}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02195\ \{}
+\DoxyCodeLine{02196\ \ \ \ \ IM\_ASSERT(width\ >\ 0\ \&\&\ width\ <=\ 0xFFFF);}
+\DoxyCodeLine{02197\ \ \ \ \ IM\_ASSERT(height\ >\ 0\ \&\&\ height\ <=\ 0xFFFF);}
+\DoxyCodeLine{02198\ \ \ \ \ \mbox{\hyperlink{struct_im_font_atlas_custom_rect}{ImFontAtlasCustomRect}}\ r;}
+\DoxyCodeLine{02199\ \ \ \ \ r.Width\ =\ (\textcolor{keywordtype}{unsigned}\ short)width;}
+\DoxyCodeLine{02200\ \ \ \ \ r.Height\ =\ (\textcolor{keywordtype}{unsigned}\ short)height;}
+\DoxyCodeLine{02201\ \ \ \ \ CustomRects.push\_back(r);}
+\DoxyCodeLine{02202\ \ \ \ \ \textcolor{keywordflow}{return}\ CustomRects.Size\ -\/\ 1;\ \textcolor{comment}{//\ Return\ index}}
+\DoxyCodeLine{02203\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_atlas_ad01c0f19a95d37a9e5ebab1e54525625}\label{struct_im_font_atlas_ad01c0f19a95d37a9e5ebab1e54525625}} 
+\index{ImFontAtlas@{ImFontAtlas}!AddFont@{AddFont}}
+\index{AddFont@{AddFont}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{AddFont()}{AddFont()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_font}{Im\+Font}} $\ast$ Im\+Font\+Atlas\+::\+Add\+Font (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_font_config}{Im\+Font\+Config}} $\ast$}]{font\+\_\+cfg }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l02067}{2067}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02068\ \{}
+\DoxyCodeLine{02069\ \ \ \ \ IM\_ASSERT(!Locked\ \&\&\ \textcolor{stringliteral}{"{}Cannot\ modify\ a\ locked\ ImFontAtlas\ between\ NewFrame()\ and\ EndFrame/Render()!"{}});}
+\DoxyCodeLine{02070\ \ \ \ \ IM\_ASSERT(font\_cfg-\/>FontData\ !=\ NULL\ \&\&\ font\_cfg-\/>FontDataSize\ >\ 0);}
+\DoxyCodeLine{02071\ \ \ \ \ IM\_ASSERT(font\_cfg-\/>SizePixels\ >\ 0.0f);}
+\DoxyCodeLine{02072\ }
+\DoxyCodeLine{02073\ \ \ \ \ \textcolor{comment}{//\ Create\ new\ font}}
+\DoxyCodeLine{02074\ \ \ \ \ \textcolor{keywordflow}{if}\ (!font\_cfg-\/>MergeMode)}
+\DoxyCodeLine{02075\ \ \ \ \ \ \ \ \ Fonts.push\_back(IM\_NEW(\mbox{\hyperlink{struct_im_font}{ImFont}}));}
+\DoxyCodeLine{02076\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{02077\ \ \ \ \ \ \ \ \ IM\_ASSERT(!Fonts.empty()\ \&\&\ \textcolor{stringliteral}{"{}Cannot\ use\ MergeMode\ for\ the\ first\ font"{}});\ \textcolor{comment}{//\ When\ using\ MergeMode\ make\ sure\ that\ a\ font\ has\ already\ been\ added\ before.\ You\ can\ use\ ImGui::GetIO().Fonts-\/>AddFontDefault()\ to\ add\ the\ default\ imgui\ font.}}
+\DoxyCodeLine{02078\ }
+\DoxyCodeLine{02079\ \ \ \ \ ConfigData.push\_back(*font\_cfg);}
+\DoxyCodeLine{02080\ \ \ \ \ \mbox{\hyperlink{struct_im_font_config}{ImFontConfig}}\&\ new\_font\_cfg\ =\ ConfigData.back();}
+\DoxyCodeLine{02081\ \ \ \ \ \textcolor{keywordflow}{if}\ (new\_font\_cfg.DstFont\ ==\ NULL)}
+\DoxyCodeLine{02082\ \ \ \ \ \ \ \ \ new\_font\_cfg.DstFont\ =\ Fonts.back();}
+\DoxyCodeLine{02083\ \ \ \ \ \textcolor{keywordflow}{if}\ (!new\_font\_cfg.FontDataOwnedByAtlas)}
+\DoxyCodeLine{02084\ \ \ \ \ \{}
+\DoxyCodeLine{02085\ \ \ \ \ \ \ \ \ new\_font\_cfg.FontData\ =\ IM\_ALLOC(new\_font\_cfg.FontDataSize);}
+\DoxyCodeLine{02086\ \ \ \ \ \ \ \ \ new\_font\_cfg.FontDataOwnedByAtlas\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{02087\ \ \ \ \ \ \ \ \ memcpy(new\_font\_cfg.FontData,\ font\_cfg-\/>FontData,\ (\textcolor{keywordtype}{size\_t})new\_font\_cfg.FontDataSize);}
+\DoxyCodeLine{02088\ \ \ \ \ \}}
+\DoxyCodeLine{02089\ }
+\DoxyCodeLine{02090\ \ \ \ \ \textcolor{keywordflow}{if}\ (new\_font\_cfg.DstFont-\/>EllipsisChar\ ==\ (ImWchar)-\/1)}
+\DoxyCodeLine{02091\ \ \ \ \ \ \ \ \ new\_font\_cfg.DstFont-\/>EllipsisChar\ =\ font\_cfg-\/>EllipsisChar;}
+\DoxyCodeLine{02092\ }
+\DoxyCodeLine{02093\ \ \ \ \ \textcolor{comment}{//\ Invalidate\ texture}}
+\DoxyCodeLine{02094\ \ \ \ \ TexReady\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{02095\ \ \ \ \ ClearTexData();}
+\DoxyCodeLine{02096\ \ \ \ \ \textcolor{keywordflow}{return}\ new\_font\_cfg.DstFont;}
+\DoxyCodeLine{02097\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_atlas_a9d2b4a94579bf603a0d2662cd8348cbd}\label{struct_im_font_atlas_a9d2b4a94579bf603a0d2662cd8348cbd}} 
+\index{ImFontAtlas@{ImFontAtlas}!AddFontDefault@{AddFontDefault}}
+\index{AddFontDefault@{AddFontDefault}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{AddFontDefault()}{AddFontDefault()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_font}{Im\+Font}} $\ast$ Im\+Font\+Atlas\+::\+Add\+Font\+Default (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_font_config}{Im\+Font\+Config}} $\ast$}]{font\+\_\+cfg = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l02116}{2116}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02117\ \{}
+\DoxyCodeLine{02118\ \ \ \ \ \mbox{\hyperlink{struct_im_font_config}{ImFontConfig}}\ font\_cfg\ =\ font\_cfg\_template\ ?\ *font\_cfg\_template\ :\ \mbox{\hyperlink{struct_im_font_config}{ImFontConfig}}();}
+\DoxyCodeLine{02119\ \ \ \ \ \textcolor{keywordflow}{if}\ (!font\_cfg\_template)}
+\DoxyCodeLine{02120\ \ \ \ \ \{}
+\DoxyCodeLine{02121\ \ \ \ \ \ \ \ \ font\_cfg.OversampleH\ =\ font\_cfg.OversampleV\ =\ 1;}
+\DoxyCodeLine{02122\ \ \ \ \ \ \ \ \ font\_cfg.PixelSnapH\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{02123\ \ \ \ \ \}}
+\DoxyCodeLine{02124\ \ \ \ \ \textcolor{keywordflow}{if}\ (font\_cfg.SizePixels\ <=\ 0.0f)}
+\DoxyCodeLine{02125\ \ \ \ \ \ \ \ \ font\_cfg.SizePixels\ =\ 13.0f\ *\ 1.0f;}
+\DoxyCodeLine{02126\ \ \ \ \ \textcolor{keywordflow}{if}\ (font\_cfg.Name[0]\ ==\ \textcolor{charliteral}{'\(\backslash\)0'})}
+\DoxyCodeLine{02127\ \ \ \ \ \ \ \ \ ImFormatString(font\_cfg.Name,\ IM\_ARRAYSIZE(font\_cfg.Name),\ \textcolor{stringliteral}{"{}ProggyClean.ttf,\ \%dpx"{}},\ (\textcolor{keywordtype}{int})font\_cfg.SizePixels);}
+\DoxyCodeLine{02128\ \ \ \ \ font\_cfg.EllipsisChar\ =\ (ImWchar)0x0085;}
+\DoxyCodeLine{02129\ \ \ \ \ font\_cfg.GlyphOffset.y\ =\ 1.0f\ *\ IM\_FLOOR(font\_cfg.SizePixels\ /\ 13.0f);\ \ \textcolor{comment}{//\ Add\ +1\ offset\ per\ 13\ units}}
+\DoxyCodeLine{02130\ }
+\DoxyCodeLine{02131\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ ttf\_compressed\_base85\ =\ GetDefaultCompressedFontDataTTFBase85();}
+\DoxyCodeLine{02132\ \ \ \ \ \textcolor{keyword}{const}\ ImWchar*\ glyph\_ranges\ =\ font\_cfg.GlyphRanges\ !=\ NULL\ ?\ font\_cfg.GlyphRanges\ :\ GetGlyphRangesDefault();}
+\DoxyCodeLine{02133\ \ \ \ \ \mbox{\hyperlink{struct_im_font}{ImFont}}*\ font\ =\ AddFontFromMemoryCompressedBase85TTF(ttf\_compressed\_base85,\ font\_cfg.SizePixels,\ \&font\_cfg,\ glyph\_ranges);}
+\DoxyCodeLine{02134\ \ \ \ \ \textcolor{keywordflow}{return}\ font;}
+\DoxyCodeLine{02135\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_atlas_a26d0333bae95222ca2c2fd2886eae562}\label{struct_im_font_atlas_a26d0333bae95222ca2c2fd2886eae562}} 
+\index{ImFontAtlas@{ImFontAtlas}!AddFontFromFileTTF@{AddFontFromFileTTF}}
+\index{AddFontFromFileTTF@{AddFontFromFileTTF}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{AddFontFromFileTTF()}{AddFontFromFileTTF()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_font}{Im\+Font}} $\ast$ Im\+Font\+Atlas\+::\+Add\+Font\+From\+File\+TTF (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename,  }\item[{float}]{size\+\_\+pixels,  }\item[{const \mbox{\hyperlink{struct_im_font_config}{Im\+Font\+Config}} $\ast$}]{font\+\_\+cfg = {\ttfamily NULL},  }\item[{const Im\+Wchar $\ast$}]{glyph\+\_\+ranges = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l02137}{2137}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02138\ \{}
+\DoxyCodeLine{02139\ \ \ \ \ IM\_ASSERT(!Locked\ \&\&\ \textcolor{stringliteral}{"{}Cannot\ modify\ a\ locked\ ImFontAtlas\ between\ NewFrame()\ and\ EndFrame/Render()!"{}});}
+\DoxyCodeLine{02140\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ data\_size\ =\ 0;}
+\DoxyCodeLine{02141\ \ \ \ \ \textcolor{keywordtype}{void}*\ data\ =\ ImFileLoadToMemory(filename,\ \textcolor{stringliteral}{"{}rb"{}},\ \&data\_size,\ 0);}
+\DoxyCodeLine{02142\ \ \ \ \ \textcolor{keywordflow}{if}\ (!data)}
+\DoxyCodeLine{02143\ \ \ \ \ \{}
+\DoxyCodeLine{02144\ \ \ \ \ \ \ \ \ IM\_ASSERT\_USER\_ERROR(0,\ \textcolor{stringliteral}{"{}Could\ not\ load\ font\ file!"{}});}
+\DoxyCodeLine{02145\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{02146\ \ \ \ \ \}}
+\DoxyCodeLine{02147\ \ \ \ \ \mbox{\hyperlink{struct_im_font_config}{ImFontConfig}}\ font\_cfg\ =\ font\_cfg\_template\ ?\ *font\_cfg\_template\ :\ \mbox{\hyperlink{struct_im_font_config}{ImFontConfig}}();}
+\DoxyCodeLine{02148\ \ \ \ \ \textcolor{keywordflow}{if}\ (font\_cfg.Name[0]\ ==\ \textcolor{charliteral}{'\(\backslash\)0'})}
+\DoxyCodeLine{02149\ \ \ \ \ \{}
+\DoxyCodeLine{02150\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Store\ a\ short\ copy\ of\ filename\ into\ into\ the\ font\ name\ for\ convenience}}
+\DoxyCodeLine{02151\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ p;}
+\DoxyCodeLine{02152\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (p\ =\ filename\ +\ strlen(filename);\ p\ >\ filename\ \&\&\ p[-\/1]\ !=\ \textcolor{charliteral}{'/'}\ \&\&\ p[-\/1]\ !=\ \textcolor{charliteral}{'\(\backslash\)\(\backslash\)'};\ p-\/-\/)\ \{\}}
+\DoxyCodeLine{02153\ \ \ \ \ \ \ \ \ ImFormatString(font\_cfg.Name,\ IM\_ARRAYSIZE(font\_cfg.Name),\ \textcolor{stringliteral}{"{}\%s,\ \%.0fpx"{}},\ p,\ size\_pixels);}
+\DoxyCodeLine{02154\ \ \ \ \ \}}
+\DoxyCodeLine{02155\ \ \ \ \ \textcolor{keywordflow}{return}\ AddFontFromMemoryTTF(data,\ (\textcolor{keywordtype}{int})data\_size,\ size\_pixels,\ \&font\_cfg,\ glyph\_ranges);}
+\DoxyCodeLine{02156\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_atlas_ab43b930beb57c0b998f42f4586677956}\label{struct_im_font_atlas_ab43b930beb57c0b998f42f4586677956}} 
+\index{ImFontAtlas@{ImFontAtlas}!AddFontFromMemoryCompressedBase85TTF@{AddFontFromMemoryCompressedBase85TTF}}
+\index{AddFontFromMemoryCompressedBase85TTF@{AddFontFromMemoryCompressedBase85TTF}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{AddFontFromMemoryCompressedBase85TTF()}{AddFontFromMemoryCompressedBase85TTF()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_font}{Im\+Font}} $\ast$ Im\+Font\+Atlas\+::\+Add\+Font\+From\+Memory\+Compressed\+Base85\+TTF (\begin{DoxyParamCaption}\item[{const char $\ast$}]{compressed\+\_\+font\+\_\+data\+\_\+base85,  }\item[{float}]{size\+\_\+pixels,  }\item[{const \mbox{\hyperlink{struct_im_font_config}{Im\+Font\+Config}} $\ast$}]{font\+\_\+cfg = {\ttfamily NULL},  }\item[{const Im\+Wchar $\ast$}]{glyph\+\_\+ranges = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l02184}{2184}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02185\ \{}
+\DoxyCodeLine{02186\ \ \ \ \ \textcolor{keywordtype}{int}\ compressed\_ttf\_size\ =\ (((int)strlen(compressed\_ttf\_data\_base85)\ +\ 4)\ /\ 5)\ *\ 4;}
+\DoxyCodeLine{02187\ \ \ \ \ \textcolor{keywordtype}{void}*\ compressed\_ttf\ =\ IM\_ALLOC((\textcolor{keywordtype}{size\_t})compressed\_ttf\_size);}
+\DoxyCodeLine{02188\ \ \ \ \ Decode85((\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*)compressed\_ttf\_data\_base85,\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*)compressed\_ttf);}
+\DoxyCodeLine{02189\ \ \ \ \ \mbox{\hyperlink{struct_im_font}{ImFont}}*\ font\ =\ AddFontFromMemoryCompressedTTF(compressed\_ttf,\ compressed\_ttf\_size,\ size\_pixels,\ font\_cfg,\ glyph\_ranges);}
+\DoxyCodeLine{02190\ \ \ \ \ IM\_FREE(compressed\_ttf);}
+\DoxyCodeLine{02191\ \ \ \ \ \textcolor{keywordflow}{return}\ font;}
+\DoxyCodeLine{02192\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_atlas_a579bb434bd116ea9ac4f892652ccefdb}\label{struct_im_font_atlas_a579bb434bd116ea9ac4f892652ccefdb}} 
+\index{ImFontAtlas@{ImFontAtlas}!AddFontFromMemoryCompressedTTF@{AddFontFromMemoryCompressedTTF}}
+\index{AddFontFromMemoryCompressedTTF@{AddFontFromMemoryCompressedTTF}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{AddFontFromMemoryCompressedTTF()}{AddFontFromMemoryCompressedTTF()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_font}{Im\+Font}} $\ast$ Im\+Font\+Atlas\+::\+Add\+Font\+From\+Memory\+Compressed\+TTF (\begin{DoxyParamCaption}\item[{const void $\ast$}]{compressed\+\_\+font\+\_\+data,  }\item[{int}]{compressed\+\_\+font\+\_\+size,  }\item[{float}]{size\+\_\+pixels,  }\item[{const \mbox{\hyperlink{struct_im_font_config}{Im\+Font\+Config}} $\ast$}]{font\+\_\+cfg = {\ttfamily NULL},  }\item[{const Im\+Wchar $\ast$}]{glyph\+\_\+ranges = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l02172}{2172}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02173\ \{}
+\DoxyCodeLine{02174\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ buf\_decompressed\_size\ =\ stb\_decompress\_length((\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*)compressed\_ttf\_data);}
+\DoxyCodeLine{02175\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ buf\_decompressed\_data\ =\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*)IM\_ALLOC(buf\_decompressed\_size);}
+\DoxyCodeLine{02176\ \ \ \ \ stb\_decompress(buf\_decompressed\_data,\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*)compressed\_ttf\_data,\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int})compressed\_ttf\_size);}
+\DoxyCodeLine{02177\ }
+\DoxyCodeLine{02178\ \ \ \ \ \mbox{\hyperlink{struct_im_font_config}{ImFontConfig}}\ font\_cfg\ =\ font\_cfg\_template\ ?\ *font\_cfg\_template\ :\ \mbox{\hyperlink{struct_im_font_config}{ImFontConfig}}();}
+\DoxyCodeLine{02179\ \ \ \ \ IM\_ASSERT(font\_cfg.FontData\ ==\ NULL);}
+\DoxyCodeLine{02180\ \ \ \ \ font\_cfg.FontDataOwnedByAtlas\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{02181\ \ \ \ \ \textcolor{keywordflow}{return}\ AddFontFromMemoryTTF(buf\_decompressed\_data,\ (\textcolor{keywordtype}{int})buf\_decompressed\_size,\ size\_pixels,\ \&font\_cfg,\ glyph\_ranges);}
+\DoxyCodeLine{02182\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_atlas_adb01397920998a18e25bd8fed3f791a7}\label{struct_im_font_atlas_adb01397920998a18e25bd8fed3f791a7}} 
+\index{ImFontAtlas@{ImFontAtlas}!AddFontFromMemoryTTF@{AddFontFromMemoryTTF}}
+\index{AddFontFromMemoryTTF@{AddFontFromMemoryTTF}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{AddFontFromMemoryTTF()}{AddFontFromMemoryTTF()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_font}{Im\+Font}} $\ast$ Im\+Font\+Atlas\+::\+Add\+Font\+From\+Memory\+TTF (\begin{DoxyParamCaption}\item[{void $\ast$}]{font\+\_\+data,  }\item[{int}]{font\+\_\+size,  }\item[{float}]{size\+\_\+pixels,  }\item[{const \mbox{\hyperlink{struct_im_font_config}{Im\+Font\+Config}} $\ast$}]{font\+\_\+cfg = {\ttfamily NULL},  }\item[{const Im\+Wchar $\ast$}]{glyph\+\_\+ranges = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l02159}{2159}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02160\ \{}
+\DoxyCodeLine{02161\ \ \ \ \ IM\_ASSERT(!Locked\ \&\&\ \textcolor{stringliteral}{"{}Cannot\ modify\ a\ locked\ ImFontAtlas\ between\ NewFrame()\ and\ EndFrame/Render()!"{}});}
+\DoxyCodeLine{02162\ \ \ \ \ \mbox{\hyperlink{struct_im_font_config}{ImFontConfig}}\ font\_cfg\ =\ font\_cfg\_template\ ?\ *font\_cfg\_template\ :\ \mbox{\hyperlink{struct_im_font_config}{ImFontConfig}}();}
+\DoxyCodeLine{02163\ \ \ \ \ IM\_ASSERT(font\_cfg.FontData\ ==\ NULL);}
+\DoxyCodeLine{02164\ \ \ \ \ font\_cfg.FontData\ =\ ttf\_data;}
+\DoxyCodeLine{02165\ \ \ \ \ font\_cfg.FontDataSize\ =\ ttf\_size;}
+\DoxyCodeLine{02166\ \ \ \ \ font\_cfg.SizePixels\ =\ size\_pixels\ >\ 0.0f\ ?\ size\_pixels\ :\ font\_cfg.SizePixels;}
+\DoxyCodeLine{02167\ \ \ \ \ \textcolor{keywordflow}{if}\ (glyph\_ranges)}
+\DoxyCodeLine{02168\ \ \ \ \ \ \ \ \ font\_cfg.GlyphRanges\ =\ glyph\_ranges;}
+\DoxyCodeLine{02169\ \ \ \ \ \textcolor{keywordflow}{return}\ AddFont(\&font\_cfg);}
+\DoxyCodeLine{02170\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_atlas_a81e39e30dffa4dd7e458a53297451e27}\label{struct_im_font_atlas_a81e39e30dffa4dd7e458a53297451e27}} 
+\index{ImFontAtlas@{ImFontAtlas}!Build@{Build}}
+\index{Build@{Build}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{Build()}{Build()}}
+{\footnotesize\ttfamily bool Im\+Font\+Atlas\+::\+Build (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l02253}{2253}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02254\ \{}
+\DoxyCodeLine{02255\ \ \ \ \ IM\_ASSERT(!Locked\ \&\&\ \textcolor{stringliteral}{"{}Cannot\ modify\ a\ locked\ ImFontAtlas\ between\ NewFrame()\ and\ EndFrame/Render()!"{}});}
+\DoxyCodeLine{02256\ }
+\DoxyCodeLine{02257\ \ \ \ \ \textcolor{comment}{//\ Default\ font\ is\ none\ are\ specified}}
+\DoxyCodeLine{02258\ \ \ \ \ \textcolor{keywordflow}{if}\ (ConfigData.Size\ ==\ 0)}
+\DoxyCodeLine{02259\ \ \ \ \ \ \ \ \ AddFontDefault();}
+\DoxyCodeLine{02260\ }
+\DoxyCodeLine{02261\ \ \ \ \ \textcolor{comment}{//\ Select\ builder}}
+\DoxyCodeLine{02262\ \ \ \ \ \textcolor{comment}{//\ -\/\ Note\ that\ we\ do\ not\ reassign\ to\ atlas-\/>FontBuilderIO,\ since\ it\ is\ likely\ to\ point\ to\ static\ data\ which}}
+\DoxyCodeLine{02263\ \ \ \ \ \textcolor{comment}{//\ \ \ may\ mess\ with\ some\ hot-\/reloading\ schemes.\ If\ you\ need\ to\ assign\ to\ this\ (for\ dynamic\ selection)\ AND\ are}}
+\DoxyCodeLine{02264\ \ \ \ \ \textcolor{comment}{//\ \ \ using\ a\ hot-\/reloading\ scheme\ that\ messes\ up\ static\ data,\ store\ your\ own\ instance\ of\ ImFontBuilderIO\ somewhere}}
+\DoxyCodeLine{02265\ \ \ \ \ \textcolor{comment}{//\ \ \ and\ point\ to\ it\ instead\ of\ pointing\ directly\ to\ return\ value\ of\ the\ GetBuilderXXX\ functions.}}
+\DoxyCodeLine{02266\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_im_font_builder_i_o}{ImFontBuilderIO}}*\ builder\_io\ =\ FontBuilderIO;}
+\DoxyCodeLine{02267\ \ \ \ \ \textcolor{keywordflow}{if}\ (builder\_io\ ==\ NULL)}
+\DoxyCodeLine{02268\ \ \ \ \ \{}
+\DoxyCodeLine{02269\ \textcolor{preprocessor}{\#ifdef\ IMGUI\_ENABLE\_FREETYPE}}
+\DoxyCodeLine{02270\ \ \ \ \ \ \ \ \ builder\_io\ =\ ImGuiFreeType::GetBuilderForFreeType();}
+\DoxyCodeLine{02271\ \textcolor{preprocessor}{\#elif\ defined(IMGUI\_ENABLE\_STB\_TRUETYPE)}}
+\DoxyCodeLine{02272\ \ \ \ \ \ \ \ \ builder\_io\ =\ ImFontAtlasGetBuilderForStbTruetype();}
+\DoxyCodeLine{02273\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{02274\ \ \ \ \ \ \ \ \ IM\_ASSERT(0);\ \textcolor{comment}{//\ Invalid\ Build\ function}}
+\DoxyCodeLine{02275\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{02276\ \ \ \ \ \}}
+\DoxyCodeLine{02277\ }
+\DoxyCodeLine{02278\ \ \ \ \ \textcolor{comment}{//\ Build}}
+\DoxyCodeLine{02279\ \ \ \ \ \textcolor{keywordflow}{return}\ builder\_io-\/>FontBuilder\_Build(\textcolor{keyword}{this});}
+\DoxyCodeLine{02280\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_atlas_a66bb70a3c3dab00bd714fc52e2195882}\label{struct_im_font_atlas_a66bb70a3c3dab00bd714fc52e2195882}} 
+\index{ImFontAtlas@{ImFontAtlas}!CalcCustomRectUV@{CalcCustomRectUV}}
+\index{CalcCustomRectUV@{CalcCustomRectUV}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{CalcCustomRectUV()}{CalcCustomRectUV()}}
+{\footnotesize\ttfamily void Im\+Font\+Atlas\+::\+Calc\+Custom\+Rect\+UV (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_im_font_atlas_custom_rect}{Im\+Font\+Atlas\+Custom\+Rect}} $\ast$}]{rect,  }\item[{\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} $\ast$}]{out\+\_\+uv\+\_\+min,  }\item[{\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} $\ast$}]{out\+\_\+uv\+\_\+max }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l02224}{2224}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02225\ \{}
+\DoxyCodeLine{02226\ \ \ \ \ IM\_ASSERT(TexWidth\ >\ 0\ \&\&\ TexHeight\ >\ 0);\ \ \ \textcolor{comment}{//\ Font\ atlas\ needs\ to\ be\ built\ before\ we\ can\ calculate\ UV\ coordinates}}
+\DoxyCodeLine{02227\ \ \ \ \ IM\_ASSERT(rect-\/>IsPacked());\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Make\ sure\ the\ rectangle\ has\ been\ packed}}
+\DoxyCodeLine{02228\ \ \ \ \ *out\_uv\_min\ =\ \mbox{\hyperlink{struct_im_vec2}{ImVec2}}((\textcolor{keywordtype}{float})rect-\/>X\ *\ TexUvScale.x,\ (\textcolor{keywordtype}{float})rect-\/>Y\ *\ TexUvScale.y);}
+\DoxyCodeLine{02229\ \ \ \ \ *out\_uv\_max\ =\ \mbox{\hyperlink{struct_im_vec2}{ImVec2}}((\textcolor{keywordtype}{float})(rect-\/>X\ +\ rect-\/>Width)\ *\ TexUvScale.x,\ (\textcolor{keywordtype}{float})(rect-\/>Y\ +\ rect-\/>Height)\ *\ TexUvScale.y);}
+\DoxyCodeLine{02230\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_atlas_a8f6d01c671d8670f991ba651bbaf7e77}\label{struct_im_font_atlas_a8f6d01c671d8670f991ba651bbaf7e77}} 
+\index{ImFontAtlas@{ImFontAtlas}!Clear@{Clear}}
+\index{Clear@{Clear}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{Clear()}{Clear()}}
+{\footnotesize\ttfamily void Im\+Font\+Atlas\+::\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l02024}{2024}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02025\ \{}
+\DoxyCodeLine{02026\ \ \ \ \ ClearInputData();}
+\DoxyCodeLine{02027\ \ \ \ \ ClearTexData();}
+\DoxyCodeLine{02028\ \ \ \ \ ClearFonts();}
+\DoxyCodeLine{02029\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_atlas_ad5c2560d708bd0c389e9bd9da2d9b055}\label{struct_im_font_atlas_ad5c2560d708bd0c389e9bd9da2d9b055}} 
+\index{ImFontAtlas@{ImFontAtlas}!ClearFonts@{ClearFonts}}
+\index{ClearFonts@{ClearFonts}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{ClearFonts()}{ClearFonts()}}
+{\footnotesize\ttfamily void Im\+Font\+Atlas\+::\+Clear\+Fonts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l02017}{2017}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02018\ \{}
+\DoxyCodeLine{02019\ \ \ \ \ IM\_ASSERT(!Locked\ \&\&\ \textcolor{stringliteral}{"{}Cannot\ modify\ a\ locked\ ImFontAtlas\ between\ NewFrame()\ and\ EndFrame/Render()!"{}});}
+\DoxyCodeLine{02020\ \ \ \ \ Fonts.clear\_delete();}
+\DoxyCodeLine{02021\ \ \ \ \ TexReady\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{02022\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_atlas_a3f5bcbb7a2683b1af106fcf4e1217662}\label{struct_im_font_atlas_a3f5bcbb7a2683b1af106fcf4e1217662}} 
+\index{ImFontAtlas@{ImFontAtlas}!ClearInputData@{ClearInputData}}
+\index{ClearInputData@{ClearInputData}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{ClearInputData()}{ClearInputData()}}
+{\footnotesize\ttfamily void Im\+Font\+Atlas\+::\+Clear\+Input\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l01981}{1981}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01982\ \{}
+\DoxyCodeLine{01983\ \ \ \ \ IM\_ASSERT(!Locked\ \&\&\ \textcolor{stringliteral}{"{}Cannot\ modify\ a\ locked\ ImFontAtlas\ between\ NewFrame()\ and\ EndFrame/Render()!"{}});}
+\DoxyCodeLine{01984\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ ConfigData.Size;\ i++)}
+\DoxyCodeLine{01985\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ConfigData[i].FontData\ \&\&\ ConfigData[i].FontDataOwnedByAtlas)}
+\DoxyCodeLine{01986\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01987\ \ \ \ \ \ \ \ \ \ \ \ \ IM\_FREE(ConfigData[i].FontData);}
+\DoxyCodeLine{01988\ \ \ \ \ \ \ \ \ \ \ \ \ ConfigData[i].FontData\ =\ NULL;}
+\DoxyCodeLine{01989\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01990\ }
+\DoxyCodeLine{01991\ \ \ \ \ \textcolor{comment}{//\ When\ clearing\ this\ we\ lose\ access\ to\ the\ font\ name\ and\ other\ information\ used\ to\ build\ the\ font.}}
+\DoxyCodeLine{01992\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ Fonts.Size;\ i++)}
+\DoxyCodeLine{01993\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Fonts[i]-\/>ConfigData\ >=\ ConfigData.Data\ \&\&\ Fonts[i]-\/>ConfigData\ <\ ConfigData.Data\ +\ ConfigData.Size)}
+\DoxyCodeLine{01994\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01995\ \ \ \ \ \ \ \ \ \ \ \ \ Fonts[i]-\/>ConfigData\ =\ NULL;}
+\DoxyCodeLine{01996\ \ \ \ \ \ \ \ \ \ \ \ \ Fonts[i]-\/>ConfigDataCount\ =\ 0;}
+\DoxyCodeLine{01997\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01998\ \ \ \ \ ConfigData.clear();}
+\DoxyCodeLine{01999\ \ \ \ \ CustomRects.clear();}
+\DoxyCodeLine{02000\ \ \ \ \ PackIdMouseCursors\ =\ PackIdLines\ =\ -\/1;}
+\DoxyCodeLine{02001\ \ \ \ \ \textcolor{comment}{//\ Important:\ we\ leave\ TexReady\ untouched}}
+\DoxyCodeLine{02002\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_atlas_a3ede4bd513bec044c77ac392ad9c6e86}\label{struct_im_font_atlas_a3ede4bd513bec044c77ac392ad9c6e86}} 
+\index{ImFontAtlas@{ImFontAtlas}!ClearTexData@{ClearTexData}}
+\index{ClearTexData@{ClearTexData}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{ClearTexData()}{ClearTexData()}}
+{\footnotesize\ttfamily void Im\+Font\+Atlas\+::\+Clear\+Tex\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l02004}{2004}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02005\ \{}
+\DoxyCodeLine{02006\ \ \ \ \ IM\_ASSERT(!Locked\ \&\&\ \textcolor{stringliteral}{"{}Cannot\ modify\ a\ locked\ ImFontAtlas\ between\ NewFrame()\ and\ EndFrame/Render()!"{}});}
+\DoxyCodeLine{02007\ \ \ \ \ \textcolor{keywordflow}{if}\ (TexPixelsAlpha8)}
+\DoxyCodeLine{02008\ \ \ \ \ \ \ \ \ IM\_FREE(TexPixelsAlpha8);}
+\DoxyCodeLine{02009\ \ \ \ \ \textcolor{keywordflow}{if}\ (TexPixelsRGBA32)}
+\DoxyCodeLine{02010\ \ \ \ \ \ \ \ \ IM\_FREE(TexPixelsRGBA32);}
+\DoxyCodeLine{02011\ \ \ \ \ TexPixelsAlpha8\ =\ NULL;}
+\DoxyCodeLine{02012\ \ \ \ \ TexPixelsRGBA32\ =\ NULL;}
+\DoxyCodeLine{02013\ \ \ \ \ TexPixelsUseColors\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{02014\ \ \ \ \ \textcolor{comment}{//\ Important:\ we\ leave\ TexReady\ untouched}}
+\DoxyCodeLine{02015\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_atlas_a6a4c5f59c12c88a5c0429d6a6ec06481}\label{struct_im_font_atlas_a6a4c5f59c12c88a5c0429d6a6ec06481}} 
+\index{ImFontAtlas@{ImFontAtlas}!GetCustomRectByIndex@{GetCustomRectByIndex}}
+\index{GetCustomRectByIndex@{GetCustomRectByIndex}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{GetCustomRectByIndex()}{GetCustomRectByIndex()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_font_atlas_custom_rect}{Im\+Font\+Atlas\+Custom\+Rect}} $\ast$ Im\+Font\+Atlas\+::\+Get\+Custom\+Rect\+By\+Index (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02856}{2856}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02856\ \{\ IM\_ASSERT(index\ >=\ 0);\ \textcolor{keywordflow}{return}\ \&CustomRects[index];\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_atlas_ab32e8e79cc4f3b36ef447f70034e7c57}\label{struct_im_font_atlas_ab32e8e79cc4f3b36ef447f70034e7c57}} 
+\index{ImFontAtlas@{ImFontAtlas}!GetGlyphRangesChineseFull@{GetGlyphRangesChineseFull}}
+\index{GetGlyphRangesChineseFull@{GetGlyphRangesChineseFull}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{GetGlyphRangesChineseFull()}{GetGlyphRangesChineseFull()}}
+{\footnotesize\ttfamily const Im\+Wchar $\ast$ Im\+Font\+Atlas\+::\+Get\+Glyph\+Ranges\+Chinese\+Full (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l02843}{2843}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02844\ \{}
+\DoxyCodeLine{02845\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ ImWchar\ ranges[]\ =}
+\DoxyCodeLine{02846\ \ \ \ \ \{}
+\DoxyCodeLine{02847\ \ \ \ \ \ \ \ \ 0x0020,\ 0x00FF,\ \textcolor{comment}{//\ Basic\ Latin\ +\ Latin\ Supplement}}
+\DoxyCodeLine{02848\ \ \ \ \ \ \ \ \ 0x2000,\ 0x206F,\ \textcolor{comment}{//\ General\ Punctuation}}
+\DoxyCodeLine{02849\ \ \ \ \ \ \ \ \ 0x3000,\ 0x30FF,\ \textcolor{comment}{//\ CJK\ Symbols\ and\ Punctuations,\ Hiragana,\ Katakana}}
+\DoxyCodeLine{02850\ \ \ \ \ \ \ \ \ 0x31F0,\ 0x31FF,\ \textcolor{comment}{//\ Katakana\ Phonetic\ Extensions}}
+\DoxyCodeLine{02851\ \ \ \ \ \ \ \ \ 0xFF00,\ 0xFFEF,\ \textcolor{comment}{//\ Half-\/width\ characters}}
+\DoxyCodeLine{02852\ \ \ \ \ \ \ \ \ 0xFFFD,\ 0xFFFD,\ \textcolor{comment}{//\ Invalid}}
+\DoxyCodeLine{02853\ \ \ \ \ \ \ \ \ 0x4e00,\ 0x9FAF,\ \textcolor{comment}{//\ CJK\ Ideograms}}
+\DoxyCodeLine{02854\ \ \ \ \ \ \ \ \ 0,}
+\DoxyCodeLine{02855\ \ \ \ \ \};}
+\DoxyCodeLine{02856\ \ \ \ \ \textcolor{keywordflow}{return}\ \&ranges[0];}
+\DoxyCodeLine{02857\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_atlas_a3a6b1a8afb01ba5e7c4d86957d6d2625}\label{struct_im_font_atlas_a3a6b1a8afb01ba5e7c4d86957d6d2625}} 
+\index{ImFontAtlas@{ImFontAtlas}!GetGlyphRangesChineseSimplifiedCommon@{GetGlyphRangesChineseSimplifiedCommon}}
+\index{GetGlyphRangesChineseSimplifiedCommon@{GetGlyphRangesChineseSimplifiedCommon}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{GetGlyphRangesChineseSimplifiedCommon()}{GetGlyphRangesChineseSimplifiedCommon()}}
+{\footnotesize\ttfamily const Im\+Wchar $\ast$ Im\+Font\+Atlas\+::\+Get\+Glyph\+Ranges\+Chinese\+Simplified\+Common (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l02873}{2873}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02874\ \{}
+\DoxyCodeLine{02875\ \ \ \ \ \textcolor{comment}{//\ Store\ 2500\ regularly\ used\ characters\ for\ Simplified\ Chinese.}}
+\DoxyCodeLine{02876\ \ \ \ \ \textcolor{comment}{//\ Sourced\ from\ https://zh.wiktionary.org/wiki/\%E9\%99\%84\%E5\%BD\%95:\%E7\%8E\%B0\%E4\%BB\%A3\%E6\%B1\%89\%E8\%AF\%AD\%E5\%B8\%B8\%E7\%94\%A8\%E5\%AD\%97\%E8\%A1\%A8}}
+\DoxyCodeLine{02877\ \ \ \ \ \textcolor{comment}{//\ This\ table\ covers\ 97.97\%\ of\ all\ characters\ used\ during\ the\ month\ in\ July,\ 1987.}}
+\DoxyCodeLine{02878\ \ \ \ \ \textcolor{comment}{//\ You\ can\ use\ ImFontGlyphRangesBuilder\ to\ create\ your\ own\ ranges\ derived\ from\ this,\ by\ merging\ existing\ ranges\ or\ adding\ new\ characters.}}
+\DoxyCodeLine{02879\ \ \ \ \ \textcolor{comment}{//\ (Stored\ as\ accumulative\ offsets\ from\ the\ initial\ unicode\ codepoint\ 0x4E00.\ This\ encoding\ is\ designed\ to\ helps\ us\ compact\ the\ source\ code\ size.)}}
+\DoxyCodeLine{02880\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{short}\ accumulative\_offsets\_from\_0x4E00[]\ =}
+\DoxyCodeLine{02881\ \ \ \ \ \{}
+\DoxyCodeLine{02882\ \ \ \ \ \ \ \ \ 0,1,2,4,1,1,1,1,2,1,3,2,1,2,2,1,1,1,1,1,5,2,1,2,3,3,3,2,2,4,1,1,1,2,1,5,2,3,1,2,1,2,1,1,2,1,1,2,2,1,4,1,1,1,1,5,10,1,2,19,2,1,2,1,2,1,2,1,2,}
+\DoxyCodeLine{02883\ \ \ \ \ \ \ \ \ 1,5,1,6,3,2,1,2,2,1,1,1,4,8,5,1,1,4,1,1,3,1,2,1,5,1,2,1,1,1,10,1,1,5,2,4,6,1,4,2,2,2,12,2,1,1,6,1,1,1,4,1,1,4,6,5,1,4,2,2,4,10,7,1,1,4,2,4,}
+\DoxyCodeLine{02884\ \ \ \ \ \ \ \ \ 2,1,4,3,6,10,12,5,7,2,14,2,9,1,1,6,7,10,4,7,13,1,5,4,8,4,1,1,2,28,5,6,1,1,5,2,5,20,2,2,9,8,11,2,9,17,1,8,6,8,27,4,6,9,20,11,27,6,68,2,2,1,1,}
+\DoxyCodeLine{02885\ \ \ \ \ \ \ \ \ 1,2,1,2,2,7,6,11,3,3,1,1,3,1,2,1,1,1,1,1,3,1,1,8,3,4,1,5,7,2,1,4,4,8,4,2,1,2,1,1,4,5,6,3,6,2,12,3,1,3,9,2,4,3,4,1,5,3,3,1,3,7,1,5,1,1,1,1,2,}
+\DoxyCodeLine{02886\ \ \ \ \ \ \ \ \ 3,4,5,2,3,2,6,1,1,2,1,7,1,7,3,4,5,15,2,2,1,5,3,22,19,2,1,1,1,1,2,5,1,1,1,6,1,1,12,8,2,9,18,22,4,1,1,5,1,16,1,2,7,10,15,1,1,6,2,4,1,2,4,1,6,}
+\DoxyCodeLine{02887\ \ \ \ \ \ \ \ \ 1,1,3,2,4,1,6,4,5,1,2,1,1,2,1,10,3,1,3,2,1,9,3,2,5,7,2,19,4,3,6,1,1,1,1,1,4,3,2,1,1,1,2,5,3,1,1,1,2,2,1,1,2,1,1,2,1,3,1,1,1,3,7,1,4,1,1,2,1,}
+\DoxyCodeLine{02888\ \ \ \ \ \ \ \ \ 1,2,1,2,4,4,3,8,1,1,1,2,1,3,5,1,3,1,3,4,6,2,2,14,4,6,6,11,9,1,15,3,1,28,5,2,5,5,3,1,3,4,5,4,6,14,3,2,3,5,21,2,7,20,10,1,2,19,2,4,28,28,2,3,}
+\DoxyCodeLine{02889\ \ \ \ \ \ \ \ \ 2,1,14,4,1,26,28,42,12,40,3,52,79,5,14,17,3,2,2,11,3,4,6,3,1,8,2,23,4,5,8,10,4,2,7,3,5,1,1,6,3,1,2,2,2,5,28,1,1,7,7,20,5,3,29,3,17,26,1,8,4,}
+\DoxyCodeLine{02890\ \ \ \ \ \ \ \ \ 27,3,6,11,23,5,3,4,6,13,24,16,6,5,10,25,35,7,3,2,3,3,14,3,6,2,6,1,4,2,3,8,2,1,1,3,3,3,4,1,1,13,2,2,4,5,2,1,14,14,1,2,2,1,4,5,2,3,1,14,3,12,}
+\DoxyCodeLine{02891\ \ \ \ \ \ \ \ \ 3,17,2,16,5,1,2,1,8,9,3,19,4,2,2,4,17,25,21,20,28,75,1,10,29,103,4,1,2,1,1,4,2,4,1,2,3,24,2,2,2,1,1,2,1,3,8,1,1,1,2,1,1,3,1,1,1,6,1,5,3,1,1,}
+\DoxyCodeLine{02892\ \ \ \ \ \ \ \ \ 1,3,4,1,1,5,2,1,5,6,13,9,16,1,1,1,1,3,2,3,2,4,5,2,5,2,2,3,7,13,7,2,2,1,1,1,1,2,3,3,2,1,6,4,9,2,1,14,2,14,2,1,18,3,4,14,4,11,41,15,23,15,23,}
+\DoxyCodeLine{02893\ \ \ \ \ \ \ \ \ 176,1,3,4,1,1,1,1,5,3,1,2,3,7,3,1,1,2,1,2,4,4,6,2,4,1,9,7,1,10,5,8,16,29,1,1,2,2,3,1,3,5,2,4,5,4,1,1,2,2,3,3,7,1,6,10,1,17,1,44,4,6,2,1,1,6,}
+\DoxyCodeLine{02894\ \ \ \ \ \ \ \ \ 5,4,2,10,1,6,9,2,8,1,24,1,2,13,7,8,8,2,1,4,1,3,1,3,3,5,2,5,10,9,4,9,12,2,1,6,1,10,1,1,7,7,4,10,8,3,1,13,4,3,1,6,1,3,5,2,1,2,17,16,5,2,16,6,}
+\DoxyCodeLine{02895\ \ \ \ \ \ \ \ \ 1,4,2,1,3,3,6,8,5,11,11,1,3,3,2,4,6,10,9,5,7,4,7,4,7,1,1,4,2,1,3,6,8,7,1,6,11,5,5,3,24,9,4,2,7,13,5,1,8,82,16,61,1,1,1,4,2,2,16,10,3,8,1,1,}
+\DoxyCodeLine{02896\ \ \ \ \ \ \ \ \ 6,4,2,1,3,1,1,1,4,3,8,4,2,2,1,1,1,1,1,6,3,5,1,1,4,6,9,2,1,1,1,2,1,7,2,1,6,1,5,4,4,3,1,8,1,3,3,1,3,2,2,2,2,3,1,6,1,2,1,2,1,3,7,1,8,2,1,2,1,5,}
+\DoxyCodeLine{02897\ \ \ \ \ \ \ \ \ 2,5,3,5,10,1,2,1,1,3,2,5,11,3,9,3,5,1,1,5,9,1,2,1,5,7,9,9,8,1,3,3,3,6,8,2,3,2,1,1,32,6,1,2,15,9,3,7,13,1,3,10,13,2,14,1,13,10,2,1,3,10,4,15,}
+\DoxyCodeLine{02898\ \ \ \ \ \ \ \ \ 2,15,15,10,1,3,9,6,9,32,25,26,47,7,3,2,3,1,6,3,4,3,2,8,5,4,1,9,4,2,2,19,10,6,2,3,8,1,2,2,4,2,1,9,4,4,4,6,4,8,9,2,3,1,1,1,1,3,5,5,1,3,8,4,6,}
+\DoxyCodeLine{02899\ \ \ \ \ \ \ \ \ 2,1,4,12,1,5,3,7,13,2,5,8,1,6,1,2,5,14,6,1,5,2,4,8,15,5,1,23,6,62,2,10,1,1,8,1,2,2,10,4,2,2,9,2,1,1,3,2,3,1,5,3,3,2,1,3,8,1,1,1,11,3,1,1,4,}
+\DoxyCodeLine{02900\ \ \ \ \ \ \ \ \ 3,7,1,14,1,2,3,12,5,2,5,1,6,7,5,7,14,11,1,3,1,8,9,12,2,1,11,8,4,4,2,6,10,9,13,1,1,3,1,5,1,3,2,4,4,1,18,2,3,14,11,4,29,4,2,7,1,3,13,9,2,2,5,}
+\DoxyCodeLine{02901\ \ \ \ \ \ \ \ \ 3,5,20,7,16,8,5,72,34,6,4,22,12,12,28,45,36,9,7,39,9,191,1,1,1,4,11,8,4,9,2,3,22,1,1,1,1,4,17,1,7,7,1,11,31,10,2,4,8,2,3,2,1,4,2,16,4,32,2,}
+\DoxyCodeLine{02902\ \ \ \ \ \ \ \ \ 3,19,13,4,9,1,5,2,14,8,1,1,3,6,19,6,5,1,16,6,2,10,8,5,1,2,3,1,5,5,1,11,6,6,1,3,3,2,6,3,8,1,1,4,10,7,5,7,7,5,8,9,2,1,3,4,1,1,3,1,3,3,2,6,16,}
+\DoxyCodeLine{02903\ \ \ \ \ \ \ \ \ 1,4,6,3,1,10,6,1,3,15,2,9,2,10,25,13,9,16,6,2,2,10,11,4,3,9,1,2,6,6,5,4,30,40,1,10,7,12,14,33,6,3,6,7,3,1,3,1,11,14,4,9,5,12,11,49,18,51,31,}
+\DoxyCodeLine{02904\ \ \ \ \ \ \ \ \ 140,31,2,2,1,5,1,8,1,10,1,4,4,3,24,1,10,1,3,6,6,16,3,4,5,2,1,4,2,57,10,6,22,2,22,3,7,22,6,10,11,36,18,16,33,36,2,5,5,1,1,1,4,10,1,4,13,2,7,}
+\DoxyCodeLine{02905\ \ \ \ \ \ \ \ \ 5,2,9,3,4,1,7,43,3,7,3,9,14,7,9,1,11,1,1,3,7,4,18,13,1,14,1,3,6,10,73,2,2,30,6,1,11,18,19,13,22,3,46,42,37,89,7,3,16,34,2,2,3,9,1,7,1,1,1,2,}
+\DoxyCodeLine{02906\ \ \ \ \ \ \ \ \ 2,4,10,7,3,10,3,9,5,28,9,2,6,13,7,3,1,3,10,2,7,2,11,3,6,21,54,85,2,1,4,2,2,1,39,3,21,2,2,5,1,1,1,4,1,1,3,4,15,1,3,2,4,4,2,3,8,2,20,1,8,7,13,}
+\DoxyCodeLine{02907\ \ \ \ \ \ \ \ \ 4,1,26,6,2,9,34,4,21,52,10,4,4,1,5,12,2,11,1,7,2,30,12,44,2,30,1,1,3,6,16,9,17,39,82,2,2,24,7,1,7,3,16,9,14,44,2,1,2,1,2,3,5,2,4,1,6,7,5,3,}
+\DoxyCodeLine{02908\ \ \ \ \ \ \ \ \ 2,6,1,11,5,11,2,1,18,19,8,1,3,24,29,2,1,3,5,2,2,1,13,6,5,1,46,11,3,5,1,1,5,8,2,10,6,12,6,3,7,11,2,4,16,13,2,5,1,1,2,2,5,2,28,5,2,23,10,8,4,}
+\DoxyCodeLine{02909\ \ \ \ \ \ \ \ \ 4,22,39,95,38,8,14,9,5,1,13,5,4,3,13,12,11,1,9,1,27,37,2,5,4,4,63,211,95,2,2,2,1,3,5,2,1,1,2,2,1,1,1,3,2,4,1,2,1,1,5,2,2,1,1,2,3,1,3,1,1,1,}
+\DoxyCodeLine{02910\ \ \ \ \ \ \ \ \ 3,1,4,2,1,3,6,1,1,3,7,15,5,3,2,5,3,9,11,4,2,22,1,6,3,8,7,1,4,28,4,16,3,3,25,4,4,27,27,1,4,1,2,2,7,1,3,5,2,28,8,2,14,1,8,6,16,25,3,3,3,14,3,}
+\DoxyCodeLine{02911\ \ \ \ \ \ \ \ \ 3,1,1,2,1,4,6,3,8,4,1,1,1,2,3,6,10,6,2,3,18,3,2,5,5,4,3,1,5,2,5,4,23,7,6,12,6,4,17,11,9,5,1,1,10,5,12,1,1,11,26,33,7,3,6,1,17,7,1,5,12,1,11,}
+\DoxyCodeLine{02912\ \ \ \ \ \ \ \ \ 2,4,1,8,14,17,23,1,2,1,7,8,16,11,9,6,5,2,6,4,16,2,8,14,1,11,8,9,1,1,1,9,25,4,11,19,7,2,15,2,12,8,52,7,5,19,2,16,4,36,8,1,16,8,24,26,4,6,2,9,}
+\DoxyCodeLine{02913\ \ \ \ \ \ \ \ \ 5,4,36,3,28,12,25,15,37,27,17,12,59,38,5,32,127,1,2,9,17,14,4,1,2,1,1,8,11,50,4,14,2,19,16,4,17,5,4,5,26,12,45,2,23,45,104,30,12,8,3,10,2,2,}
+\DoxyCodeLine{02914\ \ \ \ \ \ \ \ \ 3,3,1,4,20,7,2,9,6,15,2,20,1,3,16,4,11,15,6,134,2,5,59,1,2,2,2,1,9,17,3,26,137,10,211,59,1,2,4,1,4,1,1,1,2,6,2,3,1,1,2,3,2,3,1,3,4,4,2,3,3,}
+\DoxyCodeLine{02915\ \ \ \ \ \ \ \ \ 1,4,3,1,7,2,2,3,1,2,1,3,3,3,2,2,3,2,1,3,14,6,1,3,2,9,6,15,27,9,34,145,1,1,2,1,1,1,1,2,1,1,1,1,2,2,2,3,1,2,1,1,1,2,3,5,8,3,5,2,4,1,3,2,2,2,12,}
+\DoxyCodeLine{02916\ \ \ \ \ \ \ \ \ 4,1,1,1,10,4,5,1,20,4,16,1,15,9,5,12,2,9,2,5,4,2,26,19,7,1,26,4,30,12,15,42,1,6,8,172,1,1,4,2,1,1,11,2,2,4,2,1,2,1,10,8,1,2,1,4,5,1,2,5,1,8,}
+\DoxyCodeLine{02917\ \ \ \ \ \ \ \ \ 4,1,3,4,2,1,6,2,1,3,4,1,2,1,1,1,1,12,5,7,2,4,3,1,1,1,3,3,6,1,2,2,3,3,3,2,1,2,12,14,11,6,6,4,12,2,8,1,7,10,1,35,7,4,13,15,4,3,23,21,28,52,5,}
+\DoxyCodeLine{02918\ \ \ \ \ \ \ \ \ 26,5,6,1,7,10,2,7,53,3,2,1,1,1,2,163,532,1,10,11,1,3,3,4,8,2,8,6,2,2,23,22,4,2,2,4,2,1,3,1,3,3,5,9,8,2,1,2,8,1,10,2,12,21,20,15,105,2,3,1,1,}
+\DoxyCodeLine{02919\ \ \ \ \ \ \ \ \ 3,2,3,1,1,2,5,1,4,15,11,19,1,1,1,1,5,4,5,1,1,2,5,3,5,12,1,2,5,1,11,1,1,15,9,1,4,5,3,26,8,2,1,3,1,1,15,19,2,12,1,2,5,2,7,2,19,2,20,6,26,7,5,}
+\DoxyCodeLine{02920\ \ \ \ \ \ \ \ \ 2,2,7,34,21,13,70,2,128,1,1,2,1,1,2,1,1,3,2,2,2,15,1,4,1,3,4,42,10,6,1,49,85,8,1,2,1,1,4,4,2,3,6,1,5,7,4,3,211,4,1,2,1,2,5,1,2,4,2,2,6,5,6,}
+\DoxyCodeLine{02921\ \ \ \ \ \ \ \ \ 10,3,4,48,100,6,2,16,296,5,27,387,2,2,3,7,16,8,5,38,15,39,21,9,10,3,7,59,13,27,21,47,5,21,6}
+\DoxyCodeLine{02922\ \ \ \ \ \};}
+\DoxyCodeLine{02923\ \ \ \ \ \textcolor{keyword}{static}\ ImWchar\ base\_ranges[]\ =\ \textcolor{comment}{//\ not\ zero-\/terminated}}
+\DoxyCodeLine{02924\ \ \ \ \ \{}
+\DoxyCodeLine{02925\ \ \ \ \ \ \ \ \ 0x0020,\ 0x00FF,\ \textcolor{comment}{//\ Basic\ Latin\ +\ Latin\ Supplement}}
+\DoxyCodeLine{02926\ \ \ \ \ \ \ \ \ 0x2000,\ 0x206F,\ \textcolor{comment}{//\ General\ Punctuation}}
+\DoxyCodeLine{02927\ \ \ \ \ \ \ \ \ 0x3000,\ 0x30FF,\ \textcolor{comment}{//\ CJK\ Symbols\ and\ Punctuations,\ Hiragana,\ Katakana}}
+\DoxyCodeLine{02928\ \ \ \ \ \ \ \ \ 0x31F0,\ 0x31FF,\ \textcolor{comment}{//\ Katakana\ Phonetic\ Extensions}}
+\DoxyCodeLine{02929\ \ \ \ \ \ \ \ \ 0xFF00,\ 0xFFEF,\ \textcolor{comment}{//\ Half-\/width\ characters}}
+\DoxyCodeLine{02930\ \ \ \ \ \ \ \ \ 0xFFFD,\ 0xFFFD\ \ \textcolor{comment}{//\ Invalid}}
+\DoxyCodeLine{02931\ \ \ \ \ \};}
+\DoxyCodeLine{02932\ \ \ \ \ \textcolor{keyword}{static}\ ImWchar\ full\_ranges[IM\_ARRAYSIZE(base\_ranges)\ +\ IM\_ARRAYSIZE(accumulative\_offsets\_from\_0x4E00)\ *\ 2\ +\ 1]\ =\ \{\ 0\ \};}
+\DoxyCodeLine{02933\ \ \ \ \ \textcolor{keywordflow}{if}\ (!full\_ranges[0])}
+\DoxyCodeLine{02934\ \ \ \ \ \{}
+\DoxyCodeLine{02935\ \ \ \ \ \ \ \ \ memcpy(full\_ranges,\ base\_ranges,\ \textcolor{keyword}{sizeof}(base\_ranges));}
+\DoxyCodeLine{02936\ \ \ \ \ \ \ \ \ UnpackAccumulativeOffsetsIntoRanges(0x4E00,\ accumulative\_offsets\_from\_0x4E00,\ IM\_ARRAYSIZE(accumulative\_offsets\_from\_0x4E00),\ full\_ranges\ +\ IM\_ARRAYSIZE(base\_ranges));}
+\DoxyCodeLine{02937\ \ \ \ \ \}}
+\DoxyCodeLine{02938\ \ \ \ \ \textcolor{keywordflow}{return}\ \&full\_ranges[0];}
+\DoxyCodeLine{02939\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_atlas_a5aaff3357d9ed401ce451c39942e869e}\label{struct_im_font_atlas_a5aaff3357d9ed401ce451c39942e869e}} 
+\index{ImFontAtlas@{ImFontAtlas}!GetGlyphRangesCyrillic@{GetGlyphRangesCyrillic}}
+\index{GetGlyphRangesCyrillic@{GetGlyphRangesCyrillic}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{GetGlyphRangesCyrillic()}{GetGlyphRangesCyrillic()}}
+{\footnotesize\ttfamily const Im\+Wchar $\ast$ Im\+Font\+Atlas\+::\+Get\+Glyph\+Ranges\+Cyrillic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l03031}{3031}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{03032\ \{}
+\DoxyCodeLine{03033\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ ImWchar\ ranges[]\ =}
+\DoxyCodeLine{03034\ \ \ \ \ \{}
+\DoxyCodeLine{03035\ \ \ \ \ \ \ \ \ 0x0020,\ 0x00FF,\ \textcolor{comment}{//\ Basic\ Latin\ +\ Latin\ Supplement}}
+\DoxyCodeLine{03036\ \ \ \ \ \ \ \ \ 0x0400,\ 0x052F,\ \textcolor{comment}{//\ Cyrillic\ +\ Cyrillic\ Supplement}}
+\DoxyCodeLine{03037\ \ \ \ \ \ \ \ \ 0x2DE0,\ 0x2DFF,\ \textcolor{comment}{//\ Cyrillic\ Extended-\/A}}
+\DoxyCodeLine{03038\ \ \ \ \ \ \ \ \ 0xA640,\ 0xA69F,\ \textcolor{comment}{//\ Cyrillic\ Extended-\/B}}
+\DoxyCodeLine{03039\ \ \ \ \ \ \ \ \ 0,}
+\DoxyCodeLine{03040\ \ \ \ \ \};}
+\DoxyCodeLine{03041\ \ \ \ \ \textcolor{keywordflow}{return}\ \&ranges[0];}
+\DoxyCodeLine{03042\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_atlas_adec0df140eb1dc01c2a22a5253d62820}\label{struct_im_font_atlas_adec0df140eb1dc01c2a22a5253d62820}} 
+\index{ImFontAtlas@{ImFontAtlas}!GetGlyphRangesDefault@{GetGlyphRangesDefault}}
+\index{GetGlyphRangesDefault@{GetGlyphRangesDefault}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{GetGlyphRangesDefault()}{GetGlyphRangesDefault()}}
+{\footnotesize\ttfamily const Im\+Wchar $\ast$ Im\+Font\+Atlas\+::\+Get\+Glyph\+Ranges\+Default (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l02809}{2809}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02810\ \{}
+\DoxyCodeLine{02811\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ ImWchar\ ranges[]\ =}
+\DoxyCodeLine{02812\ \ \ \ \ \{}
+\DoxyCodeLine{02813\ \ \ \ \ \ \ \ \ 0x0020,\ 0x00FF,\ \textcolor{comment}{//\ Basic\ Latin\ +\ Latin\ Supplement}}
+\DoxyCodeLine{02814\ \ \ \ \ \ \ \ \ 0,}
+\DoxyCodeLine{02815\ \ \ \ \ \};}
+\DoxyCodeLine{02816\ \ \ \ \ \textcolor{keywordflow}{return}\ \&ranges[0];}
+\DoxyCodeLine{02817\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_atlas_a46d65b05462b548396d3a8ee6644f3ee}\label{struct_im_font_atlas_a46d65b05462b548396d3a8ee6644f3ee}} 
+\index{ImFontAtlas@{ImFontAtlas}!GetGlyphRangesGreek@{GetGlyphRangesGreek}}
+\index{GetGlyphRangesGreek@{GetGlyphRangesGreek}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{GetGlyphRangesGreek()}{GetGlyphRangesGreek()}}
+{\footnotesize\ttfamily const Im\+Wchar $\ast$ Im\+Font\+Atlas\+::\+Get\+Glyph\+Ranges\+Greek (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l02819}{2819}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02820\ \{}
+\DoxyCodeLine{02821\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ ImWchar\ ranges[]\ =}
+\DoxyCodeLine{02822\ \ \ \ \ \{}
+\DoxyCodeLine{02823\ \ \ \ \ \ \ \ \ 0x0020,\ 0x00FF,\ \textcolor{comment}{//\ Basic\ Latin\ +\ Latin\ Supplement}}
+\DoxyCodeLine{02824\ \ \ \ \ \ \ \ \ 0x0370,\ 0x03FF,\ \textcolor{comment}{//\ Greek\ and\ Coptic}}
+\DoxyCodeLine{02825\ \ \ \ \ \ \ \ \ 0,}
+\DoxyCodeLine{02826\ \ \ \ \ \};}
+\DoxyCodeLine{02827\ \ \ \ \ \textcolor{keywordflow}{return}\ \&ranges[0];}
+\DoxyCodeLine{02828\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_atlas_a2654afbbf73835bf08278cdc6c181a96}\label{struct_im_font_atlas_a2654afbbf73835bf08278cdc6c181a96}} 
+\index{ImFontAtlas@{ImFontAtlas}!GetGlyphRangesJapanese@{GetGlyphRangesJapanese}}
+\index{GetGlyphRangesJapanese@{GetGlyphRangesJapanese}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{GetGlyphRangesJapanese()}{GetGlyphRangesJapanese()}}
+{\footnotesize\ttfamily const Im\+Wchar $\ast$ Im\+Font\+Atlas\+::\+Get\+Glyph\+Ranges\+Japanese (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l02941}{2941}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02942\ \{}
+\DoxyCodeLine{02943\ \ \ \ \ \textcolor{comment}{//\ 2999\ ideograms\ code\ points\ for\ Japanese}}
+\DoxyCodeLine{02944\ \ \ \ \ \textcolor{comment}{//\ -\/\ 2136\ Joyo\ (meaning\ "{}for\ regular\ use"{}\ or\ "{}for\ common\ use"{})\ Kanji\ code\ points}}
+\DoxyCodeLine{02945\ \ \ \ \ \textcolor{comment}{//\ -\/\ 863\ Jinmeiyo\ (meaning\ "{}for\ personal\ name"{})\ Kanji\ code\ points}}
+\DoxyCodeLine{02946\ \ \ \ \ \textcolor{comment}{//\ -\/\ Sourced\ from\ official\ information\ provided\ by\ the\ government\ agencies\ of\ Japan:}}
+\DoxyCodeLine{02947\ \ \ \ \ \textcolor{comment}{//\ \ \ -\/\ List\ of\ Joyo\ Kanji\ by\ the\ Agency\ for\ Cultural\ Affairs}}
+\DoxyCodeLine{02948\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ -\/\ https://www.bunka.go.jp/kokugo\_nihongo/sisaku/joho/joho/kijun/naikaku/kanji/}}
+\DoxyCodeLine{02949\ \ \ \ \ \textcolor{comment}{//\ \ \ -\/\ List\ of\ Jinmeiyo\ Kanji\ by\ the\ Ministry\ of\ Justice}}
+\DoxyCodeLine{02950\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ -\/\ http://www.moj.go.jp/MINJI/minji86.html}}
+\DoxyCodeLine{02951\ \ \ \ \ \textcolor{comment}{//\ \ \ -\/\ Available\ under\ the\ terms\ of\ the\ Creative\ Commons\ Attribution\ 4.0\ International\ (CC\ BY\ 4.0).}}
+\DoxyCodeLine{02952\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ -\/\ https://creativecommons.org/licenses/by/4.0/legalcode}}
+\DoxyCodeLine{02953\ \ \ \ \ \textcolor{comment}{//\ -\/\ You\ can\ generate\ this\ code\ by\ the\ script\ at:}}
+\DoxyCodeLine{02954\ \ \ \ \ \textcolor{comment}{//\ \ \ -\/\ https://github.com/vaiorabbit/everyday\_use\_kanji}}
+\DoxyCodeLine{02955\ \ \ \ \ \textcolor{comment}{//\ -\/\ References:}}
+\DoxyCodeLine{02956\ \ \ \ \ \textcolor{comment}{//\ \ \ -\/\ List\ of\ Joyo\ Kanji}}
+\DoxyCodeLine{02957\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ -\/\ (Wikipedia)\ https://en.wikipedia.org/wiki/List\_of\_j\%C5\%8Dy\%C5\%8D\_kanji}}
+\DoxyCodeLine{02958\ \ \ \ \ \textcolor{comment}{//\ \ \ -\/\ List\ of\ Jinmeiyo\ Kanji}}
+\DoxyCodeLine{02959\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ -\/\ (Wikipedia)\ https://en.wikipedia.org/wiki/Jinmeiy\%C5\%8D\_kanji}}
+\DoxyCodeLine{02960\ \ \ \ \ \textcolor{comment}{//\ -\/\ Missing\ 1\ Joyo\ Kanji:\ U+20B9F\ (Kun'yomi:\ Shikaru,\ On'yomi:\ Shitsu,shichi),\ see\ https://github.com/ocornut/imgui/pull/3627\ for\ details.}}
+\DoxyCodeLine{02961\ \ \ \ \ \textcolor{comment}{//\ You\ can\ use\ ImFontGlyphRangesBuilder\ to\ create\ your\ own\ ranges\ derived\ from\ this,\ by\ merging\ existing\ ranges\ or\ adding\ new\ characters.}}
+\DoxyCodeLine{02962\ \ \ \ \ \textcolor{comment}{//\ (Stored\ as\ accumulative\ offsets\ from\ the\ initial\ unicode\ codepoint\ 0x4E00.\ This\ encoding\ is\ designed\ to\ helps\ us\ compact\ the\ source\ code\ size.)}}
+\DoxyCodeLine{02963\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{short}\ accumulative\_offsets\_from\_0x4E00[]\ =}
+\DoxyCodeLine{02964\ \ \ \ \ \{}
+\DoxyCodeLine{02965\ \ \ \ \ \ \ \ \ 0,1,2,4,1,1,1,1,2,1,3,3,2,2,1,5,3,5,7,5,6,1,2,1,7,2,6,3,1,8,1,1,4,1,1,18,2,11,2,6,2,1,2,1,5,1,2,1,3,1,2,1,2,3,3,1,1,2,3,1,1,1,12,7,9,1,4,5,1,}
+\DoxyCodeLine{02966\ \ \ \ \ \ \ \ \ 1,2,1,10,1,1,9,2,2,4,5,6,9,3,1,1,1,1,9,3,18,5,2,2,2,2,1,6,3,7,1,1,1,1,2,2,4,2,1,23,2,10,4,3,5,2,4,10,2,4,13,1,6,1,9,3,1,1,6,6,7,6,3,1,2,11,3,}
+\DoxyCodeLine{02967\ \ \ \ \ \ \ \ \ 2,2,3,2,15,2,2,5,4,3,6,4,1,2,5,2,12,16,6,13,9,13,2,1,1,7,16,4,7,1,19,1,5,1,2,2,7,7,8,2,6,5,4,9,18,7,4,5,9,13,11,8,15,2,1,1,1,2,1,2,2,1,2,2,8,}
+\DoxyCodeLine{02968\ \ \ \ \ \ \ \ \ 2,9,3,3,1,1,4,4,1,1,1,4,9,1,4,3,5,5,2,7,5,3,4,8,2,1,13,2,3,3,1,14,1,1,4,5,1,3,6,1,5,2,1,1,3,3,3,3,1,1,2,7,6,6,7,1,4,7,6,1,1,1,1,1,12,3,3,9,5,}
+\DoxyCodeLine{02969\ \ \ \ \ \ \ \ \ 2,6,1,5,6,1,2,3,18,2,4,14,4,1,3,6,1,1,6,3,5,5,3,2,2,2,2,12,3,1,4,2,3,2,3,11,1,7,4,1,2,1,3,17,1,9,1,24,1,1,4,2,2,4,1,2,7,1,1,1,3,1,2,2,4,15,1,}
+\DoxyCodeLine{02970\ \ \ \ \ \ \ \ \ 1,2,1,1,2,1,5,2,5,20,2,5,9,1,10,8,7,6,1,1,1,1,1,1,6,2,1,2,8,1,1,1,1,5,1,1,3,1,1,1,1,3,1,1,12,4,1,3,1,1,1,1,1,10,3,1,7,5,13,1,2,3,4,6,1,1,30,}
+\DoxyCodeLine{02971\ \ \ \ \ \ \ \ \ 2,9,9,1,15,38,11,3,1,8,24,7,1,9,8,10,2,1,9,31,2,13,6,2,9,4,49,5,2,15,2,1,10,2,1,1,1,2,2,6,15,30,35,3,14,18,8,1,16,10,28,12,19,45,38,1,3,2,3,}
+\DoxyCodeLine{02972\ \ \ \ \ \ \ \ \ 13,2,1,7,3,6,5,3,4,3,1,5,7,8,1,5,3,18,5,3,6,1,21,4,24,9,24,40,3,14,3,21,3,2,1,2,4,2,3,1,15,15,6,5,1,1,3,1,5,6,1,9,7,3,3,2,1,4,3,8,21,5,16,4,}
+\DoxyCodeLine{02973\ \ \ \ \ \ \ \ \ 5,2,10,11,11,3,6,3,2,9,3,6,13,1,2,1,1,1,1,11,12,6,6,1,4,2,6,5,2,1,1,3,3,6,13,3,1,1,5,1,2,3,3,14,2,1,2,2,2,5,1,9,5,1,1,6,12,3,12,3,4,13,2,14,}
+\DoxyCodeLine{02974\ \ \ \ \ \ \ \ \ 2,8,1,17,5,1,16,4,2,2,21,8,9,6,23,20,12,25,19,9,38,8,3,21,40,25,33,13,4,3,1,4,1,2,4,1,2,5,26,2,1,1,2,1,3,6,2,1,1,1,1,1,1,2,3,1,1,1,9,2,3,1,1,}
+\DoxyCodeLine{02975\ \ \ \ \ \ \ \ \ 1,3,6,3,2,1,1,6,6,1,8,2,2,2,1,4,1,2,3,2,7,3,2,4,1,2,1,2,2,1,1,1,1,1,3,1,2,5,4,10,9,4,9,1,1,1,1,1,1,5,3,2,1,6,4,9,6,1,10,2,31,17,8,3,7,5,40,1,}
+\DoxyCodeLine{02976\ \ \ \ \ \ \ \ \ 7,7,1,6,5,2,10,7,8,4,15,39,25,6,28,47,18,10,7,1,3,1,1,2,1,1,1,3,3,3,1,1,1,3,4,2,1,4,1,3,6,10,7,8,6,2,2,1,3,3,2,5,8,7,9,12,2,15,1,1,4,1,2,1,1,}
+\DoxyCodeLine{02977\ \ \ \ \ \ \ \ \ 1,3,2,1,3,3,5,6,2,3,2,10,1,4,2,8,1,1,1,11,6,1,21,4,16,3,1,3,1,4,2,3,6,5,1,3,1,1,3,3,4,6,1,1,10,4,2,7,10,4,7,4,2,9,4,3,1,1,1,4,1,8,3,4,1,3,1,}
+\DoxyCodeLine{02978\ \ \ \ \ \ \ \ \ 6,1,4,2,1,4,7,2,1,8,1,4,5,1,1,2,2,4,6,2,7,1,10,1,1,3,4,11,10,8,21,4,6,1,3,5,2,1,2,28,5,5,2,3,13,1,2,3,1,4,2,1,5,20,3,8,11,1,3,3,3,1,8,10,9,2,}
+\DoxyCodeLine{02979\ \ \ \ \ \ \ \ \ 10,9,2,3,1,1,2,4,1,8,3,6,1,7,8,6,11,1,4,29,8,4,3,1,2,7,13,1,4,1,6,2,6,12,12,2,20,3,2,3,6,4,8,9,2,7,34,5,1,18,6,1,1,4,4,5,7,9,1,2,2,4,3,4,1,7,}
+\DoxyCodeLine{02980\ \ \ \ \ \ \ \ \ 2,2,2,6,2,3,25,5,3,6,1,4,6,7,4,2,1,4,2,13,6,4,4,3,1,5,3,4,4,3,2,1,1,4,1,2,1,1,3,1,11,1,6,3,1,7,3,6,2,8,8,6,9,3,4,11,3,2,10,12,2,5,11,1,6,4,5,}
+\DoxyCodeLine{02981\ \ \ \ \ \ \ \ \ 3,1,8,5,4,6,6,3,5,1,1,3,2,1,2,2,6,17,12,1,10,1,6,12,1,6,6,19,9,6,16,1,13,4,4,15,7,17,6,11,9,15,12,6,7,2,1,2,2,15,9,3,21,4,6,49,18,7,3,2,3,1,}
+\DoxyCodeLine{02982\ \ \ \ \ \ \ \ \ 6,8,2,2,6,2,9,1,3,6,4,4,1,2,16,2,5,2,1,6,2,3,5,3,1,2,5,1,2,1,9,3,1,8,6,4,8,11,3,1,1,1,1,3,1,13,8,4,1,3,2,2,1,4,1,11,1,5,2,1,5,2,5,8,6,1,1,7,}
+\DoxyCodeLine{02983\ \ \ \ \ \ \ \ \ 4,3,8,3,2,7,2,1,5,1,5,2,4,7,6,2,8,5,1,11,4,5,3,6,18,1,2,13,3,3,1,21,1,1,4,1,4,1,1,1,8,1,2,2,7,1,2,4,2,2,9,2,1,1,1,4,3,6,3,12,5,1,1,1,5,6,3,2,}
+\DoxyCodeLine{02984\ \ \ \ \ \ \ \ \ 4,8,2,2,4,2,7,1,8,9,5,2,3,2,1,3,2,13,7,14,6,5,1,1,2,1,4,2,23,2,1,1,6,3,1,4,1,15,3,1,7,3,9,14,1,3,1,4,1,1,5,8,1,3,8,3,8,15,11,4,14,4,4,2,5,5,}
+\DoxyCodeLine{02985\ \ \ \ \ \ \ \ \ 1,7,1,6,14,7,7,8,5,15,4,8,6,5,6,2,1,13,1,20,15,11,9,2,5,6,2,11,2,6,2,5,1,5,8,4,13,19,25,4,1,1,11,1,34,2,5,9,14,6,2,2,6,1,1,14,1,3,14,13,1,6,}
+\DoxyCodeLine{02986\ \ \ \ \ \ \ \ \ 12,21,14,14,6,32,17,8,32,9,28,1,2,4,11,8,3,1,14,2,5,15,1,1,1,1,3,6,4,1,3,4,11,3,1,1,11,30,1,5,1,4,1,5,8,1,1,3,2,4,3,17,35,2,6,12,17,3,1,6,2,}
+\DoxyCodeLine{02987\ \ \ \ \ \ \ \ \ 1,1,12,2,7,3,3,2,1,16,2,8,3,6,5,4,7,3,3,8,1,9,8,5,1,2,1,3,2,8,1,2,9,12,1,1,2,3,8,3,24,12,4,3,7,5,8,3,3,3,3,3,3,1,23,10,3,1,2,2,6,3,1,16,1,16,}
+\DoxyCodeLine{02988\ \ \ \ \ \ \ \ \ 22,3,10,4,11,6,9,7,7,3,6,2,2,2,4,10,2,1,1,2,8,7,1,6,4,1,3,3,3,5,10,12,12,2,3,12,8,15,1,1,16,6,6,1,5,9,11,4,11,4,2,6,12,1,17,5,13,1,4,9,5,1,11,}
+\DoxyCodeLine{02989\ \ \ \ \ \ \ \ \ 2,1,8,1,5,7,28,8,3,5,10,2,17,3,38,22,1,2,18,12,10,4,38,18,1,4,44,19,4,1,8,4,1,12,1,4,31,12,1,14,7,75,7,5,10,6,6,13,3,2,11,11,3,2,5,28,15,6,18,}
+\DoxyCodeLine{02990\ \ \ \ \ \ \ \ \ 18,5,6,4,3,16,1,7,18,7,36,3,5,3,1,7,1,9,1,10,7,2,4,2,6,2,9,7,4,3,32,12,3,7,10,2,23,16,3,1,12,3,31,4,11,1,3,8,9,5,1,30,15,6,12,3,2,2,11,19,9,}
+\DoxyCodeLine{02991\ \ \ \ \ \ \ \ \ 14,2,6,2,3,19,13,17,5,3,3,25,3,14,1,1,1,36,1,3,2,19,3,13,36,9,13,31,6,4,16,34,2,5,4,2,3,3,5,1,1,1,4,3,1,17,3,2,3,5,3,1,3,2,3,5,6,3,12,11,1,3,}
+\DoxyCodeLine{02992\ \ \ \ \ \ \ \ \ 1,2,26,7,12,7,2,14,3,3,7,7,11,25,25,28,16,4,36,1,2,1,6,2,1,9,3,27,17,4,3,4,13,4,1,3,2,2,1,10,4,2,4,6,3,8,2,1,18,1,1,24,2,2,4,33,2,3,63,7,1,6,}
+\DoxyCodeLine{02993\ \ \ \ \ \ \ \ \ 40,7,3,4,4,2,4,15,18,1,16,1,1,11,2,41,14,1,3,18,13,3,2,4,16,2,17,7,15,24,7,18,13,44,2,2,3,6,1,1,7,5,1,7,1,4,3,3,5,10,8,2,3,1,8,1,1,27,4,2,1,}
+\DoxyCodeLine{02994\ \ \ \ \ \ \ \ \ 12,1,2,1,10,6,1,6,7,5,2,3,7,11,5,11,3,6,6,2,3,15,4,9,1,1,2,1,2,11,2,8,12,8,5,4,2,3,1,5,2,2,1,14,1,12,11,4,1,11,17,17,4,3,2,5,5,7,3,1,5,9,9,8,}
+\DoxyCodeLine{02995\ \ \ \ \ \ \ \ \ 2,5,6,6,13,13,2,1,2,6,1,2,2,49,4,9,1,2,10,16,7,8,4,3,2,23,4,58,3,29,1,14,19,19,11,11,2,7,5,1,3,4,6,2,18,5,12,12,17,17,3,3,2,4,1,6,2,3,4,3,1,}
+\DoxyCodeLine{02996\ \ \ \ \ \ \ \ \ 1,1,1,5,1,1,9,1,3,1,3,6,1,8,1,1,2,6,4,14,3,1,4,11,4,1,3,32,1,2,4,13,4,1,2,4,2,1,3,1,11,1,4,2,1,4,4,6,3,5,1,6,5,7,6,3,23,3,5,3,5,3,3,13,3,9,10,}
+\DoxyCodeLine{02997\ \ \ \ \ \ \ \ \ 1,12,10,2,3,18,13,7,160,52,4,2,2,3,2,14,5,4,12,4,6,4,1,20,4,11,6,2,12,27,1,4,1,2,2,7,4,5,2,28,3,7,25,8,3,19,3,6,10,2,2,1,10,2,5,4,1,3,4,1,5,}
+\DoxyCodeLine{02998\ \ \ \ \ \ \ \ \ 3,2,6,9,3,6,2,16,3,3,16,4,5,5,3,2,1,2,16,15,8,2,6,21,2,4,1,22,5,8,1,1,21,11,2,1,11,11,19,13,12,4,2,3,2,3,6,1,8,11,1,4,2,9,5,2,1,11,2,9,1,1,2,}
+\DoxyCodeLine{02999\ \ \ \ \ \ \ \ \ 14,31,9,3,4,21,14,4,8,1,7,2,2,2,5,1,4,20,3,3,4,10,1,11,9,8,2,1,4,5,14,12,14,2,17,9,6,31,4,14,1,20,13,26,5,2,7,3,6,13,2,4,2,19,6,2,2,18,9,3,5,}
+\DoxyCodeLine{03000\ \ \ \ \ \ \ \ \ 12,12,14,4,6,2,3,6,9,5,22,4,5,25,6,4,8,5,2,6,27,2,35,2,16,3,7,8,8,6,6,5,9,17,2,20,6,19,2,13,3,1,1,1,4,17,12,2,14,7,1,4,18,12,38,33,2,10,1,1,}
+\DoxyCodeLine{03001\ \ \ \ \ \ \ \ \ 2,13,14,17,11,50,6,33,20,26,74,16,23,45,50,13,38,33,6,6,7,4,4,2,1,3,2,5,8,7,8,9,3,11,21,9,13,1,3,10,6,7,1,2,2,18,5,5,1,9,9,2,68,9,19,13,2,5,}
+\DoxyCodeLine{03002\ \ \ \ \ \ \ \ \ 1,4,4,7,4,13,3,9,10,21,17,3,26,2,1,5,2,4,5,4,1,7,4,7,3,4,2,1,6,1,1,20,4,1,9,2,2,1,3,3,2,3,2,1,1,1,20,2,3,1,6,2,3,6,2,4,8,1,3,2,10,3,5,3,4,4,}
+\DoxyCodeLine{03003\ \ \ \ \ \ \ \ \ 3,4,16,1,6,1,10,2,4,2,1,1,2,10,11,2,2,3,1,24,31,4,10,10,2,5,12,16,164,15,4,16,7,9,15,19,17,1,2,1,1,5,1,1,1,1,1,3,1,4,3,1,3,1,3,1,2,1,1,3,3,7,}
+\DoxyCodeLine{03004\ \ \ \ \ \ \ \ \ 2,8,1,2,2,2,1,3,4,3,7,8,12,92,2,10,3,1,3,14,5,25,16,42,4,7,7,4,2,21,5,27,26,27,21,25,30,31,2,1,5,13,3,22,5,6,6,11,9,12,1,5,9,7,5,5,22,60,3,5,}
+\DoxyCodeLine{03005\ \ \ \ \ \ \ \ \ 13,1,1,8,1,1,3,3,2,1,9,3,3,18,4,1,2,3,7,6,3,1,2,3,9,1,3,1,3,2,1,3,1,1,1,2,1,11,3,1,6,9,1,3,2,3,1,2,1,5,1,1,4,3,4,1,2,2,4,4,1,7,2,1,2,2,3,5,13,}
+\DoxyCodeLine{03006\ \ \ \ \ \ \ \ \ 18,3,4,14,9,9,4,16,3,7,5,8,2,6,48,28,3,1,1,4,2,14,8,2,9,2,1,15,2,4,3,2,10,16,12,8,7,1,1,3,1,1,1,2,7,4,1,6,4,38,39,16,23,7,15,15,3,2,12,7,21,}
+\DoxyCodeLine{03007\ \ \ \ \ \ \ \ \ 37,27,6,5,4,8,2,10,8,8,6,5,1,2,1,3,24,1,16,17,9,23,10,17,6,1,51,55,44,13,294,9,3,6,2,4,2,2,15,1,1,1,13,21,17,68,14,8,9,4,1,4,9,3,11,7,1,1,1,}
+\DoxyCodeLine{03008\ \ \ \ \ \ \ \ \ 5,6,3,2,1,1,1,2,3,8,1,2,2,4,1,5,5,2,1,4,3,7,13,4,1,4,1,3,1,1,1,5,5,10,1,6,1,5,2,1,5,2,4,1,4,5,7,3,18,2,9,11,32,4,3,3,2,4,7,11,16,9,11,8,13,38,}
+\DoxyCodeLine{03009\ \ \ \ \ \ \ \ \ 32,8,4,2,1,1,2,1,2,4,4,1,1,1,4,1,21,3,11,1,16,1,1,6,1,3,2,4,9,8,57,7,44,1,3,3,13,3,10,1,1,7,5,2,7,21,47,63,3,15,4,7,1,16,1,1,2,8,2,3,42,15,4,}
+\DoxyCodeLine{03010\ \ \ \ \ \ \ \ \ 1,29,7,22,10,3,78,16,12,20,18,4,67,11,5,1,3,15,6,21,31,32,27,18,13,71,35,5,142,4,10,1,2,50,19,33,16,35,37,16,19,27,7,1,133,19,1,4,8,7,20,1,4,}
+\DoxyCodeLine{03011\ \ \ \ \ \ \ \ \ 4,1,10,3,1,6,1,2,51,5,40,15,24,43,22928,11,1,13,154,70,3,1,1,7,4,10,1,2,1,1,2,1,2,1,2,2,1,1,2,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,}
+\DoxyCodeLine{03012\ \ \ \ \ \ \ \ \ 3,2,1,1,1,1,2,1,1,}
+\DoxyCodeLine{03013\ \ \ \ \ \};}
+\DoxyCodeLine{03014\ \ \ \ \ \textcolor{keyword}{static}\ ImWchar\ base\_ranges[]\ =\ \textcolor{comment}{//\ not\ zero-\/terminated}}
+\DoxyCodeLine{03015\ \ \ \ \ \{}
+\DoxyCodeLine{03016\ \ \ \ \ \ \ \ \ 0x0020,\ 0x00FF,\ \textcolor{comment}{//\ Basic\ Latin\ +\ Latin\ Supplement}}
+\DoxyCodeLine{03017\ \ \ \ \ \ \ \ \ 0x3000,\ 0x30FF,\ \textcolor{comment}{//\ CJK\ Symbols\ and\ Punctuations,\ Hiragana,\ Katakana}}
+\DoxyCodeLine{03018\ \ \ \ \ \ \ \ \ 0x31F0,\ 0x31FF,\ \textcolor{comment}{//\ Katakana\ Phonetic\ Extensions}}
+\DoxyCodeLine{03019\ \ \ \ \ \ \ \ \ 0xFF00,\ 0xFFEF,\ \textcolor{comment}{//\ Half-\/width\ characters}}
+\DoxyCodeLine{03020\ \ \ \ \ \ \ \ \ 0xFFFD,\ 0xFFFD\ \ \textcolor{comment}{//\ Invalid}}
+\DoxyCodeLine{03021\ \ \ \ \ \};}
+\DoxyCodeLine{03022\ \ \ \ \ \textcolor{keyword}{static}\ ImWchar\ full\_ranges[IM\_ARRAYSIZE(base\_ranges)\ +\ IM\_ARRAYSIZE(accumulative\_offsets\_from\_0x4E00)*2\ +\ 1]\ =\ \{\ 0\ \};}
+\DoxyCodeLine{03023\ \ \ \ \ \textcolor{keywordflow}{if}\ (!full\_ranges[0])}
+\DoxyCodeLine{03024\ \ \ \ \ \{}
+\DoxyCodeLine{03025\ \ \ \ \ \ \ \ \ memcpy(full\_ranges,\ base\_ranges,\ \textcolor{keyword}{sizeof}(base\_ranges));}
+\DoxyCodeLine{03026\ \ \ \ \ \ \ \ \ UnpackAccumulativeOffsetsIntoRanges(0x4E00,\ accumulative\_offsets\_from\_0x4E00,\ IM\_ARRAYSIZE(accumulative\_offsets\_from\_0x4E00),\ full\_ranges\ +\ IM\_ARRAYSIZE(base\_ranges));}
+\DoxyCodeLine{03027\ \ \ \ \ \}}
+\DoxyCodeLine{03028\ \ \ \ \ \textcolor{keywordflow}{return}\ \&full\_ranges[0];}
+\DoxyCodeLine{03029\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_atlas_ac70e07bd35913661c8fc50413b3bf969}\label{struct_im_font_atlas_ac70e07bd35913661c8fc50413b3bf969}} 
+\index{ImFontAtlas@{ImFontAtlas}!GetGlyphRangesKorean@{GetGlyphRangesKorean}}
+\index{GetGlyphRangesKorean@{GetGlyphRangesKorean}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{GetGlyphRangesKorean()}{GetGlyphRangesKorean()}}
+{\footnotesize\ttfamily const Im\+Wchar $\ast$ Im\+Font\+Atlas\+::\+Get\+Glyph\+Ranges\+Korean (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l02830}{2830}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02831\ \{}
+\DoxyCodeLine{02832\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ ImWchar\ ranges[]\ =}
+\DoxyCodeLine{02833\ \ \ \ \ \{}
+\DoxyCodeLine{02834\ \ \ \ \ \ \ \ \ 0x0020,\ 0x00FF,\ \textcolor{comment}{//\ Basic\ Latin\ +\ Latin\ Supplement}}
+\DoxyCodeLine{02835\ \ \ \ \ \ \ \ \ 0x3131,\ 0x3163,\ \textcolor{comment}{//\ Korean\ alphabets}}
+\DoxyCodeLine{02836\ \ \ \ \ \ \ \ \ 0xAC00,\ 0xD7A3,\ \textcolor{comment}{//\ Korean\ characters}}
+\DoxyCodeLine{02837\ \ \ \ \ \ \ \ \ 0xFFFD,\ 0xFFFD,\ \textcolor{comment}{//\ Invalid}}
+\DoxyCodeLine{02838\ \ \ \ \ \ \ \ \ 0,}
+\DoxyCodeLine{02839\ \ \ \ \ \};}
+\DoxyCodeLine{02840\ \ \ \ \ \textcolor{keywordflow}{return}\ \&ranges[0];}
+\DoxyCodeLine{02841\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_atlas_a4985c51d8a5270ff027f13fa44a14371}\label{struct_im_font_atlas_a4985c51d8a5270ff027f13fa44a14371}} 
+\index{ImFontAtlas@{ImFontAtlas}!GetGlyphRangesThai@{GetGlyphRangesThai}}
+\index{GetGlyphRangesThai@{GetGlyphRangesThai}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{GetGlyphRangesThai()}{GetGlyphRangesThai()}}
+{\footnotesize\ttfamily const Im\+Wchar $\ast$ Im\+Font\+Atlas\+::\+Get\+Glyph\+Ranges\+Thai (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l03044}{3044}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{03045\ \{}
+\DoxyCodeLine{03046\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ ImWchar\ ranges[]\ =}
+\DoxyCodeLine{03047\ \ \ \ \ \{}
+\DoxyCodeLine{03048\ \ \ \ \ \ \ \ \ 0x0020,\ 0x00FF,\ \textcolor{comment}{//\ Basic\ Latin}}
+\DoxyCodeLine{03049\ \ \ \ \ \ \ \ \ 0x2010,\ 0x205E,\ \textcolor{comment}{//\ Punctuations}}
+\DoxyCodeLine{03050\ \ \ \ \ \ \ \ \ 0x0E00,\ 0x0E7F,\ \textcolor{comment}{//\ Thai}}
+\DoxyCodeLine{03051\ \ \ \ \ \ \ \ \ 0,}
+\DoxyCodeLine{03052\ \ \ \ \ \};}
+\DoxyCodeLine{03053\ \ \ \ \ \textcolor{keywordflow}{return}\ \&ranges[0];}
+\DoxyCodeLine{03054\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_atlas_acc0e66fd4637600ad344c2f415a0ef60}\label{struct_im_font_atlas_acc0e66fd4637600ad344c2f415a0ef60}} 
+\index{ImFontAtlas@{ImFontAtlas}!GetGlyphRangesVietnamese@{GetGlyphRangesVietnamese}}
+\index{GetGlyphRangesVietnamese@{GetGlyphRangesVietnamese}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{GetGlyphRangesVietnamese()}{GetGlyphRangesVietnamese()}}
+{\footnotesize\ttfamily const Im\+Wchar $\ast$ Im\+Font\+Atlas\+::\+Get\+Glyph\+Ranges\+Vietnamese (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l03056}{3056}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{03057\ \{}
+\DoxyCodeLine{03058\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ ImWchar\ ranges[]\ =}
+\DoxyCodeLine{03059\ \ \ \ \ \{}
+\DoxyCodeLine{03060\ \ \ \ \ \ \ \ \ 0x0020,\ 0x00FF,\ \textcolor{comment}{//\ Basic\ Latin}}
+\DoxyCodeLine{03061\ \ \ \ \ \ \ \ \ 0x0102,\ 0x0103,}
+\DoxyCodeLine{03062\ \ \ \ \ \ \ \ \ 0x0110,\ 0x0111,}
+\DoxyCodeLine{03063\ \ \ \ \ \ \ \ \ 0x0128,\ 0x0129,}
+\DoxyCodeLine{03064\ \ \ \ \ \ \ \ \ 0x0168,\ 0x0169,}
+\DoxyCodeLine{03065\ \ \ \ \ \ \ \ \ 0x01A0,\ 0x01A1,}
+\DoxyCodeLine{03066\ \ \ \ \ \ \ \ \ 0x01AF,\ 0x01B0,}
+\DoxyCodeLine{03067\ \ \ \ \ \ \ \ \ 0x1EA0,\ 0x1EF9,}
+\DoxyCodeLine{03068\ \ \ \ \ \ \ \ \ 0,}
+\DoxyCodeLine{03069\ \ \ \ \ \};}
+\DoxyCodeLine{03070\ \ \ \ \ \textcolor{keywordflow}{return}\ \&ranges[0];}
+\DoxyCodeLine{03071\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_atlas_a6d27a36fe034851310dd00d7dc5253c3}\label{struct_im_font_atlas_a6d27a36fe034851310dd00d7dc5253c3}} 
+\index{ImFontAtlas@{ImFontAtlas}!GetMouseCursorTexData@{GetMouseCursorTexData}}
+\index{GetMouseCursorTexData@{GetMouseCursorTexData}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{GetMouseCursorTexData()}{GetMouseCursorTexData()}}
+{\footnotesize\ttfamily bool Im\+Font\+Atlas\+::\+Get\+Mouse\+Cursor\+Tex\+Data (\begin{DoxyParamCaption}\item[{Im\+Gui\+Mouse\+Cursor}]{cursor,  }\item[{\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} $\ast$}]{out\+\_\+offset,  }\item[{\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} $\ast$}]{out\+\_\+size,  }\item[{\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}}}]{out\+\_\+uv\+\_\+border\mbox{[}2\mbox{]},  }\item[{\mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}}}]{out\+\_\+uv\+\_\+fill\mbox{[}2\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l02232}{2232}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02233\ \{}
+\DoxyCodeLine{02234\ \ \ \ \ \textcolor{keywordflow}{if}\ (cursor\_type\ <=\ ImGuiMouseCursor\_None\ ||\ cursor\_type\ >=\ ImGuiMouseCursor\_COUNT)}
+\DoxyCodeLine{02235\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{02236\ \ \ \ \ \textcolor{keywordflow}{if}\ (Flags\ \&\ ImFontAtlasFlags\_NoMouseCursors)}
+\DoxyCodeLine{02237\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{02238\ }
+\DoxyCodeLine{02239\ \ \ \ \ IM\_ASSERT(PackIdMouseCursors\ !=\ -\/1);}
+\DoxyCodeLine{02240\ \ \ \ \ \mbox{\hyperlink{struct_im_font_atlas_custom_rect}{ImFontAtlasCustomRect}}*\ r\ =\ GetCustomRectByIndex(PackIdMouseCursors);}
+\DoxyCodeLine{02241\ \ \ \ \ \mbox{\hyperlink{struct_im_vec2}{ImVec2}}\ pos\ =\ FONT\_ATLAS\_DEFAULT\_TEX\_CURSOR\_DATA[cursor\_type][0]\ +\ \mbox{\hyperlink{struct_im_vec2}{ImVec2}}((\textcolor{keywordtype}{float})r-\/>X,\ (\textcolor{keywordtype}{float})r-\/>Y);}
+\DoxyCodeLine{02242\ \ \ \ \ \mbox{\hyperlink{struct_im_vec2}{ImVec2}}\ size\ =\ FONT\_ATLAS\_DEFAULT\_TEX\_CURSOR\_DATA[cursor\_type][1];}
+\DoxyCodeLine{02243\ \ \ \ \ *out\_size\ =\ size;}
+\DoxyCodeLine{02244\ \ \ \ \ *out\_offset\ =\ FONT\_ATLAS\_DEFAULT\_TEX\_CURSOR\_DATA[cursor\_type][2];}
+\DoxyCodeLine{02245\ \ \ \ \ out\_uv\_border[0]\ =\ (pos)\ *\ TexUvScale;}
+\DoxyCodeLine{02246\ \ \ \ \ out\_uv\_border[1]\ =\ (pos\ +\ size)\ *\ TexUvScale;}
+\DoxyCodeLine{02247\ \ \ \ \ pos.x\ +=\ FONT\_ATLAS\_DEFAULT\_TEX\_DATA\_W\ +\ 1;}
+\DoxyCodeLine{02248\ \ \ \ \ out\_uv\_fill[0]\ =\ (pos)\ *\ TexUvScale;}
+\DoxyCodeLine{02249\ \ \ \ \ out\_uv\_fill[1]\ =\ (pos\ +\ size)\ *\ TexUvScale;}
+\DoxyCodeLine{02250\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{02251\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_atlas_aeff1a1044a1ab68d8f27bb2819cd9f44}\label{struct_im_font_atlas_aeff1a1044a1ab68d8f27bb2819cd9f44}} 
+\index{ImFontAtlas@{ImFontAtlas}!GetTexDataAsAlpha8@{GetTexDataAsAlpha8}}
+\index{GetTexDataAsAlpha8@{GetTexDataAsAlpha8}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{GetTexDataAsAlpha8()}{GetTexDataAsAlpha8()}}
+{\footnotesize\ttfamily void Im\+Font\+Atlas\+::\+Get\+Tex\+Data\+As\+Alpha8 (\begin{DoxyParamCaption}\item[{unsigned char $\ast$$\ast$}]{out\+\_\+pixels,  }\item[{int $\ast$}]{out\+\_\+width,  }\item[{int $\ast$}]{out\+\_\+height,  }\item[{int $\ast$}]{out\+\_\+bytes\+\_\+per\+\_\+pixel = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l02031}{2031}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02032\ \{}
+\DoxyCodeLine{02033\ \ \ \ \ \textcolor{comment}{//\ Build\ atlas\ on\ demand}}
+\DoxyCodeLine{02034\ \ \ \ \ \textcolor{keywordflow}{if}\ (TexPixelsAlpha8\ ==\ NULL)}
+\DoxyCodeLine{02035\ \ \ \ \ \ \ \ \ Build();}
+\DoxyCodeLine{02036\ }
+\DoxyCodeLine{02037\ \ \ \ \ *out\_pixels\ =\ TexPixelsAlpha8;}
+\DoxyCodeLine{02038\ \ \ \ \ \textcolor{keywordflow}{if}\ (out\_width)\ *out\_width\ =\ TexWidth;}
+\DoxyCodeLine{02039\ \ \ \ \ \textcolor{keywordflow}{if}\ (out\_height)\ *out\_height\ =\ TexHeight;}
+\DoxyCodeLine{02040\ \ \ \ \ \textcolor{keywordflow}{if}\ (out\_bytes\_per\_pixel)\ *out\_bytes\_per\_pixel\ =\ 1;}
+\DoxyCodeLine{02041\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_atlas_a8abb0c4e67ebb38249d4df71218c4eec}\label{struct_im_font_atlas_a8abb0c4e67ebb38249d4df71218c4eec}} 
+\index{ImFontAtlas@{ImFontAtlas}!GetTexDataAsRGBA32@{GetTexDataAsRGBA32}}
+\index{GetTexDataAsRGBA32@{GetTexDataAsRGBA32}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{GetTexDataAsRGBA32()}{GetTexDataAsRGBA32()}}
+{\footnotesize\ttfamily void Im\+Font\+Atlas\+::\+Get\+Tex\+Data\+As\+RGBA32 (\begin{DoxyParamCaption}\item[{unsigned char $\ast$$\ast$}]{out\+\_\+pixels,  }\item[{int $\ast$}]{out\+\_\+width,  }\item[{int $\ast$}]{out\+\_\+height,  }\item[{int $\ast$}]{out\+\_\+bytes\+\_\+per\+\_\+pixel = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__draw_8cpp_source_l02043}{2043}} of file \mbox{\hyperlink{imgui__draw_8cpp_source}{imgui\+\_\+draw.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02044\ \{}
+\DoxyCodeLine{02045\ \ \ \ \ \textcolor{comment}{//\ Convert\ to\ RGBA32\ format\ on\ demand}}
+\DoxyCodeLine{02046\ \ \ \ \ \textcolor{comment}{//\ Although\ it\ is\ likely\ to\ be\ the\ most\ commonly\ used\ format,\ our\ font\ rendering\ is\ 1\ channel\ /\ 8\ bpp}}
+\DoxyCodeLine{02047\ \ \ \ \ \textcolor{keywordflow}{if}\ (!TexPixelsRGBA32)}
+\DoxyCodeLine{02048\ \ \ \ \ \{}
+\DoxyCodeLine{02049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ pixels\ =\ NULL;}
+\DoxyCodeLine{02050\ \ \ \ \ \ \ \ \ GetTexDataAsAlpha8(\&pixels,\ NULL,\ NULL);}
+\DoxyCodeLine{02051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pixels)}
+\DoxyCodeLine{02052\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{02053\ \ \ \ \ \ \ \ \ \ \ \ \ TexPixelsRGBA32\ =\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}*)IM\_ALLOC((\textcolor{keywordtype}{size\_t})TexWidth\ *\ (size\_t)TexHeight\ *\ 4);}
+\DoxyCodeLine{02054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*\ src\ =\ pixels;}
+\DoxyCodeLine{02055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}*\ dst\ =\ TexPixelsRGBA32;}
+\DoxyCodeLine{02056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ n\ =\ TexWidth\ *\ TexHeight;\ n\ >\ 0;\ n-\/-\/)}
+\DoxyCodeLine{02057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *dst++\ =\ IM\_COL32(255,\ 255,\ 255,\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int})(*src++));}
+\DoxyCodeLine{02058\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{02059\ \ \ \ \ \}}
+\DoxyCodeLine{02060\ }
+\DoxyCodeLine{02061\ \ \ \ \ *out\_pixels\ =\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}*)TexPixelsRGBA32;}
+\DoxyCodeLine{02062\ \ \ \ \ \textcolor{keywordflow}{if}\ (out\_width)\ *out\_width\ =\ TexWidth;}
+\DoxyCodeLine{02063\ \ \ \ \ \textcolor{keywordflow}{if}\ (out\_height)\ *out\_height\ =\ TexHeight;}
+\DoxyCodeLine{02064\ \ \ \ \ \textcolor{keywordflow}{if}\ (out\_bytes\_per\_pixel)\ *out\_bytes\_per\_pixel\ =\ 4;}
+\DoxyCodeLine{02065\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_atlas_a142ba1470099bbd4b67bdb47be92d475}\label{struct_im_font_atlas_a142ba1470099bbd4b67bdb47be92d475}} 
+\index{ImFontAtlas@{ImFontAtlas}!IsBuilt@{IsBuilt}}
+\index{IsBuilt@{IsBuilt}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{IsBuilt()}{IsBuilt()}}
+{\footnotesize\ttfamily bool Im\+Font\+Atlas\+::\+Is\+Built (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02823}{2823}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02823\ \{\ \textcolor{keywordflow}{return}\ Fonts.Size\ >\ 0\ \&\&\ TexReady;\ \}\ \textcolor{comment}{//\ Bit\ ambiguous:\ used\ to\ detect\ when\ user\ didn't\ build\ texture\ but\ effectively\ we\ should\ check\ TexID\ !=\ 0\ except\ that\ would\ be\ backend\ dependent...}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_font_atlas_a96ffd1956c11dac4f79b43c095828445}\label{struct_im_font_atlas_a96ffd1956c11dac4f79b43c095828445}} 
+\index{ImFontAtlas@{ImFontAtlas}!SetTexID@{SetTexID}}
+\index{SetTexID@{SetTexID}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{SetTexID()}{SetTexID()}}
+{\footnotesize\ttfamily void Im\+Font\+Atlas\+::\+Set\+Tex\+ID (\begin{DoxyParamCaption}\item[{Im\+Texture\+ID}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02824}{2824}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{02824\ \{\ TexID\ =\ id;\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_im_font_atlas_afa4f7459807763d032fe2d0022fc0823}\label{struct_im_font_atlas_afa4f7459807763d032fe2d0022fc0823}} 
+\index{ImFontAtlas@{ImFontAtlas}!ConfigData@{ConfigData}}
+\index{ConfigData@{ConfigData}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{ConfigData}{ConfigData}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$\mbox{\hyperlink{struct_im_font_config}{Im\+Font\+Config}}$>$ Im\+Font\+Atlas\+::\+Config\+Data}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02885}{2885}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_font_atlas_ae3752e66f7454a42e5ae5ec052af537c}\label{struct_im_font_atlas_ae3752e66f7454a42e5ae5ec052af537c}} 
+\index{ImFontAtlas@{ImFontAtlas}!CustomRects@{CustomRects}}
+\index{CustomRects@{CustomRects}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{CustomRects}{CustomRects}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$\mbox{\hyperlink{struct_im_font_atlas_custom_rect}{Im\+Font\+Atlas\+Custom\+Rect}}$>$ Im\+Font\+Atlas\+::\+Custom\+Rects}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02884}{2884}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_font_atlas_adf2f2d04b46911ad01cfbef0f59e1f11}\label{struct_im_font_atlas_adf2f2d04b46911ad01cfbef0f59e1f11}} 
+\index{ImFontAtlas@{ImFontAtlas}!Flags@{Flags}}
+\index{Flags@{Flags}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{Flags}{Flags}}
+{\footnotesize\ttfamily Im\+Font\+Atlas\+Flags Im\+Font\+Atlas\+::\+Flags}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02866}{2866}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_font_atlas_ad149b9a00b3dd033c0568abaf45256c3}\label{struct_im_font_atlas_ad149b9a00b3dd033c0568abaf45256c3}} 
+\index{ImFontAtlas@{ImFontAtlas}!FontBuilderFlags@{FontBuilderFlags}}
+\index{FontBuilderFlags@{FontBuilderFlags}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{FontBuilderFlags}{FontBuilderFlags}}
+{\footnotesize\ttfamily unsigned int Im\+Font\+Atlas\+::\+Font\+Builder\+Flags}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02890}{2890}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_font_atlas_a43337693a61cd40ec0110c83da628f09}\label{struct_im_font_atlas_a43337693a61cd40ec0110c83da628f09}} 
+\index{ImFontAtlas@{ImFontAtlas}!FontBuilderIO@{FontBuilderIO}}
+\index{FontBuilderIO@{FontBuilderIO}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{FontBuilderIO}{FontBuilderIO}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct_im_font_builder_i_o}{Im\+Font\+Builder\+IO}}$\ast$ Im\+Font\+Atlas\+::\+Font\+Builder\+IO}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02889}{2889}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_font_atlas_a0198aeb17ef8bb810ccc8db103b93b1f}\label{struct_im_font_atlas_a0198aeb17ef8bb810ccc8db103b93b1f}} 
+\index{ImFontAtlas@{ImFontAtlas}!Fonts@{Fonts}}
+\index{Fonts@{Fonts}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{Fonts}{Fonts}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vector}{Im\+Vector}}$<$\mbox{\hyperlink{struct_im_font}{Im\+Font}}$\ast$$>$ Im\+Font\+Atlas\+::\+Fonts}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02883}{2883}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_font_atlas_a2222ff64ba974a8ee7a286617f879f9b}\label{struct_im_font_atlas_a2222ff64ba974a8ee7a286617f879f9b}} 
+\index{ImFontAtlas@{ImFontAtlas}!Locked@{Locked}}
+\index{Locked@{Locked}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{Locked}{Locked}}
+{\footnotesize\ttfamily bool Im\+Font\+Atlas\+::\+Locked}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02870}{2870}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_font_atlas_a0964aa42e665dbd423066309b3c7461b}\label{struct_im_font_atlas_a0964aa42e665dbd423066309b3c7461b}} 
+\index{ImFontAtlas@{ImFontAtlas}!PackIdLines@{PackIdLines}}
+\index{PackIdLines@{PackIdLines}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{PackIdLines}{PackIdLines}}
+{\footnotesize\ttfamily int Im\+Font\+Atlas\+::\+Pack\+Id\+Lines}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02894}{2894}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_font_atlas_afc92fd54d52cab4fe787e364e7e4f652}\label{struct_im_font_atlas_afc92fd54d52cab4fe787e364e7e4f652}} 
+\index{ImFontAtlas@{ImFontAtlas}!PackIdMouseCursors@{PackIdMouseCursors}}
+\index{PackIdMouseCursors@{PackIdMouseCursors}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{PackIdMouseCursors}{PackIdMouseCursors}}
+{\footnotesize\ttfamily int Im\+Font\+Atlas\+::\+Pack\+Id\+Mouse\+Cursors}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02893}{2893}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_font_atlas_aa1d62d7da5633f894dbe881547e9de7c}\label{struct_im_font_atlas_aa1d62d7da5633f894dbe881547e9de7c}} 
+\index{ImFontAtlas@{ImFontAtlas}!TexDesiredWidth@{TexDesiredWidth}}
+\index{TexDesiredWidth@{TexDesiredWidth}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{TexDesiredWidth}{TexDesiredWidth}}
+{\footnotesize\ttfamily int Im\+Font\+Atlas\+::\+Tex\+Desired\+Width}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02868}{2868}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_font_atlas_a32034b2aac4616d8c27ee666a1fd1b62}\label{struct_im_font_atlas_a32034b2aac4616d8c27ee666a1fd1b62}} 
+\index{ImFontAtlas@{ImFontAtlas}!TexGlyphPadding@{TexGlyphPadding}}
+\index{TexGlyphPadding@{TexGlyphPadding}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{TexGlyphPadding}{TexGlyphPadding}}
+{\footnotesize\ttfamily int Im\+Font\+Atlas\+::\+Tex\+Glyph\+Padding}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02869}{2869}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_font_atlas_a5ef74d37ec01d9e8aac5c57433296ce3}\label{struct_im_font_atlas_a5ef74d37ec01d9e8aac5c57433296ce3}} 
+\index{ImFontAtlas@{ImFontAtlas}!TexHeight@{TexHeight}}
+\index{TexHeight@{TexHeight}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{TexHeight}{TexHeight}}
+{\footnotesize\ttfamily int Im\+Font\+Atlas\+::\+Tex\+Height}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02880}{2880}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_font_atlas_a1d7be9a6190c75706f80bda16c87f28e}\label{struct_im_font_atlas_a1d7be9a6190c75706f80bda16c87f28e}} 
+\index{ImFontAtlas@{ImFontAtlas}!TexID@{TexID}}
+\index{TexID@{TexID}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{TexID}{TexID}}
+{\footnotesize\ttfamily Im\+Texture\+ID Im\+Font\+Atlas\+::\+Tex\+ID}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02867}{2867}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_font_atlas_a443ea9e7c4cf85ee791ffe891280eff3}\label{struct_im_font_atlas_a443ea9e7c4cf85ee791ffe891280eff3}} 
+\index{ImFontAtlas@{ImFontAtlas}!TexPixelsAlpha8@{TexPixelsAlpha8}}
+\index{TexPixelsAlpha8@{TexPixelsAlpha8}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{TexPixelsAlpha8}{TexPixelsAlpha8}}
+{\footnotesize\ttfamily unsigned char$\ast$ Im\+Font\+Atlas\+::\+Tex\+Pixels\+Alpha8}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02877}{2877}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_font_atlas_a41163489a5b8060f405c56e22590cba5}\label{struct_im_font_atlas_a41163489a5b8060f405c56e22590cba5}} 
+\index{ImFontAtlas@{ImFontAtlas}!TexPixelsRGBA32@{TexPixelsRGBA32}}
+\index{TexPixelsRGBA32@{TexPixelsRGBA32}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{TexPixelsRGBA32}{TexPixelsRGBA32}}
+{\footnotesize\ttfamily unsigned int$\ast$ Im\+Font\+Atlas\+::\+Tex\+Pixels\+RGBA32}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02878}{2878}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_font_atlas_a4bc426a6a9c2fd3ab1ad3893142613ff}\label{struct_im_font_atlas_a4bc426a6a9c2fd3ab1ad3893142613ff}} 
+\index{ImFontAtlas@{ImFontAtlas}!TexPixelsUseColors@{TexPixelsUseColors}}
+\index{TexPixelsUseColors@{TexPixelsUseColors}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{TexPixelsUseColors}{TexPixelsUseColors}}
+{\footnotesize\ttfamily bool Im\+Font\+Atlas\+::\+Tex\+Pixels\+Use\+Colors}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02876}{2876}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_font_atlas_a9d28236e71f9a21a21d8f4f7eac39299}\label{struct_im_font_atlas_a9d28236e71f9a21a21d8f4f7eac39299}} 
+\index{ImFontAtlas@{ImFontAtlas}!TexReady@{TexReady}}
+\index{TexReady@{TexReady}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{TexReady}{TexReady}}
+{\footnotesize\ttfamily bool Im\+Font\+Atlas\+::\+Tex\+Ready}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02875}{2875}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_font_atlas_abf794895d5fb9597bf2a96ab68eb7048}\label{struct_im_font_atlas_abf794895d5fb9597bf2a96ab68eb7048}} 
+\index{ImFontAtlas@{ImFontAtlas}!TexUvLines@{TexUvLines}}
+\index{TexUvLines@{TexUvLines}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{TexUvLines}{TexUvLines}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vec4}{Im\+Vec4}} Im\+Font\+Atlas\+::\+Tex\+Uv\+Lines\mbox{[}IM\+\_\+\+DRAWLIST\+\_\+\+TEX\+\_\+\+LINES\+\_\+\+WIDTH\+\_\+\+MAX+1\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02886}{2886}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_font_atlas_adbe3a6b1fd501108649fe04f882b8664}\label{struct_im_font_atlas_adbe3a6b1fd501108649fe04f882b8664}} 
+\index{ImFontAtlas@{ImFontAtlas}!TexUvScale@{TexUvScale}}
+\index{TexUvScale@{TexUvScale}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{TexUvScale}{TexUvScale}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} Im\+Font\+Atlas\+::\+Tex\+Uv\+Scale}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02881}{2881}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_font_atlas_af1d05221e9a1607d7f625df92a4f9b7e}\label{struct_im_font_atlas_af1d05221e9a1607d7f625df92a4f9b7e}} 
+\index{ImFontAtlas@{ImFontAtlas}!TexUvWhitePixel@{TexUvWhitePixel}}
+\index{TexUvWhitePixel@{TexUvWhitePixel}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{TexUvWhitePixel}{TexUvWhitePixel}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_im_vec2}{Im\+Vec2}} Im\+Font\+Atlas\+::\+Tex\+Uv\+White\+Pixel}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02882}{2882}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_font_atlas_a2d0662502433e7a87b3aa4681ba17aa3}\label{struct_im_font_atlas_a2d0662502433e7a87b3aa4681ba17aa3}} 
+\index{ImFontAtlas@{ImFontAtlas}!TexWidth@{TexWidth}}
+\index{TexWidth@{TexWidth}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{TexWidth}{TexWidth}}
+{\footnotesize\ttfamily int Im\+Font\+Atlas\+::\+Tex\+Width}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02879}{2879}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+\mbox{\Hypertarget{struct_im_font_atlas_ac848a29825d36edf8629b31b419dc21e}\label{struct_im_font_atlas_ac848a29825d36edf8629b31b419dc21e}} 
+\index{ImFontAtlas@{ImFontAtlas}!UserData@{UserData}}
+\index{UserData@{UserData}!ImFontAtlas@{ImFontAtlas}}
+\doxysubsubsection{\texorpdfstring{UserData}{UserData}}
+{\footnotesize\ttfamily void$\ast$ Im\+Font\+Atlas\+::\+User\+Data}
+
+
+
+Definition at line \mbox{\hyperlink{imgui_8h_source_l02871}{2871}} of file \mbox{\hyperlink{imgui_8h_source}{imgui.\+h}}.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/imgui.\+h\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/imgui\+\_\+draw.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,42 @@
+\hypertarget{class_graphics___factory}{}\doxysection{Graphics\+\_\+\+Factory Class Reference}
+\label{class_graphics___factory}\index{Graphics\_Factory@{Graphics\_Factory}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_graphics}{Graphics}} $>$ \mbox{\hyperlink{class_graphics___factory_a865578b6a19253a69ad2d5d6571c3192}{Create}} (std\+::string type)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_graphics_8h_source_l00375}{375}} of file \mbox{\hyperlink{_graphics_8h_source}{Graphics.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_graphics___factory_a865578b6a19253a69ad2d5d6571c3192}\label{class_graphics___factory_a865578b6a19253a69ad2d5d6571c3192}} 
+\index{Graphics\_Factory@{Graphics\_Factory}!Create@{Create}}
+\index{Create@{Create}!Graphics\_Factory@{Graphics\_Factory}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_graphics}{Graphics}} $>$ Graphics\+\_\+\+Factory\+::\+Create (\begin{DoxyParamCaption}\item[{std\+::string}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_graphics_8h_source_l00385}{385}} of file \mbox{\hyperlink{_graphics_8h_source}{Graphics.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00386\ \ \ \ \ \{}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (type\ ==\ \textcolor{stringliteral}{"{}opengl"{}})}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_unique<OpenGL>();}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00391\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/Graphics.\+h\end{DoxyCompactItemize}

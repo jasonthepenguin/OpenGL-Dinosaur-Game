@@ -1,0 +1,75 @@
+\hypertarget{test__cube_8cpp_source}{}\doxysection{test\+\_\+cube.\+cpp}
+\label{test__cube_8cpp_source}\index{C:/Users/jason/source/repos/assignment\_1\_397/Lab\_4/test\_cube.cpp@{C:/Users/jason/source/repos/assignment\_1\_397/Lab\_4/test\_cube.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \mbox{\hyperlink{test__cube_8h}{"{}test\_cube.h"{}}}}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00006}00006\ \textcolor{comment}{//\ initialise\ the\ object\ (\ eg\ vertex\ attribs,\ physics)}}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00007}00007\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classtest__cube}{test\_cube}}::Init()}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00011}00011\ \ \ \ \ initPhysics();\ \textcolor{comment}{//\ init\ the\ physics\ }}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00013}00013\ \ \ \ \ init();\ \textcolor{comment}{//\ init\ the\ graphics/vertices\ side\ of\ things}}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00015}00015\ \}}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00017}00017\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classtest__cube}{test\_cube}}::initPhysics()}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00018}00018\ \{}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00020}00020\ \ \ \ \ \textcolor{keyword}{auto}\ world\ =\ \mbox{\hyperlink{class_lab_engine}{LabEngine}}::getInstance().world;}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00023}00023\ \ \ \ \ \textcolor{comment}{//\ init\ the\ physics\ side\ of\ things}}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00024}00024\ \ \ \ \ \textcolor{comment}{//\ Create\ a\ rigid\ body\ in\ the\ world}}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00025}00025\ \ \ \ \textcolor{comment}{//\ Vector3\ position(cubePosition.x,\ cubePosition.y,\ cubePosition.z);}}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00026}00026\ \ \ \ \ Vector3\ n\_position(position.x,\ position.y,\ position.z);}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00027}00027\ \ \ \ \ Quaternion\ orientation\ =\ Quaternion::identity();}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00028}00028\ \ \ \ \ Transform\ transform(n\_position,\ orientation);}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00030}00030\ \ \ \ \ rigidBody\ =\ world-\/>createRigidBody(transform);}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{comment}{//\ box\ collision\ shape}}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00032}00032\ \ \ \ \ \textcolor{comment}{//BoxShape*\ boxShape\ =\ physicsCommon.createBoxShape(Vector3(0.5,\ 0.5,\ 0.5));}}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00033}00033\ \ \ \ \ BoxShape*\ boxShape\ =\ LabEngine::getInstance().physicsCommon.createBoxShape(Vector3(0.5,\ 0.5,\ 0.5));}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00034}00034\ \ \ \ \ \textcolor{comment}{//BoxShape\ *\ boxShape\ =\ physicsCommon.createBoxShape(Vector3(0.25,\ 0.25,\ 0.25));}}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{comment}{//\ Relative\ transform}}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00037}00037\ \ \ \ \ Transform\ r\_transform\ =\ Transform::identity();}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00038}00038\ \ \ \ \ \textcolor{comment}{//\ Add\ the\ collider\ to\ the\ rigidbody}}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00039}00039\ \ \ \ \ Collider*\ collider;}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00040}00040\ \ \ \ \ collider\ =\ rigidBody-\/>addCollider(boxShape,\ r\_transform);}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00041}00041\ \}}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00044}00044\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classtest__cube}{test\_cube}}::Update(\textcolor{keywordtype}{float}\ deltaTime)}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00045}00045\ \{}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00046}00046\ \ \ \ \ \textcolor{comment}{//Gettheupdatedpositionofthebody}}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00047}00047\ \ \ \ \ \textcolor{keyword}{const}\ Transform\&\ transform\ =\ rigidBody-\/>getTransform();}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{keyword}{const}\ Vector3\&\ n\_position\ =\ transform.getPosition();}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00050}00050\ \ \ \ \ position.x\ =\ n\_position.x;}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00051}00051\ \ \ \ \ position.y\ =\ n\_position.y;}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00052}00052\ \ \ \ \ position.z\ =\ n\_position.z;}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00055}00055\ \ \ \ \ \textcolor{comment}{//\ attempting\ to\ get\ rotations\ working\ when\ collding\ with\ the\ terrain\ (include\ quats\ in\ our\ headers\ )}}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00056}00056\ \ \ \ \ \textcolor{keyword}{auto}\ quat\ =\ transform.getOrientation();}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00057}00057\ \ \ \ \ glm::quat\ boxQuat(quat.x,\ quat.y,\ quat.z,\ quat.w);}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00058}00058\ \ \ \ \ glm::mat3\ rotationMatrix\ =\ glm::mat3\_cast(boxQuat);}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00059}00059\ \ \ \ \ glm::mat4\ n\_rotationMatrix4x4(rotationMatrix);}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00060}00060\ \ \ \ \ rotationMatrix4x4\ =\ n\_rotationMatrix4x4;}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00062}00062\ \}}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00065}00065\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classtest__cube}{test\_cube}}::Render(\mbox{\hyperlink{class_shader}{Shader}}\&\ shader)}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00066}00066\ \{}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00067}00067\ \ \ \ \ \textcolor{comment}{//\ render\ the\ object\ and\ pass\ the\ shader?}}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00068}00068\ \ \ \ \ draw(shader);}
+\DoxyCodeLine{\Hypertarget{test__cube_8cpp_source_l00069}00069\ \}}
+
+\end{DoxyCode}

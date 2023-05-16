@@ -1,0 +1,130 @@
+\hypertarget{class_mesh}{}\doxysection{Mesh Class Reference}
+\label{class_mesh}\index{Mesh@{Mesh}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_mesh_aacc4599d1b3c0ad4c78a83d4fa94f9ac}{Mesh}} (std\+::vector$<$ \mbox{\hyperlink{struct_vertex}{Vertex}} $>$ vertices, std\+::vector$<$ unsigned int $>$ indices, std\+::vector$<$ \mbox{\hyperlink{structm___texture}{m\+\_\+\+Texture}} $>$ textures)
+\item 
+void \mbox{\hyperlink{class_mesh_ae5a32a9bc54c191d247638d09c050cbf}{Draw}} (\mbox{\hyperlink{class_shader}{Shader}} \&shader)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_vertex}{Vertex}} $>$ \mbox{\hyperlink{class_mesh_a6465a888c97232a39e12aad008c969c3}{vertices}}
+\item 
+std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{class_mesh_a26632e27b772f24b069a738e7983b9da}{indices}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structm___texture}{m\+\_\+\+Texture}} $>$ \mbox{\hyperlink{class_mesh_ad0169aedd6a42a6e2b62a5479748ffd9}{textures}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_mesh_8h_source_l00032}{32}} of file \mbox{\hyperlink{_mesh_8h_source}{Mesh.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_mesh_aacc4599d1b3c0ad4c78a83d4fa94f9ac}\label{class_mesh_aacc4599d1b3c0ad4c78a83d4fa94f9ac}} 
+\index{Mesh@{Mesh}!Mesh@{Mesh}}
+\index{Mesh@{Mesh}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{Mesh()}{Mesh()}}
+{\footnotesize\ttfamily Mesh\+::\+Mesh (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{struct_vertex}{Vertex}} $>$}]{vertices,  }\item[{std\+::vector$<$ unsigned int $>$}]{indices,  }\item[{std\+::vector$<$ \mbox{\hyperlink{structm___texture}{m\+\_\+\+Texture}} $>$}]{textures }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_mesh_8h_source_l00040}{40}} of file \mbox{\hyperlink{_mesh_8h_source}{Mesh.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00041\ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ this-\/>vertices\ =\ vertices;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ this-\/>indices\ =\ indices;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ this-\/>textures\ =\ textures;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ setupMesh();}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_mesh_ae5a32a9bc54c191d247638d09c050cbf}\label{class_mesh_ae5a32a9bc54c191d247638d09c050cbf}} 
+\index{Mesh@{Mesh}!Draw@{Draw}}
+\index{Draw@{Draw}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Mesh\+::\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_shader}{Shader}} \&}]{shader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_mesh_8h_source_l00050}{50}} of file \mbox{\hyperlink{_mesh_8h_source}{Mesh.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00051\ \ \ \ \ \{}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ diffuseNr\ =\ 1;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ specularNr\ =\ 1;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ textures.size();\ i++)}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ glActiveTexture(GL\_TEXTURE0\ +\ i);\ \textcolor{comment}{//\ activate\ proper\ texture\ unit\ before\ binding}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ retrieve\ texture\ number\ (the\ N\ in\ diffuse\_textureN)}}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ number;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ name\ =\ textures[i].type;}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (name\ ==\ \textcolor{stringliteral}{"{}texture\_diffuse"{}})}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ number\ =\ std::to\_string(diffuseNr++);}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (name\ ==\ \textcolor{stringliteral}{"{}texture\_specular"{}})}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ number\ =\ std::to\_string(specularNr++);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ shader.setInt((\textcolor{stringliteral}{"{}material."{}}\ +\ name\ +\ number).c\_str(),\ i);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ glBindTexture(GL\_TEXTURE\_2D,\ textures[i].\textcolor{keywordtype}{id});}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ glActiveTexture(GL\_TEXTURE0);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ draw\ mesh}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ glBindVertexArray(VAO);}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ glDrawElements(GL\_TRIANGLES,\ indices.size(),\ GL\_UNSIGNED\_INT,\ 0);}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ glBindVertexArray(0);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_mesh_a26632e27b772f24b069a738e7983b9da}\label{class_mesh_a26632e27b772f24b069a738e7983b9da}} 
+\index{Mesh@{Mesh}!indices@{indices}}
+\index{indices@{indices}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{indices}{indices}}
+{\footnotesize\ttfamily std\+::vector$<$unsigned int$>$ Mesh\+::indices}
+
+
+
+Definition at line \mbox{\hyperlink{_mesh_8h_source_l00037}{37}} of file \mbox{\hyperlink{_mesh_8h_source}{Mesh.\+h}}.
+
+\mbox{\Hypertarget{class_mesh_ad0169aedd6a42a6e2b62a5479748ffd9}\label{class_mesh_ad0169aedd6a42a6e2b62a5479748ffd9}} 
+\index{Mesh@{Mesh}!textures@{textures}}
+\index{textures@{textures}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{textures}{textures}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structm___texture}{m\+\_\+\+Texture}}$>$ Mesh\+::textures}
+
+
+
+Definition at line \mbox{\hyperlink{_mesh_8h_source_l00038}{38}} of file \mbox{\hyperlink{_mesh_8h_source}{Mesh.\+h}}.
+
+\mbox{\Hypertarget{class_mesh_a6465a888c97232a39e12aad008c969c3}\label{class_mesh_a6465a888c97232a39e12aad008c969c3}} 
+\index{Mesh@{Mesh}!vertices@{vertices}}
+\index{vertices@{vertices}!Mesh@{Mesh}}
+\doxysubsubsection{\texorpdfstring{vertices}{vertices}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{struct_vertex}{Vertex}}$>$ Mesh\+::vertices}
+
+
+
+Definition at line \mbox{\hyperlink{_mesh_8h_source_l00036}{36}} of file \mbox{\hyperlink{_mesh_8h_source}{Mesh.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/Mesh.\+h\end{DoxyCompactItemize}

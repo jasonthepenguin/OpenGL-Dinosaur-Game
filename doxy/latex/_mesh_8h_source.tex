@@ -1,0 +1,118 @@
+\hypertarget{_mesh_8h_source}{}\doxysection{Mesh.\+h}
+\label{_mesh_8h_source}\index{C:/Users/jason/source/repos/assignment\_1\_397/Lab\_4/Mesh.h@{C:/Users/jason/source/repos/assignment\_1\_397/Lab\_4/Mesh.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00001}00001\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{pragma}\ \textcolor{preprocessor}{once}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00003}00003\ \textcolor{comment}{//\ Soon\ replace\ with\ Graphics}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00004}00004\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{<}\textcolor{preprocessor}{glad}\textcolor{preprocessor}{/}\textcolor{preprocessor}{glad}\textcolor{preprocessor}{.}\textcolor{preprocessor}{h}\textcolor{preprocessor}{>}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00007}00007\ \textcolor{comment}{//\ Math}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00008}00008\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{<}\textcolor{preprocessor}{glm}\textcolor{preprocessor}{/}\textcolor{preprocessor}{glm}\textcolor{preprocessor}{.}\textcolor{preprocessor}{hpp}\textcolor{preprocessor}{>}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00009}00009\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{<}\textcolor{preprocessor}{glm}\textcolor{preprocessor}{/}\textcolor{preprocessor}{gtc}\textcolor{preprocessor}{/}\textcolor{preprocessor}{matrix\_transform}\textcolor{preprocessor}{.}\textcolor{preprocessor}{hpp}\textcolor{preprocessor}{>}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00010}00010\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{<}\textcolor{preprocessor}{glm}\textcolor{preprocessor}{/}\textcolor{preprocessor}{gtc}\textcolor{preprocessor}{/}\textcolor{preprocessor}{type\_ptr}\textcolor{preprocessor}{.}\textcolor{preprocessor}{hpp}\textcolor{preprocessor}{>}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00012}00012\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{<}\textcolor{preprocessor}{string}\textcolor{preprocessor}{>}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00013}00013\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \mbox{\hyperlink{_shader_8h}{"{}Shader.h"{}}}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00015}00015\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{<}\textcolor{preprocessor}{vector}\textcolor{preprocessor}{>}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00017}00017\ \textcolor{comment}{//\ vertex\ attributes\ for\ each\ vertex}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00018}00018\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_vertex}{Vertex}}\ \{}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00019}00019\ \ \ \ \ glm::vec3\ Position;}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00020}00020\ \ \ \ \ glm::vec3\ Normal;}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00021}00021\ \ \ \ \ glm::vec2\ TexCoords;}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00022}00022\ \};}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00024}00024\ \textcolor{comment}{//\ Store\ the\ ID\ of\ the\ texture\ and\ its\ type\ (\ eg\ diffuse\ or\ specular\ )}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00025}00025\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structm___texture}{m\_Texture}}\ \{}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00026}00026\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00027}00027\ \ \ \ \ std::string\ type;}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00028}00028\ \ \ \ \ std::string\ path;\ \ \textcolor{comment}{//\ we\ store\ the\ path\ of\ the\ texture\ to\ compare\ with\ other\ textures}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00029}00029\ \};}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00032}00032\ \textcolor{keyword}{class}\ \mbox{\hyperlink{class_mesh}{Mesh}}\ \{}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00034}00034\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00035}00035\ \ \ \ \ \textcolor{comment}{//\ Mesh\ data}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00036}00036\ \ \ \ \ std::vector<Vertex>\ vertices;}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00037}00037\ \ \ \ \ std::vector<\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}>\ indices;}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00038}00038\ \ \ \ \ std::vector<m\_Texture>\ textures;}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00040}00040\ \ \ \ \ Mesh(std::vector<Vertex>\ vertices,\ std::vector<\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}>\ indices,\ std::vector<m\_Texture>\ textures)}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00041}00041\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{keyword}{this}-\/>vertices\ =\ vertices;}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keyword}{this}-\/>indices\ =\ indices;}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keyword}{this}-\/>textures\ =\ textures;}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00046}00046\ \ \ \ \ \ \ \ \ setupMesh();}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00047}00047\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00050}00050\ \ \ \ \ \textcolor{keywordtype}{void}\ Draw(\mbox{\hyperlink{class_shader}{Shader}}\&\ shader)}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00051}00051\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ diffuseNr\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ specularNr\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ textures.size();\ i++)}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00056}00056\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ glActiveTexture(GL\_TEXTURE0\ +\ i);\ \textcolor{comment}{//\ activate\ proper\ texture\ unit\ before\ binding}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ retrieve\ texture\ number\ (the\ N\ in\ diffuse\_textureN)}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ number;}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ name\ =\ textures[i].type;}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (name\ ==\ \textcolor{stringliteral}{"{}texture\_diffuse"{}})}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ number\ =\ std::to\_string(diffuseNr++);}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (name\ ==\ \textcolor{stringliteral}{"{}texture\_specular"{}})}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ number\ =\ std::to\_string(specularNr++);}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ shader.setInt((\textcolor{stringliteral}{"{}material."{}}\ +\ name\ +\ number).c\_str(),\ i);}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ glBindTexture(GL\_TEXTURE\_2D,\ textures[i].id);}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00068}00068\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00069}00069\ \ \ \ \ \ \ \ \ glActiveTexture(GL\_TEXTURE0);}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ draw\ mesh}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00072}00072\ \ \ \ \ \ \ \ \ glBindVertexArray(VAO);}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00073}00073\ \ \ \ \ \ \ \ \ glDrawElements(GL\_TRIANGLES,\ indices.size(),\ GL\_UNSIGNED\_INT,\ 0);}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00074}00074\ \ \ \ \ \ \ \ \ glBindVertexArray(0);}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00076}00076\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00079}00079\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00080}00080\ \ \ \ \ \textcolor{comment}{//\ render\ data}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00081}00081\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ VAO,\ VBO,\ EBO;}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00083}00083\ \ \ \ \ \textcolor{keywordtype}{void}\ setupMesh()}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00084}00084\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00085}00085\ \ \ \ \ \ \ \ \ glGenVertexArrays(1,\ \&VAO);}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00086}00086\ \ \ \ \ \ \ \ \ glGenBuffers(1,\ \&VBO);}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00087}00087\ \ \ \ \ \ \ \ \ glGenBuffers(1,\ \&EBO);}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00089}00089\ \ \ \ \ \ \ \ \ glBindVertexArray(VAO);}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00090}00090\ \ \ \ \ \ \ \ \ glBindBuffer(GL\_ARRAY\_BUFFER,\ VBO);}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00092}00092\ \ \ \ \ \ \ \ \ glBufferData(GL\_ARRAY\_BUFFER,\ vertices.size()\ *\ \textcolor{keyword}{sizeof}(Vertex),\ \&vertices[0],\ GL\_STATIC\_DRAW);}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00094}00094\ \ \ \ \ \ \ \ \ glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER,\ EBO);}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00095}00095\ \ \ \ \ \ \ \ \ glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER,\ indices.size()\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}),}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \&indices[0],\ GL\_STATIC\_DRAW);}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00098}00098\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ vertex\ positions}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00099}00099\ \ \ \ \ \ \ \ \ glEnableVertexAttribArray(0);}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00100}00100\ \ \ \ \ \ \ \ \ glVertexAttribPointer(0,\ 3,\ GL\_FLOAT,\ GL\_FALSE,\ \textcolor{keyword}{sizeof}(Vertex),\ (\textcolor{keywordtype}{void}*)0);}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ vertex\ normals}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00102}00102\ \ \ \ \ \ \ \ \ glEnableVertexAttribArray(1);}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00103}00103\ \ \ \ \ \ \ \ \ glVertexAttribPointer(1,\ 3,\ GL\_FLOAT,\ GL\_FALSE,\ \textcolor{keyword}{sizeof}(Vertex),\ (\textcolor{keywordtype}{void}*)offsetof(Vertex,\ Normal));}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00104}00104\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ vertex\ texture\ coords}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00105}00105\ \ \ \ \ \ \ \ \ glEnableVertexAttribArray(2);}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00106}00106\ \ \ \ \ \ \ \ \ glVertexAttribPointer(2,\ 2,\ GL\_FLOAT,\ GL\_FALSE,\ \textcolor{keyword}{sizeof}(Vertex),\ (\textcolor{keywordtype}{void}*)offsetof(Vertex,\ TexCoords));}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00108}00108\ \ \ \ \ \ \ \ \ glBindVertexArray(0);}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00109}00109\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00112}00112\ \};}
+
+\end{DoxyCode}

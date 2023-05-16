@@ -1,0 +1,180 @@
+\hypertarget{class_n_p_c}{}\doxysection{NPC Class Reference}
+\label{class_n_p_c}\index{NPC@{NPC}}
+
+
+Inheritance diagram for NPC\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=151pt]{class_n_p_c__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for NPC\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{class_n_p_c__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_n_p_c_a682d0fd9d41661e57896945b1ec56182}{Update}} (float delta\+Time) override
+\item 
+void \mbox{\hyperlink{class_n_p_c_a3a0eb9651eb530c9522fcba740e0cb90}{Render}} (\mbox{\hyperlink{class_shader}{Shader}} \&shader) override
+\item 
+void \mbox{\hyperlink{class_n_p_c_ace12ed25fec40e1337483286818dca1b}{Init}} () override
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_game_object_a44739a8b5e507580ee3100df039ab8e6}\label{class_game_object_a44739a8b5e507580ee3100df039ab8e6}} 
+virtual void {\bfseries Update} (float delta\+Time)=0
+\item 
+\mbox{\Hypertarget{class_game_object_a05f3cdd5a312b134640913077839e396}\label{class_game_object_a05f3cdd5a312b134640913077839e396}} 
+virtual void {\bfseries Render} (\mbox{\hyperlink{class_shader}{Shader}} \&shader)=0
+\item 
+\mbox{\Hypertarget{class_game_object_ab3b70fcc4e640ba2081508b1efb35536}\label{class_game_object_ab3b70fcc4e640ba2081508b1efb35536}} 
+virtual void {\bfseries Init} ()=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{class_n_p_c_ab050a33721bc4ceeec64bb003eef5a13}{filepath}} = \char`\"{}null\char`\"{}
+\item 
+\mbox{\hyperlink{class_model}{Model}} $\ast$ \mbox{\hyperlink{class_n_p_c_a7c435c7fe772c81f22ba7a135d66ab6f}{our\+Model}} = nullptr
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_game_object_a16e2e8c2546d7bf920bbe2e288acb278}{position}}
+\item 
+glm\+::mat4 \mbox{\hyperlink{class_game_object_a552da7cf868f6ffe8d67cf2117a8b822}{rotation}}
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_game_object_aef09a2918426012bbb70a72ce4909361}{size}}
+\item 
+\mbox{\hyperlink{class_shader}{Shader}} $\ast$ \mbox{\hyperlink{class_game_object_a1cf4da1f44a516660c6c1dde3943173e}{shared\+Shader}}
+\item 
+std\+::string \mbox{\hyperlink{class_game_object_af542b33c8de269343e22c5629e6b66c0}{name}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_n_p_c_8h_source_l00015}{15}} of file \mbox{\hyperlink{_n_p_c_8h_source}{NPC.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_n_p_c_ace12ed25fec40e1337483286818dca1b}\label{class_n_p_c_ace12ed25fec40e1337483286818dca1b}} 
+\index{NPC@{NPC}!Init@{Init}}
+\index{Init@{Init}!NPC@{NPC}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void NPC\+::\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_game_object}{Game\+Object}}.
+
+
+
+Definition at line \mbox{\hyperlink{_n_p_c_8cpp_source_l00028}{28}} of file \mbox{\hyperlink{_n_p_c_8cpp_source}{NPC.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (filepath\ !=\ \textcolor{stringliteral}{"{}null"{}})\ \textcolor{comment}{//\ set\ the\ filepath\ first\ before\ calling\ Init(),\ guessing\ Lua\ will\ load\ this\ in}}
+\DoxyCodeLine{00031\ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ ourModel\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_model}{Model}}(filepath);}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_n_p_c_a3a0eb9651eb530c9522fcba740e0cb90}\label{class_n_p_c_a3a0eb9651eb530c9522fcba740e0cb90}} 
+\index{NPC@{NPC}!Render@{Render}}
+\index{Render@{Render}!NPC@{NPC}}
+\doxysubsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily void NPC\+::\+Render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_shader}{Shader}} \&}]{shader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_game_object}{Game\+Object}}.
+
+
+
+Definition at line \mbox{\hyperlink{_n_p_c_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{_n_p_c_8cpp_source}{NPC.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ glm::mat4\ model\ =\ glm::mat4(1.0f);}
+\DoxyCodeLine{00016\ \ \ \ \ glm::vec3\ modelPos\ =\ position;}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{comment}{//smileyBox.cubePosition\ =\ glm::vec3(startX\ *\ simpleTerrain-\/>scaleX,\ startY\ +\ 1.0,\ startZ\ *\ simpleTerrain-\/>scaleZ\ -\/\ 5.0f);\ //\ using\ this\ to\ show\ the\ middle\ of\ the\ terrain\ roughly}}
+\DoxyCodeLine{00018\ \ \ \ \ model\ =\ glm::translate(model,\ modelPos);\ \textcolor{comment}{//\ translate\ it\ down\ so\ it's\ at\ the\ center\ of\ the\ scene}}
+\DoxyCodeLine{00019\ \ \ \ \ model\ =\ glm::scale(model,\ size);\ \ \ \ \textcolor{comment}{//\ it's\ a\ bit\ too\ big\ for\ our\ scene,\ so\ scale\ it\ down}}
+\DoxyCodeLine{00020\ \ \ \ \ ourShader.setMat4(\textcolor{stringliteral}{"{}model"{}},\ model);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ draw\ the\ 3d\ model}}
+\DoxyCodeLine{00024\ \ \ \ \ ourModel-\/>Draw(ourShader);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_n_p_c_a682d0fd9d41661e57896945b1ec56182}\label{class_n_p_c_a682d0fd9d41661e57896945b1ec56182}} 
+\index{NPC@{NPC}!Update@{Update}}
+\index{Update@{Update}!NPC@{NPC}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void NPC\+::\+Update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_game_object}{Game\+Object}}.
+
+
+
+Definition at line \mbox{\hyperlink{_n_p_c_8cpp_source_l00006}{6}} of file \mbox{\hyperlink{_n_p_c_8cpp_source}{NPC.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{comment}{//\ update\ physics\ }}
+\DoxyCodeLine{00009\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_n_p_c_ab050a33721bc4ceeec64bb003eef5a13}\label{class_n_p_c_ab050a33721bc4ceeec64bb003eef5a13}} 
+\index{NPC@{NPC}!filepath@{filepath}}
+\index{filepath@{filepath}!NPC@{NPC}}
+\doxysubsubsection{\texorpdfstring{filepath}{filepath}}
+{\footnotesize\ttfamily std\+::string NPC\+::filepath = \char`\"{}null\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{_n_p_c_8h_source_l00022}{22}} of file \mbox{\hyperlink{_n_p_c_8h_source}{NPC.\+h}}.
+
+\mbox{\Hypertarget{class_n_p_c_a7c435c7fe772c81f22ba7a135d66ab6f}\label{class_n_p_c_a7c435c7fe772c81f22ba7a135d66ab6f}} 
+\index{NPC@{NPC}!ourModel@{ourModel}}
+\index{ourModel@{ourModel}!NPC@{NPC}}
+\doxysubsubsection{\texorpdfstring{ourModel}{ourModel}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_model}{Model}}$\ast$ NPC\+::our\+Model = nullptr}
+
+
+
+Definition at line \mbox{\hyperlink{_n_p_c_8h_source_l00023}{23}} of file \mbox{\hyperlink{_n_p_c_8h_source}{NPC.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/NPC.\+h\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/NPC.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,440 @@
+\hypertarget{classtest__cube}{}\doxysection{test\+\_\+cube Class Reference}
+\label{classtest__cube}\index{test\_cube@{test\_cube}}
+
+
+Inheritance diagram for test\+\_\+cube\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=151pt]{classtest__cube__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for test\+\_\+cube\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{classtest__cube__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classtest__cube_a09ae333f8d2f5ac8e21ee966545920c2}{Update}} (float delta\+Time) override
+\item 
+void \mbox{\hyperlink{classtest__cube_ac046eeb2b27a0727ccca98d315616bd1}{Render}} (\mbox{\hyperlink{class_shader}{Shader}} \&shader) override
+\item 
+void \mbox{\hyperlink{classtest__cube_a33d4ae23da01f27df36cf153a89dfbf2}{Init}} () override
+\item 
+void \mbox{\hyperlink{classtest__cube_a7bbc0bfbf78adb40e74423b6fd5dc6b0}{init\+Physics}} ()
+\item 
+void \mbox{\hyperlink{classtest__cube_a0cf06cc2fec8807ec8b741af02add33f}{init}} ()
+\item 
+void \mbox{\hyperlink{classtest__cube_a607f6ad5a1415b6d4b772f0c1332f92c}{draw}} (\mbox{\hyperlink{class_shader}{Shader}} \&our\+Shader)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_game_object_a44739a8b5e507580ee3100df039ab8e6}\label{class_game_object_a44739a8b5e507580ee3100df039ab8e6}} 
+virtual void {\bfseries Update} (float delta\+Time)=0
+\item 
+\mbox{\Hypertarget{class_game_object_a05f3cdd5a312b134640913077839e396}\label{class_game_object_a05f3cdd5a312b134640913077839e396}} 
+virtual void {\bfseries Render} (\mbox{\hyperlink{class_shader}{Shader}} \&shader)=0
+\item 
+\mbox{\Hypertarget{class_game_object_ab3b70fcc4e640ba2081508b1efb35536}\label{class_game_object_ab3b70fcc4e640ba2081508b1efb35536}} 
+virtual void {\bfseries Init} ()=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{classtest__cube_aff8086aae929a35dafe285df7a8c66fa}{VBO}}
+\item 
+unsigned int \mbox{\hyperlink{classtest__cube_a94b6d3fe07b3da9b971a25604dfd275d}{VAO}}
+\item 
+unsigned int \mbox{\hyperlink{classtest__cube_af0bdd8d6c2870f2e1837e06f9fd1cab0}{EBO}}
+\item 
+glm\+::mat4 \mbox{\hyperlink{classtest__cube_a3a21dd37969ab859ac43554945b64c93}{rotation\+Matrix4x4}}
+\item 
+Rigid\+Body $\ast$ \mbox{\hyperlink{classtest__cube_a11471c27c33b8570a939112a7d8d8671}{rigid\+Body}}
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_texture}{Texture}} $>$ $>$ \mbox{\hyperlink{classtest__cube_aa67be7793be18c5083ca79e76777cb6f}{box\+Textures}}
+\item 
+float \mbox{\hyperlink{classtest__cube_ae7a5710e7669f86083265073ee0035ae}{vertices}} \mbox{[}288\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_game_object_a16e2e8c2546d7bf920bbe2e288acb278}{position}}
+\item 
+glm\+::mat4 \mbox{\hyperlink{class_game_object_a552da7cf868f6ffe8d67cf2117a8b822}{rotation}}
+\item 
+glm\+::vec3 \mbox{\hyperlink{class_game_object_aef09a2918426012bbb70a72ce4909361}{size}}
+\item 
+\mbox{\hyperlink{class_shader}{Shader}} $\ast$ \mbox{\hyperlink{class_game_object_a1cf4da1f44a516660c6c1dde3943173e}{shared\+Shader}}
+\item 
+std\+::string \mbox{\hyperlink{class_game_object_af542b33c8de269343e22c5629e6b66c0}{name}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{test__cube_8h_source_l00033}{33}} of file \mbox{\hyperlink{test__cube_8h_source}{test\+\_\+cube.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtest__cube_a0a98d555c90e50f5a79518c0badd4655}\label{classtest__cube_a0a98d555c90e50f5a79518c0badd4655}} 
+\index{test\_cube@{test\_cube}!test\_cube@{test\_cube}}
+\index{test\_cube@{test\_cube}!test\_cube@{test\_cube}}
+\doxysubsubsection{\texorpdfstring{test\_cube()}{test\_cube()}}
+{\footnotesize\ttfamily test\+\_\+cube\+::test\+\_\+cube (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{test__cube_8h_source_l00201}{201}} of file \mbox{\hyperlink{test__cube_8h_source}{test\+\_\+cube.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ glGenVertexArrays(1,\ \&VAO);}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ glGenBuffers(1,\ \&VBO);}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ glGenBuffers(1,\ \&EBO);}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ bind\ the\ Vertex\ Array\ Object\ first,\ then\ bind\ and\ set\ vertex\ buffer(s),\ and\ then\ configure\ vertex\ attributes(s).}}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ glBindVertexArray(VAO);}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ glBindBuffer(GL\_ARRAY\_BUFFER,\ VBO);}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ glBufferData(GL\_ARRAY\_BUFFER,\ \textcolor{keyword}{sizeof}(vertices),\ vertices,\ GL\_STATIC\_DRAW);}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \textcolor{comment}{//glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER,\ EBO);}}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \textcolor{comment}{//glBufferData(GL\_ELEMENT\_ARRAY\_BUFFER,\ sizeof(indices),\ indices,\ GL\_STATIC\_DRAW);}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ position\ attribute}}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ glVertexAttribPointer(0,\ 3,\ GL\_FLOAT,\ GL\_FALSE,\ 8\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}),\ (\textcolor{keywordtype}{void}*)0);}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ glEnableVertexAttribArray(0);}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ normals}}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ glVertexAttribPointer(1,\ 3,\ GL\_FLOAT,\ GL\_FALSE,\ 8\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}),\ (\textcolor{keywordtype}{void}*)(3\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float})));}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ glEnableVertexAttribArray(1);}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ texture\ coords}}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ glVertexAttribPointer(2,\ 2,\ GL\_FLOAT,\ GL\_FALSE,\ 8\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}),\ (\textcolor{keywordtype}{void}*)(6\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float})));}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ glEnableVertexAttribArray(2);}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ note\ that\ this\ is\ allowed,\ the\ call\ to\ glVertexAttribPointer\ registered\ VBO\ as\ the\ vertex\ attribute's\ bound\ vertex\ buffer\ object\ so\ afterwards\ we\ can\ safely\ unbind}}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ glBindBuffer(GL\_ARRAY\_BUFFER,\ 0);}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ remember:\ do\ NOT\ unbind\ the\ EBO\ while\ a\ VAO\ is\ active\ as\ the\ bound\ element\ buffer\ object\ IS\ stored\ in\ the\ VAO;\ keep\ the\ EBO\ bound.}}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \textcolor{comment}{//glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER,\ 0);}}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ You\ can\ unbind\ the\ VAO\ afterwards\ so\ other\ VAO\ calls\ won't\ accidentally\ modify\ this\ VAO,\ but\ this\ rarely\ happens.\ Modifying\ other}}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ VAOs\ requires\ a\ call\ to\ glBindVertexArray\ anyways\ so\ we\ generally\ don't\ unbind\ VAOs\ (nor\ VBOs)\ when\ it's\ not\ directly\ necessary.}}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ glBindVertexArray(0);}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtest__cube_a607f6ad5a1415b6d4b772f0c1332f92c}\label{classtest__cube_a607f6ad5a1415b6d4b772f0c1332f92c}} 
+\index{test\_cube@{test\_cube}!draw@{draw}}
+\index{draw@{draw}!test\_cube@{test\_cube}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void test\+\_\+cube\+::draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_shader}{Shader}} \&}]{our\+Shader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{test__cube_8h_source_l00157}{157}} of file \mbox{\hyperlink{test__cube_8h_source}{test\+\_\+cube.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00158\ \ \ \ \ \{}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ ourShader.use();}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ potentially\ set\ values\ to\ the\ shader\ here\ if\ you\ need\ to\ ,\ eg\ \ "{}ourShader.setFloat("{}material.shininess"{},\ 32.0f);"{}}}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ glm::mat4\ model\ =\ glm::mat4(1.0f);}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ drawing\ the\ test\ box}}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ glBindVertexArray(VAO);}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ binding\ the\ texuture}}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ boxTextures.size();\ i++)\ \{}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ boxTextures[i]-\/>bindTexture(i);}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{comment}{//glm::mat4\ model\ =\ glm::mat4(1.0f);}}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{comment}{//model\ =\ glm::translate(model,\ cubePosition);}}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ model\ =\ glm::translate(model,\ position);}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{comment}{//float\ angle\ =\ 20.0f;}}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{comment}{//model\ =\ glm::rotate(model,\ glm::radians(angle),\ glm::vec3(1.0f,\ 0.0f,\ 0.0f));}}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ model\ =\ model\ *\ rotationMatrix4x4;\ \textcolor{comment}{//\ apply\ the\ rotation\ calculated\ from\ the\ physics\ engine}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ ourShader.setMat4(\textcolor{stringliteral}{"{}model"{}},\ model);}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ glDrawArrays(GL\_TRIANGLES,\ 0,\ 36);}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{comment}{//containerTexture-\/>unbind();}}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \textcolor{comment}{//faceTexture-\/>unbind();}}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{comment}{//container2-\/>unbind();}}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ boxTextures.size();\ i++)\ \{}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ boxTextures[i]-\/>unbind();}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ glBindVertexArray(0);}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtest__cube_a0cf06cc2fec8807ec8b741af02add33f}\label{classtest__cube_a0cf06cc2fec8807ec8b741af02add33f}} 
+\index{test\_cube@{test\_cube}!init@{init}}
+\index{init@{init}!test\_cube@{test\_cube}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void test\+\_\+cube\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{test__cube_8h_source_l00130}{130}} of file \mbox{\hyperlink{test__cube_8h_source}{test\+\_\+cube.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00131\ \ \ \ \ \{}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_texture_factory}{TextureFactory}}\ textFact;\ \textcolor{comment}{//\ temporarily\ placing\ this\ here.}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ std::shared\_ptr<Texture>\ container2\ =\ textFact.createTexture(\textcolor{stringliteral}{"{}container2.png"{}});}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ container2-\/>load();}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ boxTextures.push\_back(container2);}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ std::shared\_ptr<Texture>\ container2\_specular\ =\ textFact.createTexture(\textcolor{stringliteral}{"{}container2\_specular.png"{}});}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ container2\_specular-\/>load();}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ boxTextures.push\_back(container2\_specular);}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{comment}{//ourShader.use();\ //\ below\ we\ are\ telling\ OpenGL\ which\ texture\ unit\ each\ shader\ sampler\ belongs\ to\ }}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{comment}{//ourShader.setInt("{}texture1"{},\ 0);}}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{comment}{//ourShader.setInt("{}texture2"{},\ 1);\ //\ or\ with\ the\ shader\ class}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtest__cube_a33d4ae23da01f27df36cf153a89dfbf2}\label{classtest__cube_a33d4ae23da01f27df36cf153a89dfbf2}} 
+\index{test\_cube@{test\_cube}!Init@{Init}}
+\index{Init@{Init}!test\_cube@{test\_cube}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void test\+\_\+cube\+::\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_game_object}{Game\+Object}}.
+
+
+
+Definition at line \mbox{\hyperlink{test__cube_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{test__cube_8cpp_source}{test\+\_\+cube.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \ }
+\DoxyCodeLine{00010\ \ \ \ \ }
+\DoxyCodeLine{00011\ \ \ \ \ initPhysics();\ \textcolor{comment}{//\ init\ the\ physics\ }}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ init();\ \textcolor{comment}{//\ init\ the\ graphics/vertices\ side\ of\ things}}
+\DoxyCodeLine{00014\ \ \ \ \ }
+\DoxyCodeLine{00015\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtest__cube_a7bbc0bfbf78adb40e74423b6fd5dc6b0}\label{classtest__cube_a7bbc0bfbf78adb40e74423b6fd5dc6b0}} 
+\index{test\_cube@{test\_cube}!initPhysics@{initPhysics}}
+\index{initPhysics@{initPhysics}!test\_cube@{test\_cube}}
+\doxysubsubsection{\texorpdfstring{initPhysics()}{initPhysics()}}
+{\footnotesize\ttfamily void test\+\_\+cube\+::init\+Physics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{test__cube_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{test__cube_8cpp_source}{test\+\_\+cube.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{auto}\ world\ =\ LabEngine::getInstance().\mbox{\hyperlink{class_lab_engine_a4e301e032612ac6e4e2ccb00a0774e1c}{world}};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ init\ the\ physics\ side\ of\ things}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//\ Create\ a\ rigid\ body\ in\ the\ world}}
+\DoxyCodeLine{00025\ \ \ \ \textcolor{comment}{//\ Vector3\ position(cubePosition.x,\ cubePosition.y,\ cubePosition.z);}}
+\DoxyCodeLine{00026\ \ \ \ \ Vector3\ n\_position(position.x,\ position.y,\ position.z);}
+\DoxyCodeLine{00027\ \ \ \ \ Quaternion\ orientation\ =\ Quaternion::identity();}
+\DoxyCodeLine{00028\ \ \ \ \ Transform\ transform(n\_position,\ orientation);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ rigidBody\ =\ world-\/>createRigidBody(transform);}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{comment}{//\ box\ collision\ shape}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//BoxShape*\ boxShape\ =\ physicsCommon.createBoxShape(Vector3(0.5,\ 0.5,\ 0.5));}}
+\DoxyCodeLine{00033\ \ \ \ \ BoxShape*\ boxShape\ =\ LabEngine::getInstance().\mbox{\hyperlink{class_lab_engine_a4342942371b8d4ae002beebab9a3aaa9}{physicsCommon}}.createBoxShape(Vector3(0.5,\ 0.5,\ 0.5));}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{//BoxShape\ *\ boxShape\ =\ physicsCommon.createBoxShape(Vector3(0.25,\ 0.25,\ 0.25));}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{//\ Relative\ transform}}
+\DoxyCodeLine{00037\ \ \ \ \ Transform\ r\_transform\ =\ Transform::identity();}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{comment}{//\ Add\ the\ collider\ to\ the\ rigidbody}}
+\DoxyCodeLine{00039\ \ \ \ \ Collider*\ collider;}
+\DoxyCodeLine{00040\ \ \ \ \ collider\ =\ rigidBody-\/>addCollider(boxShape,\ r\_transform);}
+\DoxyCodeLine{00041\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtest__cube_ac046eeb2b27a0727ccca98d315616bd1}\label{classtest__cube_ac046eeb2b27a0727ccca98d315616bd1}} 
+\index{test\_cube@{test\_cube}!Render@{Render}}
+\index{Render@{Render}!test\_cube@{test\_cube}}
+\doxysubsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily void test\+\_\+cube\+::\+Render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_shader}{Shader}} \&}]{shader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_game_object}{Game\+Object}}.
+
+
+
+Definition at line \mbox{\hyperlink{test__cube_8cpp_source_l00065}{65}} of file \mbox{\hyperlink{test__cube_8cpp_source}{test\+\_\+cube.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00066\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{//\ render\ the\ object\ and\ pass\ the\ shader?}}
+\DoxyCodeLine{00068\ \ \ \ \ draw(shader);}
+\DoxyCodeLine{00069\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtest__cube_a09ae333f8d2f5ac8e21ee966545920c2}\label{classtest__cube_a09ae333f8d2f5ac8e21ee966545920c2}} 
+\index{test\_cube@{test\_cube}!Update@{Update}}
+\index{Update@{Update}!test\_cube@{test\_cube}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void test\+\_\+cube\+::\+Update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_game_object}{Game\+Object}}.
+
+
+
+Definition at line \mbox{\hyperlink{test__cube_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{test__cube_8cpp_source}{test\+\_\+cube.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{comment}{//Gettheupdatedpositionofthebody}}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{const}\ Transform\&\ transform\ =\ rigidBody-\/>getTransform();}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{const}\ Vector3\&\ n\_position\ =\ transform.getPosition();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ position.x\ =\ n\_position.x;}
+\DoxyCodeLine{00051\ \ \ \ \ position.y\ =\ n\_position.y;}
+\DoxyCodeLine{00052\ \ \ \ \ position.z\ =\ n\_position.z;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{comment}{//\ attempting\ to\ get\ rotations\ working\ when\ collding\ with\ the\ terrain\ (include\ quats\ in\ our\ headers\ )}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{auto}\ quat\ =\ transform.getOrientation();}
+\DoxyCodeLine{00057\ \ \ \ \ glm::quat\ boxQuat(quat.x,\ quat.y,\ quat.z,\ quat.w);}
+\DoxyCodeLine{00058\ \ \ \ \ glm::mat3\ rotationMatrix\ =\ glm::mat3\_cast(boxQuat);}
+\DoxyCodeLine{00059\ \ \ \ \ glm::mat4\ n\_rotationMatrix4x4(rotationMatrix);}
+\DoxyCodeLine{00060\ \ \ \ \ rotationMatrix4x4\ =\ n\_rotationMatrix4x4;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classtest__cube_aa67be7793be18c5083ca79e76777cb6f}\label{classtest__cube_aa67be7793be18c5083ca79e76777cb6f}} 
+\index{test\_cube@{test\_cube}!boxTextures@{boxTextures}}
+\index{boxTextures@{boxTextures}!test\_cube@{test\_cube}}
+\doxysubsubsection{\texorpdfstring{boxTextures}{boxTextures}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_texture}{Texture}}$>$ $>$ test\+\_\+cube\+::box\+Textures}
+
+
+
+Definition at line \mbox{\hyperlink{test__cube_8h_source_l00073}{73}} of file \mbox{\hyperlink{test__cube_8h_source}{test\+\_\+cube.\+h}}.
+
+\mbox{\Hypertarget{classtest__cube_af0bdd8d6c2870f2e1837e06f9fd1cab0}\label{classtest__cube_af0bdd8d6c2870f2e1837e06f9fd1cab0}} 
+\index{test\_cube@{test\_cube}!EBO@{EBO}}
+\index{EBO@{EBO}!test\_cube@{test\_cube}}
+\doxysubsubsection{\texorpdfstring{EBO}{EBO}}
+{\footnotesize\ttfamily unsigned int test\+\_\+cube\+::\+EBO}
+
+
+
+Definition at line \mbox{\hyperlink{test__cube_8h_source_l00038}{38}} of file \mbox{\hyperlink{test__cube_8h_source}{test\+\_\+cube.\+h}}.
+
+\mbox{\Hypertarget{classtest__cube_a11471c27c33b8570a939112a7d8d8671}\label{classtest__cube_a11471c27c33b8570a939112a7d8d8671}} 
+\index{test\_cube@{test\_cube}!rigidBody@{rigidBody}}
+\index{rigidBody@{rigidBody}!test\_cube@{test\_cube}}
+\doxysubsubsection{\texorpdfstring{rigidBody}{rigidBody}}
+{\footnotesize\ttfamily Rigid\+Body$\ast$ test\+\_\+cube\+::rigid\+Body}
+
+
+
+Definition at line \mbox{\hyperlink{test__cube_8h_source_l00050}{50}} of file \mbox{\hyperlink{test__cube_8h_source}{test\+\_\+cube.\+h}}.
+
+\mbox{\Hypertarget{classtest__cube_a3a21dd37969ab859ac43554945b64c93}\label{classtest__cube_a3a21dd37969ab859ac43554945b64c93}} 
+\index{test\_cube@{test\_cube}!rotationMatrix4x4@{rotationMatrix4x4}}
+\index{rotationMatrix4x4@{rotationMatrix4x4}!test\_cube@{test\_cube}}
+\doxysubsubsection{\texorpdfstring{rotationMatrix4x4}{rotationMatrix4x4}}
+{\footnotesize\ttfamily glm\+::mat4 test\+\_\+cube\+::rotation\+Matrix4x4}
+
+
+
+Definition at line \mbox{\hyperlink{test__cube_8h_source_l00041}{41}} of file \mbox{\hyperlink{test__cube_8h_source}{test\+\_\+cube.\+h}}.
+
+\mbox{\Hypertarget{classtest__cube_a94b6d3fe07b3da9b971a25604dfd275d}\label{classtest__cube_a94b6d3fe07b3da9b971a25604dfd275d}} 
+\index{test\_cube@{test\_cube}!VAO@{VAO}}
+\index{VAO@{VAO}!test\_cube@{test\_cube}}
+\doxysubsubsection{\texorpdfstring{VAO}{VAO}}
+{\footnotesize\ttfamily unsigned int test\+\_\+cube\+::\+VAO}
+
+
+
+Definition at line \mbox{\hyperlink{test__cube_8h_source_l00038}{38}} of file \mbox{\hyperlink{test__cube_8h_source}{test\+\_\+cube.\+h}}.
+
+\mbox{\Hypertarget{classtest__cube_aff8086aae929a35dafe285df7a8c66fa}\label{classtest__cube_aff8086aae929a35dafe285df7a8c66fa}} 
+\index{test\_cube@{test\_cube}!VBO@{VBO}}
+\index{VBO@{VBO}!test\_cube@{test\_cube}}
+\doxysubsubsection{\texorpdfstring{VBO}{VBO}}
+{\footnotesize\ttfamily unsigned int test\+\_\+cube\+::\+VBO}
+
+
+
+Definition at line \mbox{\hyperlink{test__cube_8h_source_l00038}{38}} of file \mbox{\hyperlink{test__cube_8h_source}{test\+\_\+cube.\+h}}.
+
+\mbox{\Hypertarget{classtest__cube_ae7a5710e7669f86083265073ee0035ae}\label{classtest__cube_ae7a5710e7669f86083265073ee0035ae}} 
+\index{test\_cube@{test\_cube}!vertices@{vertices}}
+\index{vertices@{vertices}!test\_cube@{test\_cube}}
+\doxysubsubsection{\texorpdfstring{vertices}{vertices}}
+{\footnotesize\ttfamily float test\+\_\+cube\+::vertices\mbox{[}288\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{test__cube_8h_source_l00077}{77}} of file \mbox{\hyperlink{test__cube_8h_source}{test\+\_\+cube.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/test\+\_\+cube.\+h\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/test\+\_\+cube.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,120 @@
+\hypertarget{struct_im_gui_list_clipper_range}{}\doxysection{Im\+Gui\+List\+Clipper\+Range Struct Reference}
+\label{struct_im_gui_list_clipper_range}\index{ImGuiListClipperRange@{ImGuiListClipperRange}}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{struct_im_gui_list_clipper_range}{Im\+Gui\+List\+Clipper\+Range}} \mbox{\hyperlink{struct_im_gui_list_clipper_range_ae04d9b8993b4fafcbf416fbaeed316b1}{From\+Indices}} (int min, int max)
+\item 
+static \mbox{\hyperlink{struct_im_gui_list_clipper_range}{Im\+Gui\+List\+Clipper\+Range}} \mbox{\hyperlink{struct_im_gui_list_clipper_range_a3aa356015543dd8c9096e412390aacf0}{From\+Positions}} (float y1, float y2, int off\+\_\+min, int off\+\_\+max)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{struct_im_gui_list_clipper_range_a5d0f961e00fadc1aa57fb72c197e6bf4}{Min}}
+\item 
+int \mbox{\hyperlink{struct_im_gui_list_clipper_range_a4086dae7cf99d5fba97956acc3a2263b}{Max}}
+\item 
+bool \mbox{\hyperlink{struct_im_gui_list_clipper_range_ad78789e655a72bcf19d33a77c09dfe6d}{Pos\+To\+Index\+Convert}}
+\item 
+Im\+S8 \mbox{\hyperlink{struct_im_gui_list_clipper_range_a7ea08ac3ce07bf99b1579ef29d911dba}{Pos\+To\+Index\+Offset\+Min}}
+\item 
+Im\+S8 \mbox{\hyperlink{struct_im_gui_list_clipper_range_a263e4c13cf54c0f5c402af04f3e84a30}{Pos\+To\+Index\+Offset\+Max}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01397}{1397}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_im_gui_list_clipper_range_ae04d9b8993b4fafcbf416fbaeed316b1}\label{struct_im_gui_list_clipper_range_ae04d9b8993b4fafcbf416fbaeed316b1}} 
+\index{ImGuiListClipperRange@{ImGuiListClipperRange}!FromIndices@{FromIndices}}
+\index{FromIndices@{FromIndices}!ImGuiListClipperRange@{ImGuiListClipperRange}}
+\doxysubsubsection{\texorpdfstring{FromIndices()}{FromIndices()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{struct_im_gui_list_clipper_range}{Im\+Gui\+List\+Clipper\+Range}} Im\+Gui\+List\+Clipper\+Range\+::\+From\+Indices (\begin{DoxyParamCaption}\item[{int}]{min,  }\item[{int}]{max }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01405}{1405}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01405\ \{\ \mbox{\hyperlink{struct_im_gui_list_clipper_range}{ImGuiListClipperRange}}\ r\ =\ \{\ min,\ max,\ \textcolor{keyword}{false},\ 0,\ 0\ \};\ \textcolor{keywordflow}{return}\ r;\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_im_gui_list_clipper_range_a3aa356015543dd8c9096e412390aacf0}\label{struct_im_gui_list_clipper_range_a3aa356015543dd8c9096e412390aacf0}} 
+\index{ImGuiListClipperRange@{ImGuiListClipperRange}!FromPositions@{FromPositions}}
+\index{FromPositions@{FromPositions}!ImGuiListClipperRange@{ImGuiListClipperRange}}
+\doxysubsubsection{\texorpdfstring{FromPositions()}{FromPositions()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{struct_im_gui_list_clipper_range}{Im\+Gui\+List\+Clipper\+Range}} Im\+Gui\+List\+Clipper\+Range\+::\+From\+Positions (\begin{DoxyParamCaption}\item[{float}]{y1,  }\item[{float}]{y2,  }\item[{int}]{off\+\_\+min,  }\item[{int}]{off\+\_\+max }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01406}{1406}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01406\ \{\ \mbox{\hyperlink{struct_im_gui_list_clipper_range}{ImGuiListClipperRange}}\ r\ =\ \{\ (int)y1,\ (\textcolor{keywordtype}{int})y2,\ \textcolor{keyword}{true},\ (ImS8)off\_min,\ (ImS8)off\_max\ \};\ \textcolor{keywordflow}{return}\ r;\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_im_gui_list_clipper_range_a4086dae7cf99d5fba97956acc3a2263b}\label{struct_im_gui_list_clipper_range_a4086dae7cf99d5fba97956acc3a2263b}} 
+\index{ImGuiListClipperRange@{ImGuiListClipperRange}!Max@{Max}}
+\index{Max@{Max}!ImGuiListClipperRange@{ImGuiListClipperRange}}
+\doxysubsubsection{\texorpdfstring{Max}{Max}}
+{\footnotesize\ttfamily int Im\+Gui\+List\+Clipper\+Range\+::\+Max}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01400}{1400}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_list_clipper_range_a5d0f961e00fadc1aa57fb72c197e6bf4}\label{struct_im_gui_list_clipper_range_a5d0f961e00fadc1aa57fb72c197e6bf4}} 
+\index{ImGuiListClipperRange@{ImGuiListClipperRange}!Min@{Min}}
+\index{Min@{Min}!ImGuiListClipperRange@{ImGuiListClipperRange}}
+\doxysubsubsection{\texorpdfstring{Min}{Min}}
+{\footnotesize\ttfamily int Im\+Gui\+List\+Clipper\+Range\+::\+Min}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01399}{1399}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_list_clipper_range_ad78789e655a72bcf19d33a77c09dfe6d}\label{struct_im_gui_list_clipper_range_ad78789e655a72bcf19d33a77c09dfe6d}} 
+\index{ImGuiListClipperRange@{ImGuiListClipperRange}!PosToIndexConvert@{PosToIndexConvert}}
+\index{PosToIndexConvert@{PosToIndexConvert}!ImGuiListClipperRange@{ImGuiListClipperRange}}
+\doxysubsubsection{\texorpdfstring{PosToIndexConvert}{PosToIndexConvert}}
+{\footnotesize\ttfamily bool Im\+Gui\+List\+Clipper\+Range\+::\+Pos\+To\+Index\+Convert}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01401}{1401}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_list_clipper_range_a263e4c13cf54c0f5c402af04f3e84a30}\label{struct_im_gui_list_clipper_range_a263e4c13cf54c0f5c402af04f3e84a30}} 
+\index{ImGuiListClipperRange@{ImGuiListClipperRange}!PosToIndexOffsetMax@{PosToIndexOffsetMax}}
+\index{PosToIndexOffsetMax@{PosToIndexOffsetMax}!ImGuiListClipperRange@{ImGuiListClipperRange}}
+\doxysubsubsection{\texorpdfstring{PosToIndexOffsetMax}{PosToIndexOffsetMax}}
+{\footnotesize\ttfamily Im\+S8 Im\+Gui\+List\+Clipper\+Range\+::\+Pos\+To\+Index\+Offset\+Max}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01403}{1403}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+\mbox{\Hypertarget{struct_im_gui_list_clipper_range_a7ea08ac3ce07bf99b1579ef29d911dba}\label{struct_im_gui_list_clipper_range_a7ea08ac3ce07bf99b1579ef29d911dba}} 
+\index{ImGuiListClipperRange@{ImGuiListClipperRange}!PosToIndexOffsetMin@{PosToIndexOffsetMin}}
+\index{PosToIndexOffsetMin@{PosToIndexOffsetMin}!ImGuiListClipperRange@{ImGuiListClipperRange}}
+\doxysubsubsection{\texorpdfstring{PosToIndexOffsetMin}{PosToIndexOffsetMin}}
+{\footnotesize\ttfamily Im\+S8 Im\+Gui\+List\+Clipper\+Range\+::\+Pos\+To\+Index\+Offset\+Min}
+
+
+
+Definition at line \mbox{\hyperlink{imgui__internal_8h_source_l01402}{1402}} of file \mbox{\hyperlink{imgui__internal_8h_source}{imgui\+\_\+internal.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/imgui\+\_\+internal.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,136 @@
+\hypertarget{_camera_8h_source}{}\doxysection{Camera.\+h}
+\label{_camera_8h_source}\index{C:/Users/jason/source/repos/assignment\_1\_397/Lab\_4/Camera.h@{C:/Users/jason/source/repos/assignment\_1\_397/Lab\_4/Camera.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00001}00001\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{ifndef}\ \textcolor{preprocessor}{CAMERA\_H}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00002}00002\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{define}\ \textcolor{preprocessor}{CAMERA\_H}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00004}00004\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{<}\textcolor{preprocessor}{glad}\textcolor{preprocessor}{/}\textcolor{preprocessor}{glad}\textcolor{preprocessor}{.}\textcolor{preprocessor}{h}\textcolor{preprocessor}{>}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00005}00005\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{<}\textcolor{preprocessor}{glm}\textcolor{preprocessor}{/}\textcolor{preprocessor}{glm}\textcolor{preprocessor}{.}\textcolor{preprocessor}{hpp}\textcolor{preprocessor}{>}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00006}00006\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{<}\textcolor{preprocessor}{glm}\textcolor{preprocessor}{/}\textcolor{preprocessor}{gtc}\textcolor{preprocessor}{/}\textcolor{preprocessor}{matrix\_transform}\textcolor{preprocessor}{.}\textcolor{preprocessor}{hpp}\textcolor{preprocessor}{>}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00008}00008\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{include}\ \textcolor{preprocessor}{<}\textcolor{preprocessor}{vector}\textcolor{preprocessor}{>}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00010}00010\ \textcolor{comment}{//\ Defines\ several\ possible\ options\ for\ camera\ movement.\ Used\ as\ abstraction\ to\ stay\ away\ from\ window-\/system\ specific\ input\ methods}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00011}00011\ \textcolor{keyword}{enum}\ Camera\_Movement\ \{}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00012}00012\ \ \ \ \ FORWARD,}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00013}00013\ \ \ \ \ BACKWARD,}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00014}00014\ \ \ \ \ LEFT,}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00015}00015\ \ \ \ \ RIGHT}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00016}00016\ \};}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00018}00018\ \textcolor{comment}{//\ Default\ camera\ values}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00019}00019\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ YAW\ =\ -\/90.0f;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00020}00020\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ PITCH\ =\ 0.0f;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00021}00021\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ SPEED\ =\ 2.5f;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00022}00022\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ SENSITIVITY\ =\ 0.1f;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00023}00023\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ ZOOM\ =\ 45.0f;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00026}00026\ \textcolor{comment}{//\ An\ abstract\ camera\ class\ that\ processes\ input\ and\ calculates\ the\ corresponding\ Euler\ Angles,\ Vectors\ and\ Matrices\ for\ use\ in\ OpenGL}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00027}00027\ \textcolor{keyword}{class}\ \mbox{\hyperlink{class_camera}{Camera}}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00028}00028\ \{}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00029}00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00030}00030\ \ \ \ \ \textcolor{comment}{//\ camera\ Attributes}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00031}00031\ \ \ \ \ glm::vec3\ Position;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00032}00032\ \ \ \ \ glm::vec3\ Front;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00033}00033\ \ \ \ \ glm::vec3\ Up;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00034}00034\ \ \ \ \ glm::vec3\ Right;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00035}00035\ \ \ \ \ glm::vec3\ WorldUp;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00036}00036\ \ \ \ \ \textcolor{comment}{//\ euler\ Angles}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00037}00037\ \ \ \ \ \textcolor{keywordtype}{float}\ Yaw;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00038}00038\ \ \ \ \ \textcolor{keywordtype}{float}\ Pitch;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00039}00039\ \ \ \ \ \textcolor{comment}{//\ camera\ options}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00040}00040\ \ \ \ \ \textcolor{keywordtype}{float}\ MovementSpeed;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00041}00041\ \ \ \ \ \textcolor{keywordtype}{float}\ MouseSensitivity;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00042}00042\ \ \ \ \ \textcolor{keywordtype}{float}\ Zoom;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00044}00044\ \ \ \ \ \textcolor{comment}{//\ constructor\ with\ vectors}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00045}00045\ \ \ \ \ Camera(glm::vec3\ position\ =\ glm::vec3(0.0f,\ 0.0f,\ 0.0f),\ glm::vec3\ up\ =\ glm::vec3(0.0f,\ 1.0f,\ 0.0f),\ \textcolor{keywordtype}{float}\ yaw\ =\ YAW,\ \textcolor{keywordtype}{float}\ pitch\ =\ PITCH)\ :\ Front(glm::vec3(0.0f,\ 0.0f,\ -\/1.0f)),\ MovementSpeed(SPEED),\ MouseSensitivity(SENSITIVITY),\ Zoom(ZOOM)}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00046}00046\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ Position\ =\ position;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ WorldUp\ =\ up;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00049}00049\ \ \ \ \ \ \ \ \ Yaw\ =\ yaw;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00050}00050\ \ \ \ \ \ \ \ \ Pitch\ =\ pitch;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00051}00051\ \ \ \ \ \ \ \ \ updateCameraVectors();}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00052}00052\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00053}00053\ \ \ \ \ \textcolor{comment}{//\ constructor\ with\ scalar\ values}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00054}00054\ \ \ \ \ Camera(\textcolor{keywordtype}{float}\ posX,\ \textcolor{keywordtype}{float}\ posY,\ \textcolor{keywordtype}{float}\ posZ,\ \textcolor{keywordtype}{float}\ upX,\ \textcolor{keywordtype}{float}\ upY,\ \textcolor{keywordtype}{float}\ upZ,\ \textcolor{keywordtype}{float}\ yaw,\ \textcolor{keywordtype}{float}\ pitch)\ :\ Front(glm::vec3(0.0f,\ 0.0f,\ -\/1.0f)),\ MovementSpeed(SPEED),\ MouseSensitivity(SENSITIVITY),\ Zoom(ZOOM)}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00055}00055\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00056}00056\ \ \ \ \ \ \ \ \ Position\ =\ glm::vec3(posX,\ posY,\ posZ);}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00057}00057\ \ \ \ \ \ \ \ \ WorldUp\ =\ glm::vec3(upX,\ upY,\ upZ);}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ Yaw\ =\ yaw;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ Pitch\ =\ pitch;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00060}00060\ \ \ \ \ \ \ \ \ updateCameraVectors();}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00061}00061\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00063}00063\ \ \ \ \ \textcolor{comment}{//\ returns\ the\ view\ matrix\ calculated\ using\ Euler\ Angles\ and\ the\ LookAt\ Matrix}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00064}00064\ \ \ \ \ glm::mat4\ GetViewMatrix()}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00065}00065\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ glm::lookAt(Position,\ Position\ +\ Front,\ Up);}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00067}00067\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00069}00069\ \ \ \ \ \textcolor{comment}{//\ processes\ input\ received\ from\ any\ keyboard-\/like\ input\ system.\ Accepts\ input\ parameter\ in\ the\ form\ of\ camera\ defined\ ENUM\ (to\ abstract\ it\ from\ windowing\ systems)}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00070}00070\ \ \ \ \ \textcolor{keywordtype}{void}\ ProcessKeyboard(Camera\_Movement\ direction,\ \textcolor{keywordtype}{float}\ deltaTime)}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00071}00071\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ velocity\ =\ MovementSpeed\ *\ deltaTime;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (direction\ ==\ FORWARD)}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ Position\ +=\ Front\ *\ velocity;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (direction\ ==\ BACKWARD)}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ Position\ -\/=\ Front\ *\ velocity;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (direction\ ==\ LEFT)}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ Position\ -\/=\ Right\ *\ velocity;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (direction\ ==\ RIGHT)}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ Position\ +=\ Right\ *\ velocity;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00081}00081\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00083}00083\ \ \ \ \ \textcolor{comment}{//\ processes\ input\ received\ from\ a\ mouse\ input\ system.\ Expects\ the\ offset\ value\ in\ both\ the\ x\ and\ y\ direction.}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00084}00084\ \ \ \ \ \textcolor{keywordtype}{void}\ ProcessMouseMovement(\textcolor{keywordtype}{float}\ xoffset,\ \textcolor{keywordtype}{float}\ yoffset,\ GLboolean\ constrainPitch\ =\ \textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00085}00085\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00086}00086\ \ \ \ \ \ \ \ \ xoffset\ *=\ MouseSensitivity;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00087}00087\ \ \ \ \ \ \ \ \ yoffset\ *=\ MouseSensitivity;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00089}00089\ \ \ \ \ \ \ \ \ Yaw\ +=\ xoffset;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00090}00090\ \ \ \ \ \ \ \ \ Pitch\ +=\ yoffset;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00092}00092\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ make\ sure\ that\ when\ pitch\ is\ out\ of\ bounds,\ screen\ doesn't\ get\ flipped}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00093}00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (constrainPitch)}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00094}00094\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Pitch\ >\ 89.0f)}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pitch\ =\ 89.0f;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Pitch\ <\ -\/89.0f)}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pitch\ =\ -\/89.0f;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00099}00099\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ update\ Front,\ Right\ and\ Up\ Vectors\ using\ the\ updated\ Euler\ angles}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00102}00102\ \ \ \ \ \ \ \ \ updateCameraVectors();}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00103}00103\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00105}00105\ \ \ \ \ \textcolor{comment}{//\ processes\ input\ received\ from\ a\ mouse\ scroll-\/wheel\ event.\ Only\ requires\ input\ on\ the\ vertical\ wheel-\/axis}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00106}00106\ \ \ \ \ \textcolor{keywordtype}{void}\ ProcessMouseScroll(\textcolor{keywordtype}{float}\ yoffset)}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00107}00107\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00108}00108\ \ \ \ \ \ \ \ \ Zoom\ -\/=\ (\textcolor{keywordtype}{float})yoffset;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00109}00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Zoom\ <\ 1.0f)}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ Zoom\ =\ 1.0f;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00111}00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Zoom\ >\ 45.0f)}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ Zoom\ =\ 45.0f;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00113}00113\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00115}00115\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00116}00116\ \ \ \ \ \textcolor{comment}{//\ calculates\ the\ front\ vector\ from\ the\ Camera's\ (updated)\ Euler\ Angles}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00117}00117\ \ \ \ \ \textcolor{keywordtype}{void}\ updateCameraVectors()}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00118}00118\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00119}00119\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ calculate\ the\ new\ Front\ vector}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00120}00120\ \ \ \ \ \ \ \ \ glm::vec3\ front;}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00121}00121\ \ \ \ \ \ \ \ \ front.x\ =\ cos(glm::radians(Yaw))\ *\ cos(glm::radians(Pitch));}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00122}00122\ \ \ \ \ \ \ \ \ front.y\ =\ sin(glm::radians(Pitch));}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00123}00123\ \ \ \ \ \ \ \ \ front.z\ =\ sin(glm::radians(Yaw))\ *\ cos(glm::radians(Pitch));}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00124}00124\ \ \ \ \ \ \ \ \ Front\ =\ glm::normalize(front);}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00125}00125\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ also\ re-\/calculate\ the\ Right\ and\ Up\ vector}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00126}00126\ \ \ \ \ \ \ \ \ Right\ =\ glm::normalize(glm::cross(Front,\ WorldUp));\ \ \textcolor{comment}{//\ normalize\ the\ vectors,\ because\ their\ length\ gets\ closer\ to\ 0\ the\ more\ you\ look\ up\ or\ down\ which\ results\ in\ slower\ movement.}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00127}00127\ \ \ \ \ \ \ \ \ Up\ =\ glm::normalize(glm::cross(Right,\ Front));}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00128}00128\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00129}00129\ \};}
+\DoxyCodeLine{\Hypertarget{_camera_8h_source_l00130}00130\ \textcolor{preprocessor}{\#}\textcolor{preprocessor}{endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,53 @@
+\hypertarget{class_texture_factory}{}\doxysection{Texture\+Factory Class Reference}
+\label{class_texture_factory}\index{TextureFactory@{TextureFactory}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_texture}{Texture}} $>$ \mbox{\hyperlink{class_texture_factory_a83abd780dd2f2bab4771f43e2aa920cb}{create\+Texture}} (std\+::string file\+Name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_texture_8h_source_l00269}{269}} of file \mbox{\hyperlink{_texture_8h_source}{Texture.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_texture_factory_a83abd780dd2f2bab4771f43e2aa920cb}\label{class_texture_factory_a83abd780dd2f2bab4771f43e2aa920cb}} 
+\index{TextureFactory@{TextureFactory}!createTexture@{createTexture}}
+\index{createTexture@{createTexture}!TextureFactory@{TextureFactory}}
+\doxysubsubsection{\texorpdfstring{createTexture()}{createTexture()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_texture}{Texture}} $>$ Texture\+Factory\+::create\+Texture (\begin{DoxyParamCaption}\item[{std\+::string}]{file\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_texture_8h_source_l00273}{273}} of file \mbox{\hyperlink{_texture_8h_source}{Texture.\+h}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ find\ out\ the\ file\ type}}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ std::string\ extension\ =\ fileName.substr(fileName.find\_last\_of(\textcolor{stringliteral}{"{}."{}})\ +\ 1);}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (extension\ ==\ \textcolor{stringliteral}{"{}jpg"{}}\ ||\ extension\ ==\ \textcolor{stringliteral}{"{}jpeg"{}})}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//return\ std::make\_unique<JpegTexture>(fileName);\ //\ unique\ pointer\ so\ when\ goes\ out\ of\ scope\ memory\ is\ auto\ deletd.\ (\ I\ think\ )}}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_unique<OpenGLTexture>(fileName);}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ CHANGE\ THIS\ LATER}}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (extension\ ==\ \textcolor{stringliteral}{"{}png"{}})}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//return\ std::make\_unique<PngTexture>(fileName);\ }}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_unique<OpenGLTexture>(fileName);}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ CHANGE\ THIS\ LATER}}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00289\ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/jason/source/repos/assignment\+\_\+1\+\_\+397/\+Lab\+\_\+4/Texture.\+h\end{DoxyCompactItemize}
