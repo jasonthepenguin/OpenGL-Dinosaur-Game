@@ -70,6 +70,5 @@ void MovementKeys::movePlayer(Directions direction, float deltaT)
             return; // Invalid direction, do nothing
     }
 
-    // Move the player camera in the determined direction
     m_PlayerCamera->setCameraLocation(m_PlayerCamera->getCameraLocation() + movementDirection * m_PlayerSpeed * deltaT);
 }

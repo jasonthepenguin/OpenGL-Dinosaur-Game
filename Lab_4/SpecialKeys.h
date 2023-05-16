@@ -1,6 +1,7 @@
 #pragma once
 
 #include <GLFW/glfw3.h>
+#include "ModelController.h"
 
 
 class SpecialKeys 
@@ -74,5 +75,6 @@ class SpecialKeys
         void displayGroupPhoto();
 
     private:
-    // Other member variables and methods
+        GLFWwindow* m_PixelsGLFWWindow;
+        ModelController& modelController;
 };

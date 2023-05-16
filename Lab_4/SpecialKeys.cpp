@@ -51,6 +51,33 @@ void SpecialKeys::displayGroupPhoto()
 }
 
 
+
+void SpecialKeys::readInput(GLFWwindow* m_PixelsWindow, float deltaT)
+{
+    if (glfwGetKey(m_PixelsWindow, GLFW_KEY_UP) == GLFW_PRESS)
+    {
+        moveModel(Direction::FORWARD, deltaT);
+    }
+
+    if (glfwGetKey(m_PixelsWindow, GLFW_KEY_DOWN) == GLFW_PRESS)
+    {
+        moveModel(Direction::BACK, deltaT);
+    }
+
+    if (glfwGetKey(m_PixelsWindow, GLFW_KEY_LEFT) == GLFW_PRESS)
+    {
+        moveModel(Direction::LEFT, deltaT);
+    }
+
+    if (glfwGetKey(m_PixelsWindow, GLFW_KEY_RIGHT) == GLFW_PRESS)
+    {
+        moveModel(Direction::RIGHT, deltaT);
+    }
+}
+**/
+
+
+
 /*******************
 
 if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
