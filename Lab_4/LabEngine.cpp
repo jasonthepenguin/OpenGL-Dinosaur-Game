@@ -104,7 +104,9 @@ void LabEngine::run()
 
 			std::cout << "Start X : " << startX << ", Start Y : " << startY << " , start Z : " << startZ << std::endl;
 
-			m_camera->Position = glm::vec3(startX * simpleTerrain->scaleX, startY + 1, startZ * simpleTerrain->scaleZ);
+			//m_camera->Position = glm::vec3(startX * simpleTerrain->scaleX, startY + 1, startZ * simpleTerrain->scaleZ);
+			m_camera->setCameraLocation(glm::vec3(startX * simpleTerrain->scaleX, startY + 1, startZ * simpleTerrain->scaleZ));
+
 			glm::vec3 lightPosition = glm::vec3(startX * simpleTerrain->scaleX, startY + 1, startZ * simpleTerrain->scaleZ);
 
 	
@@ -203,13 +205,20 @@ void LabEngine::run()
 	raptor_weapon.ReadMD2Model((char*)"md2/raptor/weapon.md2", (char*)"md2/raptor/weapon.jpg");
 	raptor_weapon.loadData();
 
-	raptor.m_position.x = m_camera->Position.x - 5.0;
-	raptor.m_position.y = m_camera->Position.y + 2.0;
-	raptor.m_position.z = m_camera->Position.z;
+	//raptor.m_position.x = m_camera->Position.x - 5.0;
+	//raptor.m_position.y = m_camera->Position.y + 2.0;
+	//raptor.m_position.z = m_camera->Position.z;
+	raptor.m_position.x = m_camera->getCameraLocation().x - 5.0;
+	raptor.m_position.y = m_camera->getCameraLocation().y + 2.0;
+	raptor.m_position.z = m_camera->getCameraLocation().z;
 
-	raptor_weapon.m_position.x = m_camera->Position.x - 5.0;
-	raptor_weapon.m_position.y = m_camera->Position.y + 2.0;
-	raptor_weapon.m_position.z = m_camera->Position.z;
+
+	//raptor_weapon.m_position.x = m_camera->Position.x - 5.0;
+	//raptor_weapon.m_position.y = m_camera->Position.y + 2.0;
+	//raptor_weapon.m_position.z = m_camera->Position.z;
+	raptor_weapon.m_position.x = m_camera->getCameraLocation().x - 5.0;
+	raptor_weapon.m_position.y = m_camera->getCameraLocation().y + 2.0;
+	raptor_weapon.m_position.z = m_camera->getCameraLocation().z;
 
 	MD2models.push_back(&raptor);
 	MD2models.push_back(&raptor_weapon);
@@ -272,12 +281,15 @@ void LabEngine::run()
 			mdl->m_position.y = newY + 1.0;
 		}
 
-
+		/*
 		if (canFly == false) {
-			newY = simpleTerrain->getHeight((int)m_camera->Position.x * scaleOffSetX, (int)m_camera->Position.z * scaleOffSetZ);
-			m_camera->Position.y = newY + 1.3;
+			//newY = simpleTerrain->getHeight((int)m_camera->Position.x * scaleOffSetX, (int)m_camera->Position.z * scaleOffSetZ);
+			//m_camera->Position.y = newY + 1.3;
+			newY = simpleTerrain->getHeight((int)m_camera->getCameraLocation().x * scaleOffSetX, (int)m_camera->getCameraLocation().z * scaleOffSetZ);
+			m_camera->setCameraLocation(glm::vec3(m_camera->getCameraLocation().x, newY + 1.3, m_camera->getCameraLocation().z));
 
 		}
+		*/
 
 		// setting the MODEL, VIEW and PROJECTION matrices
 
@@ -294,8 +306,10 @@ void LabEngine::run()
 
 		//-----
 		//ourShader.setVec3("lightPos", lightPosition.x, lightPosition.y, lightPosition.z);
-		ourShader.setVec3("viewPos", m_camera->Position.x, m_camera->Position.y, m_camera->Position.z);
-		ourShader.setVec3("spotLight.position", m_camera->Position.x, m_camera->Position.y, m_camera->Position.z);
+	//	ourShader.setVec3("viewPos", m_camera->Position.x, m_camera->Position.y, m_camera->Position.z);
+		//ourShader.setVec3("spotLight.position", m_camera->Position.x, m_camera->Position.y, m_camera->Position.z);
+		ourShader.setVec3("viewPos", m_camera->getCameraLocation().x, m_camera->getCameraLocation().y, m_camera->getCameraLocation().z);
+		ourShader.setVec3("spotLight.position", m_camera->getCameraLocation().x, m_camera->getCameraLocation().y, m_camera->getCameraLocation().z);
 		ourShader.setVec3("spotLight.direction", m_camera->getCameraDirection().x, m_camera->getCameraDirection().y, m_camera->getCameraDirection().z);
 		//-----
 
@@ -375,7 +389,7 @@ void mouse_callback(GLFWwindow* m_PixelsGLFWWindow, double xposIn, double yposIn
 	app.lastX = xpos;
 	app.lastY = ypos;
 
-	app.m_camera->ProcessMouseMovement(xoffset, yoffset);
+	//app.m_camera->ProcessMouseMovement(xoffset, yoffset);
 }
 
 
@@ -386,32 +400,32 @@ void processInput(GLFWwindow* window, float deltaTime, Camera& camera)
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, true);
 
-	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-		camera.ProcessKeyboard(FORWARD, deltaTime);
-	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-		camera.ProcessKeyboard(BACKWARD, deltaTime);
-	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-		camera.ProcessKeyboard(LEFT, deltaTime);
-	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-		camera.ProcessKeyboard(RIGHT, deltaTime);
+	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {}
+		//camera.ProcessKeyboard(FORWARD, deltaTime);
+	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {}
+		//camera.ProcessKeyboard(BACKWARD, deltaTime);
+	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {}
+		//camera.ProcessKeyboard(LEFT, deltaTime);
+	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {}
+		//camera.ProcessKeyboard(RIGHT, deltaTime);
 
 
 }
 
 
-
+/*
 // Key callback function
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
 
 	auto& engRef = LabEngine::getInstance();
-	bool& wireframe = engRef.wireframe;
+	//bool& wireframe = engRef.wireframe;
 
 
 	// If the "C" key is pressed and the action is key press, toggle the light state
 	if (key == GLFW_KEY_K && action == GLFW_PRESS) 
 	{
-		wireframe = !wireframe;
+	//	wireframe = !wireframe;
 		if (wireframe) {
 			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 		}
@@ -476,7 +490,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 		engRef.gameObjects.push_back(newCube);
 	}
 }
-
+*/
 
 void LabEngine::cleanUp()
 {
