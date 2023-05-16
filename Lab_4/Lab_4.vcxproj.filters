@@ -90,14 +90,17 @@
     <ClCompile Include="MovementKeys.cpp">
       <Filter>Source Files\Player</Filter>
     </ClCompile>
-    <ClCompile Include="SpecialKeys.cpp">
-      <Filter>Source Files\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="ModelController.cpp">
-      <Filter>Source Files\Player</Filter>
-    </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mouse_Input.cpp">
+      <Filter>Source Files\Player\UI_Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelController.cpp">
+      <Filter>Source Files\Player\UI_Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="SpecialKeys.cpp">
+      <Filter>Source Files\Player\UI_Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -204,14 +207,17 @@
     <ClInclude Include="UI_Manager.h">
       <Filter>Header Files\Player\UI_Manager</Filter>
     </ClInclude>
-    <ClInclude Include="MovementKeys.h">
-      <Filter>Header Files\Player\UI_Manager</Filter>
-    </ClInclude>
     <ClInclude Include="SpecialKeys.h">
       <Filter>Header Files\Player\UI_Manager</Filter>
     </ClInclude>
     <ClInclude Include="ModelController.h">
       <Filter>Header Files\Player\UI_Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Mouse_Input.h">
+      <Filter>Header Files\Player\UI_Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="MovementKeys.h">
+      <Filter>Header Files\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

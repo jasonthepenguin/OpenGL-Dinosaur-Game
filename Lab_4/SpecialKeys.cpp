@@ -13,8 +13,6 @@ SpecialKeys::~SpecialKeys()
 }
 
 
-
-
 void SpecialKeys::toggleWireframeMode()
 {
     bool wireframe = true;
@@ -39,10 +37,12 @@ void SpecialKeys::triggerFlying()
 }
 
 
+
 void SpecialKeys::displayDemoWindow()
 {
     gui->show_demo_window = !gui->show_demo_window;
 }
+
 
 
 void SpecialKeys::displayGroupPhoto()
@@ -52,22 +52,42 @@ void SpecialKeys::displayGroupPhoto()
 
 
 
+void SpecialKeys::toggleLighting()
+{
+    bool lightingEnabled = true;
+
+    lightingEnabled = !lightingEnabled;
+    
+    if (lightingEnabled) 
+    {
+        glEnable(GL_LIGHTING);
+    }
+    else 
+    {
+        glDisable(GL_LIGHTING);
+    }
+}
 
 
 void SpecialKeys::readTaskInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT)
 {
+
+    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_F) == GLFW_PRESS)
+    {
+        triggerFlying();
+    }
+
 
     if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_K) == GLFW_PRESS)
     {
         toggleWireframeMode();
     }
 
-
-
-    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_F) == GLFW_PRESS)
+    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_L) == GLFW_PRESS)
     {
-        triggerFlying();
+        toggleLighting();
     }
+
 
     if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_M) == GLFW_PRESS)
     {
@@ -106,7 +126,7 @@ void SpecialKeys::readModelInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT, M
 
     if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_RIGHT) == GLFW_PRESS)
     {
-        playNextAnimation();
+        modelController.playNextAnimation();
     }
 }
 

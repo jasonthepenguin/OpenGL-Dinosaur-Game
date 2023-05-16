@@ -28,8 +28,6 @@ class SpecialKeys
         ~SpecialKeys();
 
 
-      
-
             /***********************************************************************************************************************************************************************
              * @brief toggleWireframeMode()
              * @brief this function is used to display the wireframe on all objects
@@ -38,6 +36,12 @@ class SpecialKeys
         void toggleWireframeMode();
 
 
+            /***********************************************************************************************************************************************************************
+             * @brief triggerFlying()
+             * @brief this function is used to trigger Flying
+             ***********************************************************************************************************************************************************************/
+
+        void toggleLighting();
 
 
             /***********************************************************************************************************************************************************************
@@ -85,13 +89,13 @@ class SpecialKeys
         void readModelInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT, ModelController& modelController);
 
 
-        /***********************************************************************************************************************************************************************
-         * @brief readInput()
-         * @brief this function is used to read input keys other than W,A,S,D
-         *
-         * @param m_PixelsGLFWWindow  - GLFWwindow provides access to the game window
-         * @param deltaT              - float track of time
-         ***********************************************************************************************************************************************************************/
+            /***********************************************************************************************************************************************************************
+             * @brief readInput()
+             * @brief this function is used to read input keys other than W,A,S,D
+             *
+             * @param m_PixelsGLFWWindow  - GLFWwindow provides access to the game window
+             * @param deltaT              - float track of time
+             ***********************************************************************************************************************************************************************/
 
         void readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT, ModelController& modelController, Camera& camera);
 

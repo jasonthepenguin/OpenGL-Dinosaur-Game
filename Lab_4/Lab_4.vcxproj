@@ -167,6 +167,7 @@
     <ClCompile Include="imgui_tables.cpp" />
     <ClCompile Include="imgui_widgets.cpp" />
     <ClCompile Include="ModelController.cpp" />
+    <ClCompile Include="Mouse_Input.cpp" />
     <ClCompile Include="MovementKeys.cpp" />
     <ClCompile Include="SpecialKeys.cpp" />
     <ClCompile Include="UI_Manager.cpp" />
@@ -215,6 +216,7 @@
     <ClInclude Include="imstb_textedit.h" />
     <ClInclude Include="imstb_truetype.h" />
     <ClInclude Include="ModelController.h" />
+    <ClInclude Include="Mouse_Input.h" />
     <ClInclude Include="MovementKeys.h" />
     <ClInclude Include="SpecialKeys.h" />
     <ClInclude Include="UI_Manager.h" />

@@ -1,7 +1,9 @@
 #pragma once
 #include "Keyboard_Input.h"
-//#include "Mouse_Input.h"
+#include "Mouse_Input.h"
 #include <memory>
+
+
 class UI_Manager
 {
     public:
@@ -34,7 +36,7 @@ class UI_Manager
              * @return The Mouse_Input object.
              **********************************************************************************************************************************************************************/
 
-        //void setPlayerMouse(std::shared_ptr<MouseInput> mouse);
+        void setPlayerMouse(std::shared_ptr<Mouse_Input> mouse);
 
 
             /**********************************************************************************************************************************************************************
@@ -50,7 +52,7 @@ class UI_Manager
 
     private:
         std::shared_ptr<Keyboard_Input> m_PlayerKeyboard;
-        //std::shared_ptr<MouseInput> m_PlayerMouse;
+        std::shared_ptr<Mouse_Input> m_PlayerMouse;
         
 };
 
