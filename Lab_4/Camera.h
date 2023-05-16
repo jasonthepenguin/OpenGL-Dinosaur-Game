@@ -322,51 +322,51 @@ private:
  * @param : constrainPitch - GLboolean
  * @param : xoffset        - float
  * @param : yoffset        - float
- ********************************************************************************************************
+ ********************************************************************************************************/
 
-
-void ProcessMouseMovement(float xoffset, float yoffset, GLboolean constrainPitch = true)
-{
-    xoffset *= MouseSensitivity;
-    yoffset *= MouseSensitivity;
-
-    Yaw += xoffset;
-    Pitch += yoffset;
-
-    // make sure that when pitch is out of bounds, screen doesn't get flipped
-    if (constrainPitch)
-    {
-        if (Pitch > 89.0f)
-
-            Pitch = 89.0f;
-
-        if (Pitch < -89.0f)
-
-            Pitch = -89.0f;
-    }
-
-    // update Front, Right and Up Vectors using the updated Euler angles
-    updateCameraVectors();
-}
-
-
-/********************************************************************************************************
- * @brief : ProcessMouseScroll()
- * @brief : used to detemine whether player uses scroll input
- * @param : yOffset - float
- ********************************************************************************************************
-
-
-void ProcessMouseScroll(float yoffset)
-{
-    Zoom -= (float)yoffset;
-
-    if (Zoom < 1.0f)
-
-        Zoom = 1.0f;
-
-    if (Zoom > 45.0f)
-
-        Zoom = 45.0f;
-}
-***/
+//
+//void ProcessMouseMovement(float xoffset, float yoffset, GLboolean constrainPitch = true)
+//{
+//    xoffset *= MouseSensitivity;
+//    yoffset *= MouseSensitivity;
+//
+//    Yaw += xoffset;
+//    Pitch += yoffset;
+//
+//    // make sure that when pitch is out of bounds, screen doesn't get flipped
+//    if (constrainPitch)
+//    {
+//        if (Pitch > 89.0f)
+//
+//            Pitch = 89.0f;
+//
+//        if (Pitch < -89.0f)
+//
+//            Pitch = -89.0f;
+//    }
+//
+//    // update Front, Right and Up Vectors using the updated Euler angles
+//    updateCameraVectors();
+//}
+//
+//
+///********************************************************************************************************
+// * @brief : ProcessMouseScroll()
+// * @brief : used to detemine whether player uses scroll input
+// * @param : yOffset - float
+// ********************************************************************************************************
+//
+//
+//void ProcessMouseScroll(float yoffset)
+//{
+//    Zoom -= (float)yoffset;
+//
+//    if (Zoom < 1.0f)
+//
+//        Zoom = 1.0f;
+//
+//    if (Zoom > 45.0f)
+//
+//        Zoom = 45.0f;
+//}
+//***/
