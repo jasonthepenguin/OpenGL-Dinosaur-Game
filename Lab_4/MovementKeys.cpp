@@ -1,16 +1,17 @@
 #include "MovementKeys.h"
 
-MovementKeys::MovementKeys() {
+MovementKeys::MovementKeys()
+{
 
 }
 
 
 MovementKeys::~MovementKeys() {}
 
+
 MovementKeys::Directions MovementKeys::getDirections() const { return m_CurrentDirection; }
 float MovementKeys::getPlayerSpeed()                   const { return m_PlayerSpeed;      }
 void MovementKeys::setPlayerSpeed(float tempSpeed)           { m_PlayerSpeed = tempSpeed; }
-
 
 
 
@@ -36,7 +37,6 @@ void MovementKeys::readInput(GLFWwindow* m_PixelsWindow, float deltaT)
         movePlayer(Directions::RIGHT, deltaT);
     }
 }
-
 
 
 
@@ -66,6 +66,7 @@ void MovementKeys::movePlayer(Directions direction, float deltaT)
             movementDirection = glm::normalize(glm::cross(m_PlayerCamera->getCameraDirection(), m_PlayerCamera->getHorizontalPlane()));
         break;
         
+
         default:
             return; // Invalid direction, do nothing
     }

@@ -211,7 +211,7 @@
       <Filter>Header Files\Player\UI_Manager</Filter>
     </ClInclude>
     <ClInclude Include="ModelController.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Player\UI_Manager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

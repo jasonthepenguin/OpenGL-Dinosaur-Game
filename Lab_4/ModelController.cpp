@@ -51,3 +51,14 @@ void ModelController::moveModel(Direction m_TravelDirection, float deltaT)
 }
 
  
+
+
+void ModelController::playNextAnimation()
+{
+    auto& engRef = LabEngine::getInstance();
+
+    for (auto model : engRef.MD2models)
+    {
+        model->playNextAnimation();
+    }
+}

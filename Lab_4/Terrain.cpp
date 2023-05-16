@@ -146,15 +146,8 @@ void Terrain::bruteForceRender() {
 		//glDrawArrays(GL_TRIANGLE_STRIP, 0, vertices.size() / 5);
 		glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
 
-
 		terrainTexture->unbind();
-
-
 	}
-	
-	
-	
-
 	glBindVertexArray(0);
 }
 
@@ -177,8 +170,6 @@ bool Terrain::setUpTerrainData(bool hasTexture)
 
 		unsigned char hcolor;  //color of the height 
 
-		//normaliseTerrain();
-
 	 //loop through the z axis 
 		for (int z = 0; z < size ; z++) {
 			//loop through the x axis 
@@ -195,7 +186,8 @@ bool Terrain::setUpTerrainData(bool hasTexture)
 				vertices.push_back((float)hcolor);
 
 				// Only generate indices if NOT at the edge of the terrain data grid
-				if (x < size - 1 && z < size - 1) {
+				if (x < size - 1 && z < size - 1) 
+				{
 					unsigned int topLeft = z * size + x;
 					unsigned int topRight = topLeft + 1;
 					unsigned int bottomLeft = topLeft + size;
@@ -231,10 +223,6 @@ bool Terrain::setUpTerrainData(bool hasTexture)
 		glBindBuffer(GL_ARRAY_BUFFER, VBO);
 		//glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 		glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_STATIC_DRAW);
-
-		//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-		//glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), indices.data(), GL_STATIC_DRAW);
 
@@ -244,9 +232,6 @@ bool Terrain::setUpTerrainData(bool hasTexture)
 
 		// color attribute
 		glVertexAttribPointer(1, 1, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(3 * sizeof(float)));
-		//glVertexAttribPointer(1, 1, GL_FLOAT, GL_TRUE, 4 * sizeof(float), (void*)(3 * sizeof(float))  );
-
-		//glVertexAttribPointer(1, 1, GL_UNSIGNED_BYTE, GL_TRUE, 4 * sizeof(float), (void*)(3 * sizeof(float)));
 		glEnableVertexAttribArray(1);
 
 
@@ -271,8 +256,10 @@ bool Terrain::setUpTerrainData(bool hasTexture)
 		float texTop;
 	
 		// TESTING TO SEE IF THIS DRAWS BETTER, IF NOT THEN DELETE THIS, DELETE EBO CHANGE, AND REVERT BACK TO DRAW ARRAYS
-		for (int z = 0; z < size; z++) {
-			for (int x = 0; x < size; x++) {
+		for (int z = 0; z < size; z++) 
+		{
+			for (int x = 0; x < size; x++)
+			{
 				// Create the vertex at (x, z)
 				hcolor = getHeightColor(x, z);
 				vertices.push_back((float)x * scaleX);
@@ -353,8 +340,6 @@ bool Terrain::setUpTerrainData(bool hasTexture)
 			}
 		}
 
-
-
 		// step 2) set up VAO and VBO
 		glGenVertexArrays(1, &VAO);
 		glGenBuffers(1, &VBO);
@@ -364,26 +349,8 @@ bool Terrain::setUpTerrainData(bool hasTexture)
 
 		glBindBuffer(GL_ARRAY_BUFFER, VBO);
 		glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_STATIC_DRAW);
-
-		// TESTING THE INDICES DRAW
-		//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-		//glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), indices.data(), GL_STATIC_DRAW);
-
-		//---------------
-
-		/*
-		// position attribute
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
-		glEnableVertexAttribArray(0);
-
-		// texture coords
-		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
-		glEnableVertexAttribArray(1);
-		*/
-
 		// position attribute
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
 		glEnableVertexAttribArray(0);
@@ -411,31 +378,15 @@ bool Terrain::setUpTerrainData(bool hasTexture)
 
 		ourShader->use(); // below we are telling OpenGL which texture unit each shader sampler belongs to 
 		ourShader->setInt("texture1", 0);
-
-		
-
-		/*
-		// Terrain texture data
-		TextureFactory textFact; // temporarily placing this here.
-		//auto terrainTexture = textFact.createTexture("container.jpg"); // returns unique pointer
-		terrainTexture = textFact.createTexture("grass.jpg"); // returns unique pointer
-		terrainTexture->load();
-		*/
-
 	}
-
 	return 0;
-
 }
 
 
 void Terrain::loadTerrainTexture(std::string textureName)
 {
-
-
 	// Terrain texture data
-	TextureFactory textFact; // temporarily placing this here.
-	//auto terrainTexture = textFact.createTexture("container.jpg"); // returns unique pointer
+	TextureFactory textFact; 
 	terrainTexture = textFact.createTexture(textureName); // returns unique pointer
 	terrainTexture->load();
 
@@ -451,18 +402,13 @@ float Terrain::getHeight(int xpos, int zpos) {
 	}
 	
 }
-unsigned char Terrain::getHeightColor(int xpos, int zpos) {
-
-	//if (inbounds(xpos, zpos)) {
-	//	return terrainData[zpos * size + xpos];
-	//}
-
-	if (xpos < size && zpos < size) {
+unsigned char Terrain::getHeightColor(int xpos, int zpos) 
+{
+	if (xpos < size && zpos < size)
+	{
 		return terrainData[zpos * size + xpos];
 	}
-
 	return 1;
-
 }
 
 

@@ -4,7 +4,6 @@
 SpecialKeys::SpecialKeys() 
 {
 
-
 }
 
 
@@ -14,92 +13,119 @@ SpecialKeys::~SpecialKeys()
 }
 
 
-void SpecialKeys::readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT)
-{
-
-}
-
 
 
 void SpecialKeys::toggleWireframeMode()
 {
+    bool wireframe = true;
 
+    wireframe = !wireframe;
+
+    if (wireframe) 
+    {
+        glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    }
+    else 
+    {
+        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    }
 }
 
-
-void SpecialKeys::playNextAnimation()
-{
-
-}
 
 
 void SpecialKeys::triggerFlying()
 {
-
+    isFlying = !isFlying;
 }
 
 
 void SpecialKeys::displayDemoWindow()
 {
-
+    gui->show_demo_window = !gui->show_demo_window;
 }
 
 
 void SpecialKeys::displayGroupPhoto()
 {
-
+    gui->show_image = !gui->show_image;
 }
 
 
 
-void SpecialKeys::readInput(GLFWwindow* m_PixelsWindow, float deltaT)
+
+
+void SpecialKeys::readTaskInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT)
 {
-    if (glfwGetKey(m_PixelsWindow, GLFW_KEY_UP) == GLFW_PRESS)
+
+    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_K) == GLFW_PRESS)
     {
-        moveModel(Direction::FORWARD, deltaT);
+        toggleWireframeMode();
     }
 
-    if (glfwGetKey(m_PixelsWindow, GLFW_KEY_DOWN) == GLFW_PRESS)
+
+
+    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_F) == GLFW_PRESS)
     {
-        moveModel(Direction::BACK, deltaT);
+        triggerFlying();
     }
 
-    if (glfwGetKey(m_PixelsWindow, GLFW_KEY_LEFT) == GLFW_PRESS)
+    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_M) == GLFW_PRESS)
     {
-        moveModel(Direction::LEFT, deltaT);
+        displayDemoWindow();
     }
 
-    if (glfwGetKey(m_PixelsWindow, GLFW_KEY_RIGHT) == GLFW_PRESS)
+    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_X) == GLFW_PRESS)
     {
-        moveModel(Direction::RIGHT, deltaT);
+        displayGroupPhoto();
     }
 }
-**/
+
+
+
+void SpecialKeys::readModelInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT, ModelController& modelController)
+{
+    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_UP) == GLFW_PRESS)
+    {
+        modelController.moveModel(ModelController::Direction::FORWARD, deltaT);
+    }
+
+    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_DOWN) == GLFW_PRESS)
+    {
+        modelController.moveModel(ModelController::Direction::BACK, deltaT);
+    }
+
+    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_LEFT) == GLFW_PRESS)
+    {
+        modelController.moveModel(ModelController::Direction::LEFT, deltaT);
+    }
+
+    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_RIGHT) == GLFW_PRESS)
+    {
+        modelController.moveModel(ModelController::Direction::RIGHT, deltaT);
+    }
+
+    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_RIGHT) == GLFW_PRESS)
+    {
+        playNextAnimation();
+    }
+}
+
+
+
+void SpecialKeys::readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT, ModelController& modelController, Camera& camera)
+{
+    readModelInput(m_PixelsGLFWWindow, deltaT, modelController);
+    readTaskInput(m_PixelsGLFWWindow, deltaT);
+}
+
+
 
 
 
 /*******************
 
-if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
-{
-	camera.ProcessMouseMovement(-lookSpeed * deltaTime, 0.0);
-}
-if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
-{
-	camera.ProcessMouseMovement(lookSpeed * deltaTime, 0.0);
-}
-if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
-{
-	camera.ProcessMouseMovement(0.0, lookSpeed * deltaTime);
-}
-if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
-{
-	camera.ProcessMouseMovement(0.0, -lookSpeed * deltaTime);
-}
 
-if (glfwGetKey(window, GLFW_KEY_T) == GLFW_PRESS) {
-    handleWireframeMode(window);
-}
+
 if (glfwGetKey(window, GLFW_KEY_Y) == GLFW_PRESS) {
     handleNextAnimation(window);
 }

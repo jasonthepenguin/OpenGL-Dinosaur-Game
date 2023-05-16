@@ -58,20 +58,6 @@ void LabEngine::init()
 
 	// Init the Lua state
 	lua.open_libraries(sol::lib::base);
-
-
-	// Load the shaders
-	// Load models etc
-	// Load textures
-
-
-
-
-	// TESTING MD2 functions
-	//MD2::test();
-
-
-
 }
 
 void LabEngine::run()
@@ -99,14 +85,10 @@ void LabEngine::run()
 			simpleTerrain->setUpTerrainData(true);
 			simpleTerrain->loadTerrainTexture("grass.jpg");
 			simpleTerrain->sharedShader = &ourShader;			// just testing to see if sharing this shader works
-	
+
 	//--------------------------------------------------------------------------------------------------------------------------------------------
-
 			// Loading the Terrain data in dynamically using the fault formation algorithm.  ( SHOW THIS SECOND )
-
 	//-------------------------------------------- ( LOOK AT BOTTOM OF CLASS FOR EXAMPLE CODE OF SHOWING OFF OTHER TERRAIN OPTIONS )---------
-
-
 			// STARTING POS OF THE TERRAIN
 			simpleTerrain->startPos = glm::vec3(0.0, 0.0, 0.0);  // (TODO) change to use GameObjects position member variable
 
@@ -210,8 +192,6 @@ void LabEngine::run()
 
 //--------------------------------
 
-
-
 	// TASK 1, 2 and 3 for lab 7
 
 	MD2_TEST raptor;
@@ -234,15 +214,9 @@ void LabEngine::run()
 	MD2models.push_back(&raptor);
 	MD2models.push_back(&raptor_weapon);
 
-
 	//=========================
-
 	//gameObjects.push_back(smileyBox);
-
-
 	gameObjects.push_back(simpleTerrain);
-
-
 
 	//gameObjects.push_back(ourModel);
 
@@ -253,14 +227,9 @@ void LabEngine::run()
 	}
 
 	//---------------------------------------
-
-//	player_2.test();   // SETS UP ANIMATION CYCLES ( MOVE CODE ELSE WHERE, JUST TEST FOR NOW )
-
 	
 	while (!m_window->shouldClose())
 	{
-
-
 		// test render IMGUI
 		//----------------------------------------------------- ( BEGIN FRAME )
 
@@ -426,22 +395,7 @@ void processInput(GLFWwindow* window, float deltaTime, Camera& camera)
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
 		camera.ProcessKeyboard(RIGHT, deltaTime);
 
-	if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
-	{
-		camera.ProcessMouseMovement(-lookSpeed * deltaTime, 0.0);
-	}
-	if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
-	{
-		camera.ProcessMouseMovement(lookSpeed * deltaTime, 0.0);
-	}
-	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
-	{
-		camera.ProcessMouseMovement(0.0, lookSpeed * deltaTime);
-	}
-	if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
-	{
-		camera.ProcessMouseMovement(0.0, -lookSpeed * deltaTime);
-	}
+
 }
 
 

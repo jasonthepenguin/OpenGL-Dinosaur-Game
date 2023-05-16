@@ -1,8 +1,12 @@
 #pragma once
 
 #include <GLFW/glfw3.h>
-#include "ModelController.h"
 
+#include "Camera.h"
+#include "EngGUI.h"
+#include "md2_test.h"
+#include "ModelController.h"
+#include "LabEngine.h"
 
 class SpecialKeys 
 {
@@ -24,16 +28,7 @@ class SpecialKeys
         ~SpecialKeys();
 
 
-            /***********************************************************************************************************************************************************************
-             * @brief readInput()
-             * @brief this function is used to read input keys other than W,A,S,D
-             * 
-             * @param m_PixelsGLFWWindow  - GLFWwindow provides access to the game window
-             * @param deltaT              - float track of time
-             ***********************************************************************************************************************************************************************/
-
-        void readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT);
-
+      
 
             /***********************************************************************************************************************************************************************
              * @brief toggleWireframeMode()
@@ -43,12 +38,6 @@ class SpecialKeys
         void toggleWireframeMode();
 
 
-            /***********************************************************************************************************************************************************************
-             * @brief playNextAnimation()
-             * @brief this function is used to play the MD2 models next animation
-             ***********************************************************************************************************************************************************************/
-
-        void playNextAnimation();
 
 
             /***********************************************************************************************************************************************************************
@@ -74,7 +63,46 @@ class SpecialKeys
 
         void displayGroupPhoto();
 
+
+            /***********************************************************************************************************************************************************************
+             * @brief readTaskInput()
+             * @brief this function is used to read input for keys other than those used to manipulate the model
+             * 
+             * @param m_PixelsWindow - GLFWWindow*
+             * @param deltaT         - float
+             ***********************************************************************************************************************************************************************/
+
+        void readTaskInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT);
+
+
+            /***********************************************************************************************************************************************************************
+             * @brief readModelInput()
+             * @brief this function is used to read model command inputs for moving the model and playing the next animation
+             * 
+             * @param m_Pixels
+             ***********************************************************************************************************************************************************************/
+
+        void readModelInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT, ModelController& modelController);
+
+
+        /***********************************************************************************************************************************************************************
+         * @brief readInput()
+         * @brief this function is used to read input keys other than W,A,S,D
+         *
+         * @param m_PixelsGLFWWindow  - GLFWwindow provides access to the game window
+         * @param deltaT              - float track of time
+         ***********************************************************************************************************************************************************************/
+
+        void readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT, ModelController& modelController, Camera& camera);
+
+
+
     private:
-        GLFWwindow* m_PixelsGLFWWindow;
-        ModelController& modelController;
+        
+        EngGUI*                gui;
+        bool                   isFlying;
+        bool                   wireframe;
+        std::vector<MD2_TEST*> MD2models;
+        ModelController&       modelController;
+        GLFWwindow*            m_PixelsGLFWWindow;
 };
