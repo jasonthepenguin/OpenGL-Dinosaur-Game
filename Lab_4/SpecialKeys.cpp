@@ -60,11 +60,12 @@ void SpecialKeys::toggleLighting()
     
     if (lightingEnabled) 
     {
-        glEnable(GL_LIGHTING);
+       // glEnable(GL_LIGHTING);  // these wont work as are deprecated and are from the fixed function pipeline days. Instead should someone have access to a reference to a shader object, 
+                                    //and set a uniform for the fragment shader, so it knows not to do any lighting calculations
     }
     else 
     {
-        glDisable(GL_LIGHTING);
+       // glDisable(GL_LIGHTING);  // same as above ^^^  :-)
     }
 }
 
@@ -132,9 +133,10 @@ void SpecialKeys::readModelInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT, M
 
 
 
-void SpecialKeys::readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT, ModelController& modelController, Camera& camera)
+//void SpecialKeys::readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT, ModelController& modelController, Camera& camera)
+void SpecialKeys::readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT)
 {
-    readModelInput(m_PixelsGLFWWindow, deltaT, modelController);
+    //readModelInput(m_PixelsGLFWWindow, deltaT, modelController);
     readTaskInput(m_PixelsGLFWWindow, deltaT);
 }
 

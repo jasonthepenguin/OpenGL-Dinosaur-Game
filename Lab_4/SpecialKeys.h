@@ -1,5 +1,6 @@
 #pragma once
 
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 #include "Camera.h"
@@ -97,7 +98,8 @@ class SpecialKeys
              * @param deltaT              - float track of time
              ***********************************************************************************************************************************************************************/
 
-        void readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT, ModelController& modelController, Camera& camera);
+       // void readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT, ModelController& modelController, Camera& camera);
+        void readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT);
 
 
 
@@ -107,6 +109,7 @@ class SpecialKeys
         bool                   isFlying;
         bool                   wireframe;
         std::vector<MD2_TEST*> MD2models;
-        ModelController&       modelController;
+       // ModelController&       modelController;                 // having it like this means it has to be initialised in the constructor, since I just want the project to compile I'm going to make it a pointer for now
+        ModelController* modelController;
         GLFWwindow*            m_PixelsGLFWWindow;
 };
