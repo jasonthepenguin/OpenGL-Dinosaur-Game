@@ -10,6 +10,8 @@ Camera::Camera(const glm::vec3& initialPosition) : m_Location(initialPosition)
 
 
     m_Direction = glm::vec3(0.0f, 0.0f, -1.0f);
+
+
     MovementSpeed = SPEED;
     MouseSensitivity = SENSITIVITY;
     Zoom = ZOOM;

@@ -16,7 +16,7 @@ void Keyboard_Input::readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT)
 {
     if (m_SpecialKeys)
     {
-        //m_SpecialKeys->readInput(m_PixelsGLFWWindow, deltaT);
+        m_SpecialKeys->readInput(m_PixelsGLFWWindow, deltaT);
     }
 
     if (m_MovementKeys)
