@@ -39,9 +39,12 @@ void LabEngine::init()
 
 	//Keyboard_Input* kb = new Keyboard_Input(m_camera);
 	std::shared_ptr<Keyboard_Input> kb = std::make_shared<Keyboard_Input>(m_camera);
+	std::shared_ptr<Mouse_Input> mp = std::make_shared<Mouse_Input>();
 
 	userInput = new UI_Manager;
+
 	userInput->setPlayerKeyboard(kb);
+	userInput->setPlayerMouse(mp);
 
 	// cursor callback for now
 	//glfwSetCursorPosCallback(m_window->m_PixelsGLFWWindow, mouse_callback);
@@ -263,6 +266,9 @@ void LabEngine::run()
 		// checking what keys have been pressed
 		m_window->processInput();
 		processInput(m_window->m_PixelsGLFWWindow, deltaTime, *m_camera);
+
+
+		userInput->m_PlayerKeyboard->readInput(m_window->m_PixelsGLFWWindow, deltaTime);
 		
 		//------------------ BEGIN  RENDERING ---------------------------------//
 

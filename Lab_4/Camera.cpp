@@ -4,6 +4,24 @@
 Camera::Camera(const glm::vec3& initialPosition) : m_Location(initialPosition)
 {
 
+    glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f);
+    float yaw = YAW;
+    float pitch = PITCH;
+
+
+    m_Direction = glm::vec3(0.0f, 0.0f, -1.0f);
+    MovementSpeed = SPEED;
+    MouseSensitivity = SENSITIVITY;
+    Zoom = ZOOM;
+
+    m_Location = initialPosition;
+    m_VerticalPlane = up;
+    m_CameraYaw = yaw;
+    m_CameraPitch = pitch;
+
+    updateCameraVectors();
+
+
 }
 
 
@@ -91,5 +109,5 @@ void Camera::updateCameraVectors()
 
 
     m_HorizontalPlane = glm::normalize(glm::cross(m_Direction, m_VerticalPlane));
-    m_VerticalPlane = glm::normalize(glm::cross(m_HorizontalPlane, m_Direction));
+   // m_VerticalPlane = glm::normalize(glm::cross(m_HorizontalPlane, m_Direction));
 }

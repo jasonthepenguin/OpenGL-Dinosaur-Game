@@ -2,6 +2,11 @@
 
 
 
+ Mouse_Input::Mouse_Input()
+{
+
+}
+
 void Mouse_Input::mouse_callback(GLFWwindow* m_PixelsGLFWWindow, double xposIn, double yposIn)
 {
 	auto& app = LabEngine::getInstance();
