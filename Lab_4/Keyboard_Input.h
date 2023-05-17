@@ -1,9 +1,17 @@
 #pragma once
 
 #include <memory>
-#include "Camera.h"
-#include "SpecialKeys.h"
-#include "MovementKeys.h"
+
+
+
+//#include "Camera.h"
+//#include "SpecialKeys.h"
+//#include "MovementKeys.h"
+
+// Forward declarations
+class Camera;
+class SpecialKeys;
+class MovementKeys;
 
 
 #include <glad/glad.h>
@@ -17,6 +25,8 @@
 class Keyboard_Input
 {
     public:
+
+
 
             /***********************************************************************************************************************************************************************
              * @brief Constructs a `KeyboardInput` object.

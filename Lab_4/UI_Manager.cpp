@@ -1,8 +1,11 @@
 #include "UI_Manager.h"
-
+#include "Keyboard_Input.h"
+#include "Mouse_Input.h"
 
 UI_Manager::UI_Manager() 
 {
+    m_PlayerKeyboard = nullptr;
+    m_PlayerMouse = nullptr;
 
 }
 

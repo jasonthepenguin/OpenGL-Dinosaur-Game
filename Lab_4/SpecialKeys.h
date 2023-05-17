@@ -87,7 +87,7 @@ class SpecialKeys
              * @param m_Pixels
              ***********************************************************************************************************************************************************************/
 
-        void readModelInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT, ModelController& modelController);
+       // void readModelInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT, ModelController& modelController);
 
 
             /***********************************************************************************************************************************************************************
@@ -110,6 +110,6 @@ class SpecialKeys
         bool                   wireframe;
         std::vector<MD2_TEST*> MD2models;
        // ModelController&       modelController;                 // having it like this means it has to be initialised in the constructor, since I just want the project to compile I'm going to make it a pointer for now
-        ModelController* modelController;
+       // ModelController* modelController;
         GLFWwindow*            m_PixelsGLFWWindow;
 };

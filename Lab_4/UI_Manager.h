@@ -1,8 +1,15 @@
 #pragma once
-#include "Keyboard_Input.h"
-#include "Mouse_Input.h"
+
 #include <memory>
 
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+
+//#include "Keyboard_Input.h"
+//#include "Mouse_Input.h"
+
+class Keyboard_Input;
+class Mouse_Input;
 
 class UI_Manager
 {
@@ -50,9 +57,14 @@ class UI_Manager
         
         void readUserInput(GLFWwindow* window, float deltaT);
 
-    private:
+
         std::shared_ptr<Keyboard_Input> m_PlayerKeyboard;
         std::shared_ptr<Mouse_Input> m_PlayerMouse;
+
+
+    private:
+      //  std::shared_ptr<Keyboard_Input> m_PlayerKeyboard;
+      //  std::shared_ptr<Mouse_Input> m_PlayerMouse;
         
 };
 

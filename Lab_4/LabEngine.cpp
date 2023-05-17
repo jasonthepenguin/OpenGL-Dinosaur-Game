@@ -28,14 +28,26 @@ void LabEngine::init()
 
 
 	// creaing the camera
-	m_camera = new Camera(glm::vec3(0.0f, 0.0f, 3.0f)); // camera and its starting position
+//	m_camera = new Camera(glm::vec3(0.0f, 0.0f, 3.0f)); // camera and its starting position
+	m_camera = std::make_shared<Camera>(glm::vec3(0.0f, 0.0f, 3.0f));
+
 	lastX = width / 2.0f;
 	lastY = width / 2.0f;
 	bool firstMouse = true;
+
+
+
+	//Keyboard_Input* kb = new Keyboard_Input(m_camera);
+	std::shared_ptr<Keyboard_Input> kb = std::make_shared<Keyboard_Input>(m_camera);
+
+	userInput = new UI_Manager;
+	userInput->setPlayerKeyboard(kb);
+
 	// cursor callback for now
-	glfwSetCursorPosCallback(m_window->m_PixelsGLFWWindow, mouse_callback);
+	//glfwSetCursorPosCallback(m_window->m_PixelsGLFWWindow, mouse_callback);
+	glfwSetCursorPosCallback(m_window->m_PixelsGLFWWindow, Mouse_Input::static_mouse_callback);
 	// testing key callback for now
-	glfwSetKeyCallback(m_window->m_PixelsGLFWWindow, key_callback);
+	//glfwSetKeyCallback(m_window->m_PixelsGLFWWindow, key_callback);
 	//-------------------------------------
 
 	// SETTING UP THE GRAPHICS

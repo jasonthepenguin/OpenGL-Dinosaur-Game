@@ -38,6 +38,11 @@
 #include "EngGUI.h"
 
 
+#include "Keyboard_Input.h"
+#include "Mouse_Input.h"
+#include "UI_Manager.h"
+
+
 // LUA
 #include <lua.hpp>
 #include <sol/sol.hpp>
@@ -75,7 +80,8 @@ using namespace reactphysics3d;
 				 ******************************************************************************************************************************************/
 				
 			Window* m_window;  		  /// Window object ptr used to create a window object
-			Camera* m_camera;		  /// Camera object the players ingame camera
+		//	Camera* m_camera;		  /// Camera object the players ingame camera
+			std::shared_ptr<Camera> m_camera;
 			float lastX;			  /// lastX 	 - the previous X position
 			float lastY;			  /// lastY 	 - the previous Y position 
 			bool firstMouse = true;	  /// firstMouse - checks if mouse interacted with
@@ -94,7 +100,9 @@ using namespace reactphysics3d;
 
 			std::vector<MD2_TEST*> MD2models;
 
-		
+			
+
+			UI_Manager* userInput;
 
 				/******************************************************************************************************************************************
 				 * @brief  : init()

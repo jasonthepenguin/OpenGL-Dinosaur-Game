@@ -54,7 +54,7 @@ void Camera::setCameraYaw(float tempYaw)                              { m_Camera
 
 
 
-void Camera::readMouseMovement(float xoffset, float yoffset, GLboolean constrainPitch = true)
+void Camera::readMouseMovement(float xoffset, float yoffset, GLboolean constrainPitch)
 {
     float sensitivity = 0.1f;
     xoffset *= sensitivity;

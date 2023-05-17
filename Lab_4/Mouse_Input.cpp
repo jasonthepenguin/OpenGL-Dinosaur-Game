@@ -22,5 +22,20 @@ void Mouse_Input::mouse_callback(GLFWwindow* m_PixelsGLFWWindow, double xposIn, 
 	app.lastX = xpos;
 	app.lastY = ypos;
 
-	app.m_camera->ProcessMouseMovement(xoffset, yoffset);
+	//app.m_camera->ProcessMouseMovement(xoffset, yoffset);  we are going to do some calculations that used to happen in this function here, then we
+	app.m_camera->readMouseMovement(xoffset, yoffset);
+	// update the camera 
+}
+
+ void Mouse_Input::static_mouse_callback(GLFWwindow * m_PixelsGLFWWindow, double xposIn, double yposIn)
+{
+	LabEngine::getInstance().userInput->m_PlayerMouse->mouse_callback(m_PixelsGLFWWindow, xposIn, yposIn);
+}
+
+
+void Mouse_Input::readInput(GLFWwindow* GLFWWindow, float deltaT)
+{
+
+
+
 }

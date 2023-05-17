@@ -102,6 +102,7 @@ void SpecialKeys::readTaskInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT)
 }
 
 
+/*
 
 void SpecialKeys::readModelInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT, ModelController& modelController)
 {
@@ -131,7 +132,7 @@ void SpecialKeys::readModelInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT, M
     }
 }
 
-
+*/
 
 //void SpecialKeys::readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT, ModelController& modelController, Camera& camera)
 void SpecialKeys::readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT)
