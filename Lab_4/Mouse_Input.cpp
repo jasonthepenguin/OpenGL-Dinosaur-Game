@@ -2,10 +2,11 @@
 
 
 
- Mouse_Input::Mouse_Input()
+Mouse_Input::Mouse_Input()
 {
 
 }
+
 
 void Mouse_Input::mouse_callback(GLFWwindow* m_PixelsGLFWWindow, double xposIn, double yposIn)
 {
@@ -32,7 +33,9 @@ void Mouse_Input::mouse_callback(GLFWwindow* m_PixelsGLFWWindow, double xposIn, 
 	// update the camera 
 }
 
- void Mouse_Input::static_mouse_callback(GLFWwindow * m_PixelsGLFWWindow, double xposIn, double yposIn)
+
+
+void Mouse_Input::static_mouse_callback(GLFWwindow * m_PixelsGLFWWindow, double xposIn, double yposIn)
 {
 	LabEngine::getInstance().userInput->m_PlayerMouse->mouse_callback(m_PixelsGLFWWindow, xposIn, yposIn);
 }

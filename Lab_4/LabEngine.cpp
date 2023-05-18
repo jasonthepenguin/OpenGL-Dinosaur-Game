@@ -13,30 +13,24 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 LabEngine* LabEngine::staticInstance = nullptr;
 
 
+const int WIDTH  = 1400;
+const int HEIGHT = 1080;
+
+
 void LabEngine::init()
 {
 	// create the m_PixelsGLFWWindow
-	int width = 1200;
-	int height = 800;
-	
-	std::cout << "We are now initialising!!" << std::endl;
-
+	int width = WIDTH;
+	int height = HEIGHT;
 	
 	m_window = Window::getWindow();
 	m_window->init();
 	m_window->createWindow(width, height, "Assignment 1");
-
-
-	// creaing the camera
-//	m_camera = new Camera(glm::vec3(0.0f, 0.0f, 3.0f)); // camera and its starting position
 	m_camera = std::make_shared<Camera>(glm::vec3(0.0f, 0.0f, 3.0f));
 
 	lastX = width / 2.0f;
 	lastY = width / 2.0f;
 	bool firstMouse = true;
-
-
-
 
 	//Keyboard_Input* kb = new Keyboard_Input(m_camera);
 	std::shared_ptr<Keyboard_Input> kb = std::make_shared<Keyboard_Input>(m_camera);
@@ -47,15 +41,9 @@ void LabEngine::init()
 	userInput->setPlayerKeyboard(kb);
 	userInput->setPlayerMouse(mp);
 
-	// cursor callback for now
-	//glfwSetCursorPosCallback(m_window->m_PixelsGLFWWindow, mouse_callback);
 	glfwSetCursorPosCallback(m_window->m_PixelsGLFWWindow, Mouse_Input::static_mouse_callback);
-	// testing key callback for now
-	//glfwSetKeyCallback(m_window->m_PixelsGLFWWindow, key_callback);
-	//-------------------------------------
 
 	// SETTING UP THE GRAPHICS
-
 	Graphics_Factory gf;
 	graphics = gf.Create("opengl");
 	// Setting up OpenGL with GLAD
@@ -63,18 +51,12 @@ void LabEngine::init()
 	graphics->setViewport(0, 0, width, height);
 	graphics->enableDepthTest(); // doesn't show vertices not visible to camera (back of object)
 	//-------------------------------------
-	
-
-
-
-	
-
 	// Init physics
 	world = physicsCommon.createPhysicsWorld();
-
 	// Init the Lua state
 	lua.open_libraries(sol::lib::base);
 }
+
 
 void LabEngine::run()
 {
@@ -82,48 +64,34 @@ void LabEngine::run()
 	// Init the GUI
 	gui = new EngGUI();
 
-
-	std::cout << "The engine runs! For now..." << std::endl;
-
 	TextureFactory textFact; // temporarily placing this here.
-
 	auto& engine = LabEngine::getInstance();
 
 	Shader ourShader("shaders/light_vs.shader", "shaders/light_fs.shader");
 	
-	// Loading the Terrain data in from a raw file. ( SHOW THIS FIRST ) ( NO TERRAIN GENERATING ALOGIRTHM USED )
-	
-		std::string fileName = "height128.raw";
-		simpleTerrain->loadHeightfield(fileName.c_str(), 128); // 128 represents 1.28 km sqaured
+		// Loading the Terrain data in from a raw file cahnge to using tiny obj
+	std::string fileName = "height128.raw";
+	simpleTerrain->loadHeightfield(fileName.c_str(), 128);
 		//simpleTerrain->setScalingFactor(0.5, 0.1, 0.50);
-		simpleTerrain->setScalingFactor(1.0, 0.1, 1.0);
+	simpleTerrain->setScalingFactor(1.0, 0.1, 1.0);
 		// With texture
-			simpleTerrain->setUpTerrainData(true);
-			simpleTerrain->loadTerrainTexture("grass.jpg");
-			simpleTerrain->sharedShader = &ourShader;			// just testing to see if sharing this shader works
-
-	//--------------------------------------------------------------------------------------------------------------------------------------------
-			// Loading the Terrain data in dynamically using the fault formation algorithm.  ( SHOW THIS SECOND )
-	//-------------------------------------------- ( LOOK AT BOTTOM OF CLASS FOR EXAMPLE CODE OF SHOWING OFF OTHER TERRAIN OPTIONS )---------
-			// STARTING POS OF THE TERRAIN
-			simpleTerrain->startPos = glm::vec3(0.0, 0.0, 0.0);  // (TODO) change to use GameObjects position member variable
-
+	simpleTerrain->setUpTerrainData(true);
+	simpleTerrain->loadTerrainTexture("grass.jpg");
+	simpleTerrain->sharedShader = &ourShader;	
+	// Loading the Terrain data in dynamically using the fault formation algorithm
+	// STARTING POS OF THE TERRAIN
+	simpleTerrain->startPos = glm::vec3(0.0, 0.0, 0.0);  // (TODO) change to use GameObjects position member variable
 
 
 	//------------- ( INIT CAMERA POSITION ) ---------------------- //
+	float startX = ((float)simpleTerrain->size / 2.0);
+	float startZ = ((float)simpleTerrain->size / 2.0);
+	float startY = simpleTerrain->getHeight(startX, startZ);
+	std::cout << "Start X : " << startX << ", Start Y : " << startY << " , start Z : " << startZ << std::endl;
+	//m_camera->Position = glm::vec3(startX * simpleTerrain->scaleX, startY + 1, startZ * simpleTerrain->scaleZ);
+	m_camera->setCameraLocation(glm::vec3(startX * simpleTerrain->scaleX, startY + 1, startZ * simpleTerrain->scaleZ));
 
-
-			float startX = ((float)simpleTerrain->size / 2.0);
-			float startZ = ((float)simpleTerrain->size / 2.0);
-
-			float startY = simpleTerrain->getHeight(startX, startZ);
-
-			std::cout << "Start X : " << startX << ", Start Y : " << startY << " , start Z : " << startZ << std::endl;
-
-			//m_camera->Position = glm::vec3(startX * simpleTerrain->scaleX, startY + 1, startZ * simpleTerrain->scaleZ);
-			m_camera->setCameraLocation(glm::vec3(startX * simpleTerrain->scaleX, startY + 1, startZ * simpleTerrain->scaleZ));
-
-			glm::vec3 lightPosition = glm::vec3(startX * simpleTerrain->scaleX, startY + 1, startZ * simpleTerrain->scaleZ);
+	glm::vec3 lightPosition = glm::vec3(startX * simpleTerrain->scaleX, startY + 1, startZ * simpleTerrain->scaleZ);
 
 	
 
@@ -131,10 +99,10 @@ void LabEngine::run()
 	//------------------------------------------- Vertex Data  + Textures
 	
 	sol::protected_function_result result = lua.script_file("Lua/testBox.lua", sol::script_pass_on_error);
-	if (!result.valid()) {
+	if (!result.valid()) 
+	{
 		sol::error err = result;
 		std::cerr << "Failed to execute the Lua script: " << err.what() << std::endl;
-		
 	}
 
 	sol::table testBoxTable = result;
@@ -381,10 +349,7 @@ void LabEngine::run()
 			}
 		}
 		//-------------------------------------------------- COMPLETED DRAWING OF TEST BOXES -------------------------//
-
-
 		gui->renderData();
-
 		m_window->swapBuffers();
 		m_window->pollEvents();
 	}
@@ -405,17 +370,16 @@ void mouse_callback(GLFWwindow* m_PixelsGLFWWindow, double xposIn, double yposIn
 		app.lastY = ypos;
 		app.firstMouse = false;
 	}
-
 	float xoffset = xpos - app.lastX;
 	float yoffset = app.lastY - ypos; // reversed since y-coordinates go from bottom to top
-
 	app.lastX = xpos;
 	app.lastY = ypos;
-
 	//app.m_camera->ProcessMouseMovement(xoffset, yoffset);
 }
 
 
+
+//IF NOT IN USE WHY HERE > IS IT TO BE IMPLEMENTED IN SPECIAL KEYS
 void processInput(GLFWwindow* window, float deltaTime, Camera& camera)
 {
 	float lookSpeed = 400; // optimise this so not creating a float each time. Perhaps variable in Camera
@@ -430,13 +394,14 @@ void processInput(GLFWwindow* window, float deltaTime, Camera& camera)
 	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {}
 		//camera.ProcessKeyboard(LEFT, deltaTime);
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {}
-		//camera.ProcessKeyboard(RIGHT, deltaTime);
-
-
+		//camera.ProcessKeyboard(RIGHT, deltaTime)
 }
 
 
-/*
+/* IF NOT IN USE WHY HERE > IS IT TO BE IMPLEMENTED IN SPECIAL KEYS
+* 
+* 
+* 
 // Key callback function
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {

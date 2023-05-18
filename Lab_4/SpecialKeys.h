@@ -30,6 +30,14 @@ class SpecialKeys
              ***********************************************************************************************************************************************************************/
 
         ~SpecialKeys();
+        void handleKeyEntered(GLFWwindow* m_PixelsGLFWWindow, int key, bool& keyState, void (SpecialKeys::* action)());
+
+
+        void F_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
+        void K_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
+        void L_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
+        void M_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
+        void X_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
 
 
             /***********************************************************************************************************************************************************************
@@ -110,7 +118,6 @@ class SpecialKeys
     private:
         
         EngGUI*                gui;
-       // bool                   isFlying;
         bool                   wireframe;
         std::vector<MD2_TEST*> MD2models;
        // ModelController&       modelController;                 // having it like this means it has to be initialised in the constructor, since I just want the project to compile I'm going to make it a pointer for now

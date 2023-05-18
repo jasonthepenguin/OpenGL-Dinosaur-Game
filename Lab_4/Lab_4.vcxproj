@@ -169,6 +169,7 @@
     <ClCompile Include="ModelController.cpp" />
     <ClCompile Include="Mouse_Input.cpp" />
     <ClCompile Include="MovementKeys.cpp" />
+    <ClCompile Include="Rain.cpp" />
     <ClCompile Include="SpecialKeys.cpp" />
     <ClCompile Include="UI_Manager.cpp" />
     <ClCompile Include="Keyboard_Input.cpp" />
@@ -218,7 +219,10 @@
     <ClInclude Include="ModelController.h" />
     <ClInclude Include="Mouse_Input.h" />
     <ClInclude Include="MovementKeys.h" />
+    <ClInclude Include="Rain.h" />
+    <ClInclude Include="Particle.h" />
     <ClInclude Include="SpecialKeys.h" />
+    <ClInclude Include="TinyObjLoader.h" />
     <ClInclude Include="UI_Manager.h" />
     <ClInclude Include="Keyboard_Input.h" />
     <ClInclude Include="md2_test.h" />

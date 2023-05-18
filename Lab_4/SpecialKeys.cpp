@@ -65,6 +65,49 @@ void SpecialKeys::triggerFlying()
 }
 
 
+void SpecialKeys::handleKeyEntered(GLFWwindow* m_PixelsGLFWWindow, int key, bool& keyState, void (SpecialKeys::* action)())
+{
+    if (glfwGetKey(m_PixelsGLFWWindow, key) == GLFW_PRESS && !keyState)
+    {
+        (this->*action)();
+        keyState = true;
+    }
+    else if (glfwGetKey(m_PixelsGLFWWindow, key) == GLFW_RELEASE)
+    {
+        keyState = false;
+    }
+}
+
+
+void SpecialKeys::F_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
+{
+    handleKeyEntered(m_PixelsGLFWWindow, GLFW_KEY_F, keyStates[GLFW_KEY_F], &SpecialKeys::triggerFlying);
+}
+
+
+void SpecialKeys::K_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
+{
+    handleKeyEntered(m_PixelsGLFWWindow, GLFW_KEY_K, keyStates[GLFW_KEY_K], &SpecialKeys::toggleWireframeMode);
+}
+
+
+void SpecialKeys::L_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
+{
+    handleKeyEntered(m_PixelsGLFWWindow, GLFW_KEY_L, keyStates[GLFW_KEY_L], &SpecialKeys::toggleLighting);
+}
+
+
+void SpecialKeys::M_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
+{
+    handleKeyEntered(m_PixelsGLFWWindow, GLFW_KEY_M, keyStates[GLFW_KEY_M], &SpecialKeys::displayDemoWindow);
+}
+
+
+void SpecialKeys::X_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
+{
+    handleKeyEntered(m_PixelsGLFWWindow, GLFW_KEY_X, keyStates[GLFW_KEY_X], &SpecialKeys::displayGroupPhoto);
+}
+
 
 void SpecialKeys::displayDemoWindow()
 {
@@ -91,8 +134,10 @@ void SpecialKeys::toggleLighting()
     
     if (lightingEnabled) 
     {
-       // glEnable(GL_LIGHTING);  // these wont work as are deprecated and are from the fixed function pipeline days. Instead should someone have access to a reference to a shader object, 
-                                    //and set a uniform for the fragment shader, so it knows not to do any lighting calculations
+        //Access the shader program and set the lighting uniform accordingly
+        //Shader& shader = LabEngine::getInstance().shader; // Replace with the actual shader object you are using
+        //shader.use();
+        //shader.setBool("enableLighting", lightingEnabled);
     }
     else 
     {
@@ -103,63 +148,11 @@ void SpecialKeys::toggleLighting()
 
 void SpecialKeys::readTaskInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT)
 {
-
-    // FLYING
-    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_F) == GLFW_PRESS && !keyStates[GLFW_KEY_F])
-    {
-        triggerFlying();
-        keyStates[GLFW_KEY_F] = true;
-       // std::cout << "THE F KEY WAS PRESSED!" << std::endl;
-    }
-    else if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_F) == GLFW_RELEASE)
-    {
-        keyStates[GLFW_KEY_F] = false;
-    }
-
-
-    // For the K key WIREFRAME
-    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_K) == GLFW_PRESS && !keyStates[GLFW_KEY_K])
-    {
-        toggleWireframeMode();
-        keyStates[GLFW_KEY_K] = true;
-    }
-    else if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_K) == GLFW_RELEASE)
-    {
-        keyStates[GLFW_KEY_K] = false;
-    }
-
-    // For the L key FOR LIGHTING
-    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_L) == GLFW_PRESS && !keyStates[GLFW_KEY_L])
-    {
-        toggleLighting();
-        keyStates[GLFW_KEY_L] = true;
-    }
-    else if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_L) == GLFW_RELEASE)
-    {
-        keyStates[GLFW_KEY_L] = false;
-    }
-
-    // For the M key FOR DEMO WINDOW
-    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_M) == GLFW_PRESS && !keyStates[GLFW_KEY_M])
-    {
-        displayDemoWindow();
-        keyStates[GLFW_KEY_M] = true;
-    }
-    else if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_M) == GLFW_RELEASE)
-    {
-        keyStates[GLFW_KEY_M] = false;
-    }
-
-    // For the X key FOR GROUP PHOTO
-    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_X) == GLFW_PRESS && !keyStates[GLFW_KEY_X])
-    {
-        displayGroupPhoto();
-        keyStates[GLFW_KEY_X] = true;
-    }
-    else if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_X) == GLFW_RELEASE)
-    {
-        keyStates[GLFW_KEY_X] = false;
-    }
+    F_KeyEntered(m_PixelsGLFWWindow);
+    K_KeyEntered(m_PixelsGLFWWindow);
+    L_KeyEntered(m_PixelsGLFWWindow);
+    M_KeyEntered(m_PixelsGLFWWindow);
+    X_KeyEntered(m_PixelsGLFWWindow);
 }
 
 

@@ -31,6 +31,12 @@
     <Filter Include="Source Files\Player\UI_Manager">
       <UniqueIdentifier>{c6c57631-644f-458d-ad44-63ecc50675f9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Weather">
+      <UniqueIdentifier>{4435918f-5d1b-45e7-92a1-ce6eb7543522}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Weather">
+      <UniqueIdentifier>{191a7cc0-4199-4b17-bb4e-0ab2a83a0af8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Lab_4.cpp">
@@ -101,6 +107,9 @@
     </ClCompile>
     <ClCompile Include="SpecialKeys.cpp">
       <Filter>Source Files\Player\UI_Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Rain.cpp">
+      <Filter>Source Files\Weather</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -218,6 +227,15 @@
     </ClInclude>
     <ClInclude Include="MovementKeys.h">
       <Filter>Header Files\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Rain.h">
+      <Filter>Header Files\Weather</Filter>
+    </ClInclude>
+    <ClInclude Include="Particle.h">
+      <Filter>Header Files\Weather</Filter>
+    </ClInclude>
+    <ClInclude Include="TinyObjLoader.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

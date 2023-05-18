@@ -13,38 +13,19 @@ void Terrain::Render(Shader& shader)
 	bruteForceRender();
 }
 
+
 void Terrain::Init()
 {
 	auto world = LabEngine::getInstance().world;
-
-
-	//const int nbVertices = simpleTerrain->vert_pos.size() / 3;
 	const int nbVertices = vert_pos.size() / 3;
 	std::cout << "num of vert pos : " << nbVertices << std::endl;
-
-
-	//const int nbTriangles = simpleTerrain->indices.size() / 3;
 	const int nbTriangles = indices.size() / 3;
 
-	//float vertices[3 * nbVertices] = ...;
-	//int indices[3 * nbTriangles] = ...;
 
-	TriangleVertexArray* triangleArray =
-		//new TriangleVertexArray(nbVertices, simpleTerrain->vert_pos.data(), 3 * sizeof(
-		new TriangleVertexArray(nbVertices, vert_pos.data(), 3 * sizeof(
-			float), nbTriangles,
-			//simpleTerrain->indices.data(), 3 * sizeof(int),
-			indices.data(), 3 * sizeof(int),
-			TriangleVertexArray::VertexDataType::VERTEX_FLOAT_TYPE,
-			TriangleVertexArray::IndexDataType::INDEX_INTEGER_TYPE);
-
+	TriangleVertexArray* triangleArray = new TriangleVertexArray(nbVertices, vert_pos.data(), 3 * sizeof(float), nbTriangles, indices.data(), 3 * sizeof(int), TriangleVertexArray::VertexDataType::VERTEX_FLOAT_TYPE, TriangleVertexArray::IndexDataType::INDEX_INTEGER_TYPE);
 	TriangleMesh* triangleMesh = LabEngine::getInstance().physicsCommon.createTriangleMesh();
 	triangleMesh->addSubpart(triangleArray);
-
 	ConcaveMeshShape* concaveMesh = LabEngine::getInstance().physicsCommon.createConcaveMeshShape(triangleMesh);
-
-	
-	
 
 	// create a terrain collision
 	rp3d::Vector3 MapPos(0.0f, 0.0f, 0.0f);
@@ -52,40 +33,38 @@ void Terrain::Init()
 	rp3d::Transform fieldTransform(MapPos, fieldOrientation);
 	concaveMeshBody = world->createRigidBody(fieldTransform);
 	concaveMeshBody->setType(rp3d::BodyType::STATIC); // <-- set  to static
-	
-
 
 	// add collider
 	rp3d::Collider* concaveMeshCollider;
 	concaveMeshCollider = concaveMeshBody->addCollider(concaveMesh, rp3d::Transform::identity());
-
-
-
 }
 
-// step 2 : load heightfield
-bool Terrain::loadHeightfield(const char* filename, const int size) {
 
-	// open for binary read
+// step 2 : load heightfield
+
+bool Terrain::loadHeightfield(const char* filename, const int size)
+{
 	std::ifstream infile(filename, std::ios::binary);
-	if (!infile) {
+	if (!infile)
+	{
 		std::cerr << "Cannot open file! : " << filename << std::endl;
 		return false;
 	}
 
-	// allocate memory
-	if (terrainData) {
+	if (terrainData)
+	{
 		delete[] terrainData;
 	}
-	if (size > 0) {
+
+	if (size > 0)
+	{
 		terrainData = new unsigned char[size * size];
 	}
-	if (terrainData == NULL) {
+	if (terrainData == NULL)
+	{
 		return false;
 	}
 
-	// read in heightfield
-		// get length of file
 	infile.seekg(0, std::ios::end);
 	int length = infile.tellg();
 
@@ -95,9 +74,11 @@ bool Terrain::loadHeightfield(const char* filename, const int size) {
 	infile.close();
 	this->size = size;
 
-	return true;
 
+	return true;
 }
+
+
 
 // step 3 : set scaling values
 void Terrain::setScalingFactor(float xScale, float yScale, float zScale) {
@@ -108,245 +89,209 @@ void Terrain::setScalingFactor(float xScale, float yScale, float zScale) {
 
 }
 
+
 // step 4 : brute force render
-void Terrain::bruteForceRender() {
-
+void Terrain::bruteForceRender()
+{
 	ourShader->use();
-
-
 	glm::mat4 model = glm::mat4(1.0f);
 
-	// When not using fault
-	//startPos = glm::vec3(-64.0f * scaleX, -25.0f, -64.0 * scaleZ); // Getting the terrain somewhat in the middle
-	//startPos = glm::vec3(-64.0f * scaleX, -50.0f, -64.0 * scaleZ); // Getting the terrain somewhat in the middle
-	//glm::vec3 startPos = glm::vec3(-64.0f , -25.0f, -64.0 );
-
-	if (!hasTexture) {
-
+	if (!hasTexture)
+	{
 		glBindVertexArray(VAO);
 		model = glm::translate(model, startPos);
 		ourShader->setMat4("model", model);
-
-		//glDrawArrays(GL_TRIANGLE_STRIP, 0, vertices.size() / 4);
 		glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
-
-
 	}
-	else {										// RENDERING WHEN USING TEXTURE COORDS
+	else
+	{										
 		glBindVertexArray(VAO);
 		model = glm::translate(model, startPos);
-
-		//ourShader->setMat4("model", model);
 		sharedShader->use();
 		sharedShader->setMat4("model", model);
-
-
 		terrainTexture->bindTexture(0);
-
-		//glDrawArrays(GL_TRIANGLE_STRIP, 0, vertices.size() / 5);
 		glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
-
 		terrainTexture->unbind();
 	}
 	glBindVertexArray(0);
 }
 
-bool Terrain::setUpTerrainData(bool hasTexture)
+
+
+void Terrain::setUpVertexArrayData()
+{
+	glGenVertexArrays(1, &VAO);
+	glGenBuffers(1, &VBO);
+	glGenBuffers(1, &EBO);
+	glBindVertexArray(VAO);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_STATIC_DRAW);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), indices.data(), GL_STATIC_DRAW);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+}
+
+
+
+void Terrain::setUpNoTextureAttributes()
+{
+	glBindVertexArray(VAO);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(1, 1, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(3 * sizeof(float)));
+	glEnableVertexAttribArray(1);
+	glBindVertexArray(0);
+}
+
+
+
+void Terrain::setUpTexturedAttributes()
+{
+	glBindVertexArray(VAO);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+	glEnableVertexAttribArray(2);
+	glBindVertexArray(0);
+}
+
+
+void Terrain::setupNonTexturedVerts()
+{
+	unsigned char heightColor;
+	for (int zCoord = 0; zCoord < size; zCoord++)
+	{
+		for (int xCoord = 0; xCoord < size; xCoord++)
+		{
+			heightColor = getHeightColor(xCoord, zCoord);
+
+			vertices.push_back((float)xCoord * scaleX);
+			vertices.push_back(getHeight(xCoord, zCoord));
+			vertices.push_back((float)zCoord * scaleZ);
+			vertices.push_back((float) heightColor);
+
+			if (xCoord < size - 1 && zCoord < size - 1)
+			{
+				unsigned int topLeft = zCoord * size + xCoord;
+				unsigned int topRight = topLeft + 1;
+				unsigned int bottomLeft = topLeft + size;
+				unsigned int bottomRight = bottomLeft + 1;
+
+				// First triangle
+				indices.push_back(topLeft);
+				indices.push_back(bottomLeft);
+				indices.push_back(topRight);
+
+				// Second triangle
+				indices.push_back(topRight);
+				indices.push_back(bottomLeft);
+				indices.push_back(bottomRight);
+			}
+		}
+	}
+}
+
+
+void Terrain::setUpTerrainData(bool hasTexture)
 {
 	this->hasTexture = hasTexture;
-	if (hasTexture == false) {
-		// use shaders for no texture terrain
+
+	if (hasTexture == false)
+	{
 		ourShader = new Shader("shaders/vertexShader_terrain.shader", "shaders/fragmentShader_terrain.shader");
-
-
+		setUpNoTextureAttributes();
 		// step 1) : set up new vertex array
-		/*
-			plan:
-				-Each byte from the height map I guess represents 3 points. Use a Vector of floats? ( fill up Vector of floats with vertex data ( pos + color)
-				-Use the algorithm from the lecture render() function to fill the vector instead of using it to render ( render later )
-
-
-		*/
-
-		unsigned char hcolor;  //color of the height 
-
-	 //loop through the z axis 
-		for (int z = 0; z < size ; z++) {
-			//loop through the x axis 
-			//glBegin(GL_TRIANGLE_STRIP);
-			for (int x = 0; x < size; x++) {
-				//create the the first point in the triangle strip 
-				hcolor = getHeightColor(x, z);
-
-				vertices.push_back((float)x * scaleX);
-				vertices.push_back(getHeight(x, z));
-				vertices.push_back((float)z * scaleZ);
-
-				//vertices.push_back(hcolor);
-				vertices.push_back((float)hcolor);
-
-				// Only generate indices if NOT at the edge of the terrain data grid
-				if (x < size - 1 && z < size - 1) 
-				{
-					unsigned int topLeft = z * size + x;
-					unsigned int topRight = topLeft + 1;
-					unsigned int bottomLeft = topLeft + size;
-					unsigned int bottomRight = bottomLeft + 1;
-
-					// First triangle
-					indices.push_back(topLeft);
-					indices.push_back(bottomLeft);
-					indices.push_back(topRight);
-
-					// Second triangle
-					indices.push_back(topRight);
-					indices.push_back(bottomLeft);
-					indices.push_back(bottomRight);
-				}
-
-	
-			}
-			//glEnd();
-		}
-
-		std::cout << "Number of elements = " << vertices.size() << std::endl;
-
-
-		// step 2) : set up VAO and VBO
-
+		setupNonTexturedVerts();
+		// step 2) : set upVAO and VBO
 		glGenVertexArrays(1, &VAO);
 		glGenBuffers(1, &VBO);
 		glGenBuffers(1, &EBO);
-		// bind the Vertex Array Object first, then bind and set vertex buffer(s), and then configure vertex attributes(s).
 		glBindVertexArray(VAO);
-
 		glBindBuffer(GL_ARRAY_BUFFER, VBO);
-		//glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 		glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_STATIC_DRAW);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), indices.data(), GL_STATIC_DRAW);
-
-		// position attribute
+		// positionttribute
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
 		glEnableVertexAttribArray(0);
-
 		// color attribute
 		glVertexAttribPointer(1, 1, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(3 * sizeof(float)));
 		glEnableVertexAttribArray(1);
-
-
-		// note that this is allowed, the call to glVertexAttribPointer registered VBO as the vertex attribute's bound vertex buffer object so afterwards we can safely unbind
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
-
 		glBindVertexArray(0);
-
-
 		//---------------------------
 	}
-	else { // setting up vertex to include Texture Coorindates
-
+	else
+	{
 		// use shaders for textured terrain
 		ourShader = new Shader("shaders/vertexShader.shader", "shaders/fragmentShader.shader");
-		// INSTEAD USE SHARED SHADER WHEN DRAWING
-
-
+		
+		setUpTexturedAttributes();
 		unsigned char hcolor;  //color of the height 
 		float texLeft;
 		float texBottom;
 		float texTop;
 	
-		// TESTING TO SEE IF THIS DRAWS BETTER, IF NOT THEN DELETE THIS, DELETE EBO CHANGE, AND REVERT BACK TO DRAW ARRAYS
-		for (int z = 0; z < size; z++) 
+		for (int zCoord = 0; zCoord < size; zCoord++) 
 		{
-			for (int x = 0; x < size; x++)
+			for (int xCoord = 0; xCoord < size; xCoord++)
 			{
-				// Create the vertex at (x, z)
-				hcolor = getHeightColor(x, z);
-				vertices.push_back((float)x * scaleX);
-				vertices.push_back(getHeight(x, z));
-				vertices.push_back((float)z * scaleZ);
-
+				// Create the vertex at (xCoord, zCoord)
+				hcolor = getHeightColor(xCoord, zCoord);
+				vertices.push_back((float)xCoord * scaleX);
+				vertices.push_back(getHeight(xCoord, zCoord));
+				vertices.push_back((float)zCoord * scaleZ);
 				// just storing the vertex pos separately just to test something ( delete this once done )
-				vert_pos.push_back((float)x* scaleX);
-				vert_pos.push_back(getHeight(x, z));
-				vert_pos.push_back((float)z* scaleZ);
-				//----------------------
-
-
+				vert_pos.push_back((float)xCoord* scaleX);
+				vert_pos.push_back(getHeight(xCoord, zCoord));
+				vert_pos.push_back((float)zCoord* scaleZ);
 				// Calculate normals
-				float currentX = (float)x * scaleX;
-				float currentY = getHeight(x, z);
-				float currentZ = (float)z * scaleZ;
+				float currentX = (float)xCoord * scaleX;
+				float currentY = getHeight(xCoord, zCoord);
+				float currentZ = (float)zCoord * scaleZ;
+				float heightLeft = xCoord > 0 ? getHeight(xCoord - 1, zCoord) : currentY;
+				float heightRight = xCoord < size - 1 ? getHeight(xCoord + 1, zCoord) : currentY;
+				float heightUp = zCoord > 0 ? getHeight(xCoord, zCoord - 1) : currentY;
+				float heightDown = zCoord < size - 1 ? getHeight(xCoord, zCoord + 1) : currentY;
 
-				// get height values of the left, right vertices along the x-axis
-				// get height values of the up and down vertices along the z-axis
-				// create a vector using the differences in height values along the X and Z axes
-				// constant y value to ensure normals have a consistent length along the y-axis
-				// normalise the resulting vector to obtain the current vertex
-
-				float heightLeft = x > 0 ? getHeight(x - 1, z) : currentY;
-				float heightRight = x < size - 1 ? getHeight(x + 1, z) : currentY;
-				float heightUp = z > 0 ? getHeight(x, z - 1) : currentY;
-				float heightDown = z < size - 1 ? getHeight(x, z + 1) : currentY;
-
-				glm::vec3 normal = glm::normalize(glm::vec3(
-					heightLeft - heightRight,
-					2.0f,
-					heightUp - heightDown
-				));
+				glm::vec3 normal = glm::normalize(glm::vec3( heightLeft - heightRight, 2.0f, heightUp - heightDown));
 
 				vertices.push_back(normal.x);
 				vertices.push_back(normal.y);
 				vertices.push_back(normal.z);
 				//----------------------------------------
-
-
 				// Add texture coordinates
-				texLeft = (float)x / size;
-				texBottom = (float)z / size;
+				texLeft = (float)xCoord / size;
+				texBottom = (float)zCoord / size;
 				vertices.push_back(texLeft);
 				vertices.push_back(texBottom);
-
-
-
 				// Only generate indices if NOT at the edge of the terrain data grid
-				if (x < size - 1 && z < size - 1) {
-					unsigned int topLeft = z * size + x;
+				if (xCoord < size - 1 && zCoord < size - 1) 
+				{
+					unsigned int topLeft = zCoord * size + xCoord;
 					unsigned int topRight = topLeft + 1;
 					unsigned int bottomLeft = topLeft + size;
 					unsigned int bottomRight = bottomLeft + 1;
-
 					// First triangle
 					indices.push_back(topLeft);
 					indices.push_back(bottomLeft);
 					indices.push_back(topRight);
-
 					// Second triangle
 					indices.push_back(topRight);
 					indices.push_back(bottomLeft);
 					indices.push_back(bottomRight);
 				}
-
-				// Example of the formula 
-				/*
-				The grid is of size size x size, so there are size number of vertices in each row.
-					For each row z, there are size* z vertices that come before the current row in the vertices vector.
-					Within the current row, there are x vertices that come before the topLeft vertex.
-					So, to find the index of the topLeft vertex, we sum the number of vertices that came before it in previous rows(size* z)
-					and the number of vertices that came before it in the current row(x).
-				*/
-
-
 			}
 		}
-
 		// step 2) set up VAO and VBO
 		glGenVertexArrays(1, &VAO);
 		glGenBuffers(1, &VBO);
 		glGenBuffers(1, &EBO);
 		// bind the Vertex Array Object first, then bind and set vertex buffer(s), and then configure vertex attributes(s).
 		glBindVertexArray(VAO);
-
 		glBindBuffer(GL_ARRAY_BUFFER, VBO);
 		glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_STATIC_DRAW);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
@@ -354,63 +299,87 @@ bool Terrain::setUpTerrainData(bool hasTexture)
 		// position attribute
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
 		glEnableVertexAttribArray(0);
-
 		// normals
 		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
 		glEnableVertexAttribArray(1);
-
-
 		// texture coords
 		glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
 		glEnableVertexAttribArray(2);
-
-
 		// note that this is allowed, the call to glVertexAttribPointer registered VBO as the vertex attribute's bound vertex buffer object so afterwards we can safely unbind
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
-
 		// remember: do NOT unbind the EBO while a VAO is active as the bound element buffer object IS stored in the VAO; keep the EBO bound.
-		//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-
-		// You can unbind the VAO afterwards so other VAO calls won't accidentally modify this VAO, but this rarely happens. Modifying other
-		// VAOs requires a call to glBindVertexArray anyways so we generally don't unbind VAOs (nor VBOs) when it's not directly necessary.
 		glBindVertexArray(0);
-
-
-		ourShader->use(); // below we are telling OpenGL which texture unit each shader sampler belongs to 
+		ourShader->use();
 		ourShader->setInt("texture1", 0);
 	}
-	return 0;
+	return;
 }
 
 
 void Terrain::loadTerrainTexture(std::string textureName)
 {
-	// Terrain texture data
 	TextureFactory textFact; 
 	terrainTexture = textFact.createTexture(textureName); // returns unique pointer
 	terrainTexture->load();
-
 }
 
 
-float Terrain::getHeight(int xpos, int zpos) {
-
-	if (xpos < size && zpos < size && xpos >=0 && zpos >= 0) {
-
-
-		return ((float)(terrainData[(zpos * size) + xpos]) * scaleY);
-	}
-	
-}
-unsigned char Terrain::getHeightColor(int xpos, int zpos) 
+float Terrain::getHeight(int xCoord, int zCoord)
 {
-	if (xpos < size && zpos < size)
+	if (xCoord < size && zCoord < size && xCoord >= 0 && zCoord >= 0)
 	{
-		return terrainData[zpos * size + xpos];
+		return ((float)(terrainData[(zCoord * size) + xCoord]) * scaleY);
+	}
+}
+
+
+unsigned char Terrain::getHeightColor(int xCoord, int zCoord)
+{
+	if (xCoord < size && zCoord < size)
+	{
+		return terrainData[zCoord * size + xCoord];
 	}
 	return 1;
 }
 
+
+void Terrain::normalizeHeightField()
+{
+	float fMin = heightData[0];
+	float fMax = heightData[0];
+	float fHeight;
+	int i;
+
+	// find the min and max values of the height terrainData
+	for (i = 1; i < size * size; i++)
+	{
+		if (heightData[i] > fMax)
+		{
+			fMax = heightData[i];
+		}
+		else if (heightData[i] < fMin)
+		{
+			fMin = heightData[i];
+		}
+	}
+
+	//find the range of the altitude
+	if (fMax > fMin)
+	{
+		fHeight = fMax - fMin;
+		for (i = 0; i < size * size; i++)
+		{
+			terrainData[i] = static_cast<unsigned char>(((heightData[i] - fMin) / fHeight) * 255.0f);
+		}
+	}
+	else
+	{
+		for (i = 0; i < size * size; i++)
+		{
+			terrainData[i] = 0;
+		}
+	}
+}
 
 
 bool Terrain::genFaultFormation(int iterations, int hSize, int minHeight, int maxHeight, float weight, bool random)
@@ -427,14 +396,14 @@ bool Terrain::genFaultFormation(int iterations, int hSize, int minHeight, int ma
 		srand(time(NULL));
 	}
 
-	// allocate memory for heightfield array
 	size = hSize;
 	heights = new float[size * size]; // allocate memory
-	terrainData = new unsigned char[size * size]; // terrainData is declared in terrain class
-	if (heights == NULL || terrainData == NULL) {
+	terrainData = new unsigned char[size * size];
+	if (heights == NULL || terrainData == NULL)
+	{
 		return false;
 	}
-	
+
 	// initialise the heightfield array to all zeros
 	for (int i = 0; i < size * size; i++)
 	{
@@ -451,18 +420,19 @@ bool Terrain::genFaultFormation(int iterations, int hSize, int minHeight, int ma
 		x1 = (rand() % size);
 		z1 = (rand() % size);
 
-		// pick up the second random point P2(x2, z2) and make sure it is 
-		// different from the first point 
-		do {
+		do
+		{
 			x2 = (rand() % size);
 			z2 = (rand() % size);
 		} while (x2 == x1 && z2 == z1);
 
-		//for each point P(x, z) in the field, calculate the new height values 
-		for (int z = 0; z < size; z++) {
-			for (int x = 0; x < size; x++) {
-				// determine which side of the line P1P2 the point P lies in 
-				if (((x - x1) * (z2 - z1) - (x2 - x1) * (z - z1)) > 0) {
+		//for each point P(xCoord, zCoord) in the field, calculate the new height values 
+		for (int z = 0; z < size; z++)
+		{
+			for (int x = 0; x < size; x++)
+			{
+				if (((x - x1) * (z2 - z1) - (x2 - x1) * (z - z1)) > 0)
+				{
 					heights[(z * size) + x] += (float)displacement;
 				}
 			}
@@ -473,85 +443,144 @@ bool Terrain::genFaultFormation(int iterations, int hSize, int minHeight, int ma
 	// normalise the heightfield
 	normaliseTerrain(heights);
 
-	// copy the float heightfield to terrainData (in unsign char) 
-	for (int z = 0; z < size; z++) {
-		for (int x = 0; x < size; x++) {
-			//setHeightAtPoint((unsigned char)heights[(z * size) + x], x, z);
-			terrainData[(z * size) + x] = heights[(z * size) + x]; // DOUBLE CHECK THIS PLEASE FOR THE LOVE OF GOD
+	for (int z = 0; z < size; z++)
+	{
+		for (int x = 0; x < size; x++)
+		{
+			terrainData[(z * size) + x] = heights[(z * size) + x];
 		}
 	}
-
-	// dispose of the temporary array heights 
 	delete[] heights;
 	return true;
-
 }
+
 
 void Terrain::addFilter(float* terData, float weight)
 {
+	for (int itrLR = 0; itrLR < size; itrLR++)
+	{
+		filterPass(&terData[size * itrLR], 1, weight);
+	}
 
-	int i;
+	for (int itrRL = 0; itrRL < size; itrRL++)
+	{
+		filterPass(&terData[size * itrRL + size - 1], -1, weight);
+	}
 
-	//erode left to right, starting from the beginning of each row 
-	for (i = 0; i < size; i++)
-		filterPass(&terData[size * i], 1, weight);
+	for (int itrTB = 0; itrTB < size; itrTB++)
+	{
+		filterPass(&terData[itrTB], size, weight);
+	}
 
-	//erode right to left, starting from the end of each row 
-	for (i = 0; i < size; i++)
-		filterPass(&terData[size * i + size - 1], -1, weight);
-
-	//erode top to bottom, starting from the beginning of each column 
-	for (i = 0; i < size; i++)
-		filterPass(&terData[i], size, weight);
-
-	//erode from bottom to top, starting from the end of each column 
-	for (i = 0; i < size; i++)
-		filterPass(&terData[size * (size - 1) + i], -size, weight);
-
+	for (int itrBT = 0; itrBT < size; itrBT++)
+	{
+		filterPass(&terData[size * (size - 1) + itrBT], -size, weight);
+	}
 }
+
+
 
 void Terrain::filterPass(float* startP, int increment, float weight)
 {
-	float yprev = *startP;   // the starting point in the terrain array 
-	int j = increment;   // must be either +1, -1, +size, or -size 
-	float k = weight;
+	float previousValue = *startP;
+	int currentIndex = increment;
+	float filterWeight = weight;
 
-	// loop through either  
-	 //      one row from left to right if increment = +1, or 
-	 //      one row from right to left if increment = -1, or 
-	 //      one column from top to bottom if increment = +size, or 
-	 //      one column from bottom to top if increment = -size 
-
-	for (int i = 1; i < size; i++) {
-		// yi = k yi-1 + (1-k) xi 
-		*(startP + j) = k * yprev + (1 - k) * (*(startP + j));
-		yprev = *(startP + j);
-		j += increment;
+	for (int i = 1; i < size; i++)
+	{
+		*(startP + currentIndex) = filterWeight * previousValue + (1 - filterWeight) * (*(startP + currentIndex));
+		previousValue = *(startP + currentIndex);
+		currentIndex += increment;
 	}
 }
 
 
 void Terrain::normaliseTerrain(float* terData)
 {
-	float fMin = terData[0];
-	float fMax = terData[0];
-	float fHeight;
-	int i;
+	float minValue = terData[0];
+	float maxValue = terData[0];
+	float heightRange;
 
-	// find the min and max values of the height terrainData
-	for (i = 1; i < size * size; i++) {
-		if (terData[i] > fMax)
-			fMax = terData[i];
-		else if (terData[i] < fMin)
-			fMin = terData[i];
-	}
-	//find the range of the altitude 
-	if (fMax <= fMin)
-		return;
-	fHeight = fMax - fMin;
-	//scale the values to a range of 0-255
-	for (i = 0; i < size * size; i++)
+
+	for (int i = 1; i < size * size; i++)
 	{
-		terData[i] = ((terData[i] - fMin) / fHeight) * 255.0f;
+		if (terData[i] > maxValue)
+		{
+			maxValue = terData[i];
+		}
+		else if (terData[i] < minValue)
+		{
+			minValue = terData[i];
+		}
+	}
+
+	// Find the range of the altitude
+	if (maxValue <= minValue)
+	{
+		return;
+	}
+	heightRange = maxValue - minValue;
+
+	for (int i = 0; i < size * size; i++)
+	{
+		terData[i] = ((terData[i] - minValue) / heightRange) * 255.0f;
 	}
 }
+
+
+/**
+//requires the following lib https://github.com/tinyobjloader/tinyobjloader, will load this terrain https://ambientcg.com/view?id=Terrain002.
+void Terrain::loadTerrainFromOBJ(const std::string& filename)
+{
+	tinyobj::attrib_t attrib;
+	std::vector<tinyobj::shape_t> shapes;
+	std::vector<tinyobj::material_t> materials;
+
+	std::string err;
+	bool success = tinyobj::LoadObj(&attrib, &shapes, &materials, &err, filename.c_str());
+
+	if (!err.empty())
+	{
+		std::cerr << "OBJ loading error: " << err << std::endl;
+	}
+
+	if (!success)
+	{
+		std::cerr << "Failed to load OBJ file: " << filename << std::endl;
+		return;
+	}
+
+	// Store the extracted data in the TinyObjDLoader struct
+	TinyObjDLoader objData;
+	objData.vertices.clear();
+	objData.texcoords.clear();
+	objData.normals.clear();
+	objData.indices.clear();
+
+	for (const auto& shape : shapes)
+	{
+		for (const auto& index : shape.mesh.indices)
+		{
+			// Vertex position
+			objData.vertices.push_back(attrib.vertices[3 * index.vertex_index + 0]);
+			objData.vertices.push_back(attrib.vertices[3 * index.vertex_index + 1]);
+			objData.vertices.push_back(attrib.vertices[3 * index.vertex_index + 2]);
+
+			// Texture coordinates
+			objData.texcoords.push_back(attrib.texcoords[2 * index.texcoord_index + 0]);
+			objData.texcoords.push_back(attrib.texcoords[2 * index.texcoord_index + 1]);
+
+			// Normals
+			objData.normals.push_back(attrib.normals[3 * index.normal_index + 0]);
+			objData.normals.push_back(attrib.normals[3 * index.normal_index + 1]);
+			objData.normals.push_back(attrib.normals[3 * index.normal_index + 2]);
+
+			// Indices
+			objData.indices.push_back(objData.indices.size());
+		}
+	}
+
+	// Update the setup and rendering code accordingly
+	setUpVertexArrayData(objData);
+}
+*/
