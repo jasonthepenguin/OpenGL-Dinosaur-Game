@@ -86,25 +86,48 @@ void SpecialKeys::readTaskInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT)
     }
 
 
-    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_K) == GLFW_PRESS)
+    // For the K key
+    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_K) == GLFW_PRESS && !keyStates[GLFW_KEY_K])
     {
         toggleWireframeMode();
+        keyStates[GLFW_KEY_K] = true;
+    }
+    else if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_K) == GLFW_RELEASE)
+    {
+        keyStates[GLFW_KEY_K] = false;
     }
 
-    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_L) == GLFW_PRESS)
+    // For the L key
+    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_L) == GLFW_PRESS && !keyStates[GLFW_KEY_L])
     {
         toggleLighting();
+        keyStates[GLFW_KEY_L] = true;
+    }
+    else if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_L) == GLFW_RELEASE)
+    {
+        keyStates[GLFW_KEY_L] = false;
     }
 
-
-    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_M) == GLFW_PRESS)
+    // For the M key
+    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_M) == GLFW_PRESS && !keyStates[GLFW_KEY_M])
     {
         displayDemoWindow();
+        keyStates[GLFW_KEY_M] = true;
+    }
+    else if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_M) == GLFW_RELEASE)
+    {
+        keyStates[GLFW_KEY_M] = false;
     }
 
-    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_X) == GLFW_PRESS)
+    // For the X key
+    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_X) == GLFW_PRESS && !keyStates[GLFW_KEY_X])
     {
         displayGroupPhoto();
+        keyStates[GLFW_KEY_X] = true;
+    }
+    else if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_X) == GLFW_RELEASE)
+    {
+        keyStates[GLFW_KEY_X] = false;
     }
 }
 
