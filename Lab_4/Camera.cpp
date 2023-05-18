@@ -22,8 +22,6 @@ Camera::Camera(const glm::vec3& initialPosition) : m_Location(initialPosition)
     m_CameraPitch = pitch;
 
     updateCameraVectors();
-
-
 }
 
 
@@ -111,5 +109,4 @@ void Camera::updateCameraVectors()
 
 
     m_HorizontalPlane = glm::normalize(glm::cross(m_Direction, m_VerticalPlane));
-   // m_VerticalPlane = glm::normalize(glm::cross(m_HorizontalPlane, m_Direction));
 }

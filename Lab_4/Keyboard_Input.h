@@ -3,11 +3,6 @@
 #include <memory>
 
 
-
-//#include "Camera.h"
-//#include "SpecialKeys.h"
-//#include "MovementKeys.h"
-
 // Forward declarations
 class Camera;
 class SpecialKeys;
@@ -25,8 +20,6 @@ class MovementKeys;
 class Keyboard_Input
 {
     public:
-
-
 
             /***********************************************************************************************************************************************************************
              * @brief Constructs a `KeyboardInput` object.
@@ -50,47 +43,3 @@ class Keyboard_Input
         std::shared_ptr<SpecialKeys>  m_SpecialKeys;
         std::shared_ptr<MovementKeys> m_MovementKeys;
 };
-
-
-/**
-#pragma once
-#include <GLFW/glfw3.h>
-#include <memory>
-#include "PlayerCamera.h"
-
-class KeyboardInput {
-public:
-    KeyboardInput(std::shared_ptr<PlayerCamera> playerCamera);
-
-    void readInput(GLFWwindow* window, float deltaT);
-
-private:
-    std::shared_ptr<PlayerCamera> m_PlayerCamera;
-};
-
-class MovementKeys {
-public:
-    enum class PlayerMovement {
-        MOVE_FORWARD,
-        MOVE_BACKWARDS,
-        MOVE_LEFT,
-        MOVE_RIGHT
-    };
-
-    MovementKeys(std::shared_ptr<PlayerCamera> playerCamera);
-
-    PlayerMovement getMovementDirection() const;
-    float getPlayerSpeed() const;
-    void setPlayerSpeed(float speed);
-
-    void moveForward(float deltaT);
-    void moveBackward(float deltaT);
-    void moveLeft(float deltaT);
-    void moveRight(float deltaT);
-
-private:
-    std::shared_ptr<PlayerCamera> m_PlayerCamera;
-    float m_PlayerSpeed;
-    PlayerMovement m_CurrentMovement;
-};
-**/

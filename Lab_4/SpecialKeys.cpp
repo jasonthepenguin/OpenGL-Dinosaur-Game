@@ -182,7 +182,20 @@ void SpecialKeys::readModelInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT, M
         modelController.playNextAnimation();
     }
 }
-
+        for (MD2_TEST* model : MD2models) {
+            if (glfwGetKey(m_window->m_PixelsGLFWWindow, GLFW_KEY_T) == GLFW_PRESS) {
+                model->m_position.z -= deltaValue;
+            }
+            if (glfwGetKey(m_window->m_PixelsGLFWWindow, GLFW_KEY_F) == GLFW_PRESS) {
+                model->m_position.x -= deltaValue;
+            }
+            if (glfwGetKey(m_window->m_PixelsGLFWWindow, GLFW_KEY_G) == GLFW_PRESS) {
+                model->m_position.z += deltaValue;
+            }
+            if (glfwGetKey(m_window->m_PixelsGLFWWindow, GLFW_KEY_H) == GLFW_PRESS) {
+                model->m_position.x += deltaValue;
+            }
+        }
 */
 
 void SpecialKeys::readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT)

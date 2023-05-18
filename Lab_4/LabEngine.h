@@ -149,8 +149,12 @@ using namespace reactphysics3d;
 			bool show_image = false; 	 /// SAME AS THE BOOL ABOVE, GOTTA MOVE THIS
 
 
-			//void mouse_callback(GLFWwindow* window, double xposIn, double yposIn);
-
+			
+			void setupWorldEnvironment();
+			void setupPlayerCamera();
+			void setupMD2Models();
+			void loadVertexDataAndTextures();
+			void setupAssetShaders();
 
 		private:
 

@@ -64,8 +64,5 @@ private:
 	int m_height;
 
 	static void frameBufferSizeCallback(GLFWwindow* window, int width, int height);
-
-	
-
 };
 

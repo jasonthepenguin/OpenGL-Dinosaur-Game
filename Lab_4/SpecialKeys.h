@@ -125,5 +125,4 @@ class SpecialKeys
         GLFWwindow*            m_PixelsGLFWWindow;
 
         std::unordered_map<int, bool> keyStates;
-
 };

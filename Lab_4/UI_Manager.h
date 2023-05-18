@@ -60,11 +60,6 @@ class UI_Manager
 
         std::shared_ptr<Keyboard_Input> m_PlayerKeyboard;
         std::shared_ptr<Mouse_Input> m_PlayerMouse;
-
-
-    private:
-      //  std::shared_ptr<Keyboard_Input> m_PlayerKeyboard;
-      //  std::shared_ptr<Mouse_Input> m_PlayerMouse;
-        
+      
 };
 

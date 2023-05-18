@@ -58,6 +58,131 @@ void LabEngine::init()
 }
 
 
+/*
+void LabEngine::setupWorldEnvironment() 
+{
+	simpleTerrain = new Terrain();
+	gui = new EngGUI();
+	TextureFactory textFact; // temporarily placing this here.
+	auto& engine = LabEngine::getInstance();
+	Shader ourShader("shaders/light_vs.shader", "shaders/light_fs.shader");
+}
+
+
+void LabEngine::setupPlayerCamera()
+{
+	float startX = ((float)simpleTerrain->size / 2.0);
+	float startZ = ((float)simpleTerrain->size / 2.0);
+	float startY = simpleTerrain->getHeight(startX, startZ);
+	m_camera->setCameraLocation(glm::vec3(startX * simpleTerrain->scaleX, startY + 1, startZ * simpleTerrain->scaleZ));
+	glm::vec3 lightPosition = glm::vec3(startX * simpleTerrain->scaleX, startY + 1, startZ * simpleTerrain->scaleZ);
+}
+
+
+void LabEngine::loadVertexDataAndTextures() 
+{
+	Textures.push_back(textFact.loadTexture("images/dirt.png"));
+	Textures.push_back(textFact.loadTexture("images/grass.png"));
+	Textures.push_back(textFact.loadTexture("images/sand.png"));
+	Textures.push_back(textFact.loadTexture("images/snow.png"));
+	Textures.push_back(textFact.loadTexture("images/water.png"));
+	Textures.push_back(textFact.loadTexture("images/stone.png"));
+	Textures.push_back(textFact.loadTexture("images/deepsea.png"));
+}
+
+void LabEngine::setupAssetShaders()
+{
+	// Create shaders
+	Shader terrainShader("shaders/terrain_vs.shader", "shaders/terrain_fs.shader");
+	Shader waterShader("shaders/water_vs.shader", "shaders/water_fs.shader");
+	Shader modelShader("shaders/model_vs.shader", "shaders/model_fs.shader");
+	Shader guiShader("shaders/gui_vs.shader", "shaders/gui_fs.shader");
+	Shader lightShader("shaders/light_vs.shader", "shaders/light_fs.shader");
+
+	// Bind shaders to their corresponding objects
+	// This assumes you have shader member variables in your objects 
+	//simpleTerrain->(terrainShader);
+	//gui->setShader(guiShader);
+	//water->setShader(waterShader);
+	//model->setShader(modelShader);
+	//light->setShader(lightShader);
+}
+
+
+void LabEngine::setupMD2Models() 
+{
+	MD2_TEST raptor;
+	MD2_TEST raptor_weapon;
+
+	raptor.ReadMD2Model((char*)"md2/raptor/tris.md2", (char*)"md2/raptor/green.jpg");
+	raptor.loadData();
+
+	raptor_weapon.ReadMD2Model((char*)"md2/raptor/weapon.md2", (char*)"md2/raptor/weapon.jpg");
+	raptor_weapon.loadData();
+
+	raptor.m_position.x = m_camera->getCameraLocation().x - 5.0;
+	raptor.m_position.y = m_camera->getCameraLocation().y + 2.0;
+	raptor.m_position.z = m_camera->getCameraLocation().z;
+
+	raptor_weapon.m_position.x = m_camera->getCameraLocation().x - 5.0;
+	raptor_weapon.m_position.y = m_camera->getCameraLocation().y + 2.0;
+	raptor_weapon.m_position.z = m_camera->getCameraLocation().z;
+
+	MD2models.push_back(&raptor);
+	MD2models.push_back(&raptor_weapon);
+}
+
+
+
+void LabEngine::gameLoop() {
+	while (!m_window->shouldClose()) {
+		// game loop logic goes here
+		float currentFrame = glfwGetTime();
+		deltaTime = currentFrame - lastFrame;
+		lastFrame = currentFrame;
+
+		// Check for any input
+		processInput(m_window->getWindow());
+
+		// Render
+		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		// Set the view and projection matrices here
+		// These matrices usually change per frame
+
+		// Render your objects here
+		simpleTerrain->draw();
+		//water->draw();
+		//model->draw();
+		//light->draw();
+
+		// Swap buffers
+		glfwSwapBuffers(m_window->getWindow());
+
+		// Poll for and process events
+		glfwPollEvents();
+	}
+}
+
+
+
+
+void LabEngine::run() 
+{
+	setupWorldEnvironment();
+	setupPlayerCamera();
+	loadVertexDataAndTextures();
+	setupAssetShaders();
+	setupMD2Models();
+	initializeGameObjects();
+	gameLoop();
+}
+*/
+
+
+
+
 void LabEngine::run()
 {
 	simpleTerrain = new Terrain();
@@ -356,7 +481,7 @@ void LabEngine::run()
 }
 
 
-
+/// IS HANDLED BY CLASS ????
 void mouse_callback(GLFWwindow* m_PixelsGLFWWindow, double xposIn, double yposIn)
 {
 	auto& app = LabEngine::getInstance();
@@ -374,12 +499,11 @@ void mouse_callback(GLFWwindow* m_PixelsGLFWWindow, double xposIn, double yposIn
 	float yoffset = app.lastY - ypos; // reversed since y-coordinates go from bottom to top
 	app.lastX = xpos;
 	app.lastY = ypos;
-	//app.m_camera->ProcessMouseMovement(xoffset, yoffset);
 }
 
 
 
-//IF NOT IN USE WHY HERE > IS IT TO BE IMPLEMENTED IN SPECIAL KEYS
+
 void processInput(GLFWwindow* window, float deltaTime, Camera& camera)
 {
 	float lookSpeed = 400; // optimise this so not creating a float each time. Perhaps variable in Camera

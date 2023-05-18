@@ -1,7 +1,7 @@
 #pragma once
 #include <memory>
 #include "Camera.h"
-
+#include "LabEngine.h"
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>

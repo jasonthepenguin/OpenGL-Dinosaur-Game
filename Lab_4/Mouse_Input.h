@@ -43,8 +43,5 @@ class Mouse_Input
 	private:
 
 		GLFWwindow* m_PixelsGLFWWindow;
-
-
-
 };
 
