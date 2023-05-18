@@ -257,7 +257,7 @@ public:
     void readMouseMovement(float xoffset, float yoffset, GLboolean constrainPitch = true);
 
 
-
+    bool canFly = false; // MOVE THIS TO LIKE A PLAYER CLASS LATER
 
 private:
 

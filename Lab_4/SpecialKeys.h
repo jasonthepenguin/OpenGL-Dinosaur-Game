@@ -105,10 +105,12 @@ class SpecialKeys
         void readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT);
 
 
+        bool isFlying; // probably should be a variable of a player class?
+
     private:
         
         EngGUI*                gui;
-        bool                   isFlying;
+       // bool                   isFlying;
         bool                   wireframe;
         std::vector<MD2_TEST*> MD2models;
        // ModelController&       modelController;                 // having it like this means it has to be initialised in the constructor, since I just want the project to compile I'm going to make it a pointer for now
