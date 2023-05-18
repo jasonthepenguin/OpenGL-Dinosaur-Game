@@ -34,6 +34,7 @@ void SpecialKeys::toggleWireframeMode()
 void SpecialKeys::triggerFlying()
 {
     isFlying = !isFlying;
+    std::cout << isFlying << std::endl;
 }
 
 
@@ -73,9 +74,15 @@ void SpecialKeys::toggleLighting()
 void SpecialKeys::readTaskInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT)
 {
 
-    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_F) == GLFW_PRESS)
+    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_F) == GLFW_PRESS && !keyStates[GLFW_KEY_F])
     {
         triggerFlying();
+        keyStates[GLFW_KEY_F] = true;
+       // std::cout << "THE F KEY WAS PRESSED!" << std::endl;
+    }
+    else if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_F) == GLFW_RELEASE)
+    {
+        keyStates[GLFW_KEY_F] = false;
     }
 
 

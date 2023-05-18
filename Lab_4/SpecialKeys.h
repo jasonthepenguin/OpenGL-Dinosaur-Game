@@ -9,6 +9,9 @@
 #include "ModelController.h"
 #include "LabEngine.h"
 
+
+#include <unordered_map>
+
 class SpecialKeys 
 {
     public:
@@ -102,7 +105,6 @@ class SpecialKeys
         void readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT);
 
 
-
     private:
         
         EngGUI*                gui;
@@ -112,4 +114,7 @@ class SpecialKeys
        // ModelController&       modelController;                 // having it like this means it has to be initialised in the constructor, since I just want the project to compile I'm going to make it a pointer for now
        // ModelController* modelController;
         GLFWwindow*            m_PixelsGLFWWindow;
+
+        std::unordered_map<int, bool> keyStates;
+
 };

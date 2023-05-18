@@ -101,7 +101,7 @@ using namespace reactphysics3d;
 			std::vector<MD2_TEST*> MD2models;
 
 			
-
+			// Dealing with user input including Keyboard and Mouse
 			UI_Manager* userInput;
 
 				/******************************************************************************************************************************************
