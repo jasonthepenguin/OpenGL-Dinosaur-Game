@@ -4,17 +4,13 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 
+/******************************************
+
+
+ ******************************************/
 class Window
 {
-
-
 public:
-
-
-	
-
-	
-
 	void init();
 
 	void createWindow(int width, int height, const char* title);

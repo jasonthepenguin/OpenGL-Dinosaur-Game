@@ -12,6 +12,7 @@ Keyboard_Input::Keyboard_Input(std::shared_ptr<Camera> playerCamera) :
     // Initialize other members here if needed
 }
 
+
 void Keyboard_Input::readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT)
 {
     if (m_SpecialKeys)
