@@ -12,11 +12,8 @@ SpecialKeys::~SpecialKeys()
 
 }
 
-
 void SpecialKeys::toggleWireframeMode()
 {
-   // bool wireframe = true;
-
     wireframe = !wireframe;
 
     if (wireframe) 
@@ -188,7 +185,6 @@ void SpecialKeys::readModelInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT, M
 
 */
 
-//void SpecialKeys::readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT, ModelController& modelController, Camera& camera)
 void SpecialKeys::readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT)
 {
     //readModelInput(m_PixelsGLFWWindow, deltaT, modelController);
