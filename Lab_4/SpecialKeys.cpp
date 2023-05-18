@@ -68,6 +68,8 @@ void SpecialKeys::triggerFlying()
 
 void SpecialKeys::displayDemoWindow()
 {
+   // gui->show_demo_window = !gui->show_demo_window;
+    auto gui = LabEngine::getInstance().gui;
     gui->show_demo_window = !gui->show_demo_window;
 }
 
@@ -75,6 +77,7 @@ void SpecialKeys::displayDemoWindow()
 
 void SpecialKeys::displayGroupPhoto()
 {
+    auto gui = LabEngine::getInstance().gui;
     gui->show_image = !gui->show_image;
 }
 

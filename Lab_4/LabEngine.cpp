@@ -37,6 +37,7 @@ void LabEngine::init()
 
 
 
+
 	//Keyboard_Input* kb = new Keyboard_Input(m_camera);
 	std::shared_ptr<Keyboard_Input> kb = std::make_shared<Keyboard_Input>(m_camera);
 	std::shared_ptr<Mouse_Input> mp = std::make_shared<Mouse_Input>();
@@ -256,7 +257,8 @@ void LabEngine::run()
 	{
 		// test render IMGUI
 		//----------------------------------------------------- ( BEGIN FRAME )
-
+		gui->BeginFrame();
+		gui->EndFrame();
 
 		// calc deltaTime
 		float currentFrame = m_window->getTime();
@@ -379,6 +381,9 @@ void LabEngine::run()
 			}
 		}
 		//-------------------------------------------------- COMPLETED DRAWING OF TEST BOXES -------------------------//
+
+
+		gui->renderData();
 
 		m_window->swapBuffers();
 		m_window->pollEvents();
