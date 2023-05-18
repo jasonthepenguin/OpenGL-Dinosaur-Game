@@ -166,6 +166,7 @@
     <ClCompile Include="imgui_impl_opengl3.cpp" />
     <ClCompile Include="imgui_tables.cpp" />
     <ClCompile Include="imgui_widgets.cpp" />
+    <ClCompile Include="Model.cpp" />
     <ClCompile Include="ModelController.cpp" />
     <ClCompile Include="Mouse_Input.cpp" />
     <ClCompile Include="MovementKeys.cpp" />
