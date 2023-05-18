@@ -15,7 +15,7 @@ SpecialKeys::~SpecialKeys()
 
 void SpecialKeys::toggleWireframeMode()
 {
-    bool wireframe = true;
+   // bool wireframe = true;
 
     wireframe = !wireframe;
 
@@ -34,6 +34,33 @@ void SpecialKeys::toggleWireframeMode()
 void SpecialKeys::triggerFlying()
 {
     isFlying = !isFlying;
+
+
+    // perhaps at this point we get an instance of the Player from the engine and modify there isFlying bool variable?
+    // Then main game loop calls update() on player, which would then be responsible for grounding the camera on the terrain floor?
+
+    auto m_camera = LabEngine::getInstance().m_camera;
+    m_camera->canFly = !m_camera->canFly;
+
+
+    /*
+    auto simpleTerrain = LabEngine::getInstance().simpleTerrain;
+    auto m_camera = LabEngine::getInstance().m_camera;
+
+
+    float scaleOffSetX = 1 / simpleTerrain->scaleX;
+    float scaleOffSetZ = 1 / simpleTerrain->scaleZ;
+    float newY = 0.0f;
+
+    glm::vec3 Position = m_camera->getCameraLocation();
+
+    if (!isFlying)
+    {
+        newY = simpleTerrain->getHeight((int)Position.x * scaleOffSetX, (int)Position.z * scaleOffSetZ);
+        Position.y = newY + 1.3;
+        m_camera->setCameraLocation(Position);
+    }
+    */
     std::cout << isFlying << std::endl;
 }
 
@@ -74,6 +101,7 @@ void SpecialKeys::toggleLighting()
 void SpecialKeys::readTaskInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT)
 {
 
+    // FLYING
     if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_F) == GLFW_PRESS && !keyStates[GLFW_KEY_F])
     {
         triggerFlying();
@@ -86,7 +114,7 @@ void SpecialKeys::readTaskInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT)
     }
 
 
-    // For the K key
+    // For the K key WIREFRAME
     if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_K) == GLFW_PRESS && !keyStates[GLFW_KEY_K])
     {
         toggleWireframeMode();
@@ -97,7 +125,7 @@ void SpecialKeys::readTaskInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT)
         keyStates[GLFW_KEY_K] = false;
     }
 
-    // For the L key
+    // For the L key FOR LIGHTING
     if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_L) == GLFW_PRESS && !keyStates[GLFW_KEY_L])
     {
         toggleLighting();
@@ -108,7 +136,7 @@ void SpecialKeys::readTaskInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT)
         keyStates[GLFW_KEY_L] = false;
     }
 
-    // For the M key
+    // For the M key FOR DEMO WINDOW
     if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_M) == GLFW_PRESS && !keyStates[GLFW_KEY_M])
     {
         displayDemoWindow();
@@ -119,7 +147,7 @@ void SpecialKeys::readTaskInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT)
         keyStates[GLFW_KEY_M] = false;
     }
 
-    // For the X key
+    // For the X key FOR GROUP PHOTO
     if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_X) == GLFW_PRESS && !keyStates[GLFW_KEY_X])
     {
         displayGroupPhoto();

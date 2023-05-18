@@ -299,15 +299,15 @@ void LabEngine::run()
 			mdl->m_position.y = newY + 1.0;
 		}
 
-		/*
-		if (canFly == false) {
+		
+		if (!m_camera->canFly) {
 			//newY = simpleTerrain->getHeight((int)m_camera->Position.x * scaleOffSetX, (int)m_camera->Position.z * scaleOffSetZ);
 			//m_camera->Position.y = newY + 1.3;
 			newY = simpleTerrain->getHeight((int)m_camera->getCameraLocation().x * scaleOffSetX, (int)m_camera->getCameraLocation().z * scaleOffSetZ);
 			m_camera->setCameraLocation(glm::vec3(m_camera->getCameraLocation().x, newY + 1.3, m_camera->getCameraLocation().z));
 
 		}
-		*/
+		
 
 		// setting the MODEL, VIEW and PROJECTION matrices
 
