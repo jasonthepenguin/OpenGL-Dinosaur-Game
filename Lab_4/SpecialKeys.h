@@ -32,12 +32,19 @@ class SpecialKeys
         ~SpecialKeys();
         void handleKeyEntered(GLFWwindow* m_PixelsGLFWWindow, int key, bool& keyState, void (SpecialKeys::* action)());
 
-
+        // LETTERS
         void F_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
         void K_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
         void L_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
         void M_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
         void X_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
+
+        // ARROWS
+        void left_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
+        void right_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
+        void up_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
+        void down_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
+
 
 
             /***********************************************************************************************************************************************************************

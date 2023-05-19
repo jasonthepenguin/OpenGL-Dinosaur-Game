@@ -6,7 +6,6 @@
 //using Lab::LabEngine;
 
 void mouse_callback(GLFWwindow* window, double xposIn, double yposIn);
-void processInput(GLFWwindow* window, float deltaTime, Camera& camera);
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 
 // our static instance of the lab engine
@@ -360,7 +359,6 @@ void LabEngine::run()
 
 		// checking what keys have been pressed
 		m_window->processInput();
-		processInput(m_window->m_PixelsGLFWWindow, deltaTime, *m_camera);
 
 
 		userInput->m_PlayerKeyboard->readInput(m_window->m_PixelsGLFWWindow, deltaTime);
@@ -502,24 +500,6 @@ void mouse_callback(GLFWwindow* m_PixelsGLFWWindow, double xposIn, double yposIn
 }
 
 
-
-
-void processInput(GLFWwindow* window, float deltaTime, Camera& camera)
-{
-	float lookSpeed = 400; // optimise this so not creating a float each time. Perhaps variable in Camera
-
-	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-		glfwSetWindowShouldClose(window, true);
-
-	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {}
-		//camera.ProcessKeyboard(FORWARD, deltaTime);
-	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {}
-		//camera.ProcessKeyboard(BACKWARD, deltaTime);
-	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {}
-		//camera.ProcessKeyboard(LEFT, deltaTime);
-	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {}
-		//camera.ProcessKeyboard(RIGHT, deltaTime)
-}
 
 
 /* IF NOT IN USE WHY HERE > IS IT TO BE IMPLEMENTED IN SPECIAL KEYS

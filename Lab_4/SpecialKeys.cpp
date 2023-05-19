@@ -105,6 +105,48 @@ void SpecialKeys::X_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
     handleKeyEntered(m_PixelsGLFWWindow, GLFW_KEY_X, keyStates[GLFW_KEY_X], &SpecialKeys::displayGroupPhoto);
 }
 
+// ARROWS
+void SpecialKeys::left_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
+{
+   // handleKeyEntered(m_PixelsGLFWWindow, GLFW_KEY_LEFT, keyStates[GLFW_KEY_LEFT], nullptr);
+
+}
+
+void SpecialKeys::right_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
+{
+
+    auto& engRef = LabEngine::getInstance();
+
+   // handleKeyEntered(m_PixelsGLFWWindow, GLFW_KEY_RIGHT, keyStates[GLFW_KEY_RIGHT], nullptr);
+    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_RIGHT) == GLFW_PRESS && !keyStates[GLFW_KEY_RIGHT])
+    {
+       // (this->*action)();
+        for (auto model : engRef.MD2models) {
+            model->playNextAnimation();
+        }
+        keyStates[GLFW_KEY_RIGHT] = true;
+    }
+    else if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_RIGHT) == GLFW_RELEASE)
+    {
+        keyStates[GLFW_KEY_RIGHT] = false;
+    }
+
+}
+
+void SpecialKeys::up_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
+{
+   // handleKeyEntered(m_PixelsGLFWWindow, GLFW_KEY_UP, keyStates[GLFW_KEY_UP], nullptr);
+
+}
+
+void SpecialKeys::down_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
+{
+   // handleKeyEntered(m_PixelsGLFWWindow, GLFW_KEY_DOWN, keyStates[GLFW_KEY_DOWN], nullptr);
+
+}
+
+
+
 
 void SpecialKeys::displayDemoWindow()
 {
@@ -145,11 +187,28 @@ void SpecialKeys::toggleLighting()
 
 void SpecialKeys::readTaskInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT)
 {
+    // letters
     F_KeyEntered(m_PixelsGLFWWindow);
     K_KeyEntered(m_PixelsGLFWWindow);
     L_KeyEntered(m_PixelsGLFWWindow);
     M_KeyEntered(m_PixelsGLFWWindow);
     X_KeyEntered(m_PixelsGLFWWindow);
+
+    // arrows
+    left_KeyEntered(m_PixelsGLFWWindow);
+    right_KeyEntered(m_PixelsGLFWWindow);
+    up_KeyEntered(m_PixelsGLFWWindow);
+    down_KeyEntered(m_PixelsGLFWWindow);
+
+
+
+
+    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
+        glfwSetWindowShouldClose(m_PixelsGLFWWindow, true);
+    }
+
+   
+
 }
 
 
