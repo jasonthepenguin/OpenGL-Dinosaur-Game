@@ -8,7 +8,7 @@ void NPC::Update(float deltaTime)
 	// update physics 
 }
 
-void NPC::Render(Shader& ourShader)
+void NPC::Render(Shader& ourShader, const glm::mat4& view, const glm::mat4& projection)
 {
 
 

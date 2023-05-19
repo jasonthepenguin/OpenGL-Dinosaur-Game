@@ -44,7 +44,7 @@ public:
 
 
     void Update(float deltaTime) override;
-    void Render(Shader& shader) override;
+    void Render(Shader& shader, const glm::mat4& view, const glm::mat4& projection) override;
     void Init() override;
     bool loadHeightfield(const char* filename, const int size);
     void setScalingFactor(float xScale, float yScale, float zScale);

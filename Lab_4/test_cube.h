@@ -61,7 +61,7 @@ public:
 
 	void Update(float deltaTime) override; // update physics etc
 
-	void Render(Shader& shader) override; // draw cube to the screen
+	void Render(Shader& shader, const glm::mat4& view, const glm::mat4& projection) override; // draw cube to the screen
 
 	void Init() override; // eg init vertex attribs, setup physics
 

@@ -62,7 +62,7 @@ void test_cube::Update(float deltaTime)
 }
 
 
-void test_cube::Render(Shader& shader) 
+void test_cube::Render(Shader& shader, const glm::mat4& view, const glm::mat4& projection)
 {
 	// render the object and pass the shader?
 	draw(shader);

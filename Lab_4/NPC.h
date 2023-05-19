@@ -49,7 +49,7 @@ public:
 		 * @param : shader - Shader object
 		 **********************************************************/
 	
-	void Render(Shader& shader) override;
+	void Render(Shader& shader, const glm::mat4& view, const glm::mat4& projection) override;
 
 
 

@@ -47,7 +47,7 @@ class GameObject
              * @brief : Virtual void as it will be overriden by a child class as each child object will be rendered
              ********************************************************************************************************/
 
-		virtual void Render(Shader& shader) = 0;
+		virtual void Render(Shader& shader, const glm::mat4& view, const glm::mat4& projection) = 0;
 
 
 		    /********************************************************************************************************

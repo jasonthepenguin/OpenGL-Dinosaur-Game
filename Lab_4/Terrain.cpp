@@ -8,7 +8,7 @@ void Terrain::Update(float deltaTime)
 
 }
 
-void Terrain::Render(Shader& shader)
+void Terrain::Render(Shader& shader, const glm::mat4& view, const glm::mat4& projection)
 {
 	bruteForceRender();
 }

@@ -5,8 +5,6 @@
 
 //using Lab::LabEngine;
 
-void mouse_callback(GLFWwindow* window, double xposIn, double yposIn);
-void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 
 // our static instance of the lab engine
 LabEngine* LabEngine::staticInstance = nullptr;
@@ -405,6 +403,8 @@ void LabEngine::run()
 		// setting the MODEL, VIEW and PROJECTION matrices
 
 		view = m_camera->GetViewMatrix();
+
+		//----------------------------------------------
 		ourShader.setMat4("view", view);
 
 		// projection ( initialising the shader object which we are going to share with all the game objects )
@@ -415,14 +415,10 @@ void LabEngine::run()
 		ourShader.setMat4("view", view);
 		ourShader.setMat4("projection", projection);
 
-		//-----
-		//ourShader.setVec3("lightPos", lightPosition.x, lightPosition.y, lightPosition.z);
-	//	ourShader.setVec3("viewPos", m_camera->Position.x, m_camera->Position.y, m_camera->Position.z);
-		//ourShader.setVec3("spotLight.position", m_camera->Position.x, m_camera->Position.y, m_camera->Position.z);
 		ourShader.setVec3("viewPos", m_camera->getCameraLocation().x, m_camera->getCameraLocation().y, m_camera->getCameraLocation().z);
 		ourShader.setVec3("spotLight.position", m_camera->getCameraLocation().x, m_camera->getCameraLocation().y, m_camera->getCameraLocation().z);
 		ourShader.setVec3("spotLight.direction", m_camera->getCameraDirection().x, m_camera->getCameraDirection().y, m_camera->getCameraDirection().z);
-		//-----
+		//----------------------------------------------------------
 
 		// RENDERING 
 		//----------------------------------------
@@ -438,7 +434,7 @@ void LabEngine::run()
 		// THE FOR LOOP TO CALL RENDER ON EACH OBJECT
 		for (int i = 0; i < gameObjects.size(); i++)
 		{
-			gameObjects[i]->Render(ourShader);
+			gameObjects[i]->Render(ourShader, view, projection);
 		}
 
 		// TEST RENDERING THE MD2 object
@@ -479,110 +475,7 @@ void LabEngine::run()
 }
 
 
-/// IS HANDLED BY CLASS ????
-void mouse_callback(GLFWwindow* m_PixelsGLFWWindow, double xposIn, double yposIn)
-{
-	auto& app = LabEngine::getInstance();
 
-	float xpos = static_cast<float>(xposIn);
-	float ypos = static_cast<float>(yposIn);
-
-	if (app.firstMouse)
-	{
-		app.lastX = xpos;
-		app.lastY = ypos;
-		app.firstMouse = false;
-	}
-	float xoffset = xpos - app.lastX;
-	float yoffset = app.lastY - ypos; // reversed since y-coordinates go from bottom to top
-	app.lastX = xpos;
-	app.lastY = ypos;
-}
-
-
-
-
-/* IF NOT IN USE WHY HERE > IS IT TO BE IMPLEMENTED IN SPECIAL KEYS
-* 
-* 
-* 
-// Key callback function
-void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
-{
-
-	auto& engRef = LabEngine::getInstance();
-	//bool& wireframe = engRef.wireframe;
-
-
-	// If the "C" key is pressed and the action is key press, toggle the light state
-	if (key == GLFW_KEY_K && action == GLFW_PRESS) 
-	{
-	//	wireframe = !wireframe;
-		if (wireframe) {
-			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-		}
-		else
-		{
-			glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-		}
-	}
-
-	if (key == GLFW_KEY_RIGHT && action == GLFW_PRESS)
-	{
-
-		for (auto model : engRef.MD2models) 
-		{
-			model->playNextAnimation();
-		}
-	}
-
-	
-	// If the "F" key is pressed then swap between can FLY and can't FLY
-	if (key == GLFW_KEY_F && action == GLFW_PRESS) {
-		engRef.canFly = !engRef.canFly;
-		
-	}
-
-	if (key == GLFW_KEY_M && action == GLFW_PRESS) 
-	{
-		//engRef.show_demo_window = !engRef.show_demo_window;
-		engRef.gui->show_demo_window = !engRef.gui->show_demo_window;
-	}
-
-	if (key == GLFW_KEY_X && action == GLFW_PRESS) 
-	{
-		//engRef.show_image = !engRef.show_image;
-		engRef.gui->show_image = !engRef.gui->show_image;
-	}
-
-	// reset box location. Just testing this here for now
-	if(key == GLFW_KEY_R && action == GLFW_PRESS)
-	{
-
-		auto world = engRef.world;
-
-		Vector3 n_position(engRef.m_camera->Position.x, engRef.m_camera->Position.y, engRef.m_camera->Position.z);
-		Quaternion orientation = Quaternion::identity();
-		Transform transform(n_position, orientation);
-
-		RigidBody* rigidBody = world->createRigidBody(transform);
-		BoxShape* boxShape = LabEngine::getInstance().physicsCommon.createBoxShape(Vector3(0.5, 0.5, 0.5));
-	
-		// Relative transform
-		Transform r_transform = Transform::identity();
-		// Add the collider to the rigidbody
-		Collider* collider;
-		collider = rigidBody->addCollider(boxShape, r_transform);
-
-		test_cube* newCube = new test_cube();
-		newCube->Init();
-		float force = 10.0f;
-		rigidBody->setLinearVelocity(Vector3(engRef.m_camera->getCameraDirection().x * force, engRef.m_camera->getCameraDirection().y * force, engRef.m_camera->getCameraDirection().z * force));
-		newCube->rigidBody = rigidBody;
-		engRef.gameObjects.push_back(newCube);
-	}
-}
-*/
 
 void LabEngine::cleanUp()
 {
