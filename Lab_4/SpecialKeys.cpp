@@ -31,33 +31,11 @@ void SpecialKeys::toggleWireframeMode()
 void SpecialKeys::triggerFlying()
 {
     isFlying = !isFlying;
-
-
     // perhaps at this point we get an instance of the Player from the engine and modify there isFlying bool variable?
     // Then main game loop calls update() on player, which would then be responsible for grounding the camera on the terrain floor?
 
     auto m_camera = LabEngine::getInstance().m_camera;
     m_camera->canFly = !m_camera->canFly;
-
-
-    /*
-    auto simpleTerrain = LabEngine::getInstance().simpleTerrain;
-    auto m_camera = LabEngine::getInstance().m_camera;
-
-
-    float scaleOffSetX = 1 / simpleTerrain->scaleX;
-    float scaleOffSetZ = 1 / simpleTerrain->scaleZ;
-    float newY = 0.0f;
-
-    glm::vec3 Position = m_camera->getCameraLocation();
-
-    if (!isFlying)
-    {
-        newY = simpleTerrain->getHeight((int)Position.x * scaleOffSetX, (int)Position.z * scaleOffSetZ);
-        Position.y = newY + 1.3;
-        m_camera->setCameraLocation(Position);
-    }
-    */
     std::cout << isFlying << std::endl;
 }
 
@@ -109,7 +87,6 @@ void SpecialKeys::X_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
 void SpecialKeys::left_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
 {
    // handleKeyEntered(m_PixelsGLFWWindow, GLFW_KEY_LEFT, keyStates[GLFW_KEY_LEFT], nullptr);
-
 }
 
 void SpecialKeys::right_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
@@ -117,11 +94,12 @@ void SpecialKeys::right_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
 
     auto& engRef = LabEngine::getInstance();
 
-   // handleKeyEntered(m_PixelsGLFWWindow, GLFW_KEY_RIGHT, keyStates[GLFW_KEY_RIGHT], nullptr);
+   
     if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_RIGHT) == GLFW_PRESS && !keyStates[GLFW_KEY_RIGHT])
     {
        // (this->*action)();
-        for (auto model : engRef.MD2models) {
+        for (auto model : engRef.MD2models)
+        {
             model->playNextAnimation();
         }
         keyStates[GLFW_KEY_RIGHT] = true;
@@ -173,10 +151,7 @@ void SpecialKeys::toggleLighting()
     
     if (lightingEnabled) 
     {
-        //Access the shader program and set the lighting uniform accordingly
-        //Shader& shader = LabEngine::getInstance().shader; // Replace with the actual shader object you are using
-        //shader.use();
-        //shader.setBool("enableLighting", lightingEnabled);
+
     }
     else 
     {
@@ -201,86 +176,16 @@ void SpecialKeys::readTaskInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT)
     down_KeyEntered(m_PixelsGLFWWindow);
 
 
-
-
     if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
         glfwSetWindowShouldClose(m_PixelsGLFWWindow, true);
     }
-
-   
-
 }
 
 
-/*
 
-void SpecialKeys::readModelInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT, ModelController& modelController)
-{
-    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_UP) == GLFW_PRESS)
-    {
-        modelController.moveModel(ModelController::Direction::FORWARD, deltaT);
-    }
-
-    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_DOWN) == GLFW_PRESS)
-    {
-        modelController.moveModel(ModelController::Direction::BACK, deltaT);
-    }
-
-    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_LEFT) == GLFW_PRESS)
-    {
-        modelController.moveModel(ModelController::Direction::LEFT, deltaT);
-    }
-
-    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_RIGHT) == GLFW_PRESS)
-    {
-        modelController.moveModel(ModelController::Direction::RIGHT, deltaT);
-    }
-
-    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_RIGHT) == GLFW_PRESS)
-    {
-        modelController.playNextAnimation();
-    }
-}
-        for (MD2_TEST* model : MD2models) {
-            if (glfwGetKey(m_window->m_PixelsGLFWWindow, GLFW_KEY_T) == GLFW_PRESS) {
-                model->m_position.z -= deltaValue;
-            }
-            if (glfwGetKey(m_window->m_PixelsGLFWWindow, GLFW_KEY_F) == GLFW_PRESS) {
-                model->m_position.x -= deltaValue;
-            }
-            if (glfwGetKey(m_window->m_PixelsGLFWWindow, GLFW_KEY_G) == GLFW_PRESS) {
-                model->m_position.z += deltaValue;
-            }
-            if (glfwGetKey(m_window->m_PixelsGLFWWindow, GLFW_KEY_H) == GLFW_PRESS) {
-                model->m_position.x += deltaValue;
-            }
-        }
-*/
 
 void SpecialKeys::readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT)
 {
     //readModelInput(m_PixelsGLFWWindow, deltaT, modelController);
     readTaskInput(m_PixelsGLFWWindow, deltaT);
 }
-
-
-
-
-
-/*******************
-
-
-
-if (glfwGetKey(window, GLFW_KEY_Y) == GLFW_PRESS) {
-    handleNextAnimation(window);
-}
-if (glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS) {
-    handleToggleFlying(window);
-}
-if (glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS) {
-    handleDisplayDemoWindow(window);
-}
-if (glfwGetKey(window, GLFW_KEY_O) == GLFW_PRESS) {
-    handleDisplayGroupPhoto(window);
-}
-**/

@@ -3,23 +3,16 @@
 
 // Soon replace with Graphics
 #include <glad/glad.h>
-
 #include "Texture.h"
 #include "Shader.h"
 #include <memory>
-
 // Math
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtc/quaternion.hpp>
-
-
 #include <vector>
-
-
 #include "GameObject.h"
-
 #include "LabEngine.h"
 
 
@@ -30,32 +23,18 @@ using namespace reactphysics3d;
 
 
 
-class test_cube : public GameObject {
-
+class test_cube : public GameObject
+{
 public:
-
 
 	unsigned int VBO, VAO, EBO;
 
 	//glm::vec3 cubePosition;
 	glm::mat4 rotationMatrix4x4; // testing collision rotations with this
-
-
 	// PHYSICS VARIABLES
-
 	// Create a rigid body in the world
-	//-------------------------------------------------------------------------------------------------
-
 	// Create a rigid body in the world
 	RigidBody* rigidBody;
-
-	//--------------------------------------------------------------------------
-
-
-	//Shader& ourShader;
-	//Shader* ourShader;
-	//Shader ourShader("shaders/light_vs.shader", "shaders/light_fs.shader");
-
 	// IMPLEMENTING THE GAMEOBJECT functions
 
 
@@ -119,39 +98,18 @@ public:
 		-0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  0.0f, 1.0f
 	};
 
-	/*
-	unsigned int indices[6] = {  // note that we start from 0!
-		0, 1, 3,  // first Triangle
-		1, 2, 3   // second Triangle
-	};
-	*/
-
 
 	void init()
 	{
-
 		TextureFactory textFact; // temporarily placing this here.
-
 		std::shared_ptr<Texture> container2 = textFact.createTexture("container2.png");
 		container2->load();
 		boxTextures.push_back(container2);
-
-
 		std::shared_ptr<Texture> container2_specular = textFact.createTexture("container2_specular.png");
 		container2_specular->load();
 		boxTextures.push_back(container2_specular);
-
-
-
-
-
-
-
-		//ourShader.use(); // below we are telling OpenGL which texture unit each shader sampler belongs to 
-		//ourShader.setInt("texture1", 0);
-		//ourShader.setInt("texture2", 1); // or with the shader class
-
 	}
+
 
 	//void draw(glm::mat4 projection, glm::mat4 view)
 	void draw(Shader& ourShader)
@@ -172,29 +130,19 @@ public:
 			boxTextures[i]->bindTexture(i);
 		}
 
-		//glm::mat4 model = glm::mat4(1.0f);
-		//model = glm::translate(model, cubePosition);
+
 		model = glm::translate(model, position);
-		//float angle = 20.0f;
-		//model = glm::rotate(model, glm::radians(angle), glm::vec3(1.0f, 0.0f, 0.0f));
 		model = model * rotationMatrix4x4; // apply the rotation calculated from the physics engine
 
 		ourShader.setMat4("model", model);
 
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
-		//containerTexture->unbind();
-		//faceTexture->unbind();
-
-		//container2->unbind();
-		for (int i = 0; i < boxTextures.size(); i++) {
+		for (int i = 0; i < boxTextures.size(); i++) 
+		{
 			boxTextures[i]->unbind();
 		}
-
-
 		glBindVertexArray(0);
-
-
 	}
 
 	//test_cube(Shader& s) : ourShader(s) {
@@ -239,11 +187,6 @@ public:
 		//---------------------------
 
 	}
-
-
-
-
-
 
 private:
 

@@ -8,7 +8,9 @@ class Camera;
 class SpecialKeys;
 class MovementKeys;
 
-
+#include "Camera.h"
+#include "SpecialKeys.h"
+#include "MovementKeys.h"
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 

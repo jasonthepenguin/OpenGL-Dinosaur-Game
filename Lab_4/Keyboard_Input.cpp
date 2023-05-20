@@ -1,8 +1,6 @@
 #include "Keyboard_Input.h"
 
-#include "Camera.h"
-#include "SpecialKeys.h"
-#include "MovementKeys.h"
+
 
 
 Keyboard_Input::Keyboard_Input(std::shared_ptr<Camera> playerCamera) :

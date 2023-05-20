@@ -3,59 +3,41 @@
 
 #include <iostream>
 #include <string>
-
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 // Testing texture class
 #include "stb_image.h"
 #include "Texture.h"
-
 #include "Window.h"
 #include "Shader.h"
-
 #include "Camera.h"
-
 // Math
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtc/quaternion.hpp>
-
-
 // Test object
 #include "test_cube.h"
 #include "Model.h"
 #include "GameObject.h"
 #include "NPC.h"
-
 #include "Terrain.h"
-
 // Graphics
 #include "Graphics.h"
-
 // GUI
 #include "EngGUI.h"
-
-
 #include "Keyboard_Input.h"
 #include "Mouse_Input.h"
 #include "UI_Manager.h"
-
-
 // LUA
 #include <lua.hpp>
 #include <sol/sol.hpp>
 #include "assert.hpp"
-
 // physics/collision detection
 #include <reactphysics3d/reactphysics3d.h>
 using namespace reactphysics3d;
-
 #include <vector>
-
-
-
 #include "md2_test.h"
 
 
@@ -63,12 +45,10 @@ using namespace reactphysics3d;
 		 * @class   : LabEngine() 
 		 * @brief   : This is the primary engine used to run the program
 		 * 
-         * @author  : Jason & William
+         * @author  : William
 		 * @date    : April 2023
 		 * @version : 1.2 - Added all doccumentation
 		 ******************************************************************************************************************************************/
-
-//namespace Lab {
 
 	class LabEngine
 	{

@@ -1,37 +1,22 @@
-
-
 #include "test_cube.h"
 
-
-// initialise the object ( eg vertex attribs, physics)
 void test_cube::Init()
 {
-	 
-	
-	initPhysics(); // init the physics 
-
-	init(); // init the graphics/vertices side of things
-	
+	initPhysics();
+	init();
 }
+
 
 void test_cube::initPhysics()
 {
 
 	auto world = LabEngine::getInstance().world;
-
-
-	// init the physics side of things
-	// Create a rigid body in the world
-   // Vector3 position(cubePosition.x, cubePosition.y, cubePosition.z);
 	Vector3 n_position(position.x, position.y, position.z);
 	Quaternion orientation = Quaternion::identity();
 	Transform transform(n_position, orientation);
 
 	rigidBody = world->createRigidBody(transform);
-	// box collision shape
-	//BoxShape* boxShape = physicsCommon.createBoxShape(Vector3(0.5, 0.5, 0.5));
 	BoxShape* boxShape = LabEngine::getInstance().physicsCommon.createBoxShape(Vector3(0.5, 0.5, 0.5));
-	//BoxShape * boxShape = physicsCommon.createBoxShape(Vector3(0.25, 0.25, 0.25));
 
 	// Relative transform
 	Transform r_transform = Transform::identity();

@@ -95,20 +95,5 @@ void Window::processInput()
 {
 	// I'm thinking that this function would just update the keys array so other sections of the engine can check what keys are being pressed.
 	// Except maybe just also check if you want to exit the program
-	
-
-	/*
-	if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS)
-	{
-		glfwSetWindowShouldClose(window, true);
-	}
-	*/
 
 }
-
-/*
-Window* Window::createWindow(int width, int height, const char* title)
-{
-	return new Window();
-}
-*/

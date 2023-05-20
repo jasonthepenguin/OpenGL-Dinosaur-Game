@@ -200,26 +200,16 @@ void LabEngine::run()
 	simpleTerrain->setUpTerrainData(true);
 	simpleTerrain->loadTerrainTexture("grass.jpg");
 	simpleTerrain->sharedShader = &ourShader;	
-	// Loading the Terrain data in dynamically using the fault formation algorithm
-	// STARTING POS OF THE TERRAIN
-	simpleTerrain->startPos = glm::vec3(0.0, 0.0, 0.0);  // (TODO) change to use GameObjects position member variable
-
-
+	simpleTerrain->startPos = glm::vec3(0.0, 0.0, 0.0); 
 	//------------- ( INIT CAMERA POSITION ) ---------------------- //
 	float startX = ((float)simpleTerrain->size / 2.0);
 	float startZ = ((float)simpleTerrain->size / 2.0);
 	float startY = simpleTerrain->getHeight(startX, startZ);
-	std::cout << "Start X : " << startX << ", Start Y : " << startY << " , start Z : " << startZ << std::endl;
-	//m_camera->Position = glm::vec3(startX * simpleTerrain->scaleX, startY + 1, startZ * simpleTerrain->scaleZ);
 	m_camera->setCameraLocation(glm::vec3(startX * simpleTerrain->scaleX, startY + 1, startZ * simpleTerrain->scaleZ));
 
 	glm::vec3 lightPosition = glm::vec3(startX * simpleTerrain->scaleX, startY + 1, startZ * simpleTerrain->scaleZ);
 
-	
-
-
 	//------------------------------------------- Vertex Data  + Textures
-	
 	sol::protected_function_result result = lua.script_file("Lua/testBox.lua", sol::script_pass_on_error);
 	if (!result.valid()) 
 	{
@@ -231,30 +221,26 @@ void LabEngine::run()
 
 	
 	// Iterate through the array and store the NPC data in a C++ vector
-	for (const auto& entry : testBoxTable) {
+	for (const auto& entry : testBoxTable) 
+	{
 		sol::table boxTable = entry.second.as<sol::table>();
 		sol::table startPosTable = boxTable["startPos"];
-
 		test_cube* cubeData = new test_cube();
-
 		cubeData->position.x = startPosTable["x"];
 		cubeData->position.y = startPosTable["y"];
 		cubeData->position.z = startPosTable["z"];
-
-
 		cubeData->position.x = cubeData->position.x + (startX * simpleTerrain->scaleX);
 		cubeData->position.y = cubeData->position.y + (startY);
 		cubeData->position.z = cubeData->position.z + (startZ * simpleTerrain->scaleZ);
-
 		gameObjects.push_back(cubeData);
 
-		std::cout << "GameObject created!  xyz = " << cubeData->position.x << "," << cubeData->position.y
-			<< "," << cubeData->position.z << std::endl;
+		std::cout << "GameObject created!  xyz = " << cubeData->position.x << "," << cubeData->position.y << "," << cubeData->position.z << std::endl;
 	}
 
 
 	result = lua.script_file("Lua/NPC.lua", sol::script_pass_on_error);
-	if (!result.valid()) {
+	if (!result.valid())
+	{
 		sol::error err = result;
 		std::cerr << "Failed to execute the Lua script: " << err.what() << std::endl;
 
@@ -288,12 +274,8 @@ void LabEngine::run()
 	ourShader.setVec3("dirLight.diffuse", 0.4f, 0.4f, 0.4f);
 	ourShader.setVec3("dirLight.specular", 0.5f, 0.5f, 0.5f);
 
-
-	//------------------------------
-
 	ourShader.setInt("material.diffuse", 0); // setting texture the texture units ( texture unit 0 )
 	ourShader.setInt("material.specular", 1);
-
 
 	ourShader.setVec3("material.specular", 0.5f, 0.5f, 0.5f);
 	ourShader.setFloat("material.shininess", 32.0f);
