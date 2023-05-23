@@ -54,40 +54,9 @@ void OpenGLTexture::load()
 
 
         stbi_set_flip_vertically_on_load(flip);
-    }
-
-
-    else if (textureType == TextureType::TEXTURE_CUBE_MAP)
-    {
-        glTexParameteri(target, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-        glTexParameteri(target, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-        glTexParameteri(target, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
-        glTexParameteri(target, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-        glTexParameteri(target, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    }
-
-
-    if (textureType == TextureType::TEXTURE_2D)
-    {
         data = stbi_load(fileName.c_str(), &width, &height, &numChannels, 0);
-    }
-
-
-    else if (textureType == TextureType::TEXTURE_CUBE_MAP)
-    {
-        for (unsigned int i = 0; i < 6; ++i)
+        if (data)
         {
-
-            data = stbi_load(cubeMapFileNames[i].c_str(), &width, &height, &numChannels, 0);
-                
-
-            if (data == nullptr) 
-            {
-                std::cout << "ERROR TEXTURE LOAD FAILURE at " << cubeMapFileNames[i] << std::endl;
-                    
-                continue;
-            }
-
             if (numChannels == 4)
             {
                 format = GL_RGBA;
@@ -102,6 +71,52 @@ void OpenGLTexture::load()
             {
                 format = GL_RED;
             }
+
+            glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
+            glGenerateMipmap(GL_TEXTURE_2D);
+        }
+        else
+        {
+            if (textureType == TextureType::TEXTURE_2D)
+
+                std::cout << "ERROR TEXTURE CAN NOT LOAD!" << std::endl;
+        }
+    }
+
+    else if (textureType == TextureType::TEXTURE_CUBE_MAP)
+    {
+        glTexParameteri(target, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+        glTexParameteri(target, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+        glTexParameteri(target, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+        glTexParameteri(target, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        glTexParameteri(target, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    
+
+        for (unsigned int i = 0; i < cubeMapFileNames.size(); ++i)
+        {
+
+            data = stbi_load(cubeMapFileNames[i].c_str(), &width, &height, &numChannels, 0);
+
+
+            if (data == nullptr)
+            {
+                std::cout << "ERROR TEXTURE LOAD FAILURE at " << cubeMapFileNames[i] << std::endl;
+
+                continue;
+            }
+
+            if (numChannels == 4)
+            {
+                format = GL_RGBA;
+            }
+            else if (numChannels == 3)
+            {
+                format = GL_RGB;
+            }
+            else if (numChannels == 1)
+            {
+                format = GL_RED;
+            }
             glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
 
             stbi_image_free(data);
@@ -110,34 +125,7 @@ void OpenGLTexture::load()
         }
     }
 
-    if (data)
-    {
-        if (numChannels == 4)
-        {
-            format = GL_RGBA;
-        }
 
-        else if (numChannels == 3)
-        {
-            format = GL_RGB;
-        }
-
-        else if (numChannels == 1)
-        {
-            format = GL_RED;
-        }
-
-        glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
-        glGenerateMipmap(GL_TEXTURE_2D);
-    }
-    else
-    {
-        if (textureType == TextureType::TEXTURE_2D)
-
-            std::cout << "ERROR TEXTURE CAN NOT LOAD!" << std::endl;
-    }
-
-    if (data)
 
         stbi_image_free(data);
 }

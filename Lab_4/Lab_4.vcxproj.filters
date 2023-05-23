@@ -160,6 +160,8 @@
     <None Include="Lua\testBox.lua" />
     <None Include="shaders\md2_frag.shader" />
     <None Include="shaders\md2_vert.shader" />
+    <None Include="shaders\skybox\skybox_fs.shader" />
+    <None Include="shaders\skybox\skybox_vs.shader" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Window.h">

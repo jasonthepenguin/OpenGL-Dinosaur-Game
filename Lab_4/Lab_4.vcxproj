@@ -206,6 +206,8 @@
     <None Include="shaders\light_vs.shader" />
     <None Include="shaders\md2_frag.shader" />
     <None Include="shaders\md2_vert.shader" />
+    <None Include="shaders\skybox\skybox_fs.shader" />
+    <None Include="shaders\skybox\skybox_vs.shader" />
     <None Include="shaders\vertexShader.shader" />
     <None Include="shaders\vertexShader_terrain.shader" />
   </ItemGroup>
