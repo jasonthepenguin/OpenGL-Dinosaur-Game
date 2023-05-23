@@ -106,6 +106,7 @@ void Skybox::Render(Shader& shader, const glm::mat4& view, const glm::mat4& proj
     glm::mat4 model = glm::mat4(1.0f);
     skyboxShader->setMat4("model", model);
 
+    glDepthFunc(GL_LEQUAL); // change depth function so depth test passes when values are equal to depth buffer's content
 
     glBindVertexArray(VAO);
         glDepthMask(GL_FALSE);
@@ -113,6 +114,7 @@ void Skybox::Render(Shader& shader, const glm::mat4& view, const glm::mat4& proj
         glDrawArrays(GL_TRIANGLES, 0, 36);
         glDepthMask(GL_TRUE);
     glBindVertexArray(0);
+    glDepthFunc(GL_LESS); // set depth function back to default
         
 
 

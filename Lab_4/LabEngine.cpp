@@ -427,8 +427,7 @@ void LabEngine::run()
 
 		world->update(deltaTime); // The physics world update and being passed delta time
 
-		// DRAWING SKYBOX
-		skybox->Render(ourShader, view, projection);
+
 
 
 		// FOR LOOP TO CALL UPDATE ON EACH OBJECT
@@ -473,6 +472,11 @@ void LabEngine::run()
 				model->m_position.x += deltaValue;
 			}
 		}
+
+
+		// DRAWING SKYBOX
+		skybox->Render(ourShader, view, projection);
+
 		//-------------------------------------------------- COMPLETED DRAWING OF TEST BOXES -------------------------//
 		gui->renderData();
 		m_window->swapBuffers();
