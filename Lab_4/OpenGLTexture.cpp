@@ -34,7 +34,17 @@ void OpenGLTexture::setCubemapFileNames(const std::vector<std::string>& fileName
 	cubeMapFileNames = fileNames;
 }
 
-
+std::string OpenGLTexture::getTextureType()
+{
+    if (textureType == TextureType::TEXTURE_CUBE_MAP)
+    {
+        return "CUBE_MAP";
+    }
+    else
+    {
+        return "TEXTURE_2D";
+    }
+}
 
 void OpenGLTexture::load()
 {
@@ -77,7 +87,7 @@ void OpenGLTexture::load()
         }
         else
         {
-            if (textureType == TextureType::TEXTURE_2D)
+          //  if (textureType == TextureType::TEXTURE_2D)
 
                 std::cout << "ERROR TEXTURE CAN NOT LOAD!" << std::endl;
         }

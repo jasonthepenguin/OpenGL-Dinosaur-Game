@@ -34,11 +34,14 @@
 #include <lua.hpp>
 #include <sol/sol.hpp>
 #include "assert.hpp"
+// SKYBOX
+#include "Skybox.h"
 // physics/collision detection
 #include <reactphysics3d/reactphysics3d.h>
 using namespace reactphysics3d;
 #include <vector>
 #include "md2_test.h"
+
 
 
 		/******************************************************************************************************************************************
@@ -80,6 +83,7 @@ using namespace reactphysics3d;
 
 			std::vector<MD2_TEST*> MD2models;
 
+			std::unique_ptr<Skybox> skybox;
 			
 			// Dealing with user input including Keyboard and Mouse
 			UI_Manager* userInput;

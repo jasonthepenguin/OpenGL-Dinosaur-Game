@@ -52,6 +52,8 @@ void LabEngine::init()
 	world = physicsCommon.createPhysicsWorld();
 	// Init the Lua state
 	lua.open_libraries(sol::lib::base);
+
+
 }
 
 
@@ -182,6 +184,23 @@ void LabEngine::run()
 
 void LabEngine::run()
 {
+
+	// Skybox
+	skybox = std::make_unique<Skybox>();
+	
+	std::vector<std::string> faces
+	{
+		"textures/skybox/right.jpg",
+			"textures/skybox/left.jpg",
+			"textures/skybox/top.jpg",
+			"textures/skybox/bottom.jpg",
+			"textures/skybox/front.jpg",
+			"textures/skybox/back.jpg"
+	};  // This list of files should ideally be added with the use of LUA and not hardcoded like this, but right now im just testing to see if works
+	skybox->loadCubemap(faces);
+	
+
+	//----------------------------------------
 	simpleTerrain = new Terrain();
 	// Init the GUI
 	gui = new EngGUI();
@@ -362,6 +381,7 @@ void LabEngine::run()
 
 
 
+
 		float scaleOffSetX = 1 / simpleTerrain->scaleX;
 		float scaleOffSetZ = 1 / simpleTerrain->scaleZ;
 		float newY = 0.0f;
@@ -406,6 +426,10 @@ void LabEngine::run()
 		//----------------------------------------
 
 		world->update(deltaTime); // The physics world update and being passed delta time
+
+		// DRAWING SKYBOX
+		skybox->Render(ourShader, view, projection);
+
 
 		// FOR LOOP TO CALL UPDATE ON EACH OBJECT
 		for (int i = 0; i < gameObjects.size(); i++)

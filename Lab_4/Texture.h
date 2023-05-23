@@ -33,6 +33,9 @@ class Texture
 
 		virtual void setCubemapFileNames(const std::vector<std::string>& fileNames) = 0;
 
+
+		virtual std::string getTextureType() = 0;
+
 		unsigned int texture; // texture ID 
 		int width;
 		int height;
@@ -85,6 +88,8 @@ class OpenGLTexture : public Texture
 
 		virtual void setCubemapFileNames(const std::vector<std::string>& fileNames) override;
 
+
+		virtual std::string getTextureType() override;
 
 		//void channelCount(int numChannels, GLenum format);
 
@@ -247,7 +252,7 @@ public:
 
 	std::unique_ptr<Texture> createTexture() {
 
-		return std::make_unique<OpenGLTexture>();
+		return std::make_unique<OpenGLTexture>("", type);
 		
 	}
 
