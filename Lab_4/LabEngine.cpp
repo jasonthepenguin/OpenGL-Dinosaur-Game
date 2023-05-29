@@ -348,8 +348,8 @@ void LabEngine::run()
 	{
 		// test render IMGUI
 		//----------------------------------------------------- ( BEGIN FRAME )
-		gui->BeginFrame();
-		gui->EndFrame();
+		gui->beginFrame();
+		gui->endFrame();
 
 		// calc deltaTime
 		float currentFrame = m_window->getTime();

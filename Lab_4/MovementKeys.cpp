@@ -43,24 +43,7 @@ void MovementKeys::readInput(GLFWwindow* m_PixelsWindow, float deltaT)
 
     auto MD2models = LabEngine::getInstance().MD2models;
     // test to move the MD2 model
-    for (MD2_TEST* model : MD2models) {
-        if (glfwGetKey(m_PixelsWindow, GLFW_KEY_T) == GLFW_PRESS) {
-            model->m_position.z -= deltaT;
-        }
-        if (glfwGetKey(m_PixelsWindow, GLFW_KEY_F) == GLFW_PRESS) {
-            model->m_position.x -= deltaT;
-        }
-        if (glfwGetKey(m_PixelsWindow, GLFW_KEY_G) == GLFW_PRESS) {
-            model->m_position.z += deltaT;
-        }
-        if (glfwGetKey(m_PixelsWindow, GLFW_KEY_H) == GLFW_PRESS) {
-            model->m_position.x += deltaT;
-        }
-    }
 
-
-
-}
 
 
 
@@ -68,8 +51,6 @@ void MovementKeys::readInput(GLFWwindow* m_PixelsWindow, float deltaT)
 void MovementKeys::movePlayer(Directions direction, float deltaT)
 {
     glm::vec3 movementDirection(0.0f, 0.0f, 0.0f);
-   // glm::vec3 movementDirection;
-
 
     float velocity = 2.5f * deltaT;
 
