@@ -2,8 +2,8 @@
 
 
 #include "imgui.h"
+#include "Menu_Commands.h"
 #include "imgui_impl_glfw.h"
-#include "PauseMenu_Commands.h"
 #include "imgui_impl_opengl3.h"
 
 
@@ -18,9 +18,9 @@
  * @version : 1.0
  ******************************************************************************************************************/
 
-class Resume_Command : public PauseMenu_Commands
+class Resume_Command : public Menu_Commands
 {
     public:
-        Resume_Command();
+        Resume_Command() = default;
         void executeTask() override;
 };

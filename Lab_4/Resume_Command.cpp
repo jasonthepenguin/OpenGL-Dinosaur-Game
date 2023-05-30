@@ -8,3 +8,12 @@ void Resume_Command::executeTask()
 		std::cout << "Resuming game." << std::endl;
 	}
 }
+
+
+
+void Resume_Command::executeTask()
+{
+	// Hide the menu
+	//auto& menu = Pause_Menu::getInstance();
+	//menu.hideMenu();
+}

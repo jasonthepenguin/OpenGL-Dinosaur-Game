@@ -92,8 +92,8 @@ public:
      * @brief  Used to get the camera location
      * @return The camera location as a glm::vec3.
      ***********************************************************************************************/
-
-    glm::vec3 getCameraLocation();
+    
+    const glm::vec3& getCameraLocation() const;
 
 
     /************************************************************************************************

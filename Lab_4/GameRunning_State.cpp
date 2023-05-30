@@ -12,13 +12,13 @@ void GameRunning_State::handlePlayerInput()
 }
 
 
-void GameRunning_State::Update()
+void GameRunning_State::update()
 {
 
 }
 
 
-void GameRunning_State::Generate()
+void GameRunning_State::generate()
 {
 
 }

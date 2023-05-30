@@ -1,91 +1,75 @@
 #include "MovementKeys.h"
 
 
-#include <iostream>
-
-MovementKeys::MovementKeys()
-{
-
-}
-
+MovementKeys::MovementKeys() {}
 
 MovementKeys::~MovementKeys() {}
 
-
 MovementKeys::Directions MovementKeys::getDirections() const { return m_CurrentDirection; }
-float MovementKeys::getPlayerSpeed()                   const { return m_PlayerSpeed;      }
-void MovementKeys::setPlayerSpeed(float tempSpeed)           { m_PlayerSpeed = tempSpeed; }
+float					 MovementKeys::getPlayerSpeed() const { return m_PlayerSpeed; }
 
 
 
-void MovementKeys::readInput(GLFWwindow* m_PixelsWindow, float deltaT)
+void MovementKeys::setPlayerSpeed(float tempSpeed) { m_PlayerSpeed = tempSpeed; }
+
+
+void MovementKeys::onKeyInput(GLFWwindow* window, int key, int action, int mods, float deltaT)
 {
-    if (glfwGetKey(m_PixelsWindow, GLFW_KEY_W) == GLFW_PRESS)
-    {
-        movePlayer(Directions::FORWARD, deltaT);
-    }
+	if (action == GLFW_PRESS || action == GLFW_REPEAT)
+	{
+		switch (key)
+		{
+		case GLFW_KEY_W:
+			movePlayer(Directions::FORWARD, deltaT);
+			break;
 
-    if (glfwGetKey(m_PixelsWindow, GLFW_KEY_S) == GLFW_PRESS)
-    {
-        movePlayer(Directions::BACK, deltaT);
-    }
+		case GLFW_KEY_S:
+			movePlayer(Directions::BACK, deltaT);
+			break;
 
-    if (glfwGetKey(m_PixelsWindow, GLFW_KEY_A) == GLFW_PRESS)
-    {
-        movePlayer(Directions::LEFT, deltaT);
-    }
+		case GLFW_KEY_A:
+			movePlayer(Directions::LEFT, deltaT);
+			break;
 
-    if (glfwGetKey(m_PixelsWindow, GLFW_KEY_D) == GLFW_PRESS)
-    {
-        movePlayer(Directions::RIGHT, deltaT);
-    }
+		case GLFW_KEY_D:
+			movePlayer(Directions::RIGHT, deltaT);
+			break;
 
-
-    auto MD2models = LabEngine::getInstance().MD2models;
-    // test to move the MD2 model
-
+		default:
+			break;
+		}
+	}
 }
 
 
 
 void MovementKeys::movePlayer(Directions direction, float deltaT)
 {
-    glm::vec3 movementDirection(0.0f, 0.0f, 0.0f);
+	glm::vec3 movementDirection(0.0f, 0.0f, 0.0f);
+	float velocity = m_PlayerSpeed * deltaT;
 
-    float velocity = 2.5f * deltaT;
+	// Determine the movement direction based on the given direction
+	switch (direction)
+	{
+	case Directions::FORWARD:
+		movementDirection += m_PlayerCamera->getCameraDirection() * velocity;
+		break;
 
-    // Determine the movement direction based on the given direction
-    switch (direction)
-    {
-        case Directions::FORWARD:
+	case Directions::BACK:
+		movementDirection -= m_PlayerCamera->getCameraDirection() * velocity;
+		break;
 
-            movementDirection += LabEngine::getInstance().m_camera->getCameraDirection() * velocity;
+	case Directions::LEFT:
+		movementDirection = glm::normalize(glm::cross(m_PlayerCamera->getCameraDirection(), -glm::vec3(0.0, 1.0, 0.0))) * velocity;
+		break;
 
-        break;
-       
-        
-        case Directions::BACK:
-          
-            movementDirection -= LabEngine::getInstance().m_camera->getCameraDirection() * velocity;
-        
-       break;
-       
-        
-        case Directions::LEFT:
-            movementDirection = glm::normalize(glm::cross(LabEngine::getInstance().m_camera->getCameraDirection(), -glm::vec3(0.0, 1.0, 0.0))) * velocity;
+	case Directions::RIGHT:
+		movementDirection = glm::normalize(glm::cross(m_PlayerCamera->getCameraDirection(), glm::vec3(0.0, 1.0, 0.0))) * velocity;
+		break;
 
-        break;
-        
-        
-        case Directions::RIGHT:
-            movementDirection = glm::normalize(glm::cross(LabEngine::getInstance().m_camera->getCameraDirection(), glm::vec3(0.0, 1.0, 0.0))) * velocity;
+	default:
+		return;
+	}
 
-        break;
-        
-
-        default:
-            return; // Invalid direction, do nothing
-    }
-
-    LabEngine::getInstance().m_camera->setCameraLocation(LabEngine::getInstance().m_camera->getCameraLocation() + movementDirection);
+	m_PlayerCamera->setCameraLocation(m_PlayerCamera->getCameraLocation() + movementDirection);
 }
