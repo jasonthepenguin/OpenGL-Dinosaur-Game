@@ -15,6 +15,9 @@
 #include "GameObject.h"
 #include <reactphysics3d/reactphysics3d.h>
 
+// TEXTURE GENERATION
+#include "TextureGenerator.h"
+
 using namespace reactphysics3d;
 
 
@@ -73,12 +76,25 @@ public:
     glm::vec3 startPos;
 
 
+    //------------------------------ TESTING OUT PROCEDURAL TEXTURE GENERATION
+
+    bool addProceduralTexture(const char* filename);
+
+    bool createProceduralTexture();
+
+    float getUnscaledHeight(int xpos, int zpos);
+
+    void getTexCoords(int texNum, unsigned int& x, unsigned int& y);
+
+
+
 
 private:
     Shader* ourShader = nullptr;
     unsigned int VBO, VAO, EBO;
     bool hasTexture;
     std::unique_ptr<Texture> terrainTexture;
+    textureGenerator tex;
 };
 
 

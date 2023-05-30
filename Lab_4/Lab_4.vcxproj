@@ -159,6 +159,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="EngGUI.cpp" />
     <ClCompile Include="glad.c" />
+    <ClCompile Include="image.cpp" />
     <ClCompile Include="imgui.cpp" />
     <ClCompile Include="imgui_demo.cpp" />
     <ClCompile Include="imgui_draw.cpp" />
@@ -179,6 +180,7 @@
     <ClCompile Include="Skybox.cpp" />
     <ClCompile Include="SpecialKeys.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="textureGenerator.cpp" />
     <ClCompile Include="UI_Manager.cpp" />
     <ClCompile Include="Keyboard_Input.cpp" />
     <ClCompile Include="NPC.cpp" />
@@ -217,6 +219,7 @@
     <ClInclude Include="EngGUI.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Graphics.h" />
+    <ClInclude Include="image.h" />
     <ClInclude Include="imconfig.h" />
     <ClInclude Include="imgui.h" />
     <ClInclude Include="imgui_impl_glfw.h" />
@@ -233,6 +236,7 @@
     <ClInclude Include="Particle.h" />
     <ClInclude Include="Skybox.h" />
     <ClInclude Include="SpecialKeys.h" />
+    <ClInclude Include="textureGenerator.h" />
     <ClInclude Include="TinyObjLoader.h" />
     <ClInclude Include="UI_Manager.h" />
     <ClInclude Include="Keyboard_Input.h" />

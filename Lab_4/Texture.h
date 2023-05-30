@@ -79,6 +79,8 @@ class OpenGLTexture : public Texture
 	
 		OpenGLTexture(std::string filename, TextureType type);
 
+		OpenGLTexture(unsigned char* img_data, int img_width, int img_height); // Creating a texture when the image data has been constructed in program
+
 	
 		void setFileName(const char* textureFileName);
 
@@ -254,6 +256,13 @@ public:
 
 		return std::make_unique<OpenGLTexture>("", type);
 		
+	}
+
+	std::unique_ptr<Texture> createTextureFromData(unsigned char* img_data, int width, int height) {
+
+		//std::unique_ptr<OpenGLTexture> newTex = 
+
+		return std::make_unique<OpenGLTexture>(img_data, width, height);
 	}
 
 

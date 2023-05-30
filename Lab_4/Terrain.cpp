@@ -526,3 +526,123 @@ void Terrain::normaliseTerrain(float* terData)
 		terData[i] = ((terData[i] - minValue) / heightRange) * 255.0f;
 	}
 }
+
+
+bool Terrain::addProceduralTexture(const char* filename)  // adds a texture. It returns false on error if 4 textures are loaded
+{
+	return tex.addTexture(filename);
+
+}
+
+bool Terrain::createProceduralTexture()
+{
+
+	if (!terrainData || tex.getNumTextures() == 0)
+		return false;
+	unsigned char curHeight; //current height in the heightmap
+	float weight; //weight of influence of tex to height
+
+	//setup room for the new texture
+	tex.setupNewTexture(size, size);
+	RGB color;
+	RGB totalColor;
+	float range = tex.getRange();
+
+	//loop through each point in the heightmap 
+	// and get height value
+	for (int z = 0; z < size; z++) {
+		for (int x = 0; x < size; x++) {
+			totalColor.reset();
+			curHeight = getUnscaledHeight(x, z);
+			//calculate the contribution from for each texture
+			for (int i = 0; i < tex.getNumTextures(); i++) {
+				weight = (range - abs((float)curHeight
+					- tex.getTextureMax(i))) / range;
+				if (weight > 0.0) {
+
+
+					unsigned int texX = x;
+					unsigned int texZ = z;
+					getTexCoords(i, texX, texZ);
+
+					color = tex.getColor(i, texX, texZ);
+					//color = tex.getColor(i, x, z);
+
+
+					totalColor.r += color.r * weight;
+					totalColor.g += color.g * weight;
+					totalColor.b += color.b * weight;
+				} // end if
+			} // end for i
+			//add the combined color to the new texture.
+			tex.setColor(x, z, totalColor);
+		} // end for x
+	} // end for z
+
+
+	//tex.getTex()
+
+		// Terrain texture data
+	TextureFactory textFact; // temporarily placing this here.
+	//auto terrainTexture = textFact.createTexture("container.jpg"); // returns unique pointer
+	//terrainTexture = textFact.createTexture(textureName); // returns unique pointer
+
+
+	terrainTexture = textFact.createTextureFromData(tex.getTex(), tex.getNewTexWidth(), tex.getNewTexHeight());
+	terrainTexture->load();
+
+
+	//load the new texture into memory ready for use
+	/*
+	texID = texMan.createNewTexture(tex.getTex(), size, size);
+	textureMapping = true;
+
+	//dont repeat this texture
+	numTerrainTexRepeat = 0;
+	return true;
+	*/
+
+	return true;
+	// very end use tex.getTex() as the data used to create a texture , then set as the terrainTexture :)
+}
+
+float Terrain::getUnscaledHeight(int xpos, int zpos)
+{
+	if (xpos < size && zpos < size && xpos >= 0 && zpos >= 0) {
+
+
+		return ((float)(terrainData[(zpos * size) + xpos]));
+	}
+}
+
+void Terrain::getTexCoords(int texNum,
+	unsigned int& x, unsigned int& y)
+{
+	unsigned int height = tex.getTexHeight(texNum);
+	unsigned int width = tex.getTexWidth(texNum);
+	int repeatX = -1; // number of repeats in X direction
+	int repeatY = -1; // number of repeats in Y direction
+	int i = 0;
+	// loop until we figure out how many times the tile 
+	// has repeated (on the X axis)
+	while (repeatX == -1) {
+		i++;
+		//if x is less than the total width, found
+		if (x < (width * i))
+			repeatX = i - 1;
+	}
+
+	// loop until we figure out how many times the tile 
+	// has repeated (on the Y axis)
+	i = 0;
+	while (repeatY == -1) {
+		i++;
+		//if y is less than the total height good
+		if (y < (height * i))
+			repeatY = i - 1;
+	}
+	// update the given texture coordinates
+	x = x - (width * repeatX);
+	y = y - (height * repeatY);
+}
+
