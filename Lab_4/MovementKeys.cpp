@@ -44,7 +44,7 @@ void MovementKeys::readInput(GLFWwindow* m_PixelsWindow, float deltaT)
     auto MD2models = LabEngine::getInstance().MD2models;
     // test to move the MD2 model
 
-
+}
 
 
 
