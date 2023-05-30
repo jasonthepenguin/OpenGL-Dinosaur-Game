@@ -139,6 +139,7 @@ using namespace reactphysics3d;
 			void setupMD2Models();
 			void loadVertexDataAndTextures();
 			void setupAssetShaders();
+			void setupSkybox();
 
 		private:
 

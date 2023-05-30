@@ -131,6 +131,29 @@ void LabEngine::setupWorldEnvironment()
 	//Shader ourShader("shaders/light_vs.shader", "shaders/light_fs.shader");
 }
 
+
+void LabEngine::setupSkybox()
+{
+	// Skybox
+	skybox = std::make_unique<Skybox>();
+
+	std::vector<std::string> faces;
+	lua.script_file("Lua/Skybox.lua");
+	sol::table texturePathsTable = lua["SkyBoxTexturePaths"];
+	for (const auto& entry : texturePathsTable)
+	{
+		sol::table texturePath = entry.second.as<sol::table>();
+		faces.push_back(texturePath["imageFilePath"].get<std::string>()); // texture path into the faces string vector
+	}
+
+
+	skybox->loadCubemap(faces);
+
+
+
+
+}
+
 /*
 
 
@@ -252,18 +275,7 @@ void LabEngine::run()
 {
 
 	// Skybox
-	skybox = std::make_unique<Skybox>();
-	
-	std::vector<std::string> faces
-	{
-		"textures/skybox/right.jpg",
-			"textures/skybox/left.jpg",
-			"textures/skybox/top.jpg",
-			"textures/skybox/bottom.jpg",
-			"textures/skybox/front.jpg",
-			"textures/skybox/back.jpg"
-	};  // This list of files should ideally be added with the use of LUA and not hardcoded like this, but right now im just testing to see if works
-	skybox->loadCubemap(faces);
+	setupSkybox();
 	
 
 	//----------------------------------------
