@@ -212,7 +212,7 @@ void LabEngine::run()
 	
 	//------------------------------------------------------------------------------
 		// Loading the Terrain data in from a raw file cahnge to using tiny obj
-	std::string fileName = "height128.raw";
+	std::string fileName = "newtest.raw";
 	simpleTerrain->loadHeightfield(fileName.c_str(), 128);
 		//simpleTerrain->setScalingFactor(0.5, 0.1, 0.50);
 	simpleTerrain->setScalingFactor(1.0, 0.1, 1.0);
