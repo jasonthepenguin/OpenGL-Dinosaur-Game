@@ -38,6 +38,7 @@ class SpecialKeys
         void L_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
         void M_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
         void X_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
+        void Space_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
 
         // ARROWS
         void left_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);

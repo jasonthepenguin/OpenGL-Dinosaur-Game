@@ -83,6 +83,54 @@ void SpecialKeys::X_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
     handleKeyEntered(m_PixelsGLFWWindow, GLFW_KEY_X, keyStates[GLFW_KEY_X], &SpecialKeys::displayGroupPhoto);
 }
 
+
+void SpecialKeys::Space_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
+{
+    auto& engRef = LabEngine::getInstance();
+    auto world = engRef.world;
+
+    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_SPACE) == GLFW_PRESS && !keyStates[GLFW_KEY_SPACE]) {
+        // Get camera position and direction
+        glm::vec3 camPos = engRef.m_camera->getCameraLocation();
+        glm::vec3 camFront = engRef.m_camera->getCameraDirection();
+
+        // Create a rigid body in the world
+        Vector3 n_position(camPos.x, camPos.y, camPos.z);
+        Quaternion orientation = Quaternion::identity();
+        Transform transform(n_position, orientation);
+
+        RigidBody* rigidBody = world->createRigidBody(transform);
+
+        // Create a box collision shape
+        BoxShape* boxShape = LabEngine::getInstance().physicsCommon.createBoxShape(Vector3(0.5, 0.5, 0.5));
+
+        // Relative transform
+        Transform r_transform = Transform::identity();
+
+        // Add the collider to the rigidbody
+        Collider* collider;
+        collider = rigidBody->addCollider(boxShape, r_transform);
+
+        test_cube* newCube = new test_cube();
+        newCube->Init();
+        float force = 10.0f;
+
+        // Set the initial linear velocity based on camera direction
+        rigidBody->setLinearVelocity(Vector3(camFront.x * force, camFront.y * force, camFront.z * force));
+
+        newCube->rigidBody = rigidBody;
+        engRef.gameObjects.push_back(newCube);
+
+        keyStates[GLFW_KEY_SPACE] = true;
+    }
+    else if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_SPACE) == GLFW_RELEASE)
+    {
+        keyStates[GLFW_KEY_SPACE] = false;
+    }
+
+
+}
+
 // ARROWS
 void SpecialKeys::left_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
 {
@@ -168,6 +216,8 @@ void SpecialKeys::readTaskInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT)
     L_KeyEntered(m_PixelsGLFWWindow);
     M_KeyEntered(m_PixelsGLFWWindow);
     X_KeyEntered(m_PixelsGLFWWindow);
+
+    Space_KeyEntered(m_PixelsGLFWWindow);
 
     // arrows
     left_KeyEntered(m_PixelsGLFWWindow);
