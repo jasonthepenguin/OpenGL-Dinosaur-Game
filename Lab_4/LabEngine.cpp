@@ -57,15 +57,81 @@ void LabEngine::init()
 }
 
 
-/*
+
 void LabEngine::setupWorldEnvironment() 
 {
+
 	simpleTerrain = new Terrain();
-	gui = new EngGUI();
-	TextureFactory textFact; // temporarily placing this here.
-	auto& engine = LabEngine::getInstance();
-	Shader ourShader("shaders/light_vs.shader", "shaders/light_fs.shader");
+
+	lua.script_file("Lua/Terrain.lua");
+
+	float startPosX;
+	float startPosY;
+	float startPosZ;
+
+	float scaleX;
+	float scaleY;
+	float scaleZ;
+
+	std::string rawFilePath;
+	int heightfieldSize;
+	bool usesProceduralTexture = false;
+
+	// Get the terrain data
+	sol::table terrainsTable = lua["terrain"];
+	for (const auto& entry : terrainsTable) {
+		sol::table terrain = entry.second.as<sol::table>();
+
+		// Extract terrain data directly into variables
+		startPosX = terrain["startPos"]["x"];
+		startPosY = terrain["startPos"]["y"];
+		startPosZ = terrain["startPos"]["z"];
+
+		scaleX = terrain["scale"]["x"];
+		scaleY = terrain["scale"]["y"];
+		scaleZ = terrain["scale"]["z"];
+
+		rawFilePath = terrain["rawFilePath"];
+		heightfieldSize = terrain["heightfieldSize"];
+		usesProceduralTexture = terrain["usesProceduralTexture"];
+	}
+
+	simpleTerrain->loadHeightfield(rawFilePath.c_str(), heightfieldSize);
+	simpleTerrain->setScalingFactor(scaleX, scaleY, scaleZ);
+	simpleTerrain->setUpTerrainData(true);
+
+	// Get the terrain texture paths
+	sol::table texturePathsTable = lua["terrainTexturePaths"];
+	for (const auto& entry : texturePathsTable) {
+		sol::table texturePath = entry.second.as<sol::table>();
+
+		// Extract texture path directly into a variable
+		std::string imageFilePath = texturePath["imageFilePath"];
+		if (usesProceduralTexture)
+		{
+			simpleTerrain->addProceduralTexture(imageFilePath.c_str());
+		}
+		else {
+			simpleTerrain->loadTerrainTexture(imageFilePath.c_str());
+		}
+	}
+
+	if (usesProceduralTexture)
+	{
+		simpleTerrain->createProceduralTexture();
+	}
+
+
+
+
+//	simpleTerrain = new Terrain();
+	//gui = new EngGUI();
+//	TextureFactory textFact; // temporarily placing this here.
+	//auto& engine = LabEngine::getInstance();
+	//Shader ourShader("shaders/light_vs.shader", "shaders/light_fs.shader");
 }
+
+/*
 
 
 void LabEngine::setupPlayerCamera()
@@ -201,7 +267,7 @@ void LabEngine::run()
 	
 
 	//----------------------------------------
-	simpleTerrain = new Terrain();
+	//simpleTerrain = new Terrain();
 	// Init the GUI
 	gui = new EngGUI();
 
@@ -211,29 +277,8 @@ void LabEngine::run()
 	Shader ourShader("shaders/light_vs.shader", "shaders/light_fs.shader");
 	
 	//------------------------------------------------------------------------------
-		// Loading the Terrain data in from a raw file cahnge to using tiny obj
-	std::string fileName = "newtest.raw";
-	unsigned int heightFieldSize = 128;
-	simpleTerrain->loadHeightfield(fileName.c_str(), heightFieldSize);
-		//simpleTerrain->setScalingFactor(0.5, 0.1, 0.50);
-	//simpleTerrain->setScalingFactor(1.0, 0.1, 1.0);
-	simpleTerrain->setScalingFactor(3.0, 0.1, 3.0);
-		// With texture
-	simpleTerrain->setUpTerrainData(true);
 
-	//simpleTerrain->loadTerrainTexture("grass.jpg");  // Only have this when deciding to only texture the terrain with 1 texture
-	// Using multi texturing below  ( need to have Lua integration so the user can script the terrain )
-	fileName = "textures/terrain/dirt.png";
-	simpleTerrain->addProceduralTexture(fileName.c_str());
-	fileName = "textures/terrain/grass.png";
-	simpleTerrain->addProceduralTexture(fileName.c_str());
-	fileName = "textures/terrain/rock.jpg";
-	simpleTerrain->addProceduralTexture(fileName.c_str());
-	fileName = "textures/terrain/snow.png";
-	simpleTerrain->addProceduralTexture(fileName.c_str());
-
-	simpleTerrain->createProceduralTexture();
-
+	setupWorldEnvironment();
 
 	simpleTerrain->sharedShader = &ourShader;	
 	simpleTerrain->startPos = glm::vec3(0.0, 0.0, 0.0); 
@@ -415,6 +460,7 @@ void LabEngine::run()
 		
 		glm::vec3 camXYZ = m_camera->getCameraLocation();
 		
+		int heightFieldSize = simpleTerrain->size;
 		float scaledHeightFieldSizeX = heightFieldSize * simpleTerrain->scaleX;
 		float scaledHeightFieldSizeZ = heightFieldSize * simpleTerrain->scaleZ;
 
