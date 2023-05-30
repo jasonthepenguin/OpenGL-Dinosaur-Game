@@ -1,11 +1,17 @@
 #pragma once
-#include <memory>
-#include "Camera.h"
-#include "LabEngine.h"
 
+
+
+
+
+#include <memory>
+#include <iostream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
+
+#include "Camera.h"
+#include "LabEngine.h"
 
 
 
@@ -22,7 +28,7 @@ class MovementKeys
         };
 
 
-        MovementKeys();
+        explicit MovementKeys();
 
             /***********************************************************************************************************************************************************************
              * @brief Enum defining movement directions.
@@ -67,13 +73,6 @@ class MovementKeys
         void setPlayerSpeed(float speed);
 
 
-            /***********************************************************************************************************************************************************************
-             * @brief readInput()
-             * @brief used to read the players keyboard input W, A, S, D.
-             ***********************************************************************************************************************************************************************/
-
-        void readInput(GLFWwindow* m_PixelsWindow, float deltaT);
-
 
             /***********************************************************************************************************************************************************************
              * @brief movePlayer()
@@ -85,6 +84,10 @@ class MovementKeys
              ***********************************************************************************************************************************************************************/
 
         void movePlayer(Directions direction, float deltaT);
+
+
+        void onKeyInput(GLFWwindow* window, int key, int action, int mods, float deltaT);
+
 
 private:
     

@@ -6,15 +6,25 @@
 #include "Camera.h"
 #include "EngGUI.h"
 #include "md2_test.h"
-#include "ModelController.h"
 #include "LabEngine.h"
 
 
 #include <unordered_map>
+#include "InputObserver_DPattern.h"
 
-class SpecialKeys 
+
+class SpecialKeys : public InputObserver_DPattern
 {
     public:
+
+		enum class SpecialActions
+		{
+			FLY,
+			WIREFRAME,
+			LIGHTING,
+			DEMO,
+			PHOTO
+		};
 
             /***********************************************************************************************************************************************************************
              * @brief SpecialKeys()
@@ -31,6 +41,8 @@ class SpecialKeys
 
         ~SpecialKeys();
         void handleKeyEntered(GLFWwindow* m_PixelsGLFWWindow, int key, bool& keyState, void (SpecialKeys::* action)());
+        void executeAction(SpecialActions action);
+
 
         // LETTERS
         void F_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
@@ -105,8 +117,6 @@ class SpecialKeys
              * @param m_Pixels
              ***********************************************************************************************************************************************************************/
 
-       // void readModelInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT, ModelController& modelController);
-
 
             /***********************************************************************************************************************************************************************
              * @brief readInput()
@@ -116,8 +126,12 @@ class SpecialKeys
              * @param deltaT              - float track of time
              ***********************************************************************************************************************************************************************/
 
-       // void readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT, ModelController& modelController, Camera& camera);
+     
         void readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT);
+
+
+
+        void onKeyInput(GLFWwindow* window, int key, int action, int mods) override;
 
 
         bool isFlying; // probably should be a variable of a player class?
@@ -126,10 +140,9 @@ class SpecialKeys
         
         EngGUI*                gui;
         bool                   wireframe;
-        std::vector<MD2_TEST*> MD2models;
-       // ModelController&       modelController;                 // having it like this means it has to be initialised in the constructor, since I just want the project to compile I'm going to make it a pointer for now
-       // ModelController* modelController;
+        
         GLFWwindow*            m_PixelsGLFWWindow;
-
+        std::vector<MD2_TEST*> MD2models;
         std::unordered_map<int, bool> keyStates;
+        std::unordered_map<int, SpecialActions> keyToActionMap;
 };

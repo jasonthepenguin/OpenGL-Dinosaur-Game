@@ -210,7 +210,6 @@ void LabEngine::run()
 
 	Shader ourShader("shaders/light_vs.shader", "shaders/light_fs.shader");
 	
-	//------------------------------------------------------------------------------
 		// Loading the Terrain data in from a raw file cahnge to using tiny obj
 	std::string fileName = "newtest.raw";
 	simpleTerrain->loadHeightfield(fileName.c_str(), 128);
@@ -218,25 +217,9 @@ void LabEngine::run()
 	simpleTerrain->setScalingFactor(1.0, 0.1, 1.0);
 		// With texture
 	simpleTerrain->setUpTerrainData(true);
-
-	//simpleTerrain->loadTerrainTexture("grass.jpg");  // Only have this when deciding to only texture the terrain with 1 texture
-	// Using multi texturing below  ( need to have Lua integration so the user can script the terrain )
-	fileName = "textures/terrain/dirt.png";
-	simpleTerrain->addProceduralTexture(fileName.c_str());
-	fileName = "textures/terrain/grass.png";
-	simpleTerrain->addProceduralTexture(fileName.c_str());
-	fileName = "textures/terrain/rock.jpg";
-	simpleTerrain->addProceduralTexture(fileName.c_str());
-	fileName = "textures/terrain/snow.png";
-	simpleTerrain->addProceduralTexture(fileName.c_str());
-
-	simpleTerrain->createProceduralTexture();
-
-
+	simpleTerrain->loadTerrainTexture("grass.jpg");
 	simpleTerrain->sharedShader = &ourShader;	
 	simpleTerrain->startPos = glm::vec3(0.0, 0.0, 0.0); 
-
-
 	//------------- ( INIT CAMERA POSITION ) ---------------------- //
 	float startX = ((float)simpleTerrain->size / 2.0);
 	float startZ = ((float)simpleTerrain->size / 2.0);
@@ -365,8 +348,8 @@ void LabEngine::run()
 	{
 		// test render IMGUI
 		//----------------------------------------------------- ( BEGIN FRAME )
-		gui->BeginFrame();
-		gui->EndFrame();
+		gui->beginFrame();
+		gui->endFrame();
 
 		// calc deltaTime
 		float currentFrame = m_window->getTime();

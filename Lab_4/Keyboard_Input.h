@@ -9,11 +9,12 @@ class SpecialKeys;
 class MovementKeys;
 
 #include "Camera.h"
-#include "SpecialKeys.h"
-#include "MovementKeys.h"
+
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-
+#include "SpecialKeys.h"
+#include "MovementKeys.h"
+#include "InputObserver_DPattern.h"
     /***********************************************************************************************************************************************************************
      * @class KeyboardInput
      * @brief Class is used to handle a palyers keyboard input
@@ -39,9 +40,13 @@ class Keyboard_Input
         
         void readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT);
 
+        void addObserver(std::shared_ptr<InputObserver_DPattern> observer);
+
+        void removeObserver(std::shared_ptr<InputObserver_DPattern> observer);
 
     private:
         std::shared_ptr<Camera> m_PlayerCamera;
         std::shared_ptr<SpecialKeys>  m_SpecialKeys;
         std::shared_ptr<MovementKeys> m_MovementKeys;
+        std::unordered_set<std::shared_ptr<InputObserver_DPattern>> m_Observers;
 };

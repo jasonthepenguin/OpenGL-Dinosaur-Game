@@ -1,7 +1,7 @@
 #pragma once
-#include "PauseMenu_Commands.h"
+#include "Menu_Commands.h"
 
-class Pause_Command : public PauseMenu_Commands
+class Pause_Command : public Menu_Commands
 {
 	virtual void executeTask() override;
 };

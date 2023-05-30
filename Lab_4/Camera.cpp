@@ -48,16 +48,16 @@ Camera::Camera(float posX, float posY, float posZ, float upX, float upY, float u
 
 Camera::~Camera() {}
 
-// Getters and setters for camera positin, direction, and up vector
 
-glm::vec3 Camera::getCameraLocation()        { return m_Location; }
-glm::vec3 Camera::getCameraDirection()       { return m_Direction; }
-glm::vec3 Camera::getHorizontalPlane() const { return m_HorizontalPlane; }
-glm::vec3 Camera::getVerticalPlane()   const { return m_VerticalPlane; }
-float     Camera::getRotationSpeed()   const { return m_RotationSpeed; }
-float     Camera::getCameraPitch()     const { return m_CameraPitch; }
-float     Camera::getCameraZoom()      const { return m_CameraZoom; }
-float     Camera::getCameraYaw()       const { return m_CameraYaw; }
+
+const glm::vec3& Camera::getCameraLocation() const { return m_Location;        }
+glm::vec3 Camera::getCameraDirection()             { return m_Direction;       }
+glm::vec3 Camera::getHorizontalPlane()       const { return m_HorizontalPlane; }
+glm::vec3 Camera::getVerticalPlane()         const { return m_VerticalPlane;   }
+float     Camera::getRotationSpeed()         const { return m_RotationSpeed;   }
+float     Camera::getCameraPitch()           const { return m_CameraPitch;     }
+float     Camera::getCameraZoom()            const { return m_CameraZoom;      }
+float     Camera::getCameraYaw()             const { return m_CameraYaw;       }
 glm::mat4 Camera::GetViewMatrix() { return glm::lookAt(m_Location, m_Location + m_Direction, m_VerticalPlane); }
 
 
