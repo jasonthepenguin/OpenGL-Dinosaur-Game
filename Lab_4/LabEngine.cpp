@@ -213,7 +213,8 @@ void LabEngine::run()
 	//------------------------------------------------------------------------------
 		// Loading the Terrain data in from a raw file cahnge to using tiny obj
 	std::string fileName = "newtest.raw";
-	simpleTerrain->loadHeightfield(fileName.c_str(), 128);
+	unsigned int heightFieldSize = 128;
+	simpleTerrain->loadHeightfield(fileName.c_str(), heightFieldSize);
 		//simpleTerrain->setScalingFactor(0.5, 0.1, 0.50);
 	simpleTerrain->setScalingFactor(1.0, 0.1, 1.0);
 		// With texture
@@ -409,6 +410,16 @@ void LabEngine::run()
 			mdl->m_position.y = newY + 1.0;
 		}
 
+		// Either move this to a GameLogic class or into some sort of Player class which is checked upon move() or something
+		glm::vec3 camXYZ = m_camera->getCameraLocation();
+		if (camXYZ.x / scaleOffSetX >= heightFieldSize || camXYZ.x / scaleOffSetX <= 0) // checking on the X
+		{
+			m_camera->setCameraLocation(glm::vec3(startX * simpleTerrain->scaleX, startY + 1, startZ * simpleTerrain->scaleZ));
+		}
+		if (camXYZ.z / scaleOffSetZ >= heightFieldSize || camXYZ.z / scaleOffSetZ <= 0) // checking on the X
+		{
+			m_camera->setCameraLocation(glm::vec3(startX * simpleTerrain->scaleX, startY + 1, startZ * simpleTerrain->scaleZ));
+		}
 		
 		if (!m_camera->canFly) {
 			//newY = simpleTerrain->getHeight((int)m_camera->Position.x * scaleOffSetX, (int)m_camera->Position.z * scaleOffSetZ);
