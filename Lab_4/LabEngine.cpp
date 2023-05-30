@@ -216,7 +216,8 @@ void LabEngine::run()
 	unsigned int heightFieldSize = 128;
 	simpleTerrain->loadHeightfield(fileName.c_str(), heightFieldSize);
 		//simpleTerrain->setScalingFactor(0.5, 0.1, 0.50);
-	simpleTerrain->setScalingFactor(1.0, 0.1, 1.0);
+	//simpleTerrain->setScalingFactor(1.0, 0.1, 1.0);
+	simpleTerrain->setScalingFactor(3.0, 0.1, 3.0);
 		// With texture
 	simpleTerrain->setUpTerrainData(true);
 
@@ -411,15 +412,23 @@ void LabEngine::run()
 		}
 
 		// Either move this to a GameLogic class or into some sort of Player class which is checked upon move() or something
+		
 		glm::vec3 camXYZ = m_camera->getCameraLocation();
-		if (camXYZ.x / scaleOffSetX >= heightFieldSize || camXYZ.x / scaleOffSetX <= 0) // checking on the X
+		
+		float scaledHeightFieldSizeX = heightFieldSize * simpleTerrain->scaleX;
+		float scaledHeightFieldSizeZ = heightFieldSize * simpleTerrain->scaleZ;
+
+		if (camXYZ.x >= scaledHeightFieldSizeX || camXYZ.x <= 0) // checking on the X
 		{
 			m_camera->setCameraLocation(glm::vec3(startX * simpleTerrain->scaleX, startY + 1, startZ * simpleTerrain->scaleZ));
 		}
-		if (camXYZ.z / scaleOffSetZ >= heightFieldSize || camXYZ.z / scaleOffSetZ <= 0) // checking on the X
+		if (camXYZ.z >= scaledHeightFieldSizeZ || camXYZ.z <= 0) // checking on the Z
 		{
 			m_camera->setCameraLocation(glm::vec3(startX * simpleTerrain->scaleX, startY + 1, startZ * simpleTerrain->scaleZ));
 		}
+		//-------------------------------------------------
+
+
 		
 		if (!m_camera->canFly) {
 			//newY = simpleTerrain->getHeight((int)m_camera->Position.x * scaleOffSetX, (int)m_camera->Position.z * scaleOffSetZ);
@@ -439,7 +448,7 @@ void LabEngine::run()
 
 		// projection ( initialising the shader object which we are going to share with all the game objects )
 		projection;
-		projection = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
+		projection = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 1000.0f);
 
 		ourShader.setMat4("model", model);
 		ourShader.setMat4("view", view);
