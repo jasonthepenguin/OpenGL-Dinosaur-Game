@@ -384,7 +384,7 @@
 			model = glm::translate(model, m_position); //* glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)) * glm::scale(model, glm::vec3(0.3, 0.3, 0.3));
 			model *= rotationMatrix4x4;
 			model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-			model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 0.0f, 1.0f));
+			model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 0.0f, 1.0f));
 			//model *= rotationMatrix4x4;
 			model = glm::scale(model, glm::vec3(0.3, 0.3, 0.3));
 
