@@ -21,6 +21,9 @@
 #include "Texture.h"
 #include "Shader.h"
 
+
+#include <unordered_map>
+
 #include <utility>
 #include <cctype>
 
@@ -38,6 +41,8 @@
 		float interp = 0.0;
 		std::vector<std::pair<int, int>> animationCycles; // vector of animation cycles, each pair contains starting frame and ending frame 
 		int currAnimCycle = 0;
+
+		std::unordered_map<std::string, int> animNameMap;
 
 		std::vector<float> vertices;
 		std::vector<int> VAOvector;
@@ -160,6 +165,10 @@
 
 					anim_end = i - 1;   // frame representing the end of that animation is the current frame minus 1 
 					animationCycles.push_back(std::make_pair(anim_start, anim_end));  // animation start and end are added as a pair to animation cycle vector
+					// make a pairing here with the index which is used for this pushback, and key-value map it with the extracted name
+					animNameMap[extractName(curr_anim_name)] = animationCycles.size();
+
+
 
 					anim_start = i; // since this is "i" now represents start of new animation cycle, store that in anim_start, which will be used to create the next pair once animation names mismatch again.
 
@@ -169,6 +178,7 @@
 			// Add the last animation cycle to the animationCycles vector
 			anim_end = md2file.header.num_frames - 1;
 			animationCycles.push_back(std::make_pair(anim_start, anim_end));
+			animNameMap[extractName(curr_anim_name)] = animationCycles.size();
 		}
 
 		std::string extractName(const std::string& input) {
@@ -188,6 +198,8 @@
 			if (currAnimCycle >= animationCycles.size()) {
 				currAnimCycle = 0;
 			}
+
+			std::cout << "The current anim cycle index is : " << currAnimCycle << std::endl;
 		}
 
 			int	ReadMD2Model( char* filename, char* textureFileName)
@@ -386,7 +398,7 @@
 			model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 			model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 0.0f, 1.0f));
 			//model *= rotationMatrix4x4;
-			model = glm::scale(model, glm::vec3(0.3, 0.3, 0.3));
+			model = glm::scale(model, glm::vec3(0.1, 0.1, 0.1));
 
 
 			m_shaderProgram->use();

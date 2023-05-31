@@ -75,5 +75,6 @@ public:
 
 	// Behaviour methods
 	void lookAtplayer();
+	void playAnimation(std::string animationName);
 
 };

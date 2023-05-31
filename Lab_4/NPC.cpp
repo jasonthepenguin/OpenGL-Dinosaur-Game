@@ -104,3 +104,22 @@ void NPC::lookAtplayer()
 	rotation = rotationMatrix;
 	
 }
+
+void NPC::playAnimation(std::string animationName)
+{
+	
+
+
+
+	for (auto& ourModel : MD2models)
+	{
+		for (const auto& mapping : ourModel->animNameMap)
+		{
+			std::cout << "Animation name: \"" << mapping.first << "\", Cycle index: " << mapping.second << std::endl;
+		}
+		
+		ourModel->currAnimCycle = ourModel->animNameMap[animationName];
+	}
+
+
+}

@@ -414,6 +414,9 @@ void LabEngine::run()
 	newPos.z = newPos.z - 7;
 	raptorNPC->position = newPos;
 	raptorNPC->loadMD2Model((char*)"md2/raptor/tris.md2", (char*)"md2/raptor/green.jpg");
+
+	raptorNPC->playAnimation("run");
+
 	gameObjects.push_back(raptorNPC);
 	
 
@@ -467,7 +470,7 @@ void LabEngine::run()
 		glm::mat4 projection(1.0f);
 
 
-
+		
 
 		float scaleOffSetX = 1 / simpleTerrain->scaleX;
 		float scaleOffSetZ = 1 / simpleTerrain->scaleZ;
