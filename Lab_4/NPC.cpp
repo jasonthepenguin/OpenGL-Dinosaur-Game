@@ -6,6 +6,11 @@
 void NPC::Update(float deltaTime)
 {
 	// update physics 
+
+	// update literally anything else etc AI
+	// pos of md2 model
+	// pos of assimp model
+
 }
 
 void NPC::Render(Shader& ourShader, const glm::mat4& view, const glm::mat4& projection)
@@ -23,6 +28,8 @@ void NPC::Render(Shader& ourShader, const glm::mat4& view, const glm::mat4& proj
 	// draw the 3d model
 	ourModel->Draw(ourShader);
 
+	// draw the md2 model 
+
 }
 
 void NPC::Init()
@@ -32,4 +39,21 @@ void NPC::Init()
 		ourModel = new Model(filepath);
 	}
 
+}
+
+
+bool NPC::loadMD2Model(std::string filePath, std::string texturePath)
+{
+	if (filePath.empty() || texturePath.empty())
+	{
+		std::cerr << "Failed to load an MD2 model for an NPC!" << std::endl;
+		return false;
+	}
+
+	MD2models.push_back(std::make_unique<MD2_TEST>()); //adding a new MD2 model 
+	MD2models.back()->ReadMD2Model((char*)filePath.c_str(), (char*)texturePath.c_str());
+	MD2models.back()->loadData();
+
+	MD2models.back()->m_position = position;
+	
 }

@@ -22,7 +22,7 @@ void LabEngine::init()
 	
 	m_window = Window::getWindow();
 	m_window->init();
-	m_window->createWindow(width, height, "Assignment 1");
+	m_window->createWindow(width, height, "Assignment 2");
 	m_camera = std::make_shared<Camera>(glm::vec3(0.0f, 0.0f, 3.0f));
 
 	lastX = width / 2.0f;

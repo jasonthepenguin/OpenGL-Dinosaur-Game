@@ -6,6 +6,9 @@
 #include <string>
 
 
+#include "md2_test.h"
+#include <memory>
+
 // Math
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -30,7 +33,7 @@ public:
 
 	std::string filepath = "null";
 	Model* ourModel = nullptr;
-
+	std::vector<std::unique_ptr<MD2_TEST>> MD2models;
 
 		/***********************************************************
 		 * @brief : Update
@@ -61,5 +64,8 @@ public:
 		 **********************************************************/
 	
 	void Init() override;
+
+
+	bool loadMD2Model(std::string filePath, std::string texturePath);
 
 };
