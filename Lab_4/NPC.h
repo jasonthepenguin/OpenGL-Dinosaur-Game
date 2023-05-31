@@ -47,6 +47,8 @@ public:
 	Model* ourModel = nullptr;
 	std::vector<std::unique_ptr<MD2_TEST>> MD2models;
 
+	glm::vec3 spawnPoint;
+
 	RigidBody* rigidBody = nullptr;
 	Collider* npcCollider = nullptr;
 
@@ -91,4 +93,6 @@ public:
 	void playAnimation(std::string animationName);
 	void moveToPlayer();
 
+
+	~NPC();
 };

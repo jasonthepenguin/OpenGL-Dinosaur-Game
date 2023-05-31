@@ -48,6 +48,8 @@ public:
 	void initPhysics();
 
 
+	~test_cube();
+
 
 	std::vector<std::shared_ptr<Texture>> boxTextures;
 
@@ -187,6 +189,8 @@ public:
 		//---------------------------
 
 	}
+
+
 
 private:
 

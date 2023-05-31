@@ -54,3 +54,13 @@ void test_cube::Render(Shader& shader, const glm::mat4& view, const glm::mat4& p
 }
 
 
+test_cube::~test_cube()
+{
+	auto world = LabEngine::getInstance().world;
+	world->destroyRigidBody(rigidBody);
+
+	// freeing opengl resources
+	glDeleteBuffers(1, &VBO);
+	glDeleteBuffers(1, &EBO);
+	glDeleteVertexArrays(1, &VAO);
+}

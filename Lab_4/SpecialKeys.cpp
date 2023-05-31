@@ -120,6 +120,7 @@ void SpecialKeys::Space_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
         //------------
 
         test_cube* newCube = new test_cube();
+       // std::unique_ptr<test_cube> newCube = std::make_unique<test_cube>();
         newCube->Init();
         float force = 10.0f;
 
@@ -127,6 +128,7 @@ void SpecialKeys::Space_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
         rigidBody->setLinearVelocity(Vector3(camFront.x * force, camFront.y * force, camFront.z * force));
 
         newCube->rigidBody = rigidBody;
+
         engRef.gameObjects.push_back(newCube);
 
         keyStates[GLFW_KEY_SPACE] = true;

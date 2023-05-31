@@ -365,6 +365,7 @@ void LabEngine::run()
 	newPos.z = newPos.z - 21;
 	//newPos.y = simpleTerrain->getHeight((int)newPos.x * 1 / simpleTerrain->scaleX , (int)newPos.z * 1 / simpleTerrain->scaleZ);
 	raptorNPC->position = newPos;
+	raptorNPC->spawnPoint = newPos;
 	raptorNPC->loadMD2Model((char*)"md2/raptor/tris.md2", (char*)"md2/raptor/green.jpg");
 	raptorNPC->playAnimation("run");
 
@@ -373,6 +374,7 @@ void LabEngine::run()
 	newPos.x = newPos.x + 20;
 	//newPos.y = simpleTerrain->getHeight((int)newPos.x * 1 / simpleTerrain->scaleX , (int)newPos.z * 1 / simpleTerrain->scaleZ);
 	testNPC->position = newPos;
+	testNPC->spawnPoint = newPos;
 	testNPC->loadMD2Model((char*)"md2/raptor/tris.md2", (char*)"md2/raptor/green.jpg");
 	testNPC->playAnimation("run");
 
@@ -394,8 +396,14 @@ void LabEngine::run()
 
 	//---------------------------------------
 	
+	lastTime = m_window->getTime();
+
 	while (!m_window->shouldClose())
 	{
+
+	
+
+
 		// test render IMGUI
 		//----------------------------------------------------- ( BEGIN FRAME )
 		gui->BeginFrame();
@@ -502,6 +510,7 @@ void LabEngine::run()
 		// FOR LOOP TO CALL UPDATE ON EACH OBJECT
 		for (int i = 0; i < gameObjects.size(); i++)
 		{
+
 			gameObjects[i]->Update(deltaTime);
 		}
 
@@ -518,6 +527,35 @@ void LabEngine::run()
 		gui->renderData();
 		m_window->swapBuffers();
 		m_window->pollEvents();
+
+
+		// Erasing a box every 5 seconds
+		if (m_window->getTime() - lastTime >= 5.0) {
+
+			std::cout << m_window->getTime() - lastTime << std::endl;
+
+			lastTime = m_window->getTime();
+			// Find the object.
+			auto iter = std::find_if(gameObjects.begin(), gameObjects.end(),
+				[](const GameObject* obj) -> bool {
+					// Use dynamic_cast to determine if this is a test_cube object.
+					return dynamic_cast<const test_cube*>(obj) != nullptr;
+				});
+
+			// If the object is found in the vector.
+			if (iter != gameObjects.end()) {
+				GameObject* testCubeInstance = *iter;
+
+				// Now you can remove the object.
+				gameObjects.erase(iter);
+
+				// And delete it if necessary.
+				// But ONLY do this if you are sure there are no more references to this object.
+				delete testCubeInstance;
+				std::cout << "Deleted the test cube!" << std::endl;
+			}
+		}
+
 	}
 }
 

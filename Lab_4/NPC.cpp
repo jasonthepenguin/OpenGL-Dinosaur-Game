@@ -36,35 +36,32 @@ void NPC::Update(float deltaTime)
 	rigidBody->setTransform(transform);
 	
 	auto world = LabEngine::getInstance().world;
-
-
 	
-	//bool isColliding = false;
-	if (rigidBody && LabEngine::getInstance().playersBox) {
-		//isColliding = world->testOverlap(rigidBody->getCollider(), LabEngine::getInstance().playersBox->getCollider());  // store the rigid body of the players boxes somewhere
-		//isCollding = world->testCollision(npcCollider->getCollisionShape(), )
-
-		//world->
-	}
-
 	bool isColliding = false;
 	//rigidBody->getC
 	if (npcCollider != nullptr && LabEngine::getInstance().playersBoxCollider != nullptr) {
 		isColliding = world->testOverlap(npcCollider->getBody(), LabEngine::getInstance().playersBoxCollider->getBody());  // store the rigid body of the players boxes somewhere
 	}
-	//rigidBody->testAABBOverlap
 	if (isColliding)
 	{
-		std::cout << "We hit the NPC!" << std::endl;
+		//std::cout << "We hit the NPC!" << std::endl;
+		position = spawnPoint;
+
 	}
 	
 	
+
 
 
 
 	
 }
 
+
+NPC::~NPC()
+{
+
+}
 
 
 void NPC::Render(Shader& ourShader, const glm::mat4& view, const glm::mat4& projection)

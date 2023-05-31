@@ -43,6 +43,10 @@ using namespace reactphysics3d;
 #include "md2_test.h"
 
 
+#include <chrono>
+#include <algorithm>
+#include <typeinfo>
+
 
 		/******************************************************************************************************************************************
 		 * @class   : LabEngine() 
@@ -78,6 +82,7 @@ using namespace reactphysics3d;
 			PhysicsWorld* world;			/// PhysicsWorld - applies physics to the game 
 			float deltaTime = 0.0f;				  /// Time between current frame and last frame
 			float lastFrame = 0.0f; 			  /// Time of last frame
+			float lastTime = 0.0f;
 
 			sol::state lua; 				/// provides an instance of the lua state
 
