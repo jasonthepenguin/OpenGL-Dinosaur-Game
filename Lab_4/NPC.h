@@ -9,11 +9,15 @@
 #include "md2_test.h"
 #include <memory>
 
+
+#include "LabEngine.h"
+
 // Math
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtc/quaternion.hpp>
+#include <glm/gtx/vector_angle.hpp> 
 
 
 
@@ -67,5 +71,9 @@ public:
 
 
 	bool loadMD2Model(std::string filePath, std::string texturePath);
+
+
+	// Behaviour methods
+	void lookAtplayer();
 
 };

@@ -406,6 +406,17 @@ void LabEngine::run()
 	MD2models.push_back(&raptor);
 	MD2models.push_back(&raptor_weapon);
 
+
+	//-------------------------- (NPC Test) No lua, just MD2 testing
+	NPC* raptorNPC = new NPC;
+
+	glm::vec3 newPos = m_camera->getCameraLocation();
+	newPos.z = newPos.z - 7;
+	raptorNPC->position = newPos;
+	raptorNPC->loadMD2Model((char*)"md2/raptor/tris.md2", (char*)"md2/raptor/green.jpg");
+	gameObjects.push_back(raptorNPC);
+	
+
 	//=========================
 	//gameObjects.push_back(smileyBox);
 	gameObjects.push_back(simpleTerrain);

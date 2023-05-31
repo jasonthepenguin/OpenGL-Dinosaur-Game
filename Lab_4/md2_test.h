@@ -44,6 +44,8 @@
 		std::vector<int> VBOvector;
 		std::vector<int> verticesCount;
 
+		glm::mat4 rotationMatrix4x4 = glm::mat4(1.0);
+
 		/* Vector */
 		typedef float vec3_t[3];
 
@@ -368,7 +370,7 @@
 
 
 		//void Render(int frame, float interpolation, glm::mat4& view, glm::mat4& projection) {
-		void Render( glm::mat4& view, glm::mat4& projection) {
+		void Render(const glm::mat4& view, const glm::mat4& projection, glm::mat4 model = glm::mat4(1.0)) {
 
 
 			int frame = n;
@@ -378,9 +380,14 @@
 
 			m_texture->bindTexture(0);
 
-			glm::mat4 model(1.0);
-			model = glm::translate(model, m_position) * glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)) * glm::scale(model, glm::vec3(0.3, 0.3, 0.3));
-			//model = glm::translate(model, m_position);
+			
+			model = glm::translate(model, m_position); //* glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)) * glm::scale(model, glm::vec3(0.3, 0.3, 0.3));
+			model *= rotationMatrix4x4;
+			model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+			model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 0.0f, 1.0f));
+			//model *= rotationMatrix4x4;
+			model = glm::scale(model, glm::vec3(0.3, 0.3, 0.3));
+
 
 			m_shaderProgram->use();
 
