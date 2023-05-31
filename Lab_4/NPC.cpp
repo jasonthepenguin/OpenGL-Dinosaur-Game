@@ -18,8 +18,8 @@ void NPC::Update(float deltaTime)
 	float scaleOffSetZ = 1 / LabEngine::getInstance().simpleTerrain->scaleZ;
 	float newY = 0.0f;
 	for (auto &mdl : MD2models) {
-		newY = LabEngine::getInstance().simpleTerrain->getHeight((int)mdl->m_position.x * scaleOffSetX, (int)mdl->m_position.z * scaleOffSetZ);
-		mdl->m_position.y = newY + 1.0;
+		newY = LabEngine::getInstance().simpleTerrain->getHeight((int)position.x * scaleOffSetX, (int)position.z * scaleOffSetZ);
+		position.y = newY + 1.0;
 	}
 
 	for (auto &ourModel : MD2models)

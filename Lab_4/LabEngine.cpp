@@ -409,16 +409,25 @@ void LabEngine::run()
 
 	//-------------------------- (NPC Test) No lua, just MD2 testing
 	NPC* raptorNPC = new NPC;
+	NPC* testNPC = new NPC;
 
 	glm::vec3 newPos = m_camera->getCameraLocation();
 	newPos.z = newPos.z - 21;
-	newPos.y = simpleTerrain->getHeight((int)newPos.x * 1 / simpleTerrain->scaleX , (int)newPos.z * 1 / simpleTerrain->scaleZ);
+	//newPos.y = simpleTerrain->getHeight((int)newPos.x * 1 / simpleTerrain->scaleX , (int)newPos.z * 1 / simpleTerrain->scaleZ);
 	raptorNPC->position = newPos;
 	raptorNPC->loadMD2Model((char*)"md2/raptor/tris.md2", (char*)"md2/raptor/green.jpg");
-
 	raptorNPC->playAnimation("run");
 
+	newPos = m_camera->getCameraLocation();
+	newPos.z = newPos.z - 21;
+	newPos.x = newPos.x + 20;
+	//newPos.y = simpleTerrain->getHeight((int)newPos.x * 1 / simpleTerrain->scaleX , (int)newPos.z * 1 / simpleTerrain->scaleZ);
+	testNPC->position = newPos;
+	testNPC->loadMD2Model((char*)"md2/raptor/tris.md2", (char*)"md2/raptor/green.jpg");
+	testNPC->playAnimation("run");
+
 	gameObjects.push_back(raptorNPC);
+	gameObjects.push_back(testNPC);
 	
 
 	//=========================
