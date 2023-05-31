@@ -57,15 +57,104 @@ void LabEngine::init()
 }
 
 
-/*
+
 void LabEngine::setupWorldEnvironment() 
 {
+
 	simpleTerrain = new Terrain();
-	gui = new EngGUI();
-	TextureFactory textFact; // temporarily placing this here.
-	auto& engine = LabEngine::getInstance();
-	Shader ourShader("shaders/light_vs.shader", "shaders/light_fs.shader");
+
+	lua.script_file("Lua/Terrain.lua");
+
+	float startPosX;
+	float startPosY;
+	float startPosZ;
+
+	float scaleX;
+	float scaleY;
+	float scaleZ;
+
+	std::string rawFilePath;
+	int heightfieldSize;
+	bool usesProceduralTexture = false;
+
+	// Get the terrain data
+	sol::table terrainsTable = lua["terrain"];
+	for (const auto& entry : terrainsTable) {
+		sol::table terrain = entry.second.as<sol::table>();
+
+		// Extract terrain data directly into variables
+		startPosX = terrain["startPos"]["x"];
+		startPosY = terrain["startPos"]["y"];
+		startPosZ = terrain["startPos"]["z"];
+
+		scaleX = terrain["scale"]["x"];
+		scaleY = terrain["scale"]["y"];
+		scaleZ = terrain["scale"]["z"];
+
+		rawFilePath = terrain["rawFilePath"];
+		heightfieldSize = terrain["heightfieldSize"];
+		usesProceduralTexture = terrain["usesProceduralTexture"];
+	}
+
+	simpleTerrain->loadHeightfield(rawFilePath.c_str(), heightfieldSize);
+	simpleTerrain->setScalingFactor(scaleX, scaleY, scaleZ);
+	simpleTerrain->setUpTerrainData(true);
+
+	// Get the terrain texture paths
+	sol::table texturePathsTable = lua["terrainTexturePaths"];
+	for (const auto& entry : texturePathsTable) {
+		sol::table texturePath = entry.second.as<sol::table>();
+
+		// Extract texture path directly into a variable
+		std::string imageFilePath = texturePath["imageFilePath"];
+		if (usesProceduralTexture)
+		{
+			simpleTerrain->addProceduralTexture(imageFilePath.c_str());
+		}
+		else {
+			simpleTerrain->loadTerrainTexture(imageFilePath.c_str());
+		}
+	}
+
+	if (usesProceduralTexture)
+	{
+		simpleTerrain->createProceduralTexture();
+	}
+
+
+
+
+//	simpleTerrain = new Terrain();
+	//gui = new EngGUI();
+//	TextureFactory textFact; // temporarily placing this here.
+	//auto& engine = LabEngine::getInstance();
+	//Shader ourShader("shaders/light_vs.shader", "shaders/light_fs.shader");
 }
+
+
+void LabEngine::setupSkybox()
+{
+	// Skybox
+	skybox = std::make_unique<Skybox>();
+
+	std::vector<std::string> faces;
+	lua.script_file("Lua/Skybox.lua");
+	sol::table texturePathsTable = lua["SkyBoxTexturePaths"];
+	for (const auto& entry : texturePathsTable)
+	{
+		sol::table texturePath = entry.second.as<sol::table>();
+		faces.push_back(texturePath["imageFilePath"].get<std::string>()); // texture path into the faces string vector
+	}
+
+
+	skybox->loadCubemap(faces);
+
+
+
+
+}
+
+/*
 
 
 void LabEngine::setupPlayerCamera()
@@ -186,22 +275,11 @@ void LabEngine::run()
 {
 
 	// Skybox
-	skybox = std::make_unique<Skybox>();
-	
-	std::vector<std::string> faces
-	{
-		"textures/skybox/right.jpg",
-			"textures/skybox/left.jpg",
-			"textures/skybox/top.jpg",
-			"textures/skybox/bottom.jpg",
-			"textures/skybox/front.jpg",
-			"textures/skybox/back.jpg"
-	};  // This list of files should ideally be added with the use of LUA and not hardcoded like this, but right now im just testing to see if works
-	skybox->loadCubemap(faces);
+	setupSkybox();
 	
 
 	//----------------------------------------
-	simpleTerrain = new Terrain();
+	//simpleTerrain = new Terrain();
 	// Init the GUI
 	gui = new EngGUI();
 
@@ -210,16 +288,14 @@ void LabEngine::run()
 
 	Shader ourShader("shaders/light_vs.shader", "shaders/light_fs.shader");
 	
-		// Loading the Terrain data in from a raw file cahnge to using tiny obj
-	std::string fileName = "height128.raw";
-	simpleTerrain->loadHeightfield(fileName.c_str(), 128);
-		//simpleTerrain->setScalingFactor(0.5, 0.1, 0.50);
-	simpleTerrain->setScalingFactor(1.0, 0.1, 1.0);
-		// With texture
-	simpleTerrain->setUpTerrainData(true);
-	simpleTerrain->loadTerrainTexture("grass.jpg");
+	//------------------------------------------------------------------------------
+
+	setupWorldEnvironment();
+
 	simpleTerrain->sharedShader = &ourShader;	
 	simpleTerrain->startPos = glm::vec3(0.0, 0.0, 0.0); 
+
+
 	//------------- ( INIT CAMERA POSITION ) ---------------------- //
 	float startX = ((float)simpleTerrain->size / 2.0);
 	float startZ = ((float)simpleTerrain->size / 2.0);
@@ -348,8 +424,8 @@ void LabEngine::run()
 	{
 		// test render IMGUI
 		//----------------------------------------------------- ( BEGIN FRAME )
-		gui->beginFrame();
-		gui->endFrame();
+		gui->BeginFrame();
+		gui->EndFrame();
 
 		// calc deltaTime
 		float currentFrame = m_window->getTime();
@@ -392,6 +468,25 @@ void LabEngine::run()
 			mdl->m_position.y = newY + 1.0;
 		}
 
+		// Either move this to a GameLogic class or into some sort of Player class which is checked upon move() or something
+		
+		glm::vec3 camXYZ = m_camera->getCameraLocation();
+		
+		int heightFieldSize = simpleTerrain->size;
+		float scaledHeightFieldSizeX = heightFieldSize * simpleTerrain->scaleX;
+		float scaledHeightFieldSizeZ = heightFieldSize * simpleTerrain->scaleZ;
+
+		if (camXYZ.x >= scaledHeightFieldSizeX || camXYZ.x <= 0) // checking on the X
+		{
+			m_camera->setCameraLocation(glm::vec3(startX * simpleTerrain->scaleX, startY + 1, startZ * simpleTerrain->scaleZ));
+		}
+		if (camXYZ.z >= scaledHeightFieldSizeZ || camXYZ.z <= 0) // checking on the Z
+		{
+			m_camera->setCameraLocation(glm::vec3(startX * simpleTerrain->scaleX, startY + 1, startZ * simpleTerrain->scaleZ));
+		}
+		//-------------------------------------------------
+
+
 		
 		if (!m_camera->canFly) {
 			//newY = simpleTerrain->getHeight((int)m_camera->Position.x * scaleOffSetX, (int)m_camera->Position.z * scaleOffSetZ);
@@ -411,7 +506,7 @@ void LabEngine::run()
 
 		// projection ( initialising the shader object which we are going to share with all the game objects )
 		projection;
-		projection = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
+		projection = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 1000.0f);
 
 		ourShader.setMat4("model", model);
 		ourShader.setMat4("view", view);
