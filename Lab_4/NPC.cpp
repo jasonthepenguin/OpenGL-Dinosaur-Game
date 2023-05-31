@@ -11,11 +11,24 @@ void NPC::Update(float deltaTime)
 	// pos of md2 model
 	// pos of assimp model
 
+	moveToPlayer();
+
+	// adjust npc height to terrain floor
+	float scaleOffSetX = 1 / LabEngine::getInstance().simpleTerrain->scaleX;
+	float scaleOffSetZ = 1 / LabEngine::getInstance().simpleTerrain->scaleZ;
+	float newY = 0.0f;
+	for (auto &mdl : MD2models) {
+		newY = LabEngine::getInstance().simpleTerrain->getHeight((int)mdl->m_position.x * scaleOffSetX, (int)mdl->m_position.z * scaleOffSetZ);
+		mdl->m_position.y = newY + 1.0;
+	}
+
 	for (auto &ourModel : MD2models)
 	{
 		ourModel->Animate(deltaTime);
 		ourModel->m_position = position;
 	}
+
+	
 
 	
 }
@@ -121,5 +134,20 @@ void NPC::playAnimation(std::string animationName)
 		ourModel->currAnimCycle = ourModel->animNameMap[animationName];
 	}
 
+
+}
+
+void NPC::moveToPlayer()
+{
+
+	glm::vec3 npcPosition = position; // Set this to your NPC's position
+	glm::vec3 playerPosition = LabEngine::getInstance().m_camera->getCameraLocation(); // Set this to your player's position
+
+	float lerpFactor = walkingSpeed * LabEngine::getInstance().deltaTime;
+
+	glm::vec3 direction = glm::normalize(playerPosition - npcPosition);
+
+	position += direction * lerpFactor;
+	
 
 }

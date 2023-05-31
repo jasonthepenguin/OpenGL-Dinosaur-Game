@@ -411,7 +411,8 @@ void LabEngine::run()
 	NPC* raptorNPC = new NPC;
 
 	glm::vec3 newPos = m_camera->getCameraLocation();
-	newPos.z = newPos.z - 7;
+	newPos.z = newPos.z - 21;
+	newPos.y = simpleTerrain->getHeight((int)newPos.x * 1 / simpleTerrain->scaleX , (int)newPos.z * 1 / simpleTerrain->scaleZ);
 	raptorNPC->position = newPos;
 	raptorNPC->loadMD2Model((char*)"md2/raptor/tris.md2", (char*)"md2/raptor/green.jpg");
 

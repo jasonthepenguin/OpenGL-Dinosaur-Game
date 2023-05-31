@@ -39,6 +39,8 @@ public:
 	Model* ourModel = nullptr;
 	std::vector<std::unique_ptr<MD2_TEST>> MD2models;
 
+	float walkingSpeed = 1.85f;
+
 		/***********************************************************
 		 * @brief : Update
 		 * @brief : Updates the NPCS current location
@@ -76,5 +78,6 @@ public:
 	// Behaviour methods
 	void lookAtplayer();
 	void playAnimation(std::string animationName);
+	void moveToPlayer();
 
 };
