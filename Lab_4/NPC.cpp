@@ -140,6 +140,8 @@ void NPC::playAnimation(std::string animationName)
 void NPC::moveToPlayer()
 {
 
+	
+
 	glm::vec3 npcPosition = position; // Set this to your NPC's position
 	glm::vec3 playerPosition = LabEngine::getInstance().m_camera->getCameraLocation(); // Set this to your player's position
 
