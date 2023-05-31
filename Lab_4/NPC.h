@@ -20,6 +20,14 @@
 #include <glm/gtx/vector_angle.hpp> 
 
 
+// physics/collision detection
+#include <reactphysics3d/reactphysics3d.h>
+using namespace reactphysics3d;
+
+
+// TESTING
+
+
 
 /*******************************************************************************
  * @class   : NPC
@@ -38,6 +46,9 @@ public:
 	std::string filepath = "null";
 	Model* ourModel = nullptr;
 	std::vector<std::unique_ptr<MD2_TEST>> MD2models;
+
+	RigidBody* rigidBody = nullptr;
+	Collider* npcCollider = nullptr;
 
 	float walkingSpeed = 1.85f;
 

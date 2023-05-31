@@ -100,6 +100,8 @@ void SpecialKeys::Space_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
         Transform transform(n_position, orientation);
 
         RigidBody* rigidBody = world->createRigidBody(transform);
+       
+ 
 
         // Create a box collision shape
         BoxShape* boxShape = LabEngine::getInstance().physicsCommon.createBoxShape(Vector3(0.5, 0.5, 0.5));
@@ -110,6 +112,12 @@ void SpecialKeys::Space_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
         // Add the collider to the rigidbody
         Collider* collider;
         collider = rigidBody->addCollider(boxShape, r_transform);
+
+
+        //----------- ( TEST )
+        engRef.playersBox = rigidBody;
+        engRef.playersBoxCollider = collider;
+        //------------
 
         test_cube* newCube = new test_cube();
         newCube->Init();

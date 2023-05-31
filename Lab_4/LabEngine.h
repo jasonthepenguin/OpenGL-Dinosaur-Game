@@ -82,6 +82,9 @@ using namespace reactphysics3d;
 			sol::state lua; 				/// provides an instance of the lua state
 
 			std::vector<MD2_TEST*> MD2models;
+			// TEST
+			RigidBody* playersBox = nullptr;
+			Collider *playersBoxCollider = nullptr;
 
 			std::unique_ptr<Skybox> skybox;
 			
