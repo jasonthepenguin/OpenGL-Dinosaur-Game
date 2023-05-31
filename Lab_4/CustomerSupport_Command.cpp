@@ -1,12 +1,12 @@
 #include "CustomerSupport_Command.h"
-#include <iostream>
-#include "imgui.h"
+
 
 
 CustomerSupport_Command::CustomerSupport_Command()
 	: m_Details("Customer Support"),
 	m_ContactName("William Halling"),
-	m_ContactEmail("32233703@student.murdoch.edu.au")
+	m_ContactEmail("32233703@student.murdoch.edu.au"),
+	m_BackButton(std::make_shared<Back_Command>(Menu_Manager& menuManager))
 {
 	addAvailability("Monday", "12:00 PM - 11:59 PM");
 	addAvailability("Tuesday", "12:00 PM - 11:59 PM");
@@ -57,19 +57,28 @@ void CustomerSupport_Command::addAvailability(const std::string& day, const std:
 
 void CustomerSupport_Command::displayCustomerSupportInfo() const
 {
-	ImGui::Begin("Customer Support");
-	ImGui::Text(("Details: " + m_Details).c_str());
-	ImGui::Text(("Contact Name: " + m_ContactName).c_str());
-	ImGui::Text(("Contact Email: " + m_ContactEmail).c_str());
-	ImGui::Text("Availability:");
+	bool m_DisplaySupport = true;
 
-
-	for (const auto& availability : m_Availability)
+	if (m_DisplaySupport) // Check if the flag is true to display the customer support info
 	{
-		ImGui::Text((availability.m_AvailableDays + ": " + availability.m_AvailableTimes).c_str());
-	}
+		ImGui::Begin("Customer Support");
+		ImGui::Text(("Details: " + m_Details).c_str());
+		ImGui::Text(("Contact Name: " + m_ContactName).c_str());
+		ImGui::Text(("Contact Email: " + m_ContactEmail).c_str());
+		ImGui::Text("Availability:");
 
-	ImGui::End();
+		for (const auto& availability : m_Availability)
+		{
+			ImGui::Text((availability.m_AvailableDays + ": " + availability.m_AvailableTimes).c_str());
+		}
+
+		if (ImGui::Button("Back")) // should somehow communicate with back_Command to go back to the core pause menu
+		{
+			m_DisplaySupport = false;
+			m_BackButton->executeTask();
+		}
+		ImGui::End();
+	}
 }
 
 
@@ -77,6 +86,7 @@ void CustomerSupport_Command::executeTask()
 {
 	if (ImGui::Button("Customer Support"))
 	{
+		m_DisplaySupport = true;
 		displayCustomerSupportInfo();
 	}
 }

@@ -2,11 +2,12 @@
 
 #include <string>
 #include <vector>
-#include "imgui.h"
 #include <iostream>
 #include <GLFW/glfw3.h>
+
+#include "imgui.h"
+#include "Menu_Command.h"
 #include "imgui_impl_glfw.h"
-#include "Menu_Commands.h"
 #include "imgui_impl_opengl3.h"
 
 
@@ -24,7 +25,7 @@
  * @version : 1.0
  ******************************************************************************************************************/
 
-class CustomerSupportCommand : public Menu_Commands
+class CustomerSupport_Command : public Menu_Command
 {
     private:
 
@@ -49,7 +50,10 @@ class CustomerSupportCommand : public Menu_Commands
              * @brief : Object for the CustomerSupport Command Constructs a new CustomerSupportCommand object with default values.
              *****************************************************************************************************************************/
         
-        CustomerSupportCommand();
+        CustomerSupport_Command();
+
+
+        ~CustomerSupport_Command() override = default;
 
 
             /******************************************************************************************************************************
@@ -134,5 +138,10 @@ class CustomerSupportCommand : public Menu_Commands
 	    std::string m_Details;
 	    std::string m_ContactName;
 	    std::string m_ContactEmail;
+
+    private:
+        bool m_DisplaySupport = false;
+        std::shared_ptr<Back_Command> m_BackButton;
+       
 };
 

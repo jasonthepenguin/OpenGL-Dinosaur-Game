@@ -26,9 +26,24 @@ const Camera&	 Player::getPlayerCamera()   const { return m_PlayerCamera;						}
 
 
 
-void Player::setPlayerName(std::string tempPlayerName)			    { m_PlayerName     = tempPlayerName;	 }
-void Player::setPlayerLocation(const glm::vec3& tempPlayerLocation) { m_PlayerLocation = tempPlayerLocation; }
-void Player::setPlayerSpeed(const float& tempPlayerSpeed)			{ m_PlayerSpeed    = tempPlayerSpeed;    }
-void Player::setPlayerScore(int tempPlayerScore)					{ m_PlayerScore    = tempPlayerScore;    }
-void Player::setPlayerCamera(const Camera& tempPlayerCamera)        { m_PlayerCamera   = tempPlayerCamera;   }
+void Player::setPlayerName(std::string tempPlayerName)			    { m_PlayerName     = tempPlayerName;	        }
+void Player::setPlayerLocation(const glm::vec3& tempPlayerLocation) { m_PlayerLocation = tempPlayerLocation;        }
+void Player::setPlayerCameraDirection(const glm::vec3& direction)   { m_PlayerCamera.setCameraDirection(direction); }
+void Player::setPlayerSpeed(const float& tempPlayerSpeed)			{ m_PlayerSpeed    = tempPlayerSpeed;			}
+void Player::setPlayerScore(int tempPlayerScore)					{ m_PlayerScore    = tempPlayerScore;			}
+void Player::setPlayerCamera(const Camera& tempPlayerCamera)        { m_PlayerCamera   = tempPlayerCamera;			}
 
+
+
+void Player::updateCameraLocation(const glm::vec3& newLocation)
+{
+	m_PlayerCamera.setCameraLocation(newLocation);
+}
+
+std::istream& operator>>(std::istream& is, Player& player)
+{
+	is >> player.m_PlayerName;
+	is >> player.m_PlayerSpeed;
+	is >> player.m_PlayerScore;
+	return is;
+}

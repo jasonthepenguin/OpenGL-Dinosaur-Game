@@ -1,21 +1,19 @@
 #pragma once
 
-
-
-
-
 #include <memory>
 #include <iostream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-
 #include "Camera.h"
+#include "Player.h"
 #include "LabEngine.h"
+#include "KeyboardInputObserver.h"
 
 
 
-class MovementKeys 
+
+class MovementKeys : public KeyboardInputObserver
 {
     public:
 
@@ -28,7 +26,8 @@ class MovementKeys
         };
 
 
-        explicit MovementKeys();
+        explicit MovementKeys(std::shared_ptr<Player> player);
+
 
             /***********************************************************************************************************************************************************************
              * @brief Enum defining movement directions.
@@ -56,25 +55,6 @@ class MovementKeys
 
 
             /***********************************************************************************************************************************************************************
-             * @brief  getPlayerSpeed() 
-             * @brief  used to get the players movement speed
-             * @return The players movment speed.
-             ***********************************************************************************************************************************************************************/
-        
-        float getPlayerSpeed() const;
-    
-
-            /***********************************************************************************************************************************************************************
-             * @brief setPlayerSpeed()
-             * @brief used to set the speed of the player 
-             * @param speed float
-             ***********************************************************************************************************************************************************************/
-        
-        void setPlayerSpeed(float speed);
-
-
-
-            /***********************************************************************************************************************************************************************
              * @brief movePlayer()
              * @brief used to move a player in a given direction
              * 
@@ -86,6 +66,7 @@ class MovementKeys
         void movePlayer(Directions direction, float deltaT);
 
 
+
         void onKeyInput(GLFWwindow* window, int key, int action, int mods, float deltaT);
 
 
@@ -93,5 +74,7 @@ private:
     
     float m_PlayerSpeed;
     Directions m_CurrentDirection;
+    
+    std::shared_ptr<Player> m_Player;
     std::shared_ptr<Camera> m_PlayerCamera;
 };

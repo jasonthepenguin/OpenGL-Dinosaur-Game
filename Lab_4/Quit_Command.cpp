@@ -14,3 +14,4 @@ void Quit_Command::executeTask()
 		glfwSetWindowShouldClose(window, GL_TRUE);
 	}
 }
+

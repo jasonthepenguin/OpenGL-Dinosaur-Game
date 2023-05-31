@@ -1,8 +1,9 @@
 #pragma once
 
+#include <iostream>
 
 #include "imgui.h"
-#include "Menu_Commands.h"
+#include "Menu_Command.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 
@@ -18,7 +19,7 @@
  * @version : 1.0
  ******************************************************************************************************************/
 
-class Resume_Command : public Menu_Commands
+class Resume_Command : public Menu_Command
 {
     public:
         Resume_Command() = default;
