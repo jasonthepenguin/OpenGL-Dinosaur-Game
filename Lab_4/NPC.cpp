@@ -1,7 +1,11 @@
 
 #include "NPC.h"
+#include "playerStates.h"
 
-
+NPC::NPC()
+{
+	npcFSM = new StateMachine<NPC>(this);
+}
 
 void NPC::Update(float deltaTime)
 {
@@ -11,7 +15,8 @@ void NPC::Update(float deltaTime)
 	// pos of md2 model
 	// pos of assimp model
 
-	moveToPlayer();
+	//moveToPlayer();
+	npcFSM->update();
 
 	// adjust npc height to terrain floor
 	float scaleOffSetX = 1 / LabEngine::getInstance().simpleTerrain->scaleX;
@@ -28,26 +33,7 @@ void NPC::Update(float deltaTime)
 		ourModel->m_position = position;
 	}
 
-	// update position of the rigidbody?
-	Vector3 n_position(position.x, position.y, position.z);
-	Quaternion orientation = Quaternion::identity();
-	Transform transform(n_position, orientation);
-
-	rigidBody->setTransform(transform);
 	
-	auto world = LabEngine::getInstance().world;
-	
-	bool isColliding = false;
-	//rigidBody->getC
-	if (npcCollider != nullptr && LabEngine::getInstance().playersBoxCollider != nullptr) {
-		isColliding = world->testOverlap(npcCollider->getBody(), LabEngine::getInstance().playersBoxCollider->getBody());  // store the rigid body of the players boxes somewhere
-	}
-	if (isColliding)
-	{
-		//std::cout << "We hit the NPC!" << std::endl;
-		position = spawnPoint;
-
-	}
 	
 	
 
@@ -104,25 +90,9 @@ void NPC::Init()
 	}
 
 
-	// Init the rigidbody physics
-	auto world = LabEngine::getInstance().world;
-	Vector3 n_position(position.x, position.y, position.z);
-	Quaternion orientation = Quaternion::identity();
-	Transform transform(n_position, orientation);
-
-	rigidBody = world->createRigidBody(transform);
-	BoxShape* boxShape = LabEngine::getInstance().physicsCommon.createBoxShape(Vector3(0.5, 1.0, 0.5));
-
-	// Relative transform
-	Transform r_transform = Transform::identity();
-	// Add the collider to the rigidbody
-	Collider* collider;
-	collider = rigidBody->addCollider(boxShape, r_transform);
-	npcCollider = collider;
-
-	//collider->getBody();
+	// set up collision body?
 	
-
+	npcFSM->setCurrentState(&idle_state::Instance());
 	
 
 	//rigidBody->setTransform()
@@ -206,5 +176,19 @@ void NPC::moveToPlayer()
 
 	position += direction * lerpFactor;
 	
+
+}
+
+
+int NPC::distanceToPlayer()
+{
+	glm::vec3 npcPosition = position; // Set this to your NPC's position
+	glm::vec3 playerPosition = LabEngine::getInstance().m_camera->getCameraLocation(); // Set this to your player's position
+
+	float distance = glm::distance(npcPosition, playerPosition);
+
+	return static_cast<int>(distance);
+
+
 
 }

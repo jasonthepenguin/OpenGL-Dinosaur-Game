@@ -25,6 +25,10 @@
 using namespace reactphysics3d;
 
 
+// FSM
+#include "State.h"
+#include "StateMachine.h"
+
 // TESTING
 
 
@@ -47,12 +51,17 @@ public:
 	Model* ourModel = nullptr;
 	std::vector<std::unique_ptr<MD2_TEST>> MD2models;
 
+	StateMachine<NPC>* npcFSM;
+
+
 	glm::vec3 spawnPoint;
 
-	RigidBody* rigidBody = nullptr;
-	Collider* npcCollider = nullptr;
 
 	float walkingSpeed = 1.85f;
+
+	//State
+
+	NPC();
 
 		/***********************************************************
 		 * @brief : Update
@@ -92,6 +101,7 @@ public:
 	void lookAtplayer();
 	void playAnimation(std::string animationName);
 	void moveToPlayer();
+	int distanceToPlayer();
 
 
 	~NPC();

@@ -113,11 +113,7 @@ void SpecialKeys::Space_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
         Collider* collider;
         collider = rigidBody->addCollider(boxShape, r_transform);
 
-
-        //----------- ( TEST )
-        engRef.playersBox = rigidBody;
-        engRef.playersBoxCollider = collider;
-        //------------
+        
 
         test_cube* newCube = new test_cube();
        // std::unique_ptr<test_cube> newCube = std::make_unique<test_cube>();

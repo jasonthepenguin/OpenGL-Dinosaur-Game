@@ -367,7 +367,7 @@ void LabEngine::run()
 	raptorNPC->position = newPos;
 	raptorNPC->spawnPoint = newPos;
 	raptorNPC->loadMD2Model((char*)"md2/raptor/tris.md2", (char*)"md2/raptor/green.jpg");
-	raptorNPC->playAnimation("run");
+	//raptorNPC->playAnimation("run");
 
 	newPos = m_camera->getCameraLocation();
 	newPos.z = newPos.z - 21;
@@ -376,7 +376,7 @@ void LabEngine::run()
 	testNPC->position = newPos;
 	testNPC->spawnPoint = newPos;
 	testNPC->loadMD2Model((char*)"md2/raptor/tris.md2", (char*)"md2/raptor/green.jpg");
-	testNPC->playAnimation("run");
+	//testNPC->playAnimation("run");
 
 	gameObjects.push_back(raptorNPC);
 	gameObjects.push_back(testNPC);
@@ -529,32 +529,6 @@ void LabEngine::run()
 		m_window->pollEvents();
 
 
-		// Erasing a box every 5 seconds
-		if (m_window->getTime() - lastTime >= 5.0) {
-
-			std::cout << m_window->getTime() - lastTime << std::endl;
-
-			lastTime = m_window->getTime();
-			// Find the object.
-			auto iter = std::find_if(gameObjects.begin(), gameObjects.end(),
-				[](const GameObject* obj) -> bool {
-					// Use dynamic_cast to determine if this is a test_cube object.
-					return dynamic_cast<const test_cube*>(obj) != nullptr;
-				});
-
-			// If the object is found in the vector.
-			if (iter != gameObjects.end()) {
-				GameObject* testCubeInstance = *iter;
-
-				// Now you can remove the object.
-				gameObjects.erase(iter);
-
-				// And delete it if necessary.
-				// But ONLY do this if you are sure there are no more references to this object.
-				delete testCubeInstance;
-				std::cout << "Deleted the test cube!" << std::endl;
-			}
-		}
 
 	}
 }
