@@ -215,6 +215,7 @@
     <None Include="shaders\vertexShader_terrain.shader" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AABB.h" />
     <ClInclude Include="assert.hpp" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="EngGUI.h" />

@@ -201,6 +201,8 @@ int NPC::distanceToPlayer()
 void NPC::chooseRandomDirection()
 {
 	float PI = 3.145;
+	srand(static_cast<unsigned int>(time(0)));  // seed the random number generator
+
 
 	float randomAngle = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (2 * PI)));
 	wanderDirection.x = cos(randomAngle);
