@@ -37,8 +37,19 @@ public:
 };
 
 
+class wander : public State<NPC>
+{
+
+public:
+	void Enter(NPC* dude);
+	void Execute(NPC* dude);
+	void Exit(NPC* dude);
+
+};
+
 typedef singleton<idle> idle_state;
 typedef singleton<chase> chase_state;
 typedef singleton<attack> attack_state;
+typedef singleton<wander> wander_state;
 
 

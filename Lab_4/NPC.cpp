@@ -37,7 +37,13 @@ void NPC::Update(float deltaTime)
 	
 	
 
+	if (LabEngine::getInstance().m_window->getTime() - lastTime >= cooldownTime)
+	{
+		lastTime = LabEngine::getInstance().m_window->getTime();
+		cooldown = !cooldown;
 
+		//std::cout << "The cooldown is : " << cooldown << std::endl;
+	}
 
 
 	
@@ -97,6 +103,7 @@ void NPC::Init()
 
 	//rigidBody->setTransform()
 
+	lastTime = LabEngine::getInstance().m_window->getTime();
 
 
 }
@@ -151,10 +158,7 @@ void NPC::playAnimation(std::string animationName)
 
 	for (auto& ourModel : MD2models)
 	{
-		for (const auto& mapping : ourModel->animNameMap)
-		{
-			std::cout << "Animation name: \"" << mapping.first << "\", Cycle index: " << mapping.second << std::endl;
-		}
+
 		
 		ourModel->currAnimCycle = ourModel->animNameMap[animationName];
 	}

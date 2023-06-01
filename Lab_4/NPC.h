@@ -53,6 +53,10 @@ public:
 
 	StateMachine<NPC>* npcFSM;
 
+	bool cooldown = false;
+	float cooldownTime = 3.0;
+	float lastTime = 0.0f;
+
 
 	glm::vec3 spawnPoint;
 

@@ -100,3 +100,23 @@ void attack::Exit(NPC* npc)
 {
 
 }
+
+
+// ----------------------
+// Wander
+
+
+void wander::Enter(NPC* npc)
+{
+
+}
+
+void wander::Execute(NPC* npc)
+{
+
+}
+
+void wander::Exit(NPC* npc)
+{
+
+}
