@@ -22,7 +22,9 @@ void test_cube::initPhysics()
 	Transform r_transform = Transform::identity();
 	// Add the collider to the rigidbody
 	Collider* collider;
+	
 	collider = rigidBody->addCollider(boxShape, r_transform);
+	ourCollider = collider;
 }
 
 
@@ -58,6 +60,7 @@ test_cube::~test_cube()
 {
 	auto world = LabEngine::getInstance().world;
 	world->destroyRigidBody(rigidBody);
+	delete ourCollider;
 
 	// freeing opengl resources
 	glDeleteBuffers(1, &VBO);

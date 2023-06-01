@@ -35,6 +35,7 @@ public:
 	// Create a rigid body in the world
 	// Create a rigid body in the world
 	RigidBody* rigidBody;
+	Collider* ourCollider = nullptr;
 	// IMPLEMENTING THE GAMEOBJECT functions
 
 
