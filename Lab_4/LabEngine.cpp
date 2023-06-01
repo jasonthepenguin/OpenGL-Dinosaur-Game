@@ -316,13 +316,17 @@ void LabEngine::run()
 {
 
 
-	Water floorWater;
-	floorWater.init();
-	floorWater.setSize(1000.0f);
+
 
 
 	// Skybox
 	setupSkybox();
+
+
+	Water floorWater;
+	floorWater.init();
+	floorWater.setSize(1000.0f);
+	floorWater.position.y = 12.0f;
 	
 
 	//----------------------------------------
@@ -516,7 +520,7 @@ void LabEngine::run()
 
 		world->update(deltaTime); // The physics world update and being passed delta time
 
-		floorWater.position.y = 15.0f;
+		//floorWater.position.y = 12.0f;
 		floorWater.render(view, projection);
 
 		// FOR LOOP TO CALL UPDATE ON EACH OBJECT

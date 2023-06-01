@@ -1,7 +1,7 @@
 #pragma once
 
 
-
+#include <memory>
 #include <vector>
 #include <iostream>
 #include <fstream>
@@ -13,6 +13,8 @@
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+
+#include "Texture.h"
 
 class Water {
 public:
@@ -33,12 +35,19 @@ public:
     }
 
     void init() {
-        // Create water plane vertex data
+        
+
+
+        TextureFactory textFact; // temporarily placing this here.
+        waterText = textFact.createTexture("textures/water.jpg");
+        waterText->load();
+
         std::vector<GLfloat> vertices = {
-            -0.5f, 0.0f, -0.5f,
-             0.5f, 0.0f, -0.5f,
-             0.5f, 0.0f,  0.5f,
-            -0.5f, 0.0f,  0.5f
+            // Position       // Texture Coordinates
+            -0.5f, 0.0f, -0.5f,  0.0f, 1.0f,
+             0.5f, 0.0f, -0.5f,  1.0f, 1.0f,
+             0.5f, 0.0f,  0.5f,  1.0f, 0.0f,
+            -0.5f, 0.0f,  0.5f,  0.0f, 0.0f
         };
 
         // Create water plane index data
@@ -61,9 +70,13 @@ public:
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _ebo);
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(GLuint), indices.data(), GL_STATIC_DRAW);
 
-        // Set vertex attribute pointers
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+        // Position attribute
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (void*)0);
         glEnableVertexAttribArray(0);
+
+        // Texture coordinates attribute
+        glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (void*)(3 * sizeof(GLfloat)));
+        glEnableVertexAttribArray(1);
 
         // Unbind VAO
         glBindVertexArray(0);
@@ -71,6 +84,8 @@ public:
 
 
         waterShader = new Shader("shaders/water/water_vs.shader", "shaders/water/water_fs.shader");
+
+        waterShader->setInt("waterTexture", 0);
         
         // Load and compile shaders
         //_loadShaders();
@@ -81,11 +96,7 @@ public:
     }
 
     void render(const glm::mat4& view, const glm::mat4& projection) {
-       // glUseProgram(_shaderProgram);
-
-      //  glEnable(GL_DEPTH_TEST);
-     //   glDepthFunc(GL_LESS);
-      
+   
    
 
         waterShader->use();
@@ -97,13 +108,17 @@ public:
 
         waterShader->setMat4("model", model);
 
+       
+
         glBindVertexArray(_vao);
+
+        waterText->bindTexture(0);
+
+
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
         glBindVertexArray(0);
 
-    
-        
-       // glUseProgram(0);
+
     }
 
     void setSize(float newSize)
@@ -112,6 +127,8 @@ public:
     }
 
     glm::vec3 position;
+
+    std::unique_ptr<Texture> waterText;
 
 private:
     GLuint _vao, _vbo, _ebo;
