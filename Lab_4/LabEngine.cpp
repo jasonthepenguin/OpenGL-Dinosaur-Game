@@ -50,6 +50,9 @@ void LabEngine::init()
 	//-------------------------------------
 	// Init physics
 	world = physicsCommon.createPhysicsWorld();
+
+	physController = new PhysicsController;
+
 	// Init the Lua state
 	lua.open_libraries(sol::lib::base);
 
@@ -402,7 +405,7 @@ void LabEngine::run()
 	{
 
 	
-
+		physController->update(gameObjects);
 
 		// test render IMGUI
 		//----------------------------------------------------- ( BEGIN FRAME )

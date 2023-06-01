@@ -234,6 +234,7 @@
     <ClInclude Include="ModelController.h" />
     <ClInclude Include="Mouse_Input.h" />
     <ClInclude Include="MovementKeys.h" />
+    <ClInclude Include="PhysicsController.h" />
     <ClInclude Include="playerStates.h" />
     <ClInclude Include="Rain.h" />
     <ClInclude Include="Particle.h" />

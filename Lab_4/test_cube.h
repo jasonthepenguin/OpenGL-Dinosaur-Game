@@ -49,6 +49,9 @@ public:
 	void initPhysics();
 
 
+	void collisionEvent(GameObject* gameObj) override;
+
+
 	~test_cube();
 
 
@@ -111,6 +114,11 @@ public:
 		std::shared_ptr<Texture> container2_specular = textFact.createTexture("container2_specular.png");
 		container2_specular->load();
 		boxTextures.push_back(container2_specular);
+
+
+
+		boundingBox = new LabPhysics::AABB(glm::vec3(0.5, 0.5, 0.5));
+
 	}
 
 

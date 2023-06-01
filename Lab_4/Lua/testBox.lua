@@ -2,6 +2,8 @@
 
 
 Boxs = {
+
+    
     {
         startPos = {x = 0, y = 2, z = 0}
         
@@ -13,7 +15,8 @@ Boxs = {
     {
         startPos = {x = 5, y = 2, z = 0}
         
-    },
+    }
+    
    
     
 }

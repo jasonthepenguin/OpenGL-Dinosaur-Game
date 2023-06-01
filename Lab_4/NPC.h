@@ -2,6 +2,8 @@
 
 #include "GameObject.h"
 
+#include <iostream>
+
 #include "Model.h"
 #include <string>
 
@@ -113,6 +115,8 @@ public:
 	void chooseRandomDirection();
 	void wander();
 
+
+	void collisionEvent(GameObject* gameObj) override;
 
 
 	~NPC();

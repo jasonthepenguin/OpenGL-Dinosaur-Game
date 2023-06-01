@@ -125,6 +125,8 @@ void SpecialKeys::Space_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
 
         newCube->rigidBody = rigidBody;
 
+
+
         engRef.gameObjects.push_back(newCube);
 
         keyStates[GLFW_KEY_SPACE] = true;

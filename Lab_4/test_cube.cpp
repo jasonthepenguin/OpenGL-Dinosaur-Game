@@ -39,6 +39,13 @@ void test_cube::Update(float deltaTime)
 	position.z = n_position.z;
 
 
+	// update position of our labPhysics AABB
+	if (boundingBox != nullptr)
+	{
+		boundingBox->updateAABBPosition(position);
+	}
+
+
 	// attempting to get rotations working when collding with the terrain (include quats in our headers )
 	auto quat = transform.getOrientation();
 	glm::quat boxQuat(quat.x, quat.y, quat.z, quat.w);
@@ -66,4 +73,10 @@ test_cube::~test_cube()
 	glDeleteBuffers(1, &VBO);
 	glDeleteBuffers(1, &EBO);
 	glDeleteVertexArrays(1, &VAO);
+}
+
+
+void test_cube::collisionEvent(GameObject* gameObj) 
+{
+	//std::cout << "Box Class dealing with a collision event" << std::endl;
 }

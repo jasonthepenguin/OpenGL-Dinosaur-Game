@@ -9,14 +9,16 @@ namespace LabPhysics {
 
 	private:
 
+
+
+
+	public:
+
 		glm::vec3 boxSize;
 
 
 		glm::vec3 min;
 		glm::vec3 max;
-
-
-	public:
 
 
 		// Constructor
@@ -30,9 +32,9 @@ namespace LabPhysics {
 		}
 
 		// Additional functions to access min, max and boxSize if needed
-		const glm::vec3& getMin() const { return min; }
+		/*const glm::vec3& getMin() const { return min; }
 		const glm::vec3& getMax() const { return max; }
-		const glm::vec3& getBoxSize() const { return boxSize; }
+		const glm::vec3& getBoxSize() const { return boxSize; }*/
 
 
 	};

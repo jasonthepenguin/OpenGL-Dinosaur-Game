@@ -15,6 +15,13 @@ void NPC::Update(float deltaTime)
 	// pos of md2 model
 	// pos of assimp model
 
+
+	if (boundingBox != nullptr)
+	{
+		boundingBox->updateAABBPosition(position);
+	}
+
+
 	//moveToPlayer();
 	npcFSM->update();
 
@@ -49,6 +56,13 @@ void NPC::Update(float deltaTime)
 	
 }
 
+
+void NPC::collisionEvent(GameObject * gameObj)
+{
+	//std::cout << "NPC Class dealing with a collision event" << std::endl;
+
+	position = spawnPoint;
+}
 
 NPC::~NPC()
 {
@@ -105,6 +119,8 @@ void NPC::Init()
 
 	lastTime = LabEngine::getInstance().m_window->getTime();
 
+
+	boundingBox = new LabPhysics::AABB(glm::vec3(3, 3, 3));
 
 }
 

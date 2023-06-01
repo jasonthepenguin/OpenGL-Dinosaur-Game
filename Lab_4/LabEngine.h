@@ -48,6 +48,8 @@ using namespace reactphysics3d;
 #include <typeinfo>
 
 
+#include "PhysicsController.h"
+
 		/******************************************************************************************************************************************
 		 * @class   : LabEngine() 
 		 * @brief   : This is the primary engine used to run the program
@@ -95,6 +97,11 @@ using namespace reactphysics3d;
 			
 			// Dealing with user input including Keyboard and Mouse
 			UI_Manager* userInput;
+
+
+			// Physics
+			PhysicsController* physController = nullptr;
+
 
 				/******************************************************************************************************************************************
 				 * @brief  : init()
