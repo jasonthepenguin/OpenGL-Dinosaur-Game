@@ -193,7 +193,7 @@ void LabEngine::loadNPCs()
 		newNPC->loadMD2Model((char*)md2Path.c_str(), (char*)md2texture.c_str());
 		
 		gameObjects.push_back(newNPC);
-		//npcList.push_back(newNPC);
+		npcList.push_back(newNPC);
 
 	}
 	
@@ -397,6 +397,9 @@ void LabEngine::run()
 
 	
 
+	// Try and load the tree
+	Model tree("models/old_tree/scene.gltf");
+
 	//=========================
 	//gameObjects.push_back(smileyBox);
 	gameObjects.push_back(simpleTerrain);
@@ -517,6 +520,16 @@ void LabEngine::run()
 
 		// RENDERING 
 		//----------------------------------------
+
+		// test render of the tree
+		model = glm::mat4(1.0);
+		glm::vec3 modelPos = glm::vec3(192.0f, 30.0f, 192.0f);
+		model = glm::translate(model, modelPos);
+		model = glm::scale(model, glm::vec3(0.01, 0.01, 0.01));
+		ourShader.setMat4("model", model);
+		tree.Draw(ourShader);
+
+
 
 		world->update(deltaTime); // The physics world update and being passed delta time
 

@@ -168,7 +168,7 @@
 					// make a pairing here with the index which is used for this pushback, and key-value map it with the extracted name
 					animNameMap[extractName(curr_anim_name)] = animationCycles.size();
 
-
+					//std::cout << extractName(curr_anim_name) << std::endl;
 
 					anim_start = i; // since this is "i" now represents start of new animation cycle, store that in anim_start, which will be used to create the next pair once animation names mismatch again.
 
@@ -178,7 +178,7 @@
 			// Add the last animation cycle to the animationCycles vector
 			anim_end = md2file.header.num_frames - 1;
 			animationCycles.push_back(std::make_pair(anim_start, anim_end));
-			animNameMap[extractName(curr_anim_name)] = animationCycles.size();
+			animNameMap[extractName(curr_anim_name)] = animationCycles.size() - 1;
 		}
 
 		std::string extractName(const std::string& input) {
