@@ -358,7 +358,22 @@ void LabEngine::run()
 
 //--------------------------------
 
+	lua.script_file("AI/States.lua");
 
+	lua.new_usertype<NPC>("NPC",
+		"playAnimation", &NPC::playAnimation,
+		"distanceToPlayer", &NPC::distanceToPlayer,
+		"lookAtPlayer", &NPC::lookAtplayer,
+		"moveToPlayer", &NPC::moveToPlayer,
+		"chooseRandomDirection", &NPC::chooseRandomDirection,
+		"wander", &NPC::wander,
+		"ForwardLook", &NPC::ForwardLook
+		);
+
+	lua.new_usertype<StateMachine<NPC>>("FSM",
+		"changeState", &StateMachine<NPC>::changeState);
+
+	
 
 	//-------------------------- (NPC Test) No lua, just MD2 testing
 	NPC* raptorNPC = new NPC;

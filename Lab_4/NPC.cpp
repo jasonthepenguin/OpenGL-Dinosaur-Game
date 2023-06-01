@@ -4,7 +4,8 @@
 
 NPC::NPC()
 {
-	npcFSM = new StateMachine<NPC>(this);
+	//npcFSM = new StateMachine<NPC>(this);
+	npcFSM = new StateMachine<NPC>(this, LabEngine::getInstance().lua);
 }
 
 void NPC::Update(float deltaTime)
@@ -117,7 +118,8 @@ void NPC::Init()
 
 	// set up collision body?
 	
-	npcFSM->setCurrentState(&idle_state::Instance());
+	//npcFSM->setCurrentState(&idle_state::Instance());
+	npcFSM->setCurrentState("state_idle");
 	
 
 	//rigidBody->setTransform()
@@ -174,7 +176,8 @@ void NPC::lookAtplayer()
 void NPC::playAnimation(std::string animationName)
 {
 	
-
+	std::cout << "I've been called!" << std::endl;
+	std::cout << "My Position = " << position.x << " , " << position.y << " , "  << position.z <<  " , " << std::endl;
 
 
 	for (auto& ourModel : MD2models)

@@ -5,6 +5,8 @@
 #include <iostream>
 #include "State.h"
 
+/*
+
 template<class entity_type>
 class StateMachine
 {
@@ -65,4 +67,73 @@ public:
 	virtual ~StateMachine() {}
 
 
+};
+
+*/
+
+
+#include <sol/sol.hpp>
+
+template<class entity_type>
+class StateMachine {
+private:
+	entity_type* owner;
+	sol::table previousState;
+	sol::table currentState;
+	sol::table globalState;
+
+public:
+	StateMachine(entity_type* FSMowner, sol::state& lua_state)
+		: owner(FSMowner), lua(lua_state) {}
+
+	void setPreviousState(const std::string& state_name) {
+		previousState = lua[state_name];
+	}
+
+	void setCurrentState(const std::string& state_name) {
+		currentState = lua[state_name];
+		currentState["Enter"](owner);
+
+		
+	}
+
+	void setGlobalState(const std::string& state_name) {
+		globalState = lua[state_name];
+	}
+
+	void update() {
+		if (globalState.valid()) {
+			globalState["Execute"](owner);
+		}
+		if (currentState.valid()) {
+			currentState["Execute"](owner);
+		}
+	}
+
+	void changeState(const std::string& new_state_name) {
+		previousState = currentState;
+
+		if (currentState.valid()) {
+			currentState["Exit"](owner);
+		}
+
+		currentState = lua[new_state_name];
+
+		if (currentState.valid()) {
+			currentState["Enter"](owner);
+		}
+	}
+
+	void revertToPreviousState() {
+		changeState(previousState);
+	}
+
+	sol::table getPreviousState() { return previousState; }
+	sol::table getCurrentState() { return currentState; }
+	sol::table getGlobalState() { return globalState; }
+
+	virtual ~StateMachine() {}
+
+private:
+	sol::state& lua;
 };

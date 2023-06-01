@@ -1,5 +1,5 @@
 
-
+/*
 
 #include "playerStates.h"
 #include <iostream>
@@ -138,3 +138,5 @@ void wander::Exit(NPC* npc)
 {
 
 }
+
+*/
