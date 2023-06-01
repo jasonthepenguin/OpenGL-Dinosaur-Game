@@ -6,7 +6,7 @@
 
 int main(int argc, char** argv)
 {
-    std::cout << "ICT397 Assignment 1!\n";
+    std::cout << "ICT397 Assignment 2!\n";
 
    // auto &app = Lab::LabEngine::getInstance();
     auto& app = LabEngine::getInstance();

@@ -22,7 +22,7 @@ void LabEngine::init()
 	
 	m_window = Window::getWindow();
 	m_window->init();
-	m_window->createWindow(width, height, "Assignment 1");
+	m_window->createWindow(width, height, "Assignment 2");
 	m_camera = std::make_shared<Camera>(glm::vec3(0.0f, 0.0f, 3.0f));
 
 	lastX = width / 2.0f;
@@ -50,6 +50,9 @@ void LabEngine::init()
 	//-------------------------------------
 	// Init physics
 	world = physicsCommon.createPhysicsWorld();
+
+	physController = new PhysicsController;
+
 	// Init the Lua state
 	lua.open_libraries(sol::lib::base);
 
@@ -197,28 +200,6 @@ void LabEngine::setupAssetShaders()
 }
 
 
-void LabEngine::setupMD2Models() 
-{
-	MD2_TEST raptor;
-	MD2_TEST raptor_weapon;
-
-	raptor.ReadMD2Model((char*)"md2/raptor/tris.md2", (char*)"md2/raptor/green.jpg");
-	raptor.loadData();
-
-	raptor_weapon.ReadMD2Model((char*)"md2/raptor/weapon.md2", (char*)"md2/raptor/weapon.jpg");
-	raptor_weapon.loadData();
-
-	raptor.m_position.x = m_camera->getCameraLocation().x - 5.0;
-	raptor.m_position.y = m_camera->getCameraLocation().y + 2.0;
-	raptor.m_position.z = m_camera->getCameraLocation().z;
-
-	raptor_weapon.m_position.x = m_camera->getCameraLocation().x - 5.0;
-	raptor_weapon.m_position.y = m_camera->getCameraLocation().y + 2.0;
-	raptor_weapon.m_position.z = m_camera->getCameraLocation().z;
-
-	MD2models.push_back(&raptor);
-	MD2models.push_back(&raptor_weapon);
-}
 
 
 
@@ -377,34 +358,32 @@ void LabEngine::run()
 
 //--------------------------------
 
-	// TASK 1, 2 and 3 for lab 7
-
-	MD2_TEST raptor;
-	MD2_TEST raptor_weapon;
-
-	raptor.ReadMD2Model((char*)"md2/raptor/tris.md2", (char*)"md2/raptor/green.jpg");
-	raptor.loadData();
-
-	raptor_weapon.ReadMD2Model((char*)"md2/raptor/weapon.md2", (char*)"md2/raptor/weapon.jpg");
-	raptor_weapon.loadData();
-
-	//raptor.m_position.x = m_camera->Position.x - 5.0;
-	//raptor.m_position.y = m_camera->Position.y + 2.0;
-	//raptor.m_position.z = m_camera->Position.z;
-	raptor.m_position.x = m_camera->getCameraLocation().x - 5.0;
-	raptor.m_position.y = m_camera->getCameraLocation().y + 2.0;
-	raptor.m_position.z = m_camera->getCameraLocation().z;
 
 
-	//raptor_weapon.m_position.x = m_camera->Position.x - 5.0;
-	//raptor_weapon.m_position.y = m_camera->Position.y + 2.0;
-	//raptor_weapon.m_position.z = m_camera->Position.z;
-	raptor_weapon.m_position.x = m_camera->getCameraLocation().x - 5.0;
-	raptor_weapon.m_position.y = m_camera->getCameraLocation().y + 2.0;
-	raptor_weapon.m_position.z = m_camera->getCameraLocation().z;
+	//-------------------------- (NPC Test) No lua, just MD2 testing
+	NPC* raptorNPC = new NPC;
+	NPC* testNPC = new NPC;
 
-	MD2models.push_back(&raptor);
-	MD2models.push_back(&raptor_weapon);
+	glm::vec3 newPos = m_camera->getCameraLocation();
+	newPos.z = newPos.z - 21;
+	//newPos.y = simpleTerrain->getHeight((int)newPos.x * 1 / simpleTerrain->scaleX , (int)newPos.z * 1 / simpleTerrain->scaleZ);
+	raptorNPC->position = newPos;
+	raptorNPC->spawnPoint = newPos;
+	raptorNPC->loadMD2Model((char*)"md2/raptor/tris.md2", (char*)"md2/raptor/green.jpg");
+	//raptorNPC->playAnimation("run");
+
+	newPos = m_camera->getCameraLocation();
+	newPos.z = newPos.z - 21;
+	newPos.x = newPos.x + 20;
+	//newPos.y = simpleTerrain->getHeight((int)newPos.x * 1 / simpleTerrain->scaleX , (int)newPos.z * 1 / simpleTerrain->scaleZ);
+	testNPC->position = newPos;
+	testNPC->spawnPoint = newPos;
+	testNPC->loadMD2Model((char*)"md2/raptor/tris.md2", (char*)"md2/raptor/green.jpg");
+	//testNPC->playAnimation("run");
+
+	gameObjects.push_back(raptorNPC);
+	gameObjects.push_back(testNPC);
+	
 
 	//=========================
 	//gameObjects.push_back(smileyBox);
@@ -420,8 +399,14 @@ void LabEngine::run()
 
 	//---------------------------------------
 	
+	lastTime = m_window->getTime();
+
 	while (!m_window->shouldClose())
 	{
+
+	
+		physController->update(gameObjects);
+
 		// test render IMGUI
 		//----------------------------------------------------- ( BEGIN FRAME )
 		gui->BeginFrame();
@@ -456,7 +441,7 @@ void LabEngine::run()
 		glm::mat4 projection(1.0f);
 
 
-
+		
 
 		float scaleOffSetX = 1 / simpleTerrain->scaleX;
 		float scaleOffSetZ = 1 / simpleTerrain->scaleZ;
@@ -528,6 +513,7 @@ void LabEngine::run()
 		// FOR LOOP TO CALL UPDATE ON EACH OBJECT
 		for (int i = 0; i < gameObjects.size(); i++)
 		{
+
 			gameObjects[i]->Update(deltaTime);
 		}
 
@@ -537,38 +523,6 @@ void LabEngine::run()
 			gameObjects[i]->Render(ourShader, view, projection);
 		}
 
-		// TEST RENDERING THE MD2 object
-
-		//-------------------- ( SECOND IMPLEMENTATION OF MD2 )-------------
-
-		for (auto mds : MD2models) {
-			// Now we actually render
-			//player_2.Render(view, projection);
-			mds->Render(view, projection);
-
-			// call animate and pass deltaTime
-			//player_2.Animate(deltaTime);
-			mds->Animate(deltaTime);
-		}
-
-		float deltaValue = 4.0f * deltaTime;
-
-		for (MD2_TEST* model : MD2models) {
-			if (glfwGetKey(m_window->m_PixelsGLFWWindow, GLFW_KEY_T) == GLFW_PRESS) {
-				model->m_position.z -= deltaValue;
-			}
-			if (glfwGetKey(m_window->m_PixelsGLFWWindow, GLFW_KEY_F) == GLFW_PRESS) {
-				model->m_position.x -= deltaValue;
-			}
-			if (glfwGetKey(m_window->m_PixelsGLFWWindow, GLFW_KEY_G) == GLFW_PRESS) {
-				model->m_position.z += deltaValue;
-			}
-			if (glfwGetKey(m_window->m_PixelsGLFWWindow, GLFW_KEY_H) == GLFW_PRESS) {
-				model->m_position.x += deltaValue;
-			}
-		}
-
-
 		// DRAWING SKYBOX
 		skybox->Render(ourShader, view, projection);
 
@@ -576,6 +530,9 @@ void LabEngine::run()
 		gui->renderData();
 		m_window->swapBuffers();
 		m_window->pollEvents();
+
+
+
 	}
 }
 

@@ -59,6 +59,8 @@ class SpecialKeys : public InputObserver_DPattern
         void down_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
 
 
+       
+
 
             /***********************************************************************************************************************************************************************
              * @brief toggleWireframeMode()

@@ -43,6 +43,12 @@ using namespace reactphysics3d;
 #include "md2_test.h"
 
 
+#include <chrono>
+#include <algorithm>
+#include <typeinfo>
+
+
+#include "PhysicsController.h"
 
 		/******************************************************************************************************************************************
 		 * @class   : LabEngine() 
@@ -78,15 +84,24 @@ using namespace reactphysics3d;
 			PhysicsWorld* world;			/// PhysicsWorld - applies physics to the game 
 			float deltaTime = 0.0f;				  /// Time between current frame and last frame
 			float lastFrame = 0.0f; 			  /// Time of last frame
+			float lastTime = 0.0f;
 
 			sol::state lua; 				/// provides an instance of the lua state
 
 			std::vector<MD2_TEST*> MD2models;
+			// TEST
+			RigidBody* playersBox = nullptr;
+			Collider *playersBoxCollider = nullptr;
 
 			std::unique_ptr<Skybox> skybox;
 			
 			// Dealing with user input including Keyboard and Mouse
 			UI_Manager* userInput;
+
+
+			// Physics
+			PhysicsController* physController = nullptr;
+
 
 				/******************************************************************************************************************************************
 				 * @brief  : init()

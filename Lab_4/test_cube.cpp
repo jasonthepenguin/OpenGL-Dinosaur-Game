@@ -22,7 +22,9 @@ void test_cube::initPhysics()
 	Transform r_transform = Transform::identity();
 	// Add the collider to the rigidbody
 	Collider* collider;
+	
 	collider = rigidBody->addCollider(boxShape, r_transform);
+	ourCollider = collider;
 }
 
 
@@ -35,6 +37,13 @@ void test_cube::Update(float deltaTime)
 	position.x = n_position.x;
 	position.y = n_position.y;
 	position.z = n_position.z;
+
+
+	// update position of our labPhysics AABB
+	if (boundingBox != nullptr)
+	{
+		boundingBox->updateAABBPosition(position);
+	}
 
 
 	// attempting to get rotations working when collding with the terrain (include quats in our headers )
@@ -54,3 +63,20 @@ void test_cube::Render(Shader& shader, const glm::mat4& view, const glm::mat4& p
 }
 
 
+test_cube::~test_cube()
+{
+	auto world = LabEngine::getInstance().world;
+	world->destroyRigidBody(rigidBody);
+	delete ourCollider;
+
+	// freeing opengl resources
+	glDeleteBuffers(1, &VBO);
+	glDeleteBuffers(1, &EBO);
+	glDeleteVertexArrays(1, &VAO);
+}
+
+
+void test_cube::collisionEvent(GameObject* gameObj) 
+{
+	//std::cout << "Box Class dealing with a collision event" << std::endl;
+}

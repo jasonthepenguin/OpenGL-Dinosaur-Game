@@ -7,6 +7,8 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 
+#include "AABB.h"
+
 #include <string>
 
 	/***********************************************************************************************
@@ -32,6 +34,23 @@ class GameObject
 		Shader* sharedShader; // might use this or just pass in a shader everytime we draw
 
 		std::string name;
+
+		LabPhysics::AABB* boundingBox = nullptr;
+		virtual void collisionEvent(GameObject* gameObj)
+		{
+
+		}
+
+		LabPhysics::AABB* getAABB()
+		{
+			if (boundingBox != nullptr)
+			{
+				return boundingBox;
+			}
+			else {
+				return nullptr;
+			}
+		}
 
 
 		    /********************************************************************************************************

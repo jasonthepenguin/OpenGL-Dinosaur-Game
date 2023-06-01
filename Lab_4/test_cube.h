@@ -35,6 +35,7 @@ public:
 	// Create a rigid body in the world
 	// Create a rigid body in the world
 	RigidBody* rigidBody;
+	Collider* ourCollider = nullptr;
 	// IMPLEMENTING THE GAMEOBJECT functions
 
 
@@ -47,6 +48,11 @@ public:
 
 	void initPhysics();
 
+
+	void collisionEvent(GameObject* gameObj) override;
+
+
+	~test_cube();
 
 
 	std::vector<std::shared_ptr<Texture>> boxTextures;
@@ -108,6 +114,11 @@ public:
 		std::shared_ptr<Texture> container2_specular = textFact.createTexture("container2_specular.png");
 		container2_specular->load();
 		boxTextures.push_back(container2_specular);
+
+
+
+		boundingBox = new LabPhysics::AABB(glm::vec3(0.5, 0.5, 0.5));
+
 	}
 
 
@@ -187,6 +198,8 @@ public:
 		//---------------------------
 
 	}
+
+
 
 private:
 
