@@ -119,6 +119,7 @@ public:
 	int distanceToPlayer();
 	void chooseRandomDirection();
 	void wander();
+	void ForwardLook();
 
 
 	void collisionEvent(GameObject* gameObj) override;

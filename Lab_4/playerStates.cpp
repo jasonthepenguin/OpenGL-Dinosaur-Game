@@ -19,7 +19,8 @@ void idle::Enter(NPC* npc)
 
 void idle::Execute(NPC* npc)
 {
-	npc->rotation = glm::mat4(1.0);
+	//npc->rotation = glm::mat4(1.0);
+	npc->ForwardLook();
 
 	// check if close to player THEN DO BELOW
 	if (npc->distanceToPlayer() <= 10)

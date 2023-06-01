@@ -381,6 +381,9 @@ void LabEngine::run()
 	testNPC->loadMD2Model((char*)"md2/raptor/tris.md2", (char*)"md2/raptor/green.jpg");
 	//testNPC->playAnimation("run");
 
+	npcList.push_back(raptorNPC);
+	npcList.push_back(testNPC);
+
 	gameObjects.push_back(raptorNPC);
 	gameObjects.push_back(testNPC);
 	

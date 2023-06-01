@@ -57,6 +57,11 @@ void NPC::Update(float deltaTime)
 }
 
 
+void NPC::ForwardLook()
+{
+	rotation = glm::mat4(1.0);
+}
+
 void NPC::collisionEvent(GameObject * gameObj)
 {
 	//std::cout << "NPC Class dealing with a collision event" << std::endl;
