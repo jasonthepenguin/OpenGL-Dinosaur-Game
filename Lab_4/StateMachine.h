@@ -92,7 +92,7 @@ public:
 
 	void setCurrentState(const std::string& state_name) {
 		currentState = lua[state_name];
-		currentState["Enter"](owner);
+		//currentState["Enter"](owner);
 
 		
 	}
@@ -112,6 +112,8 @@ public:
 
 	void changeState(const std::string& new_state_name) {
 		previousState = currentState;
+
+		//std::cout << "We are now in state : " << new_state_name << std::endl;
 
 		if (currentState.valid()) {
 			currentState["Exit"](owner);

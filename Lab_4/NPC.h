@@ -67,6 +67,7 @@ public:
 	float cooldownTime = 3.0;
 	float lastTime = 0.0f;
 
+	bool getCooldown();
 
 	glm::vec3 spawnPoint;
 	glm::vec3 wanderDirection;

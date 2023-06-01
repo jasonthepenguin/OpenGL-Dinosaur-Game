@@ -50,6 +50,8 @@ void NPC::Update(float deltaTime)
 		lastTime = LabEngine::getInstance().m_window->getTime();
 		cooldown = !cooldown;
 
+		
+
 		//std::cout << "The cooldown is : " << cooldown << std::endl;
 	}
 
@@ -57,6 +59,10 @@ void NPC::Update(float deltaTime)
 	
 }
 
+bool NPC::getCooldown()
+{
+	return cooldown;
+}
 
 void NPC::ForwardLook()
 {
@@ -152,6 +158,8 @@ bool NPC::loadMD2Model(std::string filePath, std::string texturePath)
 void NPC::lookAtplayer()
 {
 
+	
+		 
 	glm::vec3 npcPosition = position; // Set this to your NPC's position
 	glm::vec3 playerPosition = LabEngine::getInstance().m_camera->getCameraLocation(); // Set this to your player's position
 
@@ -176,8 +184,8 @@ void NPC::lookAtplayer()
 void NPC::playAnimation(std::string animationName)
 {
 	
-	std::cout << "I've been called!" << std::endl;
-	std::cout << "My Position = " << position.x << " , " << position.y << " , "  << position.z <<  " , " << std::endl;
+	//std::cout << "I've been called!" << std::endl;
+	//std::cout << "My Position = " << position.x << " , " << position.y << " , "  << position.z <<  " , " << std::endl;
 
 
 	for (auto& ourModel : MD2models)
@@ -224,6 +232,8 @@ int NPC::distanceToPlayer()
 
 void NPC::chooseRandomDirection()
 {
+	//std::cout << "We are choosing a random direction!" << std::endl;
+
 	float PI = 3.145;
 	srand(static_cast<unsigned int>(time(0)));  // seed the random number generator
 
@@ -236,6 +246,8 @@ void NPC::chooseRandomDirection()
 
 void NPC::wander()
 {
+
+	//std::cout << "I'm wandering!!" << std::endl;
 
 	glm::vec3 displacement = wanderDirection * walkingSpeed * LabEngine::getInstance().deltaTime;
 

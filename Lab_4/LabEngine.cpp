@@ -363,11 +363,13 @@ void LabEngine::run()
 	lua.new_usertype<NPC>("NPC",
 		"playAnimation", &NPC::playAnimation,
 		"distanceToPlayer", &NPC::distanceToPlayer,
-		"lookAtPlayer", &NPC::lookAtplayer,
+		"lookAtplayer", &NPC::lookAtplayer,
 		"moveToPlayer", &NPC::moveToPlayer,
 		"chooseRandomDirection", &NPC::chooseRandomDirection,
 		"wander", &NPC::wander,
-		"ForwardLook", &NPC::ForwardLook
+		"ForwardLook", &NPC::ForwardLook,
+		"npcFSM", &NPC::npcFSM,
+		"getCooldown", &NPC::getCooldown
 		);
 
 	lua.new_usertype<StateMachine<NPC>>("FSM",

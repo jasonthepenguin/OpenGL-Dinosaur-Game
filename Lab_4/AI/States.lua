@@ -1,15 +1,23 @@
 
 state_idle = {}
 state_idle["Enter"] = function(npc)
-    --nothing for now
-    print('ok')
     npc:playAnimation("idle")
-   -- print('ok')
+  
 end
 state_idle["Execute"] = function(npc)
-    --nothing for now
-   -- print('ok')
+
    npc:ForwardLook()
+    --npc:lookAtplayer()
+   cooldown = npc:getCooldown()
+
+   if(npc:distanceToPlayer() <= 10) then
+        npc.npcFSM:changeState("state_chase")
+   elseif(cooldown == false) then
+      npc.npcFSM:changeState("state_wander")
+   end
+   
+
+   
 end
 state_idle["Exit"] = function(npc)
 
@@ -17,14 +25,22 @@ end
 
 
 -----------------------------------------
-
+-- tables that C++ can access to keep track and change state, pass the NPC to this lua state, lua then calls the appropriate npc functions
 state_chase = {}
 state_chase["Enter"] = function(npc)
-        --nothing for now
         npc:playAnimation("run")
 end
 state_chase["Execute"] = function(npc)
-        --nothing for now
+        npc:lookAtplayer()
+
+        if(npc:distanceToPlayer() <= 5) then
+            npc.npcFSM:changeState("state_attack")
+        elseif(npc:distanceToPlayer() > 10) then
+            npc.npcFSM:changeState("state_idle")
+        else    
+            npc:moveToPlayer()
+        end
+
 end
 state_chase["Exit"] = function(npc)
         --nothing for now
@@ -34,12 +50,45 @@ end
 
 state_attack = {}
 state_attack["Enter"] = function(npc)
-     --nothing for now
+     
      npc:playAnimation("attack")
 end
 state_attack["Execute"] = function(npc)
-    --nothing for now
+
+    npc:lookAtplayer()
+
+    if(npc:distanceToPlayer() >= 5) then
+            npc.npcFSM:changeState("state_chase")
+    else
+        --npc:lookAtplayer()
+    end
+
 end
 state_attack["Exit"] = function(npc)
     --nothing for now
+end
+
+
+----------------------------------------
+state_wander = {}
+state_wander["Enter"] = function(npc)
+    npc:playAnimation("run")
+    npc:chooseRandomDirection()
+end
+
+state_wander["Execute"] = function(npc)
+
+    cooldown = npc:getCooldown()
+
+    if(cooldown == true ) then
+        npc.npcFSM:changeState("state_idle")
+
+    else
+        npc:wander()
+    end
+
+end
+
+state_wander["Exit"] = function(npc)
+
 end
