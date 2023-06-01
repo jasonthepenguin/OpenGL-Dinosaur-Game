@@ -19,7 +19,7 @@ void idle::Enter(NPC* npc)
 
 void idle::Execute(NPC* npc)
 {
-
+	npc->rotation = glm::mat4(1.0);
 
 	// check if close to player THEN DO BELOW
 	if (npc->distanceToPlayer() <= 10)
@@ -52,6 +52,8 @@ void chase::Execute(NPC* npc)
 	// move towards player
 	// if distance is FAR
 		// npc->npcFSM->changeState(idle_state);
+
+	npc->lookAtplayer();
 	
 	if (npc->distanceToPlayer() <= 5) {
 		npc->npcFSM->changeState(&attack_state::Instance());
@@ -87,6 +89,7 @@ void attack::Execute(NPC* npc)
 {
 	// DONT MOVE ( so just dont call move towards player )
 	// just attack ( npc function to attack or do damage to the player or whatever called here )
+	npc->lookAtplayer();
 	
 	// check if close to player THEN DO BELOW
 	if (npc->distanceToPlayer() >= 5)

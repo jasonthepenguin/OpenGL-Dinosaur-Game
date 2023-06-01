@@ -72,7 +72,7 @@ NPC::~NPC()
 
 void NPC::Render(Shader& ourShader, const glm::mat4& view, const glm::mat4& projection)
 {
-	lookAtplayer();
+	//lookAtplayer();
 
 
 	glm::mat4 model = glm::mat4(1.0f);
