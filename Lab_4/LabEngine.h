@@ -48,6 +48,8 @@ using namespace reactphysics3d;
 #include <typeinfo>
 
 
+#include "water.h"
+
 #include "PhysicsController.h"
 
 class NPC;

@@ -315,6 +315,12 @@ void LabEngine::setupLuaAI()
 void LabEngine::run()
 {
 
+
+	Water floorWater;
+	floorWater.init();
+	floorWater.setSize(1000.0f);
+
+
 	// Skybox
 	setupSkybox();
 	
@@ -405,7 +411,7 @@ void LabEngine::run()
 
 	while (!m_window->shouldClose())
 	{
-
+		
 	
 		physController->update(gameObjects);
 
@@ -443,6 +449,7 @@ void LabEngine::run()
 		glm::mat4 projection(1.0f);
 
 
+		
 		
 
 		float scaleOffSetX = 1 / simpleTerrain->scaleX;
@@ -509,8 +516,8 @@ void LabEngine::run()
 
 		world->update(deltaTime); // The physics world update and being passed delta time
 
-
-
+		floorWater.position.y = 15.0f;
+		floorWater.render(view, projection);
 
 		// FOR LOOP TO CALL UPDATE ON EACH OBJECT
 		for (int i = 0; i < gameObjects.size(); i++)

@@ -62,9 +62,9 @@ void EngGUI::BeginFrame()
 		ImGui::Text("- Press K to go into wireframe mode!");
 		ImGui::Text("- Press X to quit this demo!");
 		ImGui::Text("- Press WASD keys to move!");
-		ImGui::Text("- Press R key to spawn boxes (test)");
+		ImGui::Text("- Press Space key to spawn boxes (test)");
 		ImGui::Text("- Press the F key to fly!");
-		ImGui::Text("- Use the mouse or arrow keys to look!");
+		ImGui::Text("- Use the mouse to look!");
 		ImGui::End();
 
 		if (show_image) {

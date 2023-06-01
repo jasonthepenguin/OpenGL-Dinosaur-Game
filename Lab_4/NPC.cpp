@@ -133,7 +133,7 @@ void NPC::Init()
 	lastTime = LabEngine::getInstance().m_window->getTime();
 
 
-	boundingBox = new LabPhysics::AABB(glm::vec3(3, 3, 3));
+	boundingBox = new LabPhysics::AABB(glm::vec3(1, 3, 1));
 
 }
 
