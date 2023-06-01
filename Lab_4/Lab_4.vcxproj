@@ -236,6 +236,7 @@
     <ClInclude Include="MovementKeys.h" />
     <ClInclude Include="PhysicsController.h" />
     <ClInclude Include="playerStates.h" />
+    <ClInclude Include="Prop.h" />
     <ClInclude Include="Rain.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="singleton.h" />
