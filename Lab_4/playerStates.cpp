@@ -26,6 +26,10 @@ void idle::Execute(NPC* npc)
 	{
 		npc->npcFSM->changeState(&chase_state::Instance());
 	}
+	else if (npc->cooldown == false)
+	{
+		npc->npcFSM->changeState(&wander_state::Instance());
+	}
 	
 }
 
@@ -108,11 +112,21 @@ void attack::Exit(NPC* npc)
 
 void wander::Enter(NPC* npc)
 {
-
+	npc->playAnimation("run");
+	npc->chooseRandomDirection();
 }
 
 void wander::Execute(NPC* npc)
 {
+	// IF cooldown is true, then swap state back to idle 
+	if (npc->cooldown)
+	{
+		npc->npcFSM->changeState(&idle_state::Instance());
+	}
+	else {
+		npc->wander();
+	}
+	// else keep on moving in this wander direction
 
 }
 

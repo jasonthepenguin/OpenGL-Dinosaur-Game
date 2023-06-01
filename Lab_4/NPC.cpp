@@ -196,3 +196,22 @@ int NPC::distanceToPlayer()
 
 
 }
+
+
+void NPC::chooseRandomDirection()
+{
+	float PI = 3.145;
+
+	float randomAngle = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (2 * PI)));
+	wanderDirection.x = cos(randomAngle);
+	wanderDirection.y = 0;
+	wanderDirection.z = sin(randomAngle);
+}
+
+void NPC::wander()
+{
+
+	glm::vec3 displacement = wanderDirection * walkingSpeed * LabEngine::getInstance().deltaTime;
+
+	position += displacement;
+}

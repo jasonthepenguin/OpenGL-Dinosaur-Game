@@ -19,6 +19,9 @@
 #include <glm/gtc/quaternion.hpp>
 #include <glm/gtx/vector_angle.hpp> 
 
+#include <cstdlib>
+#include <cmath>
+
 
 // physics/collision detection
 #include <reactphysics3d/reactphysics3d.h>
@@ -59,6 +62,7 @@ public:
 
 
 	glm::vec3 spawnPoint;
+	glm::vec3 wanderDirection;
 
 
 	float walkingSpeed = 1.85f;
@@ -106,6 +110,9 @@ public:
 	void playAnimation(std::string animationName);
 	void moveToPlayer();
 	int distanceToPlayer();
+	void chooseRandomDirection();
+	void wander();
+
 
 
 	~NPC();
