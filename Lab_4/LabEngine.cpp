@@ -358,7 +358,7 @@ void LabEngine::run()
 
 //--------------------------------
 
-	lua.script_file("AI/States.lua");
+	lua.script_file("Lua/AI/States.lua");
 
 	lua.new_usertype<NPC>("NPC",
 		"playAnimation", &NPC::playAnimation,
