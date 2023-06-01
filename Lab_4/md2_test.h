@@ -146,8 +146,8 @@
 
 		void setUpAnimationCycles()
 		{
-			std::cout << "The offset_frames values is : " << md2file.header.offset_frames << std::endl;
-			std::cout << "The number of frames is : " << md2file.header.num_frames << std::endl;
+			//std::cout << "The offset_frames values is : " << md2file.header.offset_frames << std::endl;
+			//std::cout << "The number of frames is : " << md2file.header.num_frames << std::endl;
 			std::string curr_anim_name;
 			curr_anim_name = md2file.frames[0].name;
 			std::string next_anim_name;

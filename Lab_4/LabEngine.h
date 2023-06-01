@@ -160,6 +160,8 @@ class NPC;
 			void loadVertexDataAndTextures();
 			void setupAssetShaders();
 			void setupSkybox();
+			void setupLuaAI();
+			void loadNPCs();
 
 		private:
 

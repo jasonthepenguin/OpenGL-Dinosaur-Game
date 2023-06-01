@@ -157,6 +157,48 @@ void LabEngine::setupSkybox()
 
 }
 
+void LabEngine::loadNPCs()
+{
+	lua.script_file("Lua/NPC.lua");
+
+	sol::table npcTable = lua["NPCs"];
+
+	glm::vec3 pos;
+
+	bool md2 = false;
+	std::string md2Path;
+	std::string md2texure;
+
+	for (size_t i = 1; i <= npcTable.size(); ++i)
+	{
+		sol::table npc = npcTable[i];
+
+		pos.x = npc["startPos"]["x"];
+		pos.y = npc["startPos"]["y"];
+		pos.z = npc["startPos"]["z"];
+
+		float scaleX = npc["scale"]["x"];
+		float scaleY = npc["scale"]["y"];
+		float scaleZ = npc["scale"]["z"];
+
+		bool md2 = npc["md2"].get_or(false);
+
+		std::string md2Path = npc["md2Path"].get_or(std::string(""));
+		std::string md2texture = npc["md2texture"].get_or(std::string(""));
+
+		//NPC newNPC(posX, posY, posZ, scaleX, scaleY, scaleZ, md2, md2Path, md2texture);
+		NPC* newNPC = new NPC;
+		newNPC->position = pos;
+		newNPC->spawnPoint = pos;
+		newNPC->loadMD2Model((char*)md2Path.c_str(), (char*)md2texture.c_str());
+		
+		gameObjects.push_back(newNPC);
+		//npcList.push_back(newNPC);
+
+	}
+	
+}
+
 /*
 
 
@@ -250,7 +292,25 @@ void LabEngine::run()
 */
 
 
+void LabEngine::setupLuaAI()
+{
+	lua.script_file("Lua/AI/States.lua");
 
+	lua.new_usertype<NPC>("NPC",
+		"playAnimation", &NPC::playAnimation,
+		"distanceToPlayer", &NPC::distanceToPlayer,
+		"lookAtplayer", &NPC::lookAtplayer,
+		"moveToPlayer", &NPC::moveToPlayer,
+		"chooseRandomDirection", &NPC::chooseRandomDirection,
+		"wander", &NPC::wander,
+		"ForwardLook", &NPC::ForwardLook,
+		"npcFSM", &NPC::npcFSM,
+		"getCooldown", &NPC::getCooldown
+		);
+
+	lua.new_usertype<StateMachine<NPC>>("FSM",
+		"changeState", &StateMachine<NPC>::changeState);
+}
 
 void LabEngine::run()
 {
@@ -286,43 +346,7 @@ void LabEngine::run()
 	glm::vec3 lightPosition = glm::vec3(startX * simpleTerrain->scaleX, startY + 1, startZ * simpleTerrain->scaleZ);
 
 	//------------------------------------------- Vertex Data  + Textures
-	sol::protected_function_result result = lua.script_file("Lua/testBox.lua", sol::script_pass_on_error);
-	if (!result.valid()) 
-	{
-		sol::error err = result;
-		std::cerr << "Failed to execute the Lua script: " << err.what() << std::endl;
-	}
-
-	sol::table testBoxTable = result;
-
 	
-	// Iterate through the array and store the NPC data in a C++ vector
-	for (const auto& entry : testBoxTable) 
-	{
-		sol::table boxTable = entry.second.as<sol::table>();
-		sol::table startPosTable = boxTable["startPos"];
-		test_cube* cubeData = new test_cube();
-		cubeData->position.x = startPosTable["x"];
-		cubeData->position.y = startPosTable["y"];
-		cubeData->position.z = startPosTable["z"];
-		cubeData->position.x = cubeData->position.x + (startX * simpleTerrain->scaleX);
-		cubeData->position.y = cubeData->position.y + (startY);
-		cubeData->position.z = cubeData->position.z + (startZ * simpleTerrain->scaleZ);
-		gameObjects.push_back(cubeData);
-
-		std::cout << "GameObject created!  xyz = " << cubeData->position.x << "," << cubeData->position.y << "," << cubeData->position.z << std::endl;
-	}
-
-
-	result = lua.script_file("Lua/NPC.lua", sol::script_pass_on_error);
-	if (!result.valid())
-	{
-		sol::error err = result;
-		std::cerr << "Failed to execute the Lua script: " << err.what() << std::endl;
-
-	}
-
-	sol::table NPCTable = result;
 	
 	//------------------
 	
@@ -358,51 +382,9 @@ void LabEngine::run()
 
 //--------------------------------
 
-	lua.script_file("Lua/AI/States.lua");
+	loadNPCs();
+	setupLuaAI();
 
-	lua.new_usertype<NPC>("NPC",
-		"playAnimation", &NPC::playAnimation,
-		"distanceToPlayer", &NPC::distanceToPlayer,
-		"lookAtplayer", &NPC::lookAtplayer,
-		"moveToPlayer", &NPC::moveToPlayer,
-		"chooseRandomDirection", &NPC::chooseRandomDirection,
-		"wander", &NPC::wander,
-		"ForwardLook", &NPC::ForwardLook,
-		"npcFSM", &NPC::npcFSM,
-		"getCooldown", &NPC::getCooldown
-		);
-
-	lua.new_usertype<StateMachine<NPC>>("FSM",
-		"changeState", &StateMachine<NPC>::changeState);
-
-	
-
-	//-------------------------- (NPC Test) No lua, just MD2 testing
-	NPC* raptorNPC = new NPC;
-	NPC* testNPC = new NPC;
-
-	glm::vec3 newPos = m_camera->getCameraLocation();
-	newPos.z = newPos.z - 21;
-	//newPos.y = simpleTerrain->getHeight((int)newPos.x * 1 / simpleTerrain->scaleX , (int)newPos.z * 1 / simpleTerrain->scaleZ);
-	raptorNPC->position = newPos;
-	raptorNPC->spawnPoint = newPos;
-	raptorNPC->loadMD2Model((char*)"md2/raptor/tris.md2", (char*)"md2/raptor/green.jpg");
-	//raptorNPC->playAnimation("run");
-
-	newPos = m_camera->getCameraLocation();
-	newPos.z = newPos.z - 21;
-	newPos.x = newPos.x + 20;
-	//newPos.y = simpleTerrain->getHeight((int)newPos.x * 1 / simpleTerrain->scaleX , (int)newPos.z * 1 / simpleTerrain->scaleZ);
-	testNPC->position = newPos;
-	testNPC->spawnPoint = newPos;
-	testNPC->loadMD2Model((char*)"md2/raptor/tris.md2", (char*)"md2/raptor/green.jpg");
-	//testNPC->playAnimation("run");
-
-	npcList.push_back(raptorNPC);
-	npcList.push_back(testNPC);
-
-	gameObjects.push_back(raptorNPC);
-	gameObjects.push_back(testNPC);
 	
 
 	//=========================

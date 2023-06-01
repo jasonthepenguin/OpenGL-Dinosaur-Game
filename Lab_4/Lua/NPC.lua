@@ -1,96 +1,142 @@
-
-
-
 NPCs = {
     {
-        startPos = {x = -10, y = 0, z = 0},
-        scale = { x = 0.1, y = 0.1, z = 0.1},
-        filePath = "models/shrek/scene.gltf"
+        startPos = {x = 204, y = 0, z = 171},
+        scale = {x = 0.1, y = 0.1, z = 0.1},
+        md2Path = "md2/raptor/tris.md2",
+        md2texture = "md2/raptor/green.jpg",
+        md2 = true
     },
     {
-        startPos = {x = 0, y = 0, z = -5},
+        startPos = {x = 180, y = 0, z = 212},
         scale = {x = 0.1, y = 0.1, z = 0.1},
-        filePath = "models/shrek/scene.gltf"
-    }
-    ,
+        md2Path = "md2/raptor/tris.md2",
+        md2texture = "md2/raptor/green.jpg",
+        md2 = true
+    },
     {
-        startPos = {x = 0, y = 0, z = -9},
+        startPos = {x = 178, y = 0, z = 224},
         scale = {x = 0.1, y = 0.1, z = 0.1},
-        filePath = "models/shrek/scene.gltf"
-    }
-    ,
+        md2Path = "md2/raptor/tris.md2",
+        md2texture = "md2/raptor/green.jpg",
+        md2 = true
+    },
     {
-        startPos = {x = -5, y = 0, z = -7},
+        startPos = {x = 172, y = 0, z = 228},
         scale = {x = 0.1, y = 0.1, z = 0.1},
-        filePath = "models/shrek/scene.gltf"
-    }
-    ,
+        md2Path = "md2/raptor/tris.md2",
+        md2texture = "md2/raptor/green.jpg",
+        md2 = true
+    },
     {
-        startPos = {x = 8, y = 0, z = 7},
+        startPos = {x = 168, y = 0, z = 234},
         scale = {x = 0.1, y = 0.1, z = 0.1},
-        filePath = "models/shrek/scene.gltf"
-    }
-    ,
+        md2Path = "md2/raptor/tris.md2",
+        md2texture = "md2/raptor/green.jpg",
+        md2 = true
+    },
     {
-        startPos = {x = 20, y = 0, z = -17},
+        startPos = {x = 214, y = 0, z = 181},
         scale = {x = 0.1, y = 0.1, z = 0.1},
-        filePath = "models/shrek/scene.gltf"
-    }
-    ,
+        md2Path = "md2/raptor/tris.md2",
+        md2texture = "md2/raptor/green.jpg",
+        md2 = true
+    },
     {
-        startPos = {x = -20, y = 0, z = -4},
+        startPos = {x = 190, y = 0, z = 222},
         scale = {x = 0.1, y = 0.1, z = 0.1},
-        filePath = "models/shrek/scene.gltf"
-    }
-    ,
+        md2Path = "md2/raptor/tris.md2",
+        md2texture = "md2/raptor/green.jpg",
+        md2 = true
+    },
     {
-        startPos = {x = 40, y = 0, z = -15},
+        startPos = {x = 188, y = 0, z = 234},
         scale = {x = 0.1, y = 0.1, z = 0.1},
-        filePath = "models/shrek/scene.gltf"
-    }
-    ,
+        md2Path = "md2/raptor/tris.md2",
+        md2texture = "md2/raptor/green.jpg",
+        md2 = true
+    },
     {
-        startPos = {x = 8, y = 0, z = -27},
+        startPos = {x = 182, y = 0, z = 238},
         scale = {x = 0.1, y = 0.1, z = 0.1},
-        filePath = "models/shrek/scene.gltf"
-    }
-    ,
+        md2Path = "md2/raptor/tris.md2",
+        md2texture = "md2/raptor/green.jpg",
+        md2 = true
+    },
     {
-        startPos = {x = 14, y = 0, z = -13},
+        startPos = {x = 178, y = 0, z = 244},
         scale = {x = 0.1, y = 0.1, z = 0.1},
-        filePath = "models/shrek/scene.gltf"
-    }
-    ,
+        md2Path = "md2/raptor/tris.md2",
+        md2texture = "md2/raptor/green.jpg",
+        md2 = true
+    },
     {
-        startPos = {x = 30, y = 0, z = -5},
+        startPos = {x = 210, y = 0, z = 150},
         scale = {x = 0.1, y = 0.1, z = 0.1},
-        filePath = "models/shrek/scene.gltf"
-    }
-    ,
+        md2Path = "md2/raptor/tris.md2",
+        md2texture = "md2/raptor/green.jpg",
+        md2 = true
+    },
     {
-        startPos = {x = 40, y = 0, z = -10},
+        startPos = {x = 130, y = 0, z = 190},
         scale = {x = 0.1, y = 0.1, z = 0.1},
-        filePath = "models/shrek/scene.gltf"
-    }
-    ,
+        md2Path = "md2/raptor/tris.md2",
+        md2texture = "md2/raptor/green.jpg",
+        md2 = true
+    },
     {
-        startPos = {x = 15, y = 0, z = 15},
+        startPos = {x = 160, y = 0, z = 220},
         scale = {x = 0.1, y = 0.1, z = 0.1},
-        filePath = "models/shrek/scene.gltf"
-    }
-    ,
+        md2Path = "md2/raptor/tris.md2",
+        md2texture = "md2/raptor/green.jpg",
+        md2 = true
+    },
     {
-        startPos = {x = 7, y = 0, z = -7},
+        startPos = {x = 120, y = 0, z = 200},
         scale = {x = 0.1, y = 0.1, z = 0.1},
-        filePath = "models/shrek/scene.gltf"
-    }
-    ,
+        md2Path = "md2/raptor/tris.md2",
+        md2texture = "md2/raptor/green.jpg",
+        md2 = true
+    },
     {
-        startPos = {x = 25, y = 0, z = -25},
+        startPos = {x = 150, y = 0, z = 250},
         scale = {x = 0.1, y = 0.1, z = 0.1},
-        filePath = "models/shrek/scene.gltf"
+        md2Path = "md2/raptor/tris.md2",
+        md2texture = "md2/raptor/green.jpg",
+        md2 = true
+    },
+    {
+        startPos = {x = 200, y = 0, z = 220},
+        scale = {x = 0.1, y = 0.1, z = 0.1},
+        md2Path = "md2/raptor/tris.md2",
+        md2texture = "md2/raptor/green.jpg",
+        md2 = true
+    },
+    {
+        startPos = {x = 220, y = 0, z = 200},
+        scale = {x = 0.1, y = 0.1, z = 0.1},
+        md2Path = "md2/raptor/tris.md2",
+        md2texture = "md2/raptor/green.jpg",
+        md2 = true
+    },
+    {
+        startPos = {x = 230, y = 0, z = 220},
+        scale = {x = 0.1, y = 0.1, z = 0.1},
+        md2Path = "md2/raptor/tris.md2",
+        md2texture = "md2/raptor/green.jpg",
+        md2 = true
+    },
+    {
+        startPos = {x = 240, y = 0, z = 230},
+        scale = {x = 0.1, y = 0.1, z = 0.1},
+        md2Path = "md2/raptor/tris.md2",
+        md2texture = "md2/raptor/green.jpg",
+        md2 = true
+    },
+    {
+        startPos = {x = 250, y = 0, z = 240},
+        scale = {x = 0.1, y = 0.1, z = 0.1},
+        md2Path = "md2/raptor/tris.md2",
+        md2texture = "md2/raptor/green.jpg",
+        md2 = true
     }
 }
-
--- Return the NPCs array
-return NPCs
