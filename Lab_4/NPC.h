@@ -38,6 +38,11 @@ using namespace reactphysics3d;
 
 
 
+enum MessageType {
+
+};
+
+
 /*******************************************************************************
  * @class   : NPC
  * @brief   : Updates, Renders, and initializes an npc
