@@ -6,6 +6,10 @@
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 
+#include <fstream>
+#include <string>
+
+
 
 #include "Texture.h"
 
@@ -74,6 +78,12 @@ class EngGUI
         void MainMenu();
 
 
+
+        void save_game();
+
+        void load_game();
+
+
         bool show_demo_window = true; 
         bool show_image = false; 
 
@@ -82,3 +92,6 @@ class EngGUI
 
         GLFWwindow* m_PixelsGLFWWindow;
 };
+
+
+

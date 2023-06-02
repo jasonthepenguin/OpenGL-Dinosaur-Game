@@ -87,10 +87,10 @@ void EngGUI::BeginFrame()
 	if (ImGui::BeginMainMenuBar()) {
 		if (ImGui::BeginMenu("File")) {
 			if (ImGui::MenuItem("Save")) {
-				//save_game();
+				save_game();
 			}
 			if (ImGui::MenuItem("Load")) {
-				//load_game();
+				load_game();
 			}
 			if (ImGui::MenuItem("Quit")) {
 				//glfwSetWindowShouldClose(window, true);
@@ -105,6 +105,17 @@ void EngGUI::BeginFrame()
 
 }
 
+void EngGUI::save_game() {
+	std::ofstream outfile("savegame.txt");
+	outfile << LabEngine::getInstance().ourGameData.score << std::endl;
+	outfile.close();
+}
+
+void EngGUI::load_game() {
+	std::ifstream infile("savegame.txt");
+	infile >> LabEngine::getInstance().ourGameData.score;
+	infile.close();
+}
 
 
 void EngGUI::EndFrame() {
