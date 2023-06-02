@@ -3,10 +3,15 @@
 
 
 CustomerSupport_Command::CustomerSupport_Command()
+{
+}
+
+
+CustomerSupport_Command::CustomerSupport_Command(std::shared_ptr<Back_Command> back_button, Menu_Manager& menuManager)
 	: m_Details("Customer Support"),
 	m_ContactName("William Halling"),
 	m_ContactEmail("32233703@student.murdoch.edu.au"),
-	m_BackButton(std::make_shared<Back_Command>(Menu_Manager& menuManager))
+	m_BackButton(std::make_shared<Back_Command>(menuManager))
 {
 	addAvailability("Monday", "12:00 PM - 11:59 PM");
 	addAvailability("Tuesday", "12:00 PM - 11:59 PM");
@@ -14,6 +19,7 @@ CustomerSupport_Command::CustomerSupport_Command()
 	addAvailability("Thursday", "12:00 PM - 11:59 PM");
 	addAvailability("Friday", "12:00 PM - 11:59 PM");
 }
+
 
 
 std::string CustomerSupport_Command::getEmail() const
@@ -49,7 +55,7 @@ void CustomerSupport_Command::setName(const std::string& tempName)
 void CustomerSupport_Command::addAvailability(const std::string& day, const std::string& time)
 {
 	Availability availability;
-	availability.m_AvailableDays  = day;
+	availability.m_AvailableDays = day;
 	availability.m_AvailableTimes = time;
 	m_Availability.push_back(availability);
 }

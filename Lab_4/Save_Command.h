@@ -1,21 +1,10 @@
 #pragma once
 
 
-#include <ctime>
-#include <fstream>
-#include <iostream>
-
-
-#include "imgui.h"
-#include "Player.h"
-#include "Menu_Command.h"
-#include "imgui_impl_glfw.h"
-#include "imgui_impl_opengl3.h"
-
 
 /***************************************************************************************************************
  * @brief : SaveCommand
- * @brief : 
+ * @brief :
  *
  *
  * @date    : May 2023
@@ -23,21 +12,27 @@
  * @version : 1.0
  ******************************************************************************************************************/
 
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <memory>
+#include "Menu_Command.h"
+#include "Player.h"
+#include "Menu_Manager.h"
+
 class Save_Command : public Menu_Command
 {
 public:
-
-	Save_Command();
-	~Save_Command();
-	const Player* getPlayerData() const;
+	Save_Command(Menu_Manager& menuManager);
+	Player* getPlayerData() const;
 	void setPlayerData(Player* tempPlayer);
-	void saveGame(int slotNumber);
-	virtual void executeTask() override;
-
+	void executeTask() override;
 
 private:
-
 	std::string generateFileName(int saveNumber);
-	Back_Command m_BackCommand;
-	Player* m_PlayerData;
+	void displaySaveData();
+	void saveGame(int slotNumber);
+
+	Menu_Manager& m_MenuManager;
+	std::unique_ptr<Player> m_PlayerData;
 };

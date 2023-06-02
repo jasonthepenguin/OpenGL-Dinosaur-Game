@@ -1,21 +1,19 @@
 #pragma once
 
-
 #include <GLFW/glfw3.h>
-
-
 #include "imgui.h"
 #include "Menu_Command.h"
-#include "imgui_impl_glfw.h"
-#include "imgui_impl_opengl3.h"
-
-
 
 class Quit_Command : public Menu_Command
 {
 public:
-	Quit_Command() = default;
-	~Quit_Command();
+	Quit_Command();
+	Quit_Command(GLFWwindow* window);
+	~Quit_Command() override = default;
+	void quitGame(GLFWwindow* m_PixelsGLFWWindow);
 	void executeTask() override;
-};
 
+private:
+	GLFWwindow* m_PixelsGLFWWindow;
+	bool m_QuitConfirmationOpen;
+};

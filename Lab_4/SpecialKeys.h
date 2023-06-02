@@ -6,25 +6,20 @@
 #include "Camera.h"
 #include "EngGUI.h"
 #include "md2_test.h"
+#include "ModelController.h"
 #include "LabEngine.h"
-
-
+#include "Menu_Manager.h"
+#include "Back_Command.h"
+#include "CustomerSupport_Command.h"
+#include "Save_Command.h"
+#include "Load_Command.h"
+#include "Quit_Command.h"
 #include <unordered_map>
-#include "InputObserver_DPattern.h"
-
-
-class SpecialKeys : public InputObserver_DPattern
+#include <memory>
+class Menu;
+class SpecialKeys 
 {
     public:
-
-		enum class SpecialActions
-		{
-			FLY,
-			WIREFRAME,
-			LIGHTING,
-			DEMO,
-			PHOTO
-		};
 
             /***********************************************************************************************************************************************************************
              * @brief SpecialKeys()
@@ -41,8 +36,6 @@ class SpecialKeys : public InputObserver_DPattern
 
         ~SpecialKeys();
         void handleKeyEntered(GLFWwindow* m_PixelsGLFWWindow, int key, bool& keyState, void (SpecialKeys::* action)());
-        void executeAction(SpecialActions action);
-
 
         // LETTERS
         void F_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
@@ -58,6 +51,8 @@ class SpecialKeys : public InputObserver_DPattern
         void up_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
         void down_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
 
+
+       
 
 
             /***********************************************************************************************************************************************************************
@@ -118,6 +113,8 @@ class SpecialKeys : public InputObserver_DPattern
              * @param m_Pixels
              ***********************************************************************************************************************************************************************/
 
+       // void readModelInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT, ModelController& modelController);
+
 
             /***********************************************************************************************************************************************************************
              * @brief readInput()
@@ -127,12 +124,8 @@ class SpecialKeys : public InputObserver_DPattern
              * @param deltaT              - float track of time
              ***********************************************************************************************************************************************************************/
 
-     
+       // void readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT, ModelController& modelController, Camera& camera);
         void readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT);
-
-
-
-        void onKeyInput(GLFWwindow* window, int key, int action, int mods) override;
 
 
         bool isFlying; // probably should be a variable of a player class?
@@ -141,9 +134,13 @@ class SpecialKeys : public InputObserver_DPattern
         
         EngGUI*                gui;
         bool                   wireframe;
-        
-        GLFWwindow*            m_PixelsGLFWWindow;
         std::vector<MD2_TEST*> MD2models;
+       // ModelController&       modelController;                 // having it like this means it has to be initialised in the constructor, since I just want the project to compile I'm going to make it a pointer for now
+       // ModelController* modelController;
+        GLFWwindow*            m_PixelsGLFWWindow;
+
         std::unordered_map<int, bool> keyStates;
-        std::unordered_map<int, SpecialActions> keyToActionMap;
+        //std::shared_ptr<Menu> menuManager;
+        Menu_Manager* m_MenuManager;
+
 };

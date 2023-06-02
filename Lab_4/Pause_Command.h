@@ -1,9 +1,12 @@
 #pragma once
-#include "Menu_Commands.h"
 
-class Pause_Command : public Menu_Commands
+#include "Menu_Command.h"
+
+class Pause_Command : public Menu_Command
 {
-	virtual void executeTask() override;
+public:
+	Pause_Command();
+	~Pause_Command() override = default;
+
+	void executeTask() override;
 };
-
-

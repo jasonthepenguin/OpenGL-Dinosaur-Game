@@ -1,8 +1,13 @@
 #include "SpecialKeys.h"
 
-
-SpecialKeys::SpecialKeys() 
+SpecialKeys::SpecialKeys()
 {
+	auto backCommand = std::make_shared<Back_Command>(*m_MenuManager);
+	auto customerSupportCommand = std::make_shared<CustomerSupport_Command>(backCommand, *m_MenuManager);
+	auto saveCommand = std::make_shared<Save_Command>(backCommand, std::make_shared<Menu_Manager>(*m_MenuManager));
+	auto loadCommand = std::make_shared<Load_Command>(backCommand);
+	auto quitCommand = std::make_shared<Quit_Command>(m_PixelsGLFWWindow);
+
 
 }
 
@@ -93,42 +98,27 @@ void SpecialKeys::Space_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
         // Get camera position and direction
         glm::vec3 camPos = engRef.m_camera->getCameraLocation();
         glm::vec3 camFront = engRef.m_camera->getCameraDirection();
-
-        // Create a rigid body in the world
         Vector3 n_position(camPos.x, camPos.y, camPos.z);
         Quaternion orientation = Quaternion::identity();
         Transform transform(n_position, orientation);
-
         RigidBody* rigidBody = world->createRigidBody(transform);
-
-        // Create a box collision shape
         BoxShape* boxShape = LabEngine::getInstance().physicsCommon.createBoxShape(Vector3(0.5, 0.5, 0.5));
-
-        // Relative transform
         Transform r_transform = Transform::identity();
-
-        // Add the collider to the rigidbody
         Collider* collider;
         collider = rigidBody->addCollider(boxShape, r_transform);
-
         test_cube* newCube = new test_cube();
+       // std::unique_ptr<test_cube> newCube = std::make_unique<test_cube>();
         newCube->Init();
         float force = 10.0f;
-
-        // Set the initial linear velocity based on camera direction
         rigidBody->setLinearVelocity(Vector3(camFront.x * force, camFront.y * force, camFront.z * force));
-
         newCube->rigidBody = rigidBody;
         engRef.gameObjects.push_back(newCube);
-
         keyStates[GLFW_KEY_SPACE] = true;
     }
     else if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_SPACE) == GLFW_RELEASE)
     {
         keyStates[GLFW_KEY_SPACE] = false;
     }
-
-
 }
 
 // ARROWS
@@ -162,8 +152,8 @@ void SpecialKeys::right_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
 void SpecialKeys::up_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
 {
    // handleKeyEntered(m_PixelsGLFWWindow, GLFW_KEY_UP, keyStates[GLFW_KEY_UP], nullptr);
-
 }
+
 
 void SpecialKeys::down_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
 {
@@ -172,15 +162,11 @@ void SpecialKeys::down_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
 }
 
 
-
-
 void SpecialKeys::displayDemoWindow()
 {
-   // gui->show_demo_window = !gui->show_demo_window;
     auto gui = LabEngine::getInstance().gui;
     gui->show_demo_window = !gui->show_demo_window;
 }
-
 
 
 void SpecialKeys::displayGroupPhoto()
@@ -188,7 +174,6 @@ void SpecialKeys::displayGroupPhoto()
     auto gui = LabEngine::getInstance().gui;
     gui->show_image = !gui->show_image;
 }
-
 
 
 void SpecialKeys::toggleLighting()
@@ -210,6 +195,9 @@ void SpecialKeys::toggleLighting()
 
 void SpecialKeys::readTaskInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT)
 {
+    Pause_Menu m_Pause;
+    bool paused = false;
+
     // letters
     F_KeyEntered(m_PixelsGLFWWindow);
     K_KeyEntered(m_PixelsGLFWWindow);
@@ -225,9 +213,17 @@ void SpecialKeys::readTaskInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT)
     up_KeyEntered(m_PixelsGLFWWindow);
     down_KeyEntered(m_PixelsGLFWWindow);
 
+    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+    {
+        // Check for escape key press
+            // Create an instance of Menu_Manager
+        Menu_Manager menuManager;
 
-    if (glfwGetKey(m_PixelsGLFWWindow, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
-        glfwSetWindowShouldClose(m_PixelsGLFWWindow, true);
+        // Push the Pause_Command to the command stack
+        menuManager.pushCommand(std::make_shared<Pause_Command>());
+
+        // Generate the menu
+        menuManager.generateMenu();
     }
 }
 
