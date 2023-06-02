@@ -79,4 +79,5 @@ test_cube::~test_cube()
 void test_cube::collisionEvent(GameObject* gameObj) 
 {
 	//std::cout << "Box Class dealing with a collision event" << std::endl;
+	LabEngine::getInstance().ourGameData.score++;
 }

@@ -52,6 +52,11 @@ using namespace reactphysics3d;
 
 #include "PhysicsController.h"
 
+
+struct GameData {
+	int score  = 0;
+};
+
 class NPC;
 
 		/******************************************************************************************************************************************
@@ -109,6 +114,8 @@ class NPC;
 			// Physics
 			PhysicsController* physController = nullptr;
 
+
+			GameData ourGameData;
 
 				/******************************************************************************************************************************************
 				 * @brief  : init()

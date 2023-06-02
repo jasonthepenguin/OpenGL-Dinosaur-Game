@@ -16,6 +16,9 @@ const int HEIGHT = 1080;
 
 void LabEngine::init()
 {
+
+	ourGameData.score = 0;
+
 	// create the m_PixelsGLFWWindow
 	int width = WIDTH;
 	int height = HEIGHT;

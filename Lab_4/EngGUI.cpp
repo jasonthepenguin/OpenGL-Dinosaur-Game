@@ -65,6 +65,8 @@ void EngGUI::BeginFrame()
 		ImGui::Text("- Press Space key to spawn boxes (test)");
 		ImGui::Text("- Press the F key to fly!");
 		ImGui::Text("- Use the mouse to look!");
+		ImGui::Text("\n");
+		ImGui::Text("Player Score : %d", LabEngine::getInstance().ourGameData.score);
 		ImGui::End();
 
 		if (show_image) {
@@ -80,6 +82,25 @@ void EngGUI::BeginFrame()
 		}
 
 
+	}
+
+	if (ImGui::BeginMainMenuBar()) {
+		if (ImGui::BeginMenu("File")) {
+			if (ImGui::MenuItem("Save")) {
+				//save_game();
+			}
+			if (ImGui::MenuItem("Load")) {
+				//load_game();
+			}
+			if (ImGui::MenuItem("Quit")) {
+				//glfwSetWindowShouldClose(window, true);
+				LabEngine::getInstance().m_window->shouldClose();
+				//std::cout << "Button pressed!" << std::endl;
+				exit(0);
+			}
+			ImGui::EndMenu();
+		}
+		ImGui::EndMainMenuBar();
 	}
 
 }
