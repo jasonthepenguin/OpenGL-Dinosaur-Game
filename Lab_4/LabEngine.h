@@ -53,6 +53,11 @@ using namespace reactphysics3d;
 #include "PhysicsController.h"
 
 
+#include <cstdlib>
+#include <cmath>
+
+
+
 struct GameData {
 	int score  = 0;
 };

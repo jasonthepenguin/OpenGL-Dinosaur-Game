@@ -235,7 +235,7 @@ void NPC::chooseRandomDirection()
 	//std::cout << "We are choosing a random direction!" << std::endl;
 
 	float PI = 3.145;
-	srand(static_cast<unsigned int>(time(0)));  // seed the random number generator
+	//srand(static_cast<unsigned int>(time(0)));  // seed the random number generator
 
 
 	float randomAngle = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (2 * PI)));

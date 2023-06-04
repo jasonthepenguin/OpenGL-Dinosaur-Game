@@ -16,6 +16,7 @@ const int HEIGHT = 1080;
 
 void LabEngine::init()
 {
+	srand(static_cast<unsigned int>(time(0)));
 
 	ourGameData.score = 0;
 
