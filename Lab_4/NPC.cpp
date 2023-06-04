@@ -72,8 +72,21 @@ void NPC::ForwardLook()
 void NPC::collisionEvent(GameObject * gameObj)
 {
 	//std::cout << "NPC Class dealing with a collision event" << std::endl;
+	NPC* npc = dynamic_cast<NPC*>(gameObj);
 
-	position = spawnPoint;
+	// If the cast was successful, gameObj is indeed a NPC
+	if (npc != nullptr) {
+		//std::cout << "The collided GameObject is an NPC." << std::endl;
+		// Handle the collision with the NPC here
+	}
+	else {
+		//std::cout << "The collided GameObject is not an NPC." << std::endl;
+		// Handle the collision with a non-NPC object here
+		position = spawnPoint;
+	}
+
+
+	
 }
 
 NPC::~NPC()
