@@ -218,6 +218,7 @@
     <ClInclude Include="AABB.h" />
     <ClInclude Include="assert.hpp" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="dynamicEnum.h" />
     <ClInclude Include="EngGUI.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Graphics.h" />
@@ -244,6 +245,7 @@
     <ClInclude Include="SpecialKeys.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateMachine.h" />
+    <ClInclude Include="telegram.h" />
     <ClInclude Include="textureGenerator.h" />
     <ClInclude Include="TinyObjLoader.h" />
     <ClInclude Include="UI_Manager.h" />

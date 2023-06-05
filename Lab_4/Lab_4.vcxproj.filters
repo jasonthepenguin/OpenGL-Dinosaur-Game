@@ -308,6 +308,12 @@
     <ClInclude Include="Prop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="telegram.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dynamicEnum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="container.jpg">

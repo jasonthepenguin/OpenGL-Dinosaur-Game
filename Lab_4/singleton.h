@@ -18,3 +18,11 @@ private:
 	singleton(singleton const&);
 	singleton& operator=(singleton const&);
 };
+
+
+#include "dynamicEnum.h"
+
+
+typedef singleton<dynamicEnum> message;
+
+#define fsmMessage message::Instance()

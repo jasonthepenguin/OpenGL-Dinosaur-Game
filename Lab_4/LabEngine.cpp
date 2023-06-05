@@ -1,6 +1,6 @@
 #include "LabEngine.h"
 
-
+#include "singleton.h"
 
 
 //using Lab::LabEngine;
@@ -314,6 +314,10 @@ void LabEngine::setupLuaAI()
 
 	lua.new_usertype<StateMachine<NPC>>("FSM",
 		"changeState", &StateMachine<NPC>::changeState);
+
+
+	// FSM messaging
+	fsmMessage.addValue("COME_HERE_NOW");
 }
 
 void LabEngine::run()
