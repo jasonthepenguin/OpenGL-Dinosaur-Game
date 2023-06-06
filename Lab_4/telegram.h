@@ -5,6 +5,8 @@
 #include <iostream>
 #include <cmath>
 
+#include <sol/sol.hpp>
+
 struct telegram
 {
 	// messages can be dispatched immediately (0.0) or delayed for a specific
@@ -17,9 +19,13 @@ struct telegram
 	// in the file "MessageTypes.h"
 	int msg;
 	// any additional information that may accompany the message
-	void* extraInfo;
+	//void* extraInfo;
+	sol::object extraInfo;
+
 	telegram() : dispatchTime(-1), sender(-1), receiver(-1), msg(-1) {}
-	telegram(double time, int sender, int receiver, int msg, void* info = NULL) :
+
+
+	telegram(double time, int sender, int receiver, int msg, sol::object info) :
 		dispatchTime(time), sender(sender), receiver(receiver),
 		msg(msg), extraInfo(info) {}
 	

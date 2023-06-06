@@ -20,7 +20,7 @@ private:
 
 public:
 	void dispatchMsg(double delay, int sender, int receiver, int msg,
-		void* extraInfo = NULL);
+		sol::object additionalInfo);
 
 	void dispatchDelayedMessages();
 	

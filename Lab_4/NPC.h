@@ -34,6 +34,8 @@ using namespace reactphysics3d;
 #include "State.h"
 #include "StateMachine.h"
 
+#include <sol/sol.hpp>
+
 // TESTING
 
 
@@ -127,8 +129,11 @@ public:
 	bool handleMessage(const telegram& msg) override;
 
 
+//	void sendMessage(double delay, int sender, int receiver,
+//		int msg, void* additionalInfo = NULL);
+
 	void sendMessage(double delay, int sender, int receiver,
-		int msg, void* additionalInfo = NULL);
+				int msg, sol::object additionalInfo);
 
 
 

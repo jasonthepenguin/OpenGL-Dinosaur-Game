@@ -10,7 +10,7 @@ void messageDispatcher::discharge(NPC* pReceiver, const telegram& msg) {
 }
 
 void messageDispatcher::dispatchMsg(double delay, int sender, int receiver,
-	int msg, void* additionalInfo) {
+	int msg, sol::object additionalInfo) {
 	NPC* pReceiver = entityMgr.getEntityFromID(receiver);
 	if (pReceiver == NULL) {
 		std::cerr << "\nWarning! No Receiver with ID of " << receiver << " found" << std::endl;

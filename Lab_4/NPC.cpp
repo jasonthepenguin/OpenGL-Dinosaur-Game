@@ -98,7 +98,7 @@ bool NPC::handleMessage(const telegram& msg)
 
 
 void NPC::sendMessage(double delay, int sender, int receiver,
-	int msg, void* additionalInfo)
+	int msg, sol::object additionalInfo)
 {
 	messageMgr.dispatchMsg(delay, sender, receiver, msg, additionalInfo);
 	std::cout << "MESSAGE DISPATCHED" << std::endl;
