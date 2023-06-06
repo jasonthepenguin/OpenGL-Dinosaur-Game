@@ -147,6 +147,9 @@
     <ClCompile Include="playerStates.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="entityManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\fragmentShader.shader" />
@@ -312,6 +315,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="dynamicEnum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="entityManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

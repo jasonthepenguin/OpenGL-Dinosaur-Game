@@ -52,6 +52,11 @@ class GameObject
 			}
 		}
 
+		GameObject() {
+			id = getNextID();
+			//std::cout << "Current ID : " << id << std::endl;
+		}
+
 
 		    /********************************************************************************************************
              * @brief : Update
@@ -75,5 +80,21 @@ class GameObject
              ********************************************************************************************************/
 
 		virtual void Init() = 0;
+
+protected:
+
+	int id; // unique individual ID
+
+	static int nextID;
+
+
+
+	int getNextID()
+	{
+		return nextID++;
+
+	}
+
 };
 
+inline int GameObject::nextID = 0;

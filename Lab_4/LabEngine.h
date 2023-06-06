@@ -93,7 +93,7 @@ class NPC;
 			// Objects
 			Terrain *simpleTerrain;   /// object to the terrain class to create a terrain
 			std::vector<GameObject*> gameObjects; /// an std::vector of gameObjects to generate game objects
-			std::vector<NPC*> npcList;
+			//std::vector<NPC*> npcList;
 
 
 			std::unique_ptr<Graphics> graphics;	  /// an std::unique_ptr<Graphics> used to create the graphics Factory

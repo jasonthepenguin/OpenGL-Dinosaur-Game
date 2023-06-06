@@ -82,7 +82,9 @@ state_wander["Execute"] = function(npc)
 
     if(cooldown == true ) then
         npc.npcFSM:changeState("state_idle")
-
+    elseif(npc:distanceToPlayer() <= 10) then
+        npc.npcFSM:changeState("state_chase")
+    
     else
         npc:wander()
     end

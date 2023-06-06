@@ -197,7 +197,7 @@ void LabEngine::loadNPCs()
 		newNPC->loadMD2Model((char*)md2Path.c_str(), (char*)md2texture.c_str());
 		
 		gameObjects.push_back(newNPC);
-		npcList.push_back(newNPC);
+		//npcList.push_back(newNPC);
 
 	}
 	
@@ -318,6 +318,7 @@ void LabEngine::setupLuaAI()
 
 	// FSM messaging
 	fsmMessage.addValue("COME_HERE_NOW");
+	// std::cout << fsmMessage << std::endl;
 }
 
 void LabEngine::run()
