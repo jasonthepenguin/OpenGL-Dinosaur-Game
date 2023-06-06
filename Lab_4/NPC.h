@@ -124,6 +124,13 @@ public:
 
 
 	void collisionEvent(GameObject* gameObj) override;
+	bool handleMessage(const telegram& msg) override;
+
+
+	void sendMessage(double delay, int sender, int receiver,
+		int msg, void* additionalInfo = NULL);
+
+
 
 
 	~NPC();

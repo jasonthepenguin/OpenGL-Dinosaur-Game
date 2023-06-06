@@ -6,7 +6,7 @@
 #include <glm/gtc/quaternion.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-
+#include "telegram.h"
 #include "AABB.h"
 
 #include <string>
@@ -55,6 +55,16 @@ class GameObject
 		GameObject() {
 			id = getNextID();
 			//std::cout << "Current ID : " << id << std::endl;
+		}
+
+		int getID()
+		{
+			return id;
+		}
+
+		virtual bool handleMessage(const telegram& msg)
+		{
+			return false;
 		}
 
 

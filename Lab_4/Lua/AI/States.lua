@@ -23,16 +23,31 @@ state_idle["Exit"] = function(npc)
 
 end
 
+state_idle["onMessage"] = function(npc,msg)
+
+    if(msg.msg==1) then
+        print("message received")
+      end
+
+     
+
+end
+
 
 -----------------------------------------
 -- tables that C++ can access to keep track and change state, pass the NPC to this lua state, lua then calls the appropriate npc functions
 state_chase = {}
 state_chase["Enter"] = function(npc)
+        print("Entering state_chase")
         npc:playAnimation("run")
+        ourID = npc:getID()
+       -- print(ourID)
+        npc:sendMessage(0.0 ,ourID,1,4)
+        print("sendMessage called from Lua")
 end
 state_chase["Execute"] = function(npc)
         npc:lookAtplayer()
-
+       -- print('hi')
         if(npc:distanceToPlayer() <= 5) then
             npc.npcFSM:changeState("state_attack")
         elseif(npc:distanceToPlayer() > 10) then
@@ -44,6 +59,12 @@ state_chase["Execute"] = function(npc)
 end
 state_chase["Exit"] = function(npc)
         --nothing for now
+end
+
+state_chase["onMessage"] = function(npc,msg)
+
+
+
 end
 
 -----------------------------------------
@@ -66,6 +87,12 @@ state_attack["Execute"] = function(npc)
 end
 state_attack["Exit"] = function(npc)
     --nothing for now
+end
+
+state_attack["onMessage"] = function(npc,msg)
+
+
+
 end
 
 
@@ -94,3 +121,17 @@ end
 state_wander["Exit"] = function(npc)
 
 end
+
+state_wander["onMessage"] = function(npc,msg)
+
+    if(msg.msg==1) then
+        print("I'm coming to help!")
+       -- player:setEnemyTarget(msg.extraInfo:getX(),msg.extraInfo:getY())
+      --  player:getFSM():changeState(state_chase)
+      --  player:moveToEnemy()
+      end
+
+end
+
+
+

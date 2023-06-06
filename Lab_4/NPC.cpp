@@ -2,6 +2,8 @@
 #include "NPC.h"
 #include "playerStates.h"
 
+#include "singleton.h"
+
 NPC::NPC()
 {
 	//npcFSM = new StateMachine<NPC>(this);
@@ -88,6 +90,23 @@ void NPC::collisionEvent(GameObject * gameObj)
 
 	
 }
+
+bool NPC::handleMessage(const telegram& msg)
+{
+	return npcFSM->handleMessage(msg);
+}
+
+
+void NPC::sendMessage(double delay, int sender, int receiver,
+	int msg, void* additionalInfo)
+{
+	messageMgr.dispatchMsg(delay, sender, receiver, msg, additionalInfo);
+	std::cout << "MESSAGE DISPATCHED" << std::endl;
+
+}
+
+
+
 
 NPC::~NPC()
 {

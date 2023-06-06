@@ -130,6 +130,22 @@ public:
 		changeState(previousState);
 	}
 
+	bool handleMessage(const telegram& msg)
+	{
+		/*
+		if (currentState.valid() && currentState->onMessage(owner, msg))
+		{
+			return true;
+		}
+		*/
+		if (currentState.valid())
+		{
+			currentState["onMessage"](owner, msg);
+			return true;
+		}
+		return false;
+	}
+
 	sol::table getPreviousState() { return previousState; }
 	sol::table getCurrentState() { return currentState; }
 	sol::table getGlobalState() { return globalState; }

@@ -197,6 +197,7 @@ void LabEngine::loadNPCs()
 		newNPC->loadMD2Model((char*)md2Path.c_str(), (char*)md2texture.c_str());
 		
 		gameObjects.push_back(newNPC);
+		entityMgr.registerEntity(newNPC);
 		//npcList.push_back(newNPC);
 
 	}
@@ -309,7 +310,15 @@ void LabEngine::setupLuaAI()
 		"wander", &NPC::wander,
 		"ForwardLook", &NPC::ForwardLook,
 		"npcFSM", &NPC::npcFSM,
-		"getCooldown", &NPC::getCooldown
+		"getCooldown", &NPC::getCooldown,
+		"sendMessage", &NPC::sendMessage,
+		"getID", &NPC::getID
+		);
+	
+	/**/
+	lua.new_usertype<telegram>(
+		"Telegram",
+		"msg", &telegram::msg
 		);
 
 	lua.new_usertype<StateMachine<NPC>>("FSM",

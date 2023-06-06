@@ -21,8 +21,13 @@ private:
 
 
 #include "dynamicEnum.h"
-
+#include "entityManager.h"
+#include "messageDispatcher.h"
 
 typedef singleton<dynamicEnum> message;
+typedef singleton<entityManager> entityMan;
+typedef singleton<messageDispatcher> messageMan;
 
 #define fsmMessage message::Instance()
+#define entityMgr entityMan::Instance()
+#define messageMgr messageMan::Instance()
