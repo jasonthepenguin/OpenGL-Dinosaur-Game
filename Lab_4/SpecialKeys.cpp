@@ -118,7 +118,7 @@ void SpecialKeys::Space_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
         test_cube* newCube = new test_cube();
        // std::unique_ptr<test_cube> newCube = std::make_unique<test_cube>();
         newCube->Init();
-        float force = 10.0f;
+        float force = 20.0f;
 
         // Set the initial linear velocity based on camera direction
         rigidBody->setLinearVelocity(Vector3(camFront.x * force, camFront.y * force, camFront.z * force));
