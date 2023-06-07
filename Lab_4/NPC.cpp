@@ -101,7 +101,7 @@ void NPC::sendMessage(double delay, int sender, int receiver,
 	int msg, sol::object additionalInfo)
 {
 	messageMgr.dispatchMsg(delay, sender, receiver, msg, additionalInfo);
-	std::cout << "MESSAGE DISPATCHED" << std::endl;
+	//std::cout << "MESSAGE DISPATCHED" << std::endl;
 
 }
 

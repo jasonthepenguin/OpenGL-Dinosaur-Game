@@ -24,13 +24,13 @@ state_idle["Exit"] = function(npc)
 end
 
 state_idle["onMessage"] = function(npc,msg)
-
     if(msg.msg==1) then
-        print("message received")
+        print("I'm coming to help!")
+       -- player:setEnemyTarget(msg.extraInfo:getX(),msg.extraInfo:getY())
+      --  player:getFSM():changeState(state_chase)
+      --  player:moveToEnemy()
       end
-
-     
-
+ 
 end
 
 
@@ -42,15 +42,15 @@ state_chase["Enter"] = function(npc)
         npc:playAnimation("run")
         ourID = npc:getID()
        -- print(ourID)
-        npc:sendMessage(0.0 ,ourID,1,4)
+        npc:sendMessage(0.0 ,ourID,7,1, 1)
         print("sendMessage called from Lua")
 end
 state_chase["Execute"] = function(npc)
         npc:lookAtplayer()
        -- print('hi')
-        if(npc:distanceToPlayer() <= 5) then
+        if(npc:distanceToPlayer() <= 5 - 0.5) then
             npc.npcFSM:changeState("state_attack")
-        elseif(npc:distanceToPlayer() > 10) then
+        elseif(npc:distanceToPlayer() > 10 + 0.5) then
             npc.npcFSM:changeState("state_idle")
         else    
             npc:moveToPlayer()
@@ -78,7 +78,7 @@ state_attack["Execute"] = function(npc)
 
     npc:lookAtplayer()
 
-    if(npc:distanceToPlayer() >= 5) then
+    if(npc:distanceToPlayer() >= 5 + 0.5) then
             npc.npcFSM:changeState("state_chase")
     else
         --npc:lookAtplayer()
