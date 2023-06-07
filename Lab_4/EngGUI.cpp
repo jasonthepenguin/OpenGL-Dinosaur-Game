@@ -66,7 +66,15 @@ void EngGUI::BeginFrame()
 		ImGui::Text("- Press the F key to fly!");
 		ImGui::Text("- Use the mouse to look!");
 		ImGui::Text("\n");
+
+		// Set the text color to red
+		ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 0.0f, 0.0f, 1.0f));
+
 		ImGui::Text("Player Score : %d", LabEngine::getInstance().ourGameData.score);
+
+		ImGui::PopStyleColor();
+
+
 		ImGui::End();
 
 		if (show_image) {
