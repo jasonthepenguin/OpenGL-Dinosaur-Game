@@ -52,7 +52,7 @@ void MovementKeys::movePlayer(Directions direction, float deltaT)
 {
     glm::vec3 movementDirection(0.0f, 0.0f, 0.0f);
 
-    float velocity = 2.5f * deltaT;
+    float velocity = 5.0f * deltaT;
 
     // Determine the movement direction based on the given direction
     switch (direction)

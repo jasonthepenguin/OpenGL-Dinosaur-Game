@@ -156,7 +156,9 @@ state_gotoWaypoint["Execute"] = function(npc)
 
     if(npc:distanceToWaypoint() < 3) then
         npc.npcFSM:changeState("state_idle")
-
+    elseif(npc:distanceToPlayer() <= 10) then
+        npc.npcFSM:changeState("state_chase")
+    
     else
         npc:moveToWaypoint()
     end
