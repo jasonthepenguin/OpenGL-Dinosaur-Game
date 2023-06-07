@@ -26,5 +26,11 @@ public:
 
 	void removeEntity(NPC* pEntity);
 
+	template <typename Func>
+	void forEachEntity(Func&& func) const {
+		for (const auto& entityPair : entityMap) {
+			func(entityPair.second);
+		}
+	}
 };
 

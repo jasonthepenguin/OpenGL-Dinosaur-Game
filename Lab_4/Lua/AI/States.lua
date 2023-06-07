@@ -24,6 +24,8 @@ state_idle["Exit"] = function(npc)
 end
 
 state_idle["onMessage"] = function(npc,msg)
+
+   
     if(msg.msg==1) then
         print("I'm coming to help!")
        -- player:setEnemyTarget(msg.extraInfo:getX(),msg.extraInfo:getY())
@@ -41,8 +43,10 @@ state_chase["Enter"] = function(npc)
         print("Entering state_chase")
         npc:playAnimation("run")
         ourID = npc:getID()
-       -- print(ourID)
-        npc:sendMessage(0.0 ,ourID,7,1, 1)
+      receiverID = npc:findClosestNPC()
+      print(receiverID)
+      --receiverID = 7
+        npc:sendMessage(0.0 ,ourID, receiverID,1, 1)
         print("sendMessage called from Lua")
 end
 state_chase["Execute"] = function(npc)
@@ -124,6 +128,7 @@ end
 
 state_wander["onMessage"] = function(npc,msg)
 
+    
     if(msg.msg==1) then
         print("I'm coming to help!")
        -- player:setEnemyTarget(msg.extraInfo:getX(),msg.extraInfo:getY())

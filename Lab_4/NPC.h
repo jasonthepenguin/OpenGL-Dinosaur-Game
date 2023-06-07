@@ -73,6 +73,7 @@ public:
 
 	glm::vec3 spawnPoint;
 	glm::vec3 wanderDirection;
+	glm::vec3 waypoint;
 
 
 	float walkingSpeed = 1.85f;
@@ -135,7 +136,10 @@ public:
 	void sendMessage(double delay, int sender, int receiver,
 				int msg, sol::object additionalInfo);
 
-
+	int findClosestNPC();
+	void setWaypoint(glm::vec3 newWaypoint);
+	void moveToWaypoint(); // called when we already have a waypoint set
+	int distanceToWaypoint();
 
 
 	~NPC();

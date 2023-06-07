@@ -18,3 +18,5 @@ void entityManager::removeEntity(NPC* pEntity) {
 void entityManager::registerEntity(NPC* newEntity) {
 	entityMap.insert(std::make_pair(newEntity->getID(), newEntity));
 }
+
+

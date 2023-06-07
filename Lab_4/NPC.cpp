@@ -102,7 +102,7 @@ void NPC::sendMessage(double delay, int sender, int receiver,
 {
 	messageMgr.dispatchMsg(delay, sender, receiver, msg, additionalInfo);
 	//std::cout << "MESSAGE DISPATCHED" << std::endl;
-
+	//std::cout << "Sending message. Sender: " << sender << ", Receiver: " << receiver << ", Msg: " << msg << std::endl;
 }
 
 
@@ -284,4 +284,60 @@ void NPC::wander()
 	glm::vec3 displacement = wanderDirection * walkingSpeed * LabEngine::getInstance().deltaTime;
 
 	position += displacement;
+}
+
+
+int NPC::findClosestNPC()
+{
+	
+	int closestEntityID = -1;
+	float minDistance = std::numeric_limits<float>::max();
+
+	entityMgr.forEachEntity([&](const NPC* entity) {
+
+
+		if (entity->getID() == this->getID()) {
+			// Skip the current NPC
+			return;
+		}
+
+		float distance = glm::distance(entity->position, position);
+
+		if (distance < minDistance) {
+			minDistance = distance;
+			closestEntityID = entity->getID();
+		}
+
+	});
+
+	if (closestEntityID == -1) {
+		std::cerr << "Couldn't find the closest entity :(" << std::endl;
+	}
+
+	
+	return closestEntityID;
+	//return 0;
+}
+void NPC::setWaypoint(glm::vec3 newWaypoint)
+{
+	waypoint = newWaypoint;
+}
+
+void NPC::moveToWaypoint()
+{
+
+	//glm::vec3 npcPosition = position; // Set this to your NPC's position
+//	glm::vec3 playerPosition = LabEngine::getInstance().m_camera->getCameraLocation(); // Set this to your player's position
+
+	float lerpFactor = walkingSpeed * LabEngine::getInstance().deltaTime;
+
+	glm::vec3 direction = glm::normalize(waypoint - position);
+
+	position += direction * lerpFactor;
+}
+
+int NPC::distanceToWaypoint()
+{
+
+	return glm::distance(waypoint, position);
 }

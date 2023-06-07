@@ -312,7 +312,11 @@ void LabEngine::setupLuaAI()
 		"npcFSM", &NPC::npcFSM,
 		"getCooldown", &NPC::getCooldown,
 		"sendMessage", &NPC::sendMessage,
-		"getID", &NPC::getID
+		"getID", &NPC::getID,
+		"findClosestNPC", &NPC::findClosestNPC,
+		"setWaypoint", &NPC::setWaypoint,
+		"moveToWaypoint", &NPC::moveToWaypoint,
+		"distanceToWaypoint", &NPC::distanceToWaypoint
 		);
 	
 	/**/

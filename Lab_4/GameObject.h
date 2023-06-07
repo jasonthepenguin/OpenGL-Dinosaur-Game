@@ -57,7 +57,7 @@ class GameObject
 			//std::cout << "Current ID : " << id << std::endl;
 		}
 
-		int getID()
+		int getID() const
 		{
 			return id;
 		}
