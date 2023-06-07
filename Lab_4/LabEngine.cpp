@@ -528,6 +528,8 @@ void LabEngine::run()
 
 		}
 		
+		//std::cout << m_camera->getCameraLocation().x << std::endl;
+		
 
 		// setting the MODEL, VIEW and PROJECTION matrices
 

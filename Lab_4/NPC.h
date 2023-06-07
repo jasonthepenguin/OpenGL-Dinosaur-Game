@@ -141,6 +141,7 @@ public:
 	void moveToWaypoint(); // called when we already have a waypoint set
 	int distanceToWaypoint();
 
+	void respawn();
 
 	~NPC();
 };

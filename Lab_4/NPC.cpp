@@ -19,6 +19,21 @@ void NPC::Update(float deltaTime)
 	// pos of assimp model
 
 
+		// Check if out of bounds
+	int heightFieldSize = LabEngine::getInstance().simpleTerrain->size;
+	float scaledHeightFieldSizeX = heightFieldSize * LabEngine::getInstance().simpleTerrain->scaleX;
+	float scaledHeightFieldSizeZ = heightFieldSize * LabEngine::getInstance().simpleTerrain->scaleZ;
+
+	if (position.x >= scaledHeightFieldSizeX || position.x <= 0) // checking on the X
+	{
+		respawn();
+	}
+	if (position.z >= scaledHeightFieldSizeZ || position.z <= 0) // checking on the Z
+	{
+		respawn();
+	}
+
+
 	if (boundingBox != nullptr)
 	{
 		boundingBox->updateAABBPosition(position);
@@ -27,6 +42,11 @@ void NPC::Update(float deltaTime)
 
 	//moveToPlayer();
 	npcFSM->update();
+
+
+
+
+
 
 	// adjust npc height to terrain floor
 	float scaleOffSetX = 1 / LabEngine::getInstance().simpleTerrain->scaleX;
@@ -84,12 +104,60 @@ void NPC::collisionEvent(GameObject * gameObj)
 	else {
 		//std::cout << "The collided GameObject is not an NPC." << std::endl;
 		// Handle the collision with a non-NPC object here
-		position = spawnPoint;
+		//position = spawnPoint;
+
+		respawn();
+		waypoint = position; // this is a cheap hack and I shouldn't be doing this
+
 	}
 
 
 	
 }
+
+void NPC::respawn()
+{
+
+	// get size of the terrain on both x and z 
+	int TerrainSize = LabEngine::getInstance().simpleTerrain->size;
+	glm::vec3 newSpawnPoint;
+
+
+
+	// generate two random X and Z values that fit in the terrain size
+	int min = 10;
+
+	int randomPosX = min + (std::rand() % (TerrainSize - min + 1));
+	int randomPosZ = randomPosX;
+	int newY = 0;
+	LabEngine::getInstance().simpleTerrain->getHeight(randomPosX, randomPosZ);
+
+	//std::cout << "The randomly generated new spawn point number is : (" << randomPosX << " , " << randomPosZ << ")" << std::endl;
+
+	randomPosX *= LabEngine::getInstance().simpleTerrain->scaleX;
+	randomPosZ *= LabEngine::getInstance().simpleTerrain->scaleZ;
+
+	//std::cout << "The randomly generated new spawn point number is : (" << randomPosX << " , " << randomPosZ << ")" << std::endl;
+
+	position.x = randomPosX;
+	position.y = newY;
+	position.z = randomPosZ;
+	while (distanceToPlayer() <= 10)
+	{
+		randomPosX = min + (std::rand() % (TerrainSize - min + 1));
+		randomPosZ = randomPosX;
+		newY = 0;
+		LabEngine::getInstance().simpleTerrain->getHeight(randomPosX, randomPosZ);
+
+		position.x = randomPosX;
+		position.y = newY;
+		position.z = randomPosZ;
+
+	}
+
+}
+
+
 
 bool NPC::handleMessage(const telegram& msg)
 {
