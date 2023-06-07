@@ -27,10 +27,11 @@ state_idle["onMessage"] = function(npc,msg)
 
    
     if(msg.msg==1) then
-        print("I'm coming to help!")
-       -- player:setEnemyTarget(msg.extraInfo:getX(),msg.extraInfo:getY())
-      --  player:getFSM():changeState(state_chase)
-      --  player:moveToEnemy()
+        print("I'm coming to help! from idle")
+        local position = msg.extraInfo
+       -- print("Received position: ", position.x, position.y, position.z)
+        npc:setWaypoint(position)
+        npc.npcFSM:changeState("state_gotoWaypoint")
       end
  
 end
@@ -40,14 +41,13 @@ end
 -- tables that C++ can access to keep track and change state, pass the NPC to this lua state, lua then calls the appropriate npc functions
 state_chase = {}
 state_chase["Enter"] = function(npc)
-        print("Entering state_chase")
+        --print("Entering state_chase")
         npc:playAnimation("run")
         ourID = npc:getID()
       receiverID = npc:findClosestNPC()
       print(receiverID)
-      --receiverID = 7
-        npc:sendMessage(0.0 ,ourID, receiverID,1, 1)
-        print("sendMessage called from Lua")
+      print("Someone come over here!")
+        npc:sendMessage(0.0 ,ourID, receiverID,1, npc.position)
 end
 state_chase["Execute"] = function(npc)
         npc:lookAtplayer()
@@ -130,13 +130,45 @@ state_wander["onMessage"] = function(npc,msg)
 
     
     if(msg.msg==1) then
-        print("I'm coming to help!")
-       -- player:setEnemyTarget(msg.extraInfo:getX(),msg.extraInfo:getY())
-      --  player:getFSM():changeState(state_chase)
-      --  player:moveToEnemy()
+        print("I'm coming to help! From wander")
+        local position = msg.extraInfo
+        -- print("Received position: ", position.x, position.y, position.z)
+         npc:setWaypoint(position)
+         npc.npcFSM:changeState("state_gotoWaypoint")
+
+
       end
 
 end
 
 
+----------------------------
 
+state_gotoWaypoint = {}
+state_gotoWaypoint["Enter"] = function(npc)
+    
+    npc:playAnimation("run")
+end
+
+state_gotoWaypoint["Execute"] = function(npc)
+    
+    npc:lookAtplayer()
+
+    if(npc:distanceToWaypoint() < 3) then
+        npc.npcFSM:changeState("state_idle")
+
+    else
+        npc:moveToWaypoint()
+    end
+
+
+end
+
+state_gotoWaypoint["Exit"] = function(npc)
+    
+end
+
+state_gotoWaypoint["onMessage"] = function(npc, msg)
+
+    
+end

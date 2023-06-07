@@ -316,14 +316,23 @@ void LabEngine::setupLuaAI()
 		"findClosestNPC", &NPC::findClosestNPC,
 		"setWaypoint", &NPC::setWaypoint,
 		"moveToWaypoint", &NPC::moveToWaypoint,
-		"distanceToWaypoint", &NPC::distanceToWaypoint
+		"distanceToWaypoint", &NPC::distanceToWaypoint,
+		"position", &NPC::position
 		);
 	
 	/**/
 	lua.new_usertype<telegram>(
 		"Telegram",
-		"msg", &telegram::msg
+		"msg", &telegram::msg,
+		"extraInfo", &telegram::extraInfo
 		);
+
+	lua.new_usertype<glm::vec3>("vec3",
+		"x", &glm::vec3::x,
+		"y", &glm::vec3::y,
+		"z", &glm::vec3::z
+		);
+
 
 	lua.new_usertype<StateMachine<NPC>>("FSM",
 		"changeState", &StateMachine<NPC>::changeState);
