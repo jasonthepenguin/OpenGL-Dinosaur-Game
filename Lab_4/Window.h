@@ -50,6 +50,14 @@ public:
 	
 	float getTime();
 
+
+		/***********************************************************
+		 * @brief : toggleMouse
+		 * @brief : used to toggle the mouse between being locked and able to move freely and visible
+		 **********************************************************/
+
+	void toggleMouse();
+
 	GLFWwindow* m_PixelsGLFWWindow;
 
 
@@ -62,6 +70,8 @@ private:
 
 	int m_width;
 	int m_height;
+
+	bool m_IsMouseLocked = true;
 
 	static void frameBufferSizeCallback(GLFWwindow* window, int width, int height);
 };

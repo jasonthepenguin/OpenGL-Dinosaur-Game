@@ -97,3 +97,17 @@ void Window::processInput()
 	// Except maybe just also check if you want to exit the program
 
 }
+
+
+void Window::toggleMouse() {
+	if (m_IsMouseLocked) {
+		// Unlock the mouse cursor
+		glfwSetInputMode(m_PixelsGLFWWindow, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+	}
+	else {
+		// Lock the mouse cursor
+		glfwSetInputMode(m_PixelsGLFWWindow, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	}
+	// Toggle the state
+	m_IsMouseLocked = !m_IsMouseLocked;
+}

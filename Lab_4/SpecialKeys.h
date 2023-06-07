@@ -30,7 +30,7 @@ class SpecialKeys
              ***********************************************************************************************************************************************************************/
 
         ~SpecialKeys();
-        void handleKeyEntered(GLFWwindow* m_PixelsGLFWWindow, int key, bool& keyState, void (SpecialKeys::* action)());
+        void handleKeyEntered(GLFWwindow* m_PixelsGLFWWindow, int key, bool& keyState, void (SpecialKeys::* action)() = nullptr);
 
         // LETTERS
         void F_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
@@ -39,6 +39,7 @@ class SpecialKeys
         void M_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
         void X_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
         void Space_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
+        void U_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
 
         // ARROWS
         void left_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
@@ -121,6 +122,17 @@ class SpecialKeys
 
        // void readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT, ModelController& modelController, Camera& camera);
         void readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT);
+
+
+        /**
+         * @brief Toggles the state of the mouse cursor between locked and free.
+         *
+         * When the cursor is locked, it is hidden and its movement is limited to the window.
+         * When the cursor is free, it is visible and can move anywhere on the screen.
+         * This function changes the cursor state each time it is called, alternating between locked and free.
+         */
+        void toggleMouseAction();
+
 
 
         bool isFlying; // probably should be a variable of a player class?

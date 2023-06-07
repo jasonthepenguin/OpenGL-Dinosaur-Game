@@ -65,6 +65,8 @@ void EngGUI::BeginFrame()
 		ImGui::Text("- Press Space key to spawn boxes (test)");
 		ImGui::Text("- Press the F key to fly!");
 		ImGui::Text("- Use the mouse to look!");
+		ImGui::Text("- Press U to lock or unlock the cursor!");
+		ImGui::Text("- You can open the options by unlocking \n the cursor, and clicking File (top-left)!");
 		ImGui::Text("\n");
 
 		// Set the text color to red

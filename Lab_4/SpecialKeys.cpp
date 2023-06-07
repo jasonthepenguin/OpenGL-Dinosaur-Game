@@ -44,7 +44,10 @@ void SpecialKeys::handleKeyEntered(GLFWwindow* m_PixelsGLFWWindow, int key, bool
 {
     if (glfwGetKey(m_PixelsGLFWWindow, key) == GLFW_PRESS && !keyState)
     {
-        (this->*action)();
+        if (action != nullptr) {
+            (this->*action)();
+        }
+
         keyState = true;
     }
     else if (glfwGetKey(m_PixelsGLFWWindow, key) == GLFW_RELEASE)
@@ -81,6 +84,11 @@ void SpecialKeys::M_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
 void SpecialKeys::X_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
 {
     handleKeyEntered(m_PixelsGLFWWindow, GLFW_KEY_X, keyStates[GLFW_KEY_X], &SpecialKeys::displayGroupPhoto);
+}
+
+void SpecialKeys::U_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
+{
+    handleKeyEntered(m_PixelsGLFWWindow, GLFW_KEY_U, keyStates[GLFW_KEY_U], &SpecialKeys::toggleMouseAction);
 }
 
 
@@ -137,6 +145,11 @@ void SpecialKeys::Space_KeyEntered(GLFWwindow* m_PixelsGLFWWindow)
     }
 
 
+}
+
+void SpecialKeys::toggleMouseAction()
+{
+    LabEngine::getInstance().m_window->toggleMouse();
 }
 
 // ARROWS
@@ -224,6 +237,7 @@ void SpecialKeys::readTaskInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT)
     L_KeyEntered(m_PixelsGLFWWindow);
     M_KeyEntered(m_PixelsGLFWWindow);
     X_KeyEntered(m_PixelsGLFWWindow);
+    U_KeyEntered(m_PixelsGLFWWindow);
 
     Space_KeyEntered(m_PixelsGLFWWindow);
 
