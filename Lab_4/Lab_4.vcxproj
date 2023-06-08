@@ -176,6 +176,7 @@
     <ClCompile Include="Mouse_Input.cpp" />
     <ClCompile Include="MovementKeys.cpp" />
     <ClCompile Include="OpenGLTexture.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="playerStates.cpp" />
     <ClCompile Include="PNG_Texture.cpp" />
     <ClCompile Include="Prop.cpp" />
@@ -242,6 +243,7 @@
     <ClInclude Include="Mouse_Input.h" />
     <ClInclude Include="MovementKeys.h" />
     <ClInclude Include="PhysicsController.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="playerStates.h" />
     <ClInclude Include="Prop.h" />
     <ClInclude Include="Rain.h" />
