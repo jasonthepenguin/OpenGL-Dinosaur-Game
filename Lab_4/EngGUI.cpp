@@ -216,8 +216,15 @@ void EngGUI::generatePauseMenu(bool men)
 		LabEngine::getInstance().m_window->setMouse(false);
 		timeMgr.getTimer("gameEndTimer")->reset();
 		timeMgr.getTimer("gameEndTimer")->disableToggle();
-		//std::cout << " is disabled : " << timeMgr.getTimer("gameEndTimer")->isDisabled() <<
-	//	" is expired : " << timeMgr.getTimer("gameEndTimer")->isExpired() << std::endl;;
+
+		LabEngine::getInstance().ourGameData.score = 0;
+		// respawn our player
+		auto simpleTerrain = LabEngine::getInstance().simpleTerrain;
+		auto m_camera = LabEngine::getInstance().m_camera;
+		float startX = ((float)simpleTerrain->size / 2.0);
+		float startZ = ((float)simpleTerrain->size / 2.0);
+		float startY = simpleTerrain->getHeight(startX, startZ);
+		m_camera->setCameraLocation(glm::vec3(startX * simpleTerrain->scaleX, startY + 1, startZ * simpleTerrain->scaleZ));
 		LabEngine::getInstance().isGameReset = false;
 
 	}

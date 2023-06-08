@@ -409,7 +409,7 @@ void LabEngine::run()
 	//---------------------------------------
 	
 	// basic timer stuff ( probably move this elsewhere, but running out of time :( 
-	timeMgr.createTimer("gameEndTimer", 10);
+	timeMgr.createTimer("gameEndTimer", 60);
 	timeMgr.getTimer("gameEndTimer")->start();
 
 
