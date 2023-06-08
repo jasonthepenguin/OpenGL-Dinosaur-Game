@@ -83,9 +83,20 @@ class EngGUI
 
         void load_game();
 
+        void setupUserInterfaceStyle();
+
+        void demoWindow();
+        void imageWindow();
+        void callPauseMenu();
+        void generatePauseMenu(bool men);
+
+        void generateCustomerSupport();
+        void backButton();
+
 
         bool show_demo_window = true; 
         bool show_image = false; 
+        bool showPauseMenu = false;
 
         unsigned int image_texture_id;
 
