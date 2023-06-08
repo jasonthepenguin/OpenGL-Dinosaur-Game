@@ -74,25 +74,30 @@ void Camera::setCameraYaw(float tempYaw)                              { m_Camera
 
 void Camera::readMouseMovement(float xoffset, float yoffset, GLboolean constrainPitch)
 {
-    float sensitivity = 0.1f;
-    xoffset *= sensitivity;
-    yoffset *= sensitivity;
+    if (m_mouseMovementAllowed) {
 
 
-    m_CameraYaw += xoffset;
-    m_CameraPitch += yoffset;
+
+        float sensitivity = 0.1f;
+        xoffset *= sensitivity;
+        yoffset *= sensitivity;
 
 
-    if (constrainPitch)
-    {
-        if (m_CameraPitch > 89.0f)
+        m_CameraYaw += xoffset;
+        m_CameraPitch += yoffset;
+
+
+        if (constrainPitch)
         {
-            m_CameraPitch = 89.0f;
-        }
+            if (m_CameraPitch > 89.0f)
+            {
+                m_CameraPitch = 89.0f;
+            }
 
-        if (m_CameraPitch < -89.0f)
-        {
-            m_CameraPitch = -89.0f;
+            if (m_CameraPitch < -89.0f)
+            {
+                m_CameraPitch = -89.0f;
+            }
         }
     }
     updateCameraVectors();

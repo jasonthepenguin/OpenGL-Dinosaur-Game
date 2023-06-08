@@ -203,6 +203,7 @@ void SpecialKeys::displayDemoWindow()
 
     gui->showPauseMenu = !gui->showPauseMenu;
     LabEngine::getInstance().m_window->toggleMouse();
+    LabEngine::getInstance().m_camera->toggleMouseMovement();
 }
 
 

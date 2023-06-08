@@ -287,6 +287,7 @@ void EngGUI::generatePauseMenu(bool men)
 	if (ImGui::Button("Resume", ImVec2(-1, 0))) { show_menu = false; 
 	showPauseMenu = false;
 	LabEngine::getInstance().m_window->toggleMouse();
+	LabEngine::getInstance().m_camera->toggleMouseMovement();
 	}
 
 	// Call your functions here

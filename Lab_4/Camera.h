@@ -259,6 +259,12 @@ public:
 
     bool canFly = false; // MOVE THIS TO LIKE A PLAYER CLASS LATER
 
+
+    void toggleMouseMovement()
+    {
+        m_mouseMovementAllowed = !m_mouseMovementAllowed;
+    }
+
 private:
 
     float m_CameraYaw;
@@ -269,6 +275,8 @@ private:
     glm::vec3 m_Direction;
     glm::vec3 m_VerticalPlane;
     glm::vec3 m_HorizontalPlane;
+
+    bool m_mouseMovementAllowed;
 
 
     /********************************************************************************************************
