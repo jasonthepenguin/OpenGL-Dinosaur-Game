@@ -108,7 +108,7 @@ void NPC::collisionEvent(GameObject * gameObj)
 
 		respawn();
 		waypoint = position; // this is a cheap hack and I shouldn't be doing this
-
+		soundMgr.playSound("slap");
 	}
 
 

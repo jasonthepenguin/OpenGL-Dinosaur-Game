@@ -5,6 +5,8 @@
 void SoundManager::addTrack(const std::string& filepath) {
     std::string songName = getFileName(filepath);
     soundMap[songName] = filepath;
+
+    std::cout << songName << " , " << filepath << std::endl;
 }
 
 
@@ -34,11 +36,13 @@ void SoundManager::playSound(const std::string& songName) {
     auto it = soundMap.find(songName);
     if (it == soundMap.end()) {
         // The song was not found
+        std::cout << "SONG NOT FOUND" << std::endl;
         return;
     }
 
     if (!buffer.loadFromFile(it->second)) {
         // Failed to load the sound
+        std::cout << "SONG NOT FOUND" << std::endl;
         return;
     }
 

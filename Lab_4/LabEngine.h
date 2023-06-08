@@ -178,6 +178,7 @@ class NPC;
 			void setupLuaAI();
 			void loadNPCs();
 			void loadProps();
+			void loadSoundEffects();
 
 		private:
 

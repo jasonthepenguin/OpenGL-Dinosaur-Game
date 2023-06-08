@@ -231,6 +231,20 @@ void LabEngine::loadProps() {
 	}
 }
 
+void LabEngine::loadSoundEffects()
+{
+	lua.script_file("Lua/Sounds.lua");
+
+	sol::table sounds_table = lua["sounds"];
+	std::string filepath;
+
+	for (size_t i = 1; i <= sounds_table.size();  ++i)
+	{
+		filepath = sounds_table[i];
+		soundMgr.addTrack(filepath);
+	}
+}
+
 
 void LabEngine::setupLuaAI()
 {
@@ -361,6 +375,7 @@ void LabEngine::run()
 		// Try and load the tree
 //	Model tree("models/old_tree/scene.gltf");
 	loadProps();
+	loadSoundEffects();
 
 	loadNPCs();
 	setupLuaAI();
