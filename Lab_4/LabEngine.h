@@ -107,6 +107,8 @@ public:
 
     GameData ourGameData;
 
+    bool isGameReset = false;
+
     /**
      * @brief init()
      * @brief initialise all the objects we need for the game engine to work

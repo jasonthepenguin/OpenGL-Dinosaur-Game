@@ -96,7 +96,7 @@ void EngGUI::demoWindow()
 	else if (!timeMgr.getTimer("gameEndTimer")->isExpired()) {
 		ImGui::Text("\n\nTime Left : %d", timeMgr.getTimer("gameEndTimer")->getSecondsRemaining());
 	}
-	else {
+	else if(LabEngine::getInstance().isGameReset == false) {
 		ImGui::Text("\n\nTime Left : GAME OVER!");
 		showPauseMenu = true;
 		//std::cout << showPauseMenu << std::endl;
@@ -210,6 +210,17 @@ void EngGUI::generatePauseMenu(bool men)
 	if (ImGui::Button("Save")) { ImGui::OpenPopup("Save Game"); }
 	if (ImGui::Button("Load")) { ImGui::OpenPopup("Load Game"); }
 	if (ImGui::Button("Quit")) { ImGui::OpenPopup("Quit Confirmation"); }
+	if (ImGui::Button("RESET")) {
+		LabEngine::getInstance().isGameReset = true;
+		showPauseMenu = false;
+		LabEngine::getInstance().m_window->setMouse(false);
+		timeMgr.getTimer("gameEndTimer")->reset();
+		timeMgr.getTimer("gameEndTimer")->disableToggle();
+		//std::cout << " is disabled : " << timeMgr.getTimer("gameEndTimer")->isDisabled() <<
+	//	" is expired : " << timeMgr.getTimer("gameEndTimer")->isExpired() << std::endl;;
+		LabEngine::getInstance().isGameReset = false;
+
+	}
 
 
 
