@@ -165,7 +165,7 @@ void EngGUI::demoWindow()
 	ImGui::SetNextWindowSize(ImVec2(300, 300));
 	ImGui::Begin("Welcome to our Demo!");
 	ImGui::Spacing();
-	ImGui::Text("- You can open the options by unlocking \n the cursor, and clicking File (top-left)!");
+	ImGui::Text("- You can open the options by pressing \n the M key!");
 	// Set the text color to red
 	ImGui::Spacing();
 	ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 0.0f, 0.0f, 1.0f));
@@ -273,12 +273,8 @@ void EngGUI::generatePauseMenu(bool men)
 	if (ImGui::Button("Save")) { ImGui::OpenPopup("Save Game"); }
 	if (ImGui::Button("Load")) { ImGui::OpenPopup("Load Game"); }
 	if (ImGui::Button("Quit")) { ImGui::OpenPopup("Quit Confirmation"); }
-	if (ImGui::Button("Resume", ImVec2(-1, 0))) {
-		
-		showPauseMenu = false; 
-		LabEngine::getInstance().m_window->toggleMouse();
-	
-	}
+
+
 
 
 	ImGui::NextColumn();
@@ -288,20 +284,125 @@ void EngGUI::generatePauseMenu(bool men)
 
 	ImGui::Columns(1);
 	ImGui::Separator();
-	if (ImGui::Button("Resume", ImVec2(-1, 0))) { show_menu = false; }
+	if (ImGui::Button("Resume", ImVec2(-1, 0))) { show_menu = false; 
+	showPauseMenu = false;
+	LabEngine::getInstance().m_window->toggleMouse();
+	}
 
 	// Call your functions here
 	
-//	generateMovementControls();
-//	generateCameraControls();
-//	generateOtherControls();
+	generateMovementControls();
+	generateCameraControls();
+	generateOtherControls();
 	generateCustomerSupport();
-	//generateSaveConfirmation();
-//	generateLoadConfirmation();
-	//generateQuitConfirmation();
+	generateSaveConfirmation();
+	generateLoadConfirmation();
+	generateQuitConfirmation();
 	
 
 	ImGui::End();
+}
+
+
+void EngGUI::generateQuitConfirmation()
+{
+	if (ImGui::BeginPopupModal("Quit Confirmation", NULL, ImGuiWindowFlags_AlwaysAutoResize))
+	{
+		ImGui::Text("Are you sure you want to quit the game?");
+
+		if (ImGui::Button("Yes", ImVec2(120, 0)))
+		{
+			LabEngine::getInstance().m_window->shouldClose();
+			ImGui::CloseCurrentPopup();
+			exit(0);  // Call exit(0) here, after the user confirms they want to quit
+		}
+
+		ImGui::SameLine();
+
+		if (ImGui::Button("No", ImVec2(120, 0)))
+		{
+			ImGui::CloseCurrentPopup();
+		}
+
+		ImGui::EndPopup();
+	}
+}
+
+void EngGUI::generateLoadConfirmation()
+{
+	if (ImGui::BeginPopupModal("Load Game", NULL, ImGuiWindowFlags_AlwaysAutoResize))
+	{
+		ImGui::Text("Are you sure you want to load ? ");
+
+		if (ImGui::Button("Yes", ImVec2(200, 100)))
+		{
+			load_game();
+		}
+		ImGui::SameLine();
+
+		if (ImGui::Button("No", ImVec2(200, 100)))
+		{
+			ImGui::CloseCurrentPopup();
+		}
+		ImGui::EndPopup();
+	}
+}
+
+void EngGUI::generateSaveConfirmation()
+{
+	if (ImGui::BeginPopupModal("Save Game", NULL, ImGuiWindowFlags_AlwaysAutoResize))
+	{
+		ImGui::Text("Are you sure you want to save the game ?");
+
+		if (ImGui::Button("Yes", ImVec2(200, 100)))
+		{
+			save_game();
+		}
+		ImGui::SameLine();
+
+		if (ImGui::Button("No", ImVec2(200, 100)))
+		{
+			ImGui::CloseCurrentPopup();
+		}
+		ImGui::EndPopup();
+	}
+}
+
+
+void EngGUI::generateOtherControls()
+{
+	if (ImGui::BeginPopupModal("Other Controls", NULL, ImGuiWindowFlags_AlwaysAutoResize))
+	{
+		ImGui::Text("K     : Trigger wireframe mode!");
+		ImGui::Spacing();
+		ImGui::Text("X     : Quit Demo");
+		ImGui::Spacing();
+		ImGui::Text("U     : Unlock mouse!");
+		ImGui::Spacing();
+		ImGui::Text("M     : Show / Hide Frames per second");
+		ImGui::Spacing();
+		ImGui::Spacing();
+		ImGui::Text("Space : Throw boxes at NPCS");
+
+		backButton();
+	}
+}
+
+
+void EngGUI::generateCameraControls()
+{
+	if (ImGui::BeginPopupModal("Camera Controls", NULL, ImGuiWindowFlags_AlwaysAutoResize))
+	{
+		ImGui::Text("Mouse up    : look up");
+		ImGui::Text("Mouse down  : look down");
+		ImGui::Spacing();
+		ImGui::Spacing();
+		ImGui::Text("Mouse left  : look left");
+		ImGui::Text("Mouse right : look right");
+
+
+		backButton();
+	}
 }
 
 void EngGUI::generateCustomerSupport()
@@ -324,6 +425,26 @@ void EngGUI::generateCustomerSupport()
 		ImGui::Text("Student Number : 33974906");
 
 		//ImGui::EndPopup();
+		backButton();
+	}
+}
+
+void EngGUI::generateMovementControls()
+{
+	if (ImGui::BeginPopupModal("Movement Controls", NULL, ImGuiWindowFlags_AlwaysAutoResize))
+	{
+		ImGui::Text("W: Forward");
+		ImGui::Spacing();
+		ImGui::Text("S: Backward");
+		ImGui::Spacing();
+		ImGui::Text("A: Left");
+		ImGui::Spacing();
+		ImGui::Text("D: Right");
+		ImGui::Spacing();
+		ImGui::Text("F: Fly Around Terrain!");
+		
+
+
 		backButton();
 	}
 }

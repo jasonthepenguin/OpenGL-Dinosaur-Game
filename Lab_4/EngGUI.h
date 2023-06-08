@@ -93,6 +93,13 @@ class EngGUI
         void generateCustomerSupport();
         void backButton();
 
+        void generateMovementControls();
+        void generateCameraControls();
+        void generateOtherControls();
+        void generateSaveConfirmation();
+        void generateLoadConfirmation();
+        void generateQuitConfirmation();
+
 
         bool show_demo_window = true; 
         bool show_image = false; 

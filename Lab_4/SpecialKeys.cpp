@@ -199,7 +199,7 @@ void SpecialKeys::displayDemoWindow()
 {
    // gui->show_demo_window = !gui->show_demo_window;
     auto gui = LabEngine::getInstance().gui;
-    gui->show_demo_window = !gui->show_demo_window;
+   // gui->show_demo_window = !gui->show_demo_window;
 
     gui->showPauseMenu = !gui->showPauseMenu;
     LabEngine::getInstance().m_window->toggleMouse();
