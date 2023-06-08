@@ -28,6 +28,8 @@ void LabEngine::init()
 	m_window->init();
 	m_window->createWindow(width, height, "Assignment 2");
 	m_camera = std::make_shared<Camera>(glm::vec3(0.0f, 0.0f, 3.0f));
+	player = new Player;
+	gameObjects.push_back(player);
 
 	lastX = width / 2.0f;
 	lastY = width / 2.0f;
@@ -417,7 +419,7 @@ void LabEngine::run()
 	{
 		timeMgr.updateAll();
 	
-		physController->update(gameObjects);
+		//physController->update(gameObjects);
 
 		// test render IMGUI
 		//----------------------------------------------------- ( BEGIN FRAME )
@@ -534,6 +536,8 @@ void LabEngine::run()
 
 			gameObjects[i]->Update(deltaTime);
 		}
+
+		physController->update(gameObjects);
 
 		// THE FOR LOOP TO CALL RENDER ON EACH OBJECT
 		for (int i = 0; i < gameObjects.size(); i++)

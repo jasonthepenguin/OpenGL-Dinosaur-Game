@@ -52,6 +52,10 @@ void MovementKeys::movePlayer(Directions direction, float deltaT)
 {
     glm::vec3 movementDirection(0.0f, 0.0f, 0.0f);
 
+    oldPosition = LabEngine::getInstance().m_camera->getCameraLocation();
+    
+    LabEngine::getInstance().player->oldPosition = oldPosition;
+
     float velocity = 5.0f * deltaT;
 
     // Determine the movement direction based on the given direction

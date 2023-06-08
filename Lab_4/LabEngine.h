@@ -57,6 +57,7 @@ using namespace reactphysics3d;
 #include <cstdlib>
 #include <cmath>
 
+#include "Player.h"
 
 
 struct GameData {
@@ -64,6 +65,7 @@ struct GameData {
 };
 
 class NPC;
+class Player;
 
 		/******************************************************************************************************************************************
 		 * @class   : LabEngine() 
@@ -86,6 +88,7 @@ class NPC;
 			Window* m_window;  		  /// Window object ptr used to create a window object
 		//	Camera* m_camera;		  /// Camera object the players ingame camera
 			std::shared_ptr<Camera> m_camera;
+			Player* player = nullptr;
 			float lastX;			  /// lastX 	 - the previous X position
 			float lastY;			  /// lastY 	 - the previous Y position 
 			bool firstMouse = true;	  /// firstMouse - checks if mouse interacted with

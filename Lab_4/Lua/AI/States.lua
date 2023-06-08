@@ -14,7 +14,7 @@ state_idle["Execute"] = function(npc)
     --npc:lookAtplayer()
    cooldown = npc:getCooldown()
 
-   if(npc:distanceToPlayer() <= 10) then
+   if(npc:distanceToPlayer() <= 15) then
         npc.npcFSM:changeState("state_chase")
    elseif(cooldown == false) then
       npc.npcFSM:changeState("state_wander")
@@ -60,7 +60,7 @@ state_chase["Execute"] = function(npc)
        -- print('hi')
         if(npc:distanceToPlayer() <= 5 - 0.5) then
             npc.npcFSM:changeState("state_attack")
-        elseif(npc:distanceToPlayer() > 10 + 0.5) then
+        elseif(npc:distanceToPlayer() > 15 + 0.5) then
             npc.npcFSM:changeState("state_idle")
         else    
             npc:moveToPlayer()
@@ -119,7 +119,7 @@ state_wander["Execute"] = function(npc)
 
     if(cooldown == true ) then
         npc.npcFSM:changeState("state_idle")
-    elseif(npc:distanceToPlayer() <= 10) then
+    elseif(npc:distanceToPlayer() <= 15) then
         npc.npcFSM:changeState("state_chase")
     
     else
@@ -162,7 +162,7 @@ state_gotoWaypoint["Execute"] = function(npc)
 
     if(npc:distanceToWaypoint() < 3) then
         npc.npcFSM:changeState("state_idle")
-    elseif(npc:distanceToPlayer() <= 10) then
+    elseif(npc:distanceToPlayer() <= 15) then
         npc.npcFSM:changeState("state_chase")
     
     else

@@ -25,6 +25,9 @@
 #include <cmath>
 
 
+#include "test_cube.h"
+
+
 // physics/collision detection
 #include <reactphysics3d/reactphysics3d.h>
 using namespace reactphysics3d;
@@ -74,6 +77,9 @@ public:
 	glm::vec3 spawnPoint;
 	glm::vec3 wanderDirection;
 	glm::vec3 waypoint;
+
+
+	glm::vec3 oldPosition;
 
 
 	float walkingSpeed = 1.85f;

@@ -1,10 +1,11 @@
 #include "Player.h"
 
-#include "Player.h"
 
 Player::Player()
 {
     // TODO: Implement default constructor
+   // playerCamera = LabEngine::getInstance().m_camera;
+
 }
 
 Player::Player(const glm::vec3& spawnLocation, const glm::vec3& currentDirection, const float& playerSpeed)
@@ -49,6 +50,11 @@ void Player::setPlayerDirection(const glm::vec3& direction)
 void Player::Update(float deltaTime)
 {
     // Update physics and other game-related logic here
+    m_PlayerLocation = LabEngine::getInstance().m_camera->getCameraLocation();
+   // oldPosition = m_PlayerLocation; ( we already got this due to our poorly design choices in movementkeys.cpp )
+
+
+    boundingBox->updateAABBPosition(m_PlayerLocation);
 }
 
 void Player::Render(Shader& shader, const glm::mat4& view, const glm::mat4& projection)
@@ -58,10 +64,23 @@ void Player::Render(Shader& shader, const glm::mat4& view, const glm::mat4& proj
 
 void Player::Init()
 {
-    // Initialize vertex attributes, setup physics, and other initialization tasks here
+
+    boundingBox = new LabPhysics::AABB(glm::vec3(1, 3, 1));
 }
 
 void Player::collisionEvent(GameObject* gameObj)
 {
     // Handle collision event with another player here
+    LabEngine::getInstance().m_camera->setCameraLocation(oldPosition);
+
+    boundingBox->updateAABBPosition(oldPosition);
+    //std::cout << "Player collided with something!" << std::endl;
+
+    Prop* prop = dynamic_cast<Prop*>(gameObj);
+    if (prop != nullptr)
+    {
+
+    }
+
+    
 }

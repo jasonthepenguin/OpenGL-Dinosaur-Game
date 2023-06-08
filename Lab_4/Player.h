@@ -9,6 +9,14 @@
 #include "Shader.h"
 #include "Camera.h"
 
+#include "LabEngine.h"
+
+
+#include "PhysicsController.h"
+#include "Prop.h"
+
+#include <memory>
+
 class Player : public GameObject
 {
 public:
@@ -34,11 +42,16 @@ public:
 
 	void collisionEvent(GameObject* gameObj) override;
 
+	glm::vec3 oldPosition;
 
 private:
 	float	  m_PlayerSpeed;
 	glm::vec3 m_PlayerLocation;
 	glm::vec3 m_PlayerDirection;
+
+
+
+	//std::shared_ptr<Camera> playerCamera;
 
 
 };

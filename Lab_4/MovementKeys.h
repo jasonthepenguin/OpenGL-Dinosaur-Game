@@ -91,4 +91,7 @@ private:
     float m_PlayerSpeed;
     Directions m_CurrentDirection;
     std::shared_ptr<Camera> m_PlayerCamera;
+
+    glm::vec3 oldPosition;
+
 };

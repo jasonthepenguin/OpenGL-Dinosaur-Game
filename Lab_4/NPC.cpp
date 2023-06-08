@@ -94,21 +94,24 @@ void NPC::ForwardLook()
 void NPC::collisionEvent(GameObject * gameObj)
 {
 	//std::cout << "NPC Class dealing with a collision event" << std::endl;
-	NPC* npc = dynamic_cast<NPC*>(gameObj);
+	//NPC* npc = dynamic_cast<NPC*>(gameObj);
+	test_cube* cube = dynamic_cast<test_cube*>(gameObj);
 
 	// If the cast was successful, gameObj is indeed a NPC
-	if (npc != nullptr) {
-		//std::cout << "The collided GameObject is an NPC." << std::endl;
-		// Handle the collision with the NPC here
-	}
-	else {
+	if (cube != nullptr) {
 		//std::cout << "The collided GameObject is not an NPC." << std::endl;
-		// Handle the collision with a non-NPC object here
-		//position = spawnPoint;
+	// Handle the collision with a non-NPC object here
+	//position = spawnPoint;
 
 		respawn();
 		waypoint = position; // this is a cheap hack and I shouldn't be doing this
 		soundMgr.playSound("slap");
+	}
+	else if(dynamic_cast<NPC*>(gameObj) == nullptr) {
+
+		position = oldPosition;
+		boundingBox->updateAABBPosition(oldPosition);
+	
 	}
 
 
@@ -310,6 +313,9 @@ void NPC::moveToPlayer()
 
 	glm::vec3 direction = glm::normalize(playerPosition - npcPosition);
 
+
+	oldPosition = position;
+
 	position += direction * lerpFactor;
 	
 
@@ -351,6 +357,7 @@ void NPC::wander()
 
 	glm::vec3 displacement = wanderDirection * walkingSpeed * LabEngine::getInstance().deltaTime;
 
+	oldPosition = position;
 	position += displacement;
 }
 

@@ -3,6 +3,8 @@
 void Prop::Update(float deltaTime)
 {
     // Implement update logic here
+
+	
 }
 
 void Prop::Render(Shader& shader, const glm::mat4& view, const glm::mat4& projection)
@@ -34,12 +36,16 @@ void Prop::Render(Shader& shader, const glm::mat4& view, const glm::mat4& projec
 	for (auto new_position : positionList)
 	{
 
+		//boundingBox->updateAABBPosition(new_position);
+
 		shader.use();
 
 		glm::mat4 model(1.0);
 
 		newY = LabEngine::getInstance().simpleTerrain->getHeight((int)new_position.x * scaleOffSetX, (int)new_position.z * scaleOffSetZ);
 		new_position.y += newY;
+
+		boundingBox->updateAABBPosition(new_position);
 
 		model = glm::translate(model, new_position);
 		model = glm::scale(model, size);
@@ -59,6 +65,8 @@ void Prop::Init()
 
 
 	propModel = new Model(modelFilePath.c_str());
+
+	boundingBox = new LabPhysics::AABB(glm::vec3(5, 10, 5));
 }
 
 
