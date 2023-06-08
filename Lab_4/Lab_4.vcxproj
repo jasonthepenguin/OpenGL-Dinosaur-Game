@@ -178,6 +178,7 @@
     <ClCompile Include="OpenGLTexture.cpp" />
     <ClCompile Include="playerStates.cpp" />
     <ClCompile Include="PNG_Texture.cpp" />
+    <ClCompile Include="Prop.cpp" />
     <ClCompile Include="Rain.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Skybox.cpp" />

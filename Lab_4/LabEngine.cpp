@@ -204,97 +204,32 @@ void LabEngine::loadNPCs()
 	
 }
 
-/*
+void LabEngine::loadProps() {
+	lua.script_file("Lua/prop.lua");
 
+	sol::table propTable = lua["props"];
 
-void LabEngine::setupPlayerCamera()
-{
-	float startX = ((float)simpleTerrain->size / 2.0);
-	float startZ = ((float)simpleTerrain->size / 2.0);
-	float startY = simpleTerrain->getHeight(startX, startZ);
-	m_camera->setCameraLocation(glm::vec3(startX * simpleTerrain->scaleX, startY + 1, startZ * simpleTerrain->scaleZ));
-	glm::vec3 lightPosition = glm::vec3(startX * simpleTerrain->scaleX, startY + 1, startZ * simpleTerrain->scaleZ);
-}
+	for (const auto& propEntry : propTable) {
+		sol::table propData = propEntry.second;
 
+		// Create a new Prop object and set its modelFilePath
+		Prop* newProp = new Prop;
+		newProp->modelFilePath = propData["modelFile"].get<std::string>();
 
-void LabEngine::loadVertexDataAndTextures() 
-{
-	Textures.push_back(textFact.loadTexture("images/dirt.png"));
-	Textures.push_back(textFact.loadTexture("images/grass.png"));
-	Textures.push_back(textFact.loadTexture("images/sand.png"));
-	Textures.push_back(textFact.loadTexture("images/snow.png"));
-	Textures.push_back(textFact.loadTexture("images/water.png"));
-	Textures.push_back(textFact.loadTexture("images/stone.png"));
-	Textures.push_back(textFact.loadTexture("images/deepsea.png"));
-}
+		// Set the scale
+		sol::table scaleTable = propData["scale"];
+		newProp->size = glm::vec3(scaleTable["x"], scaleTable["y"], scaleTable["z"]);
 
-void LabEngine::setupAssetShaders()
-{
-	// Create shaders
-	Shader terrainShader("shaders/terrain_vs.shader", "shaders/terrain_fs.shader");
-	Shader waterShader("shaders/water_vs.shader", "shaders/water_fs.shader");
-	Shader modelShader("shaders/model_vs.shader", "shaders/model_fs.shader");
-	Shader guiShader("shaders/gui_vs.shader", "shaders/gui_fs.shader");
-	Shader lightShader("shaders/light_vs.shader", "shaders/light_fs.shader");
+		// Set the positions
+		sol::table positionsTable = propData["positions"];
+		for (const auto& posEntry : positionsTable) {
+			sol::table posData = posEntry.second;
+			newProp->positionList.emplace_back(posData["x"], posData["y"], posData["z"]);
+		}
 
-	// Bind shaders to their corresponding objects
-	// This assumes you have shader member variables in your objects 
-	//simpleTerrain->(terrainShader);
-	//gui->setShader(guiShader);
-	//water->setShader(waterShader);
-	//model->setShader(modelShader);
-	//light->setShader(lightShader);
-}
-
-
-
-
-
-void LabEngine::gameLoop() {
-	while (!m_window->shouldClose()) {
-		// game loop logic goes here
-		float currentFrame = glfwGetTime();
-		deltaTime = currentFrame - lastFrame;
-		lastFrame = currentFrame;
-
-		// Check for any input
-		processInput(m_window->getWindow());
-
-		// Render
-		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-		// Set the view and projection matrices here
-		// These matrices usually change per frame
-
-		// Render your objects here
-		simpleTerrain->draw();
-		//water->draw();
-		//model->draw();
-		//light->draw();
-
-		// Swap buffers
-		glfwSwapBuffers(m_window->getWindow());
-
-		// Poll for and process events
-		glfwPollEvents();
+		gameObjects.push_back(newProp);
 	}
 }
-
-
-
-
-void LabEngine::run() 
-{
-	setupWorldEnvironment();
-	setupPlayerCamera();
-	loadVertexDataAndTextures();
-	setupAssetShaders();
-	setupMD2Models();
-	initializeGameObjects();
-	gameLoop();
-}
-*/
 
 
 void LabEngine::setupLuaAI()
@@ -423,13 +358,16 @@ void LabEngine::run()
 
 //--------------------------------
 
+		// Try and load the tree
+//	Model tree("models/old_tree/scene.gltf");
+	loadProps();
+
 	loadNPCs();
 	setupLuaAI();
 
 	
 
-	// Try and load the tree
-	Model tree("models/old_tree/scene.gltf");
+
 
 	//=========================
 	//gameObjects.push_back(smileyBox);
@@ -559,15 +497,7 @@ void LabEngine::run()
 		// RENDERING 
 		//----------------------------------------
 
-		// test render of the tree
-		//------------------------------------------------------------
-		model = glm::mat4(1.0);
-		glm::vec3 modelPos = glm::vec3(192.0f, 30.0f, 192.0f);
-		model = glm::translate(model, modelPos);
-		model = glm::scale(model, glm::vec3(0.01, 0.01, 0.01));
-		ourShader.setMat4("model", model);
-		tree.Draw(ourShader);
-		//-------------------------------------------------------------
+
 
 
 		world->update(deltaTime); // The physics world update and being passed delta time

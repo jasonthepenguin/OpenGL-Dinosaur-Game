@@ -23,6 +23,7 @@
 #include "GameObject.h"
 #include "NPC.h"
 #include "Terrain.h"
+#include "Prop.h"
 // Graphics
 #include "Graphics.h"
 // GUI
@@ -176,6 +177,7 @@ class NPC;
 			void setupSkybox();
 			void setupLuaAI();
 			void loadNPCs();
+			void loadProps();
 
 		private:
 
