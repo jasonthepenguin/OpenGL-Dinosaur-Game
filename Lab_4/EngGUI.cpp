@@ -5,7 +5,7 @@
 #include "LabEngine.h"
 
 
-
+#include "singleton.h"
 
 EngGUI::EngGUI()
 {
@@ -75,6 +75,15 @@ void EngGUI::BeginFrame()
 		ImGui::Text("Player Score : %d", LabEngine::getInstance().ourGameData.score);
 
 		ImGui::PopStyleColor();
+
+		// Set the text color to red
+		ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.0f, 1.0f, 0.0f, 1.0f));
+
+		ImGui::Text("\n\nTime Left : %d", timeMgr.getTimer("gameEndTimer")->getSecondsRemaining());
+
+		ImGui::PopStyleColor();
+
+
 
 
 		ImGui::End();

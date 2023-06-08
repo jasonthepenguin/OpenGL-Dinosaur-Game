@@ -445,11 +445,16 @@ void LabEngine::run()
 
 	//---------------------------------------
 	
+	// basic timer stuff ( probably move this elsewhere, but running out of time :( 
+	timeMgr.createTimer("gameEndTimer", 60);
+	timeMgr.getTimer("gameEndTimer")->start();
+
+
 	lastTime = m_window->getTime();
 
 	while (!m_window->shouldClose())
 	{
-		
+		timeMgr.updateAll();
 	
 		physController->update(gameObjects);
 

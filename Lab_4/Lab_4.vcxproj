@@ -251,6 +251,7 @@
     <ClInclude Include="StateMachine.h" />
     <ClInclude Include="telegram.h" />
     <ClInclude Include="textureGenerator.h" />
+    <ClInclude Include="TimerManager.h" />
     <ClInclude Include="TinyObjLoader.h" />
     <ClInclude Include="UI_Manager.h" />
     <ClInclude Include="Keyboard_Input.h" />

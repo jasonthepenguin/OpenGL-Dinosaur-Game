@@ -58,7 +58,6 @@ using namespace reactphysics3d;
 
 
 
-
 struct GameData {
 	int score  = 0;
 };
