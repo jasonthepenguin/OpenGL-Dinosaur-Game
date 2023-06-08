@@ -253,6 +253,8 @@ void EngGUI::generatePauseMenu(bool men)
 	if (!ImGui::Begin("Main Menu", &showPauseMenu, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove))
 	{
 		ImGui::End();
+
+		
 		return;
 	}
 
@@ -286,8 +288,8 @@ void EngGUI::generatePauseMenu(bool men)
 	ImGui::Separator();
 	if (ImGui::Button("Resume", ImVec2(-1, 0))) { show_menu = false; 
 	showPauseMenu = false;
-	LabEngine::getInstance().m_window->toggleMouse();
-	LabEngine::getInstance().m_camera->toggleMouseMovement();
+	//LabEngine::getInstance().m_window->toggleMouse();
+	//LabEngine::getInstance().m_camera->toggleMouseMovement();
 	}
 
 	// Call your functions here
@@ -302,6 +304,12 @@ void EngGUI::generatePauseMenu(bool men)
 	
 
 	ImGui::End();
+
+	if (!showPauseMenu) {
+			LabEngine::getInstance().m_window->toggleMouse();
+			LabEngine::getInstance().m_camera->toggleMouseMovement();
+		//std::cout << "Clicked the cross!" << std::endl;
+	}
 }
 
 
@@ -338,6 +346,7 @@ void EngGUI::generateLoadConfirmation()
 		if (ImGui::Button("Yes", ImVec2(200, 100)))
 		{
 			load_game();
+			ImGui::CloseCurrentPopup(); // This will close the popup
 		}
 		ImGui::SameLine();
 
@@ -349,6 +358,7 @@ void EngGUI::generateLoadConfirmation()
 	}
 }
 
+
 void EngGUI::generateSaveConfirmation()
 {
 	if (ImGui::BeginPopupModal("Save Game", NULL, ImGuiWindowFlags_AlwaysAutoResize))
@@ -358,6 +368,7 @@ void EngGUI::generateSaveConfirmation()
 		if (ImGui::Button("Yes", ImVec2(200, 100)))
 		{
 			save_game();
+			ImGui::CloseCurrentPopup(); // This will close the popup
 		}
 		ImGui::SameLine();
 
