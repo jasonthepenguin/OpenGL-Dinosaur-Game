@@ -76,10 +76,17 @@ void EngGUI::BeginFrame()
 
 		ImGui::PopStyleColor();
 
-		// Set the text color to red
+		// Set the text color to green
 		ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.0f, 1.0f, 0.0f, 1.0f));
 
 		ImGui::Text("\n\nTime Left : %d", timeMgr.getTimer("gameEndTimer")->getSecondsRemaining());
+
+		ImGui::PopStyleColor();
+
+		// Set the text color to light blue
+		ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.5f, 0.8f, 0.9f, 1.0f));
+
+		ImGui::Text("\nFPS : %d", (int)LabEngine::getInstance().m_window->getFPS());
 
 		ImGui::PopStyleColor();
 

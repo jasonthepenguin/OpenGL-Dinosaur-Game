@@ -523,6 +523,8 @@ void LabEngine::run()
 
 		//-------------------------------------------------- COMPLETED DRAWING OF TEST BOXES -------------------------//
 		gui->renderData();
+
+		m_window->calculateFPS();
 		m_window->swapBuffers();
 		m_window->pollEvents();
 

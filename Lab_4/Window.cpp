@@ -111,3 +111,22 @@ void Window::toggleMouse() {
 	// Toggle the state
 	m_IsMouseLocked = !m_IsMouseLocked;
 }
+
+
+void Window::calculateFPS()
+{
+	// Measure speed
+	m_nbFrames++;
+	m_currentTime = glfwGetTime();
+	if (m_currentTime - m_lastTime >= 1.0) { // If last print() was more than 1 sec ago
+		// Calculate FPS and reset timer
+		m_fps = double(m_nbFrames);  // store fps
+		m_nbFrames = 0;
+		m_lastTime += 1.0;
+	}
+}
+
+double Window::getFPS() const
+{
+	return m_fps;
+}
