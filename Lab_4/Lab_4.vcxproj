@@ -102,7 +102,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>freeglutd.lib;opengl32.lib;glfw3.lib;assimp-vc142-mtd.lib;reactphysics3d.lib;liblua54.a;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>freeglutd.lib;opengl32.lib;glfw3.lib;assimp-vc142-mtd.lib;reactphysics3d.lib;liblua54.a;sfml-audio-d.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -120,7 +120,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;assimp-vc142-mt.lib;reactphysics3d.lib;liblua54.a;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;assimp-vc142-mt.lib;reactphysics3d.lib;liblua54.a;sfml-system.lib;sfml-audio.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -134,7 +134,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>freeglutd.lib;opengl32.lib;glfw3.lib;assimp-vc142-mtd.lib;reactphysics3d.lib;liblua54.a;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>freeglutd.lib;opengl32.lib;glfw3.lib;assimp-vc142-mtd.lib;reactphysics3d.lib;liblua54.a;sfml-audio-d.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -152,7 +152,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;assimp-vc142-mt.lib;reactphysics3d.lib;liblua54.a;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;assimp-vc142-mt.lib;reactphysics3d.lib;liblua54.a;sfml-system.lib;sfml-audio.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -182,6 +182,7 @@
     <ClCompile Include="Rain.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Skybox.cpp" />
+    <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="SpecialKeys.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="textureGenerator.cpp" />
@@ -247,6 +248,7 @@
     <ClInclude Include="Particle.h" />
     <ClInclude Include="singleton.h" />
     <ClInclude Include="Skybox.h" />
+    <ClInclude Include="SoundManager.h" />
     <ClInclude Include="SpecialKeys.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateMachine.h" />

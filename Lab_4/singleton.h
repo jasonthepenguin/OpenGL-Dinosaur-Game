@@ -25,13 +25,16 @@ private:
 #include "messageDispatcher.h"
 
 #include "TimerManager.h"
+#include "SoundManager.h"
 
 typedef singleton<dynamicEnum> message;
 typedef singleton<entityManager> entityMan;
 typedef singleton<messageDispatcher> messageMan;
 typedef singleton<TimerManager> timeMan;
+typedef singleton<SoundManager> soundMan;
 
 #define fsmMessage message::Instance()
 #define entityMgr entityMan::Instance()
 #define messageMgr messageMan::Instance()
 #define timeMgr timeMan::Instance()
+#define soundMgr soundMan::Instance()
