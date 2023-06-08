@@ -265,6 +265,11 @@ public:
         m_mouseMovementAllowed = !m_mouseMovementAllowed;
     }
 
+    void setMouseMovement(bool condition)
+    {
+        m_mouseMovementAllowed = condition;
+    }
+
 private:
 
     float m_CameraYaw;

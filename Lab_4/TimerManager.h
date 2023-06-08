@@ -46,8 +46,8 @@ public:
     }
 
 
-    void disable() {
-        disabled = true;
+    void disableToggle() {
+        disabled = !disabled;
     }
 
     bool isDisabled() {

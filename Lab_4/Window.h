@@ -80,6 +80,9 @@ public:
 
 	void toggleMouse();
 
+
+	void setMouse(bool condition);
+
 	/**
 	 * @brief Calculates the Frames Per Second (FPS)
 	 *

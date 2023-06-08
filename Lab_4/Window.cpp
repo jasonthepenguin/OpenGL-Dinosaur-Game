@@ -112,6 +112,18 @@ void Window::toggleMouse() {
 	m_IsMouseLocked = !m_IsMouseLocked;
 }
 
+void Window::setMouse(bool condition)
+{
+	m_IsMouseLocked = condition;
+	if (m_IsMouseLocked)
+	{
+		glfwSetInputMode(m_PixelsGLFWWindow, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+	}
+	else {
+		glfwSetInputMode(m_PixelsGLFWWindow, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	}
+}
+
 
 void Window::calculateFPS()
 {

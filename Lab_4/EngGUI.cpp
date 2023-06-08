@@ -89,7 +89,7 @@ void EngGUI::demoWindow()
 	if (timeMgr.getTimer("gameEndTimer")->isExpired() && timeMgr.getTimer("gameEndTimer")->isDisabled() == false )
 	{
 		soundMgr.playSound("time");
-		timeMgr.getTimer("gameEndTimer")->disable();
+		timeMgr.getTimer("gameEndTimer")->disableToggle();
 		
 
 	}
@@ -98,6 +98,13 @@ void EngGUI::demoWindow()
 	}
 	else {
 		ImGui::Text("\n\nTime Left : GAME OVER!");
+		showPauseMenu = true;
+		//std::cout << showPauseMenu << std::endl;
+		//LabEngine::getInstance().m_window->toggleMouse();
+		LabEngine::getInstance().m_window->setMouse(true);
+		//LabEngine::getInstance().m_camera->toggleMouseMovement();
+		LabEngine::getInstance().m_camera->setMouseMovement(false);
+
 	}
 	
 
