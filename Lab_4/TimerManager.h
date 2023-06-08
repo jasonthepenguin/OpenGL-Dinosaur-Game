@@ -46,6 +46,14 @@ public:
     }
 
 
+    void disable() {
+        disabled = true;
+    }
+
+    bool isDisabled() {
+        return disabled;
+    }
+
     /**
      * @brief Resets the timer.
      */
@@ -99,6 +107,7 @@ private:
     double initialTime;
     int secondsLeft;
     bool expired;
+    bool disabled = false;
 };
 
 /**

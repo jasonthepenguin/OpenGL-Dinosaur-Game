@@ -41,96 +41,7 @@ EngGUI::~EngGUI()
 	ImGui::DestroyContext();
 }
 
-/*
-void EngGUI::BeginFrame()
-{
 
-	//auto window = LabEngine::getInstance().m_window->window;
-
-	ImGui_ImplOpenGL3_NewFrame();
-	ImGui_ImplGlfw_NewFrame();
-	ImGui::NewFrame();
-
-
-	if (show_demo_window) {
-		//ImGui::SetNextWindowSize(ImVec2(300, 200)); // Set the window size 
-		ImGui::SetNextWindowSize(ImVec2(300, 300)); // Set the window size
-
-		// ImGui content goes here, e.g.:
-		ImGui::Begin("Welcome to our Demo! (pls have mercy)");
-		ImGui::Text("- Press M to open and close this manual!");
-		ImGui::Text("- Press K to go into wireframe mode!");
-		ImGui::Text("- Press X to quit this demo!");
-		ImGui::Text("- Press WASD keys to move!");
-		ImGui::Text("- Press Space key to spawn boxes (test)");
-		ImGui::Text("- Press the F key to fly!");
-		ImGui::Text("- Use the mouse to look!");
-		ImGui::Text("- Press U to lock or unlock the cursor!");
-		ImGui::Text("- You can open the options by unlocking \n the cursor, and clicking File (top-left)!");
-		ImGui::Text("\n");
-
-		// Set the text color to red
-		ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(1.0f, 0.0f, 0.0f, 1.0f));
-
-		ImGui::Text("Player Score : %d", LabEngine::getInstance().ourGameData.score);
-
-		ImGui::PopStyleColor();
-
-		// Set the text color to green
-		ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.0f, 1.0f, 0.0f, 1.0f));
-
-		ImGui::Text("\n\nTime Left : %d", timeMgr.getTimer("gameEndTimer")->getSecondsRemaining());
-
-		ImGui::PopStyleColor();
-
-		// Set the text color to light blue
-		ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.5f, 0.8f, 0.9f, 1.0f));
-
-		ImGui::Text("\nFPS : %d", (int)LabEngine::getInstance().m_window->getFPS());
-
-		ImGui::PopStyleColor();
-
-
-
-
-		ImGui::End();
-
-		if (show_image) {
-			glfwSetInputMode(m_PixelsGLFWWindow, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
-			//ImVec2 image_size(groupPhoto->width, groupPhoto->height); // Set the image display size to 300x200
-			ImVec2 image_size(1000, 700); // Set the image display size to 300x200
-			ImGui::Begin("Image Display");
-			ImGui::Image((void*)(intptr_t)image_texture_id, image_size, ImVec2(0, 1), ImVec2(1, 0));
-			if (ImGui::IsItemClicked()) {
-				glfwSetWindowShouldClose(m_PixelsGLFWWindow, true);
-			}
-			ImGui::End();
-		}
-
-
-	}
-
-	if (ImGui::BeginMainMenuBar()) {
-		if (ImGui::BeginMenu("File")) {
-			if (ImGui::MenuItem("Save")) {
-				save_game();
-			}
-			if (ImGui::MenuItem("Load")) {
-				load_game();
-			}
-			if (ImGui::MenuItem("Quit")) {
-				//glfwSetWindowShouldClose(window, true);
-				LabEngine::getInstance().m_window->shouldClose();
-				//std::cout << "Button pressed!" << std::endl;
-				exit(0);
-			}
-			ImGui::EndMenu();
-		}
-		ImGui::EndMainMenuBar();
-	}
-
-}
-*/
 
 void EngGUI::BeginFrame()
 {
@@ -174,7 +85,22 @@ void EngGUI::demoWindow()
 	// Set the text color to green
 	ImGui::Spacing();
 	ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.0f, 1.0f, 0.0f, 1.0f));
-	ImGui::Text("\n\nTime Left : %d", timeMgr.getTimer("gameEndTimer")->getSecondsRemaining());
+
+	if (timeMgr.getTimer("gameEndTimer")->isExpired() && timeMgr.getTimer("gameEndTimer")->isDisabled() == false )
+	{
+		soundMgr.playSound("time");
+		timeMgr.getTimer("gameEndTimer")->disable();
+		
+
+	}
+	else if (!timeMgr.getTimer("gameEndTimer")->isExpired()) {
+		ImGui::Text("\n\nTime Left : %d", timeMgr.getTimer("gameEndTimer")->getSecondsRemaining());
+	}
+	else {
+		ImGui::Text("\n\nTime Left : GAME OVER!");
+	}
+	
+
 	ImGui::PopStyleColor();
 	// Set the text color to light blue
 	ImGui::Spacing();
@@ -182,6 +108,8 @@ void EngGUI::demoWindow()
 	ImGui::Text("\nFPS : %d", (int)LabEngine::getInstance().m_window->getFPS());
 	ImGui::PopStyleColor();
 	ImGui::End();
+
+
 }
 
 void EngGUI::imageWindow()
