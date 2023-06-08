@@ -5,31 +5,60 @@
 #include <SFML/Audio.hpp>
 #include <string>
 #include <map>
+#include <deque>
 
-#include <iostream>
-
+/**
+ * @class SoundManager
+ * @brief A class that manages sound effects for a game.
+ */
 class SoundManager
 {
-
 public:
+    /**
+     * @brief Adds a sound track from a given file path.
+     * @param filepath The path of the sound file to be added.
+     */
+    void addTrack(const std::string& filepath);
 
-	
-	void addTrack(const std::string& filepath); // get the name of the song, map this with the full file path of the sound file
+    /**
+     * @brief Plays a sound with the specified songName.
+     * @param songName The name of the song to be played.
+     */
+    void playSound(const std::string& songName);
 
-	void playSound(const std::string& songName); // check if the song name exists in a map pair
-	
-	void setVolume(float newVolume); // adjust the volume 
-	
-	
+    /**
+     * @brief Sets the volume of all sounds.
+     * @param newVolume The new volume level. Should be a value between 0 (silent)
+     *        and 100 (full volume).
+     */
+    void setVolume(float newVolume);
+
 private:
+    /**
+     * @brief Extracts the file name from a given file path.
+     * @param filepath The file path from which the name should be extracted.
+     * @return The extracted file name without extension.
+     */
+    std::string getFileName(const std::string& filepath);
 
+    /**
+     * @brief Gets an available sound object from the sound pool.
+     * @return A reference to an available sound object.
+     */
+    sf::Sound& getAvailableSound();
 
-	std::string getFileName(const std::string& filepath);
+    /**
+     * @brief A map that holds sound buffers for each song name.
+     */
+    std::map<std::string, sf::SoundBuffer> buffers;
 
-	std::map<std::string, std::string> soundMap;
+    /**
+     * @brief A deque that holds all sound objects.
+     */
+    std::deque<sf::Sound> sounds;
 
-	sf::SoundBuffer buffer;
-	sf::Sound sound;
-
+    /**
+     * @brief A variable that holds the volume level.
+     */
+    float volume = 100.0f;
 };
-
