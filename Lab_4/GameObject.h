@@ -11,100 +11,109 @@
 
 #include <string>
 
-	/***********************************************************************************************
-	 * @class  : GameObject
-	 * @brief  : Contains data relating to a game object such as its size, positon, and its rotation.
-	 * @brief  : Potentially look at updating this to a Factory Method Pattern design
-	 * 
-	 * @author  : Jason
-	 * @date    : April 2023
-	 * @version : 1.0
-	 ***********************************************************************************************/
-
+/**
+ * @class  GameObject
+ * @brief  Contains data relating to a game object such as its size, position, and rotation.
+ * @brief  Potentially look at updating this to a Factory Method Pattern design.
+ *
+ * @author Jason
+ * @date   April 2023
+ * @version 1.0
+ */
 class GameObject
 {
+public:
+    glm::vec3 position;
+    glm::mat4 rotation; // testing collision rotations with this
+    glm::vec3 size;
+    Shader* sharedShader; // might use this or just pass in a shader every time we draw
+    std::string name;
+    LabPhysics::AABB* boundingBox = nullptr;
 
-	public:
+    /**
+     * @brief  Handles collision events with other game objects.
+     * @param  gameObj Pointer to the game object involved in the collision.
+     */
+    virtual void collisionEvent(GameObject* gameObj)
+    {
+    }
 
-		glm::vec3 position;
-		glm::mat4 rotation; // testing collision rotations with this
-		glm::vec3 size;
+    /**
+     * @brief  Returns the AABB (Axis-Aligned Bounding Box) of the game object.
+     * @return Pointer to the AABB if it exists, otherwise nullptr.
+     */
+    LabPhysics::AABB* getAABB()
+    {
+        if (boundingBox != nullptr)
+        {
+            return boundingBox;
+        }
+        else {
+            return nullptr;
+        }
+    }
 
+    /**
+     * @brief  Default constructor.
+     */
+    GameObject() {
+        id = getNextID();
+        // std::cout << "Current ID : " << id << std::endl;
+    }
 
-		Shader* sharedShader; // might use this or just pass in a shader everytime we draw
+    /**
+     * @brief  Returns the ID of the game object.
+     * @return The ID of the game object.
+     */
+    int getID() const
+    {
+        return id;
+    }
 
-		std::string name;
+    /**
+     * @brief  Handles the received message.
+     * @param  msg The telegram containing the message data.
+     * @return True if the message was handled, false otherwise.
+     */
+    virtual bool handleMessage(const telegram& msg)
+    {
+        return false;
+    }
 
-		LabPhysics::AABB* boundingBox = nullptr;
-		virtual void collisionEvent(GameObject* gameObj)
-		{
+    /**
+     * @brief  Updates the game object.
+     * @param  deltaTime The time elapsed since the last update.
+     */
+    virtual void Update(float deltaTime) = 0;
 
-		}
+    /**
+     * @brief  Renders the game object.
+     * @param  shader     The shader used for rendering.
+     * @param  view       The view matrix.
+     * @param  projection The projection matrix.
+     */
+    virtual void Render(Shader& shader, const glm::mat4& view, const glm::mat4& projection) = 0;
 
-		LabPhysics::AABB* getAABB()
-		{
-			if (boundingBox != nullptr)
-			{
-				return boundingBox;
-			}
-			else {
-				return nullptr;
-			}
-		}
-
-		GameObject() {
-			id = getNextID();
-			//std::cout << "Current ID : " << id << std::endl;
-		}
-
-		int getID() const
-		{
-			return id;
-		}
-
-		virtual bool handleMessage(const telegram& msg)
-		{
-			return false;
-		}
-
-
-		    /********************************************************************************************************
-             * @brief : Update
-             * @brief : Virtual void as it will be overriden by a child class and updated for each object
-             ********************************************************************************************************/
-
-		virtual void Update(float deltaTime) = 0;
-
-
-		    /********************************************************************************************************
-             * @brief : Render
-             * @brief : Virtual void as it will be overriden by a child class as each child object will be rendered
-             ********************************************************************************************************/
-
-		virtual void Render(Shader& shader, const glm::mat4& view, const glm::mat4& projection) = 0;
-
-
-		    /********************************************************************************************************
-             * @brief : Init
-             * @brief : Virtual void as it will be overriden by a child class as each child object will be Initialized
-             ********************************************************************************************************/
-
-		virtual void Init() = 0;
+    /**
+     * @brief  Initializes the game object.
+     */
+    virtual void Init() = 0;
 
 protected:
+    int id; // unique individual ID
+    static int nextID;
 
-	int id; // unique individual ID
-
-	static int nextID;
-
-
-
-	int getNextID()
-	{
-		return nextID++;
-
-	}
-
+    /**
+     * @brief  Gets the next available ID for a game object.
+     * @return The next available ID.
+     */
+    int getNextID()
+    {
+        return nextID++;
+    }
 };
 
+/**
+ * @brief  Static member initialization for the nextID variable.
+ */
 inline int GameObject::nextID = 0;

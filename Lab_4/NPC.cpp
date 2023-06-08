@@ -1,6 +1,6 @@
 
 #include "NPC.h"
-#include "playerStates.h"
+//#include "playerStates.h"
 
 #include "singleton.h"
 

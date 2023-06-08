@@ -1,157 +1,148 @@
 #pragma once
 
-
-
 #include <iostream>
-#include "State.h"
-
-/*
-
-template<class entity_type>
-class StateMachine
-{
-
-private:
-	entity_type* owner; //owner of the FSM
-	State<entity_type>* previousState;
-	State<entity_type>* currentState;
-	State<entity_type>* globalState;
-
-public:
-	StateMachine(entity_type* FSMowner)
-	{
-		owner = FSMowner;
-		previousState = NULL;
-		currentState = NULL;
-		globalState = NULL;
-	}
-
-	//use the following methods to intialise the FSM
-	void setPreviousState(State<entity_type>* st) { previousState = st; }
-	void setCurrentState(State<entity_type>* st) { currentState = st; }
-	void setGlobalState(State<entity_type>* st) { globalState = st; }
-
-	void update()const
-	{
-		if (globalState)
-			globalState->Execute(owner);
-		if (currentState)
-			currentState->Execute(owner);
-	}
-
-	void changeState(State<entity_type>* newState)
-	{
-		previousState = currentState;
-		currentState->Exit(owner);
-		currentState = newState;
-		currentState->Enter(owner);
-	}
-
-	void revertToPreviousState()
-	{
-		currentState = previousState;
-	}
-
-	//accessor methods
-	State<entity_type>* getPreviousState() { return previousState; }
-	State<entity_type>* getCurrentState() { return currentState; }
-	State<entity_type>* getGlobalState() { return globalState; }
-
-	//returns true if the current state's type is equal to the type of the
-//class passed as a parameter. 
-	bool isInState(const State<entity_type>& st)const
-	{
-		return typeid(*currentState) == typeid(st);
-	}
-
-	virtual ~StateMachine() {}
-
-
-};
-
-*/
-
-
 #include <sol/sol.hpp>
 
+/**
+ * @brief Generic state machine class template.
+ *
+ * @tparam entity_type The type of the owner entity that uses the state machine.
+ */
 template<class entity_type>
 class StateMachine {
 private:
-	entity_type* owner;
-	sol::table previousState;
-	sol::table currentState;
-	sol::table globalState;
+    entity_type* owner;             /**< Pointer to the owner entity. */
+    sol::table previousState;       /**< Previous state of the state machine. */
+    sol::table currentState;        /**< Current state of the state machine. */
+    sol::table globalState;         /**< Global state of the state machine. */
+    sol::state& lua;                /**< Reference to the Lua state. */
 
 public:
-	StateMachine(entity_type* FSMowner, sol::state& lua_state)
-		: owner(FSMowner), lua(lua_state) {}
+    /**
+     * @brief Constructs a new StateMachine object.
+     *
+     * @param FSMowner Pointer to the owner entity that uses the state machine.
+     * @param lua_state Reference to the Lua state.
+     */
+    StateMachine(entity_type* FSMowner, sol::state& lua_state)
+        : owner(FSMowner), lua(lua_state) {}
 
-	void setPreviousState(const std::string& state_name) {
-		previousState = lua[state_name];
-	}
+    /**
+     * @brief Sets the previous state of the state machine.
+     *
+     * @param state_name The name of the previous state.
+     */
+    void setPreviousState(const std::string& state_name) {
+        previousState = lua[state_name];
+    }
 
-	void setCurrentState(const std::string& state_name) {
-		currentState = lua[state_name];
-		//currentState["Enter"](owner);
+    /**
+     * @brief Sets the current state of the state machine.
+     *
+     * @param state_name The name of the current state.
+     */
+    void setCurrentState(const std::string& state_name) {
+        currentState = lua[state_name];
+        //currentState["Enter"](owner);
+    }
 
-		
-	}
+    /**
+     * @brief Sets the global state of the state machine.
+     *
+     * @param state_name The name of the global state.
+     */
+    void setGlobalState(const std::string& state_name) {
+        globalState = lua[state_name];
+    }
 
-	void setGlobalState(const std::string& state_name) {
-		globalState = lua[state_name];
-	}
+    /**
+     * @brief Updates the state machine.
+     *
+     * Executes the global state and the current state if they are valid.
+     */
+    void update() {
+        if (globalState.valid()) {
+            globalState["Execute"](owner);
+        }
+        if (currentState.valid()) {
+            currentState["Execute"](owner);
+        }
+    }
 
-	void update() {
-		if (globalState.valid()) {
-			globalState["Execute"](owner);
-		}
-		if (currentState.valid()) {
-			currentState["Execute"](owner);
-		}
-	}
+    /**
+     * @brief Changes the state of the state machine.
+     *
+     * @param new_state_name The name of the new state to change to.
+     */
+    void changeState(const std::string& new_state_name) {
+        previousState = currentState;
 
-	void changeState(const std::string& new_state_name) {
-		previousState = currentState;
+        //std::cout << "We are now in state: " << new_state_name << std::endl;
 
-		//std::cout << "We are now in state : " << new_state_name << std::endl;
+        if (currentState.valid()) {
+            currentState["Exit"](owner);
+        }
 
-		if (currentState.valid()) {
-			currentState["Exit"](owner);
-		}
+        currentState = lua[new_state_name];
 
-		currentState = lua[new_state_name];
+        if (currentState.valid()) {
+            currentState["Enter"](owner);
+        }
+    }
 
-		if (currentState.valid()) {
-			currentState["Enter"](owner);
-		}
-	}
+    /**
+     * @brief Reverts to the previous state of the state machine.
+     */
+    void revertToPreviousState() {
+        changeState(previousState);
+    }
 
-	void revertToPreviousState() {
-		changeState(previousState);
-	}
+    /**
+     * @brief Handles a message sent to the state machine.
+     *
+     * @param msg The message to handle.
+     * @return True if the current state handles the message, false otherwise.
+     */
+    bool handleMessage(const telegram& msg) {
+        /*
+        if (currentState.valid() && currentState->onMessage(owner, msg))
+        {
+            return true;
+        }
+        */
+        if (currentState.valid()) {
+            currentState["onMessage"](owner, msg);
+            return true;
+        }
+        return false;
+    }
 
-	bool handleMessage(const telegram& msg)
-	{
-		/*
-		if (currentState.valid() && currentState->onMessage(owner, msg))
-		{
-			return true;
-		}
-		*/
-		if (currentState.valid())
-		{
-			currentState["onMessage"](owner, msg);
-			return true;
-		}
-		return false;
-	}
+    /**
+     * @brief Gets the previous state of the state machine.
+     *
+     * @return sol::table The previous state.
+     */
+    sol::table getPreviousState() { return previousState; }
 
-	sol::table getPreviousState() { return previousState; }
-	sol::table getCurrentState() { return currentState; }
-	sol::table getGlobalState() { return globalState; }
+    /**
+     * @brief Gets the current state of the state machine.
+     *
+     * @return sol::table The current state.
+     */
+    sol::table getCurrentState() { return currentState; }
 
-	virtual ~StateMachine() {}
+    /**
+     * @brief Gets the global state of the state machine.
+     *
+     * @return sol::table The global state.
+     */
+    sol::table getGlobalState() { return globalState; }
+
+    /**
+     * @brief Destroys the StateMachine object.
+     */
+    virtual ~StateMachine() {}
 
 private:
-	sol::state& lua;
+    // Private member variables and functions
 };

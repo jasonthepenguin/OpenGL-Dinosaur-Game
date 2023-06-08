@@ -1,6 +1,5 @@
 #pragma once
 
-
 #include <iostream>
 #include <string>
 #include <glad/glad.h>
@@ -43,198 +42,205 @@ using namespace reactphysics3d;
 #include <vector>
 #include "md2_test.h"
 
-
 #include <chrono>
 #include <algorithm>
 #include <typeinfo>
 
-
 #include "water.h"
-
 #include "PhysicsController.h"
-
-
 #include <cstdlib>
 #include <cmath>
-
 #include "Player.h"
 
-
 struct GameData {
-	int score  = 0;
+    int score = 0;
 };
 
 class NPC;
 class Player;
 
-		/******************************************************************************************************************************************
-		 * @class   : LabEngine() 
-		 * @brief   : This is the primary engine used to run the program
-		 * 
-         * @author  : William
-		 * @date    : April 2023
-		 * @version : 1.2 - Added all doccumentation
-		 ******************************************************************************************************************************************/
+/**
+ * @class LabEngine
+ * @brief This is the primary engine used to run the program
+ * @date April 2023
+ * @version 1.2 - Added all documentation
+ */
+class LabEngine
+{
+public:
+    /**
+     * @brief Variables for the class
+     */
+    Window* m_window;              /// Window object ptr used to create a window object
+    std::shared_ptr<Camera> m_camera; /// Camera object the players ingame camera
+    Player* player = nullptr;
+    float lastX;                 /// lastX - the previous X position
+    float lastY;                 /// lastY - the previous Y position
+    bool firstMouse = true;      /// firstMouse - checks if mouse interacted with
 
-	class LabEngine
-	{
+    // Objects
+    Terrain* simpleTerrain;         /// object to the terrain class to create a terrain
+    std::vector<GameObject*> gameObjects; /// an std::vector of gameObjects to generate game objects
 
-		public:
-		
-				/******************************************************************************************************************************************
-				 * @brief  Variables for the class() 
-				 ******************************************************************************************************************************************/
-				
-			Window* m_window;  		  /// Window object ptr used to create a window object
-		//	Camera* m_camera;		  /// Camera object the players ingame camera
-			std::shared_ptr<Camera> m_camera;
-			Player* player = nullptr;
-			float lastX;			  /// lastX 	 - the previous X position
-			float lastY;			  /// lastY 	 - the previous Y position 
-			bool firstMouse = true;	  /// firstMouse - checks if mouse interacted with
+    std::unique_ptr<Graphics> graphics;      /// an std::unique_ptr<Graphics> used to create the graphics Factory
+    EngGUI* gui;                          /// EngGUI  - graphical user interface object
+    PhysicsCommon physicsCommon;    /// Physics - a class which contains commonly known physics
+    PhysicsWorld* world;           /// PhysicsWorld - applies physics to the game
+    float deltaTime = 0.0f;                 /// Time between current frame and last frame
+    float lastFrame = 0.0f;               /// Time of last frame
+    float lastTime = 0.0f;
 
-			// Objects
-			Terrain *simpleTerrain;   /// object to the terrain class to create a terrain
-			std::vector<GameObject*> gameObjects; /// an std::vector of gameObjects to generate game objects
-			//std::vector<NPC*> npcList;
+    sol::state lua;                /// provides an instance of the lua state
 
+    std::vector<MD2_TEST*> MD2models;
+    // TEST
+    RigidBody* playersBox = nullptr;
+    Collider* playersBoxCollider = nullptr;
 
-			std::unique_ptr<Graphics> graphics;	  /// an std::unique_ptr<Graphics> used to create the graphics Factory
-			EngGUI* gui;						  /// EngGUI  - graphical user interface object
-			PhysicsCommon physicsCommon;	/// Physics - a class which contains commonly known physics
-			PhysicsWorld* world;			/// PhysicsWorld - applies physics to the game 
-			float deltaTime = 0.0f;				  /// Time between current frame and last frame
-			float lastFrame = 0.0f; 			  /// Time of last frame
-			float lastTime = 0.0f;
+    std::unique_ptr<Skybox> skybox;
 
-			sol::state lua; 				/// provides an instance of the lua state
+    // Dealing with user input including Keyboard and Mouse
+    UI_Manager* userInput;
 
-			std::vector<MD2_TEST*> MD2models;
-			// TEST
-			RigidBody* playersBox = nullptr;
-			Collider *playersBoxCollider = nullptr;
+    // Physics
+    PhysicsController* physController = nullptr;
 
-			std::unique_ptr<Skybox> skybox;
-			
-			// Dealing with user input including Keyboard and Mouse
-			UI_Manager* userInput;
+    GameData ourGameData;
 
+    /**
+     * @brief init()
+     * @brief initialise all the objects we need for the game engine to work
+     * @return void
+     */
+    void init();
 
-			// Physics
-			PhysicsController* physController = nullptr;
+    /**
+     * @brief run()
+     * @brief used to run the game engine is called from main
+     * @return void
+     */
+    void run();
 
+    /**
+     * @brief cleanUp()
+     * @brief used to cleanUp the game engine once everything has closed
+     * @return void
+     */
+    void cleanUp();
 
-			GameData ourGameData;
+    /**
+     * @brief getInstance()
+     * @brief provides an instance of the game engine
+     * @return void
+     */
+    static LabEngine& getInstance();
 
-				/******************************************************************************************************************************************
-				 * @brief  : init()
-				 * @brief  : initialise all the objects we need for the game engine to work
-				 * 
-				 * @return : void
-				 ******************************************************************************************************************************************/
-			
-			void init();
+    bool show_demo_window = true; /// JUST FOR TESTING, WILL REMOVE SOON AND PUT IN ITS OWN CLASS
+    bool show_image = false;      /// SAME AS THE BOOL ABOVE, GOTTA MOVE THIS
 
+    /**
+     * @brief setupWorldEnvironment()
+     * @brief sets up the world environment
+     * @return void
+     */
+    void setupWorldEnvironment();
 
-				/******************************************************************************************************************************************
-				 * @brief  : run()
-				 * @brief  : used to run the game engine is called from main
-				 * 
-				 * @return : void
-				 ******************************************************************************************************************************************/
-		
-			void run();
+    /**
+     * @brief setupPlayerCamera()
+     * @brief sets up the player's camera
+     * @return void
+     */
+    void setupPlayerCamera();
 
+    /**
+     * @brief setupMD2Models()
+     * @brief sets up the MD2 models
+     * @return void
+     */
+    void setupMD2Models();
 
-				/******************************************************************************************************************************************
-				 * @brief  : cleanUp()
-				 * @brief  : used to cleanUp the game engine once everything has closed
-				 * 
-				 * @return : void
-				 ******************************************************************************************************************************************/
-		
-			void cleanUp();
+    /**
+     * @brief loadVertexDataAndTextures()
+     * @brief loads vertex data and textures
+     * @return void
+     */
+    void loadVertexDataAndTextures();
 
+    /**
+     * @brief setupAssetShaders()
+     * @brief sets up asset shaders
+     * @return void
+     */
+    void setupAssetShaders();
 
-				/******************************************************************************************************************************************
-				 * @brief  : getInstance()
-				 * @brief  : provides an instance of the game engine
-				 * 
-				 * @return : void
-				 ******************************************************************************************************************************************/
-		
-			static LabEngine& getInstance();
+    /**
+     * @brief setupSkybox()
+     * @brief sets up the skybox
+     * @return void
+     */
+    void setupSkybox();
 
-			
-			//std::unique_ptr<GUI> engGUI;
-			bool show_demo_window = true; /// JUST FOR TESTING, WILL REMOVE SOON AND PUT IN ITS OWN CLASS
-			bool show_image = false; 	 /// SAME AS THE BOOL ABOVE, GOTTA MOVE THIS
+    /**
+     * @brief setupLuaAI()
+     * @brief sets up the Lua AI
+     * @return void
+     */
+    void setupLuaAI();
 
+    /**
+     * @brief loadNPCs()
+     * @brief loads NPCs
+     * @return void
+     */
+    void loadNPCs();
 
-			
-			void setupWorldEnvironment();
-			void setupPlayerCamera();
-			void setupMD2Models();
-			void loadVertexDataAndTextures();
-			void setupAssetShaders();
-			void setupSkybox();
-			void setupLuaAI();
-			void loadNPCs();
-			void loadProps();
-			void loadSoundEffects();
+    /**
+     * @brief loadProps()
+     * @brief loads props
+     * @return void
+     */
+    void loadProps();
 
-		private:
+    /**
+     * @brief loadSoundEffects()
+     * @brief loads sound effects
+     * @return void
+     */
+    void loadSoundEffects();
 
+private:
+    /**
+     * @brief LabEngine()
+     * @brief provides a basic constructor to the LabEngine class
+     * @return void
+     */
+     // constructor
+    LabEngine();
 
-				/******************************************************************************************************************************************
-				 * @brief  : LabEngine()
-				 * @brief  : provides a basic constructor to the LabEngine class
-				 * 
-				 * @return : void
-				 ******************************************************************************************************************************************/
-		
-			// constructor
-			LabEngine();
+    /**
+     * @brief ~LabEngine()
+     * @brief provides a basic destructor for the LabEngine class
+     * @return void
+     */
+    ~LabEngine();
 
+    /**
+     * @brief LabEngine(const LabEngine&)
+     * @brief used to delete the copy assignment operator  + assignment
+     * @return void
+     */
+    LabEngine(const LabEngine&) = delete;
 
-				/******************************************************************************************************************************************
-				 * @brief  : LabEngine()
-				 * @brief  : provides a basic destructor for the LabEngine class
-				 * 
-				 * @return : void
-				 ******************************************************************************************************************************************/
-		
-			~LabEngine();
+    /**
+     * @brief operator=(const LabEngine&)
+     * @brief used to provide a const copy of the labengine
+     * @return void
+     */
+    LabEngine& operator=(const LabEngine&) = delete;
 
-
-				/******************************************************************************************************************************************
-				 * @brief  : LabEngine(const LabEngine&)
-				 * @brief  : used to delete the copy assignment operator  + assignment
-				 * 
-				 * @return : void
-				 ******************************************************************************************************************************************/
-		
-
-			LabEngine(const LabEngine&) = delete;
-
-			
-				/******************************************************************************************************************************************
-				 * @brief  : operator=(const LabEngine&)
-				 * @brief  : used to provide a const copy of the labengine 
-				 * 
-				 * @return : void
-				 ******************************************************************************************************************************************/
-		
-			LabEngine& operator=(const LabEngine&) = delete;
-
-			
-				/******************************************************************************************************************************************
-				 * @brief  : LabEngine* static object 
-				 * @brief  : Static object of the lab engine
-				 ******************************************************************************************************************************************/
-		
-			static LabEngine* staticInstance;
-
-
-	};
-//}
+    /**
+     * @brief staticInstance
+     * @brief Static object of the lab engine
+     */
+    static LabEngine* staticInstance;
+};

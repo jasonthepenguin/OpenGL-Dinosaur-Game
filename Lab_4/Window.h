@@ -4,24 +4,46 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 
-/******************************************
-
-
- ******************************************/
+/**
+ * @brief A class representing a window.
+ */
 class Window
 {
 public:
+	/**
+  * @brief Initializes the window.
+  */
 	void init();
+
+	/**
+  * @brief Creates a window with the specified width, height, and title.
+  * @param width The width of the window.
+  * @param height The height of the window.
+  * @param title The title of the window.
+  */
 
 	void createWindow(int width, int height, const char* title);
 
+	/**
+   * @brief Processes input events for the window.
+   */
 	void processInput();
 
-
+	/**
+	* @brief Swaps the front and back buffers of the window.
+	*/
 	void swapBuffers();
 
+	/**
+   * @brief Retrieves a pointer to the current window.
+   * @return A pointer to the current window.
+   */
 	static Window* getWindow();
 
+	/**
+	 * @brief Checks if the window should be closed.
+	 * @return True if the window should be closed, false otherwise.
+	 */
 	bool shouldClose();
 
 

@@ -9,142 +9,183 @@
 #include "ModelController.h"
 #include "LabEngine.h"
 
-
 #include <unordered_map>
 
-class SpecialKeys 
+/**
+ * @class SpecialKeys
+ * @brief Represents special keys used in the game engine.
+ */
+class SpecialKeys
 {
-    public:
+public:
+    /**
+     * @brief Constructs an object of SpecialKeys for use in the game engine.
+     */
+    SpecialKeys();
 
-            /***********************************************************************************************************************************************************************
-             * @brief SpecialKeys()
-             * @brief constructs an object of special keys for use in the game engine
-             ***********************************************************************************************************************************************************************/
+    /**
+     * @brief Destructor used to delete a SpecialKeys object.
+     */
+    ~SpecialKeys();
 
-        SpecialKeys();
+    /**
+     * @brief Handles the entered key event.
+     *
+     * @param m_PixelsGLFWWindow - Pointer to the GLFW window.
+     * @param key - The key code.
+     * @param keyState - Reference to the key state.
+     * @param action - Pointer to the member function to be called.
+     */
+    void handleKeyEntered(GLFWwindow* m_PixelsGLFWWindow, int key, bool& keyState, void (SpecialKeys::* action)() = nullptr);
 
+    // LETTERS
+    /**
+     * @brief Handles the F key entered event.
+     *
+     * @param m_PixelsGLFWWindow - Pointer to the GLFW window.
+     */
+    void F_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
 
-            /***********************************************************************************************************************************************************************
-             * @brief SpecialKeys()
-             * @brief Destructor used to delete a SpecialKeys object
-             ***********************************************************************************************************************************************************************/
+    /**
+     * @brief Handles the K key entered event.
+     *
+     * @param m_PixelsGLFWWindow - Pointer to the GLFW window.
+     */
+    void K_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
 
-        ~SpecialKeys();
-        void handleKeyEntered(GLFWwindow* m_PixelsGLFWWindow, int key, bool& keyState, void (SpecialKeys::* action)() = nullptr);
+    /**
+     * @brief Handles the L key entered event.
+     *
+     * @param m_PixelsGLFWWindow - Pointer to the GLFW window.
+     */
+    void L_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
 
-        // LETTERS
-        void F_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
-        void K_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
-        void L_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
-        void M_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
-        void X_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
-        void Space_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
-        void U_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
+    /**
+     * @brief Handles the M key entered event.
+     *
+     * @param m_PixelsGLFWWindow - Pointer to the GLFW window.
+     */
+    void M_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
 
-        // ARROWS
-        void left_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
-        void right_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
-        void up_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
-        void down_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
+    /**
+     * @brief Handles the X key entered event.
+     *
+     * @param m_PixelsGLFWWindow - Pointer to the GLFW window.
+     */
+    void X_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
 
+    /**
+     * @brief Handles the Space key entered event.
+     *
+     * @param m_PixelsGLFWWindow - Pointer to the GLFW window.
+     */
+    void Space_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
 
-       
+    /**
+     * @brief Handles the U key entered event.
+     *
+     * @param m_PixelsGLFWWindow - Pointer to the GLFW window.
+     */
+    void U_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
 
+    // ARROWS
+    /**
+     * @brief Handles the left arrow key entered event.
+     *
+     * @param m_PixelsGLFWWindow - Pointer to the GLFW window.
+     */
+    void left_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
 
-            /***********************************************************************************************************************************************************************
-             * @brief toggleWireframeMode()
-             * @brief this function is used to display the wireframe on all objects
-             ***********************************************************************************************************************************************************************/
+    /**
+     * @brief Handles the right arrow key entered event.
+     *
+     * @param m_PixelsGLFWWindow - Pointer to the GLFW window.
+     */
+    void right_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
 
-        void toggleWireframeMode();
+    /**
+     * @brief Handles the up arrow key entered event.
+     *
+     * @param m_PixelsGLFWWindow - Pointer to the GLFW window.
+     */
+    void up_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
 
+    /**
+     * @brief Handles the down arrow key entered event.
+     *
+     * @param m_PixelsGLFWWindow - Pointer to the GLFW window.
+     */
+    void down_KeyEntered(GLFWwindow* m_PixelsGLFWWindow);
 
-            /***********************************************************************************************************************************************************************
-             * @brief triggerFlying()
-             * @brief this function is used to trigger Flying
-             ***********************************************************************************************************************************************************************/
+    /**
+     * @brief Toggles the wireframe mode for displaying objects.
+     */
+    void toggleWireframeMode();
 
-        void toggleLighting();
+    /**
+     * @brief Toggles the lighting state.
+     */
+    void toggleLighting();
 
+    /**
+     * @brief Triggers the flying state.
+     */
+    void triggerFlying();
 
-            /***********************************************************************************************************************************************************************
-             * @brief triggerFlying()
-             * @brief this function is used to trigger Flying
-             ***********************************************************************************************************************************************************************/
+    /**
+     * @brief Displays the demo game window.
+     */
+    void displayDemoWindow();
 
-        void triggerFlying();
+    /**
+     * @brief Displays the group photo.
+     */
+    void displayGroupPhoto();
 
+    /**
+     * @brief Reads input for keys other than those used to manipulate the model.
+     *
+     * @param m_PixelsGLFWWindow - Pointer to the GLFW window.
+     * @param deltaT - The time difference.
+     */
+    void readTaskInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT);
 
-            /***********************************************************************************************************************************************************************
-             * @brief displayDemo()
-             * @brief this function is used to display a demo game window
-             ***********************************************************************************************************************************************************************/
+    /**
+     * @brief Reads model command inputs for moving the model and playing the next animation.
+     *
+     * @param m_PixelsGLFWWindow - Pointer to the GLFW window.
+     * @param deltaT - The time difference.
+     * @param modelController - Reference to the model controller.
+     */
+     // void readModelInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT, ModelController& modelController);
 
-        void displayDemoWindow();
+     /**
+      * @brief Reads input keys other than W, A, S, D.
+      *
+      * @param m_PixelsGLFWWindow - Pointer to the GLFW window.
+      * @param deltaT - The time difference.
+      */
+      // void readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT, ModelController& modelController, Camera& camera);
+    void readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT);
 
+    /**
+     * @brief Toggles the state of the mouse cursor between locked and free.
+     *
+     * When the cursor is locked, it is hidden and its movement is limited to the window.
+     * When the cursor is free, it is visible and can move anywhere on the screen.
+     * This function changes the cursor state each time it is called, alternating between locked and free.
+     */
+    void toggleMouseAction();
 
-            /***********************************************************************************************************************************************************************
-             * @brief displayPhoto()
-             * @brief this function is used to display the group photo
-             ***********************************************************************************************************************************************************************/
+    bool isFlying; // Probably should be a variable of a player class?
 
-        void displayGroupPhoto();
+private:
+    EngGUI* gui;
+    bool wireframe;
+    std::vector<MD2_TEST*> MD2models;
+    // ModelController& modelController; // Having it like this means it has to be initialized in the constructor. Since I just want the project to compile, I'm going to make it a pointer for now.
+    // ModelController* modelController;
+    GLFWwindow* m_PixelsGLFWWindow;
 
-
-            /***********************************************************************************************************************************************************************
-             * @brief readTaskInput()
-             * @brief this function is used to read input for keys other than those used to manipulate the model
-             * 
-             * @param m_PixelsWindow - GLFWWindow*
-             * @param deltaT         - float
-             ***********************************************************************************************************************************************************************/
-
-        void readTaskInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT);
-
-
-            /***********************************************************************************************************************************************************************
-             * @brief readModelInput()
-             * @brief this function is used to read model command inputs for moving the model and playing the next animation
-             * 
-             * @param m_Pixels
-             ***********************************************************************************************************************************************************************/
-
-       // void readModelInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT, ModelController& modelController);
-
-
-            /***********************************************************************************************************************************************************************
-             * @brief readInput()
-             * @brief this function is used to read input keys other than W,A,S,D
-             *
-             * @param m_PixelsGLFWWindow  - GLFWwindow provides access to the game window
-             * @param deltaT              - float track of time
-             ***********************************************************************************************************************************************************************/
-
-       // void readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT, ModelController& modelController, Camera& camera);
-        void readInput(GLFWwindow* m_PixelsGLFWWindow, float deltaT);
-
-
-        /**
-         * @brief Toggles the state of the mouse cursor between locked and free.
-         *
-         * When the cursor is locked, it is hidden and its movement is limited to the window.
-         * When the cursor is free, it is visible and can move anywhere on the screen.
-         * This function changes the cursor state each time it is called, alternating between locked and free.
-         */
-        void toggleMouseAction();
-
-
-
-        bool isFlying; // probably should be a variable of a player class?
-
-    private:
-        
-        EngGUI*                gui;
-        bool                   wireframe;
-        std::vector<MD2_TEST*> MD2models;
-       // ModelController&       modelController;                 // having it like this means it has to be initialised in the constructor, since I just want the project to compile I'm going to make it a pointer for now
-       // ModelController* modelController;
-        GLFWwindow*            m_PixelsGLFWWindow;
-
-        std::unordered_map<int, bool> keyStates;
+    std::unordered_map<int, bool> keyStates;
 };

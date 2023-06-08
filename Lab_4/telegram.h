@@ -1,55 +1,73 @@
 #pragma once
 
-// From the Lecture 10 pdf notes
+/**
+ * @file telegram.h
+ * @brief Defines the telegram struct and related operators.
+ */
 
 #include <iostream>
 #include <cmath>
-
 #include <sol/sol.hpp>
 
+ /**
+  * @brief Struct representing a telegram.
+  */
 struct telegram
 {
-	// messages can be dispatched immediately (0.0) or delayed for a specific
-	// amount of time. If a delay is neccessary this field is stamped 
-	// with the time the message should be dispatched.
-	double dispatchTime;
-	int sender; //the entity that sent this telegram
-	int receiver; //the entity that is to receive this telegram
-	// the message itself. These are all enumerated 
-	// in the file "MessageTypes.h"
-	int msg;
-	// any additional information that may accompany the message
-	//void* extraInfo;
-	sol::object extraInfo;
+    double dispatchTime; ///< The time at which the telegram should be dispatched.
+    int sender; ///< The entity that sent this telegram.
+    int receiver; ///< The entity that is intended to receive this telegram.
+    int msg; ///< The message itself, enumerated in "MessageTypes.h".
+    sol::object extraInfo; ///< Additional information accompanying the message.
 
-	telegram() : dispatchTime(-1), sender(-1), receiver(-1), msg(-1) {}
+    /**
+     * @brief Default constructor for telegram.
+     */
+    telegram() : dispatchTime(-1), sender(-1), receiver(-1), msg(-1) {}
 
+    /**
+     * @brief Constructor for telegram.
+     * @param time The dispatch time of the telegram.
+     * @param sender The entity that sent the telegram.
+     * @param receiver The entity that should receive the telegram.
+     * @param msg The message type.
+     * @param info Additional information accompanying the message.
+     */
+    telegram(double time, int sender, int receiver, int msg, sol::object info) :
+        dispatchTime(time), sender(sender), receiver(receiver),
+        msg(msg), extraInfo(info) {}
 
-	telegram(double time, int sender, int receiver, int msg, sol::object info) :
-		dispatchTime(time), sender(sender), receiver(receiver),
-		msg(msg), extraInfo(info) {}
-	
-		
-		
-		// these telegrams will be stored in a priority queue. Therefore the >
-		// operator needs to be overloaded so that the PQ can sort the telegrams by
-		// time priority. Note how the times must be smaller than SmallestDelay
-		// before two telegrams are considered the same.
-		static constexpr double smallestDelay = 0.25;
-	
+    /**
+     * @brief Overloaded equality operator for telegrams.
+     * @param t1 The first telegram to compare.
+     * @param t2 The second telegram to compare.
+     * @return True if the telegrams are equal, false otherwise.
+     */
+    friend bool operator==(const telegram& t1, const telegram& t2)
+    {
+        return (std::fabs(t1.dispatchTime - t2.dispatchTime) < telegram::smallestDelay)
+            && (t1.sender == t2.sender)
+            && (t1.receiver == t2.receiver)
+            && (t1.msg == t2.msg);
+    }
+
+    /**
+     * @brief Overloaded less-than operator for telegrams.
+     * @param t1 The first telegram to compare.
+     * @param t2 The second telegram to compare.
+     * @return True if t1 is less than t2, false otherwise.
+     */
+    friend bool operator<(const telegram& t1, const telegram& t2)
+    {
+        if (t1 == t2)
+        {
+            return false;
+        }
+        else
+        {
+            return (t1.dispatchTime < t2.dispatchTime);
+        }
+    }
+
+    static constexpr double smallestDelay = 0.25; ///< The smallest delay between two telegrams to be considered the same.
 };
-
-
-inline bool operator==(const telegram& t1, const telegram& t2) {
-	return (fabs(t1.dispatchTime - t2.dispatchTime) < telegram::smallestDelay)
-		&& (t1.sender == t2.sender)
-		&& (t1.receiver == t2.receiver)
-		&& (t1.msg == t2.msg);
-}
-
-inline bool operator<(const telegram& t1, const telegram& t2) {
-	if (t1 == t2) { return false; }
-	else {
-		return (t1.dispatchTime < t2.dispatchTime);
-	}
-}

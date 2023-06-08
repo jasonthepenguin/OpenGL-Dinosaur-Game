@@ -177,7 +177,6 @@
     <ClCompile Include="MovementKeys.cpp" />
     <ClCompile Include="OpenGLTexture.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="playerStates.cpp" />
     <ClCompile Include="PNG_Texture.cpp" />
     <ClCompile Include="Prop.cpp" />
     <ClCompile Include="Rain.cpp" />
@@ -244,7 +243,6 @@
     <ClInclude Include="MovementKeys.h" />
     <ClInclude Include="PhysicsController.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="playerStates.h" />
     <ClInclude Include="Prop.h" />
     <ClInclude Include="Rain.h" />
     <ClInclude Include="Particle.h" />
@@ -252,7 +250,6 @@
     <ClInclude Include="Skybox.h" />
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="SpecialKeys.h" />
-    <ClInclude Include="State.h" />
     <ClInclude Include="StateMachine.h" />
     <ClInclude Include="telegram.h" />
     <ClInclude Include="textureGenerator.h" />
