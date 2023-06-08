@@ -1,4 +1,8 @@
 
+
+soundMgr = getSoundManagerInstance()
+
+
 state_idle = {}
 state_idle["Enter"] = function(npc)
     npc:playAnimation("idle")
@@ -43,6 +47,8 @@ state_chase = {}
 state_chase["Enter"] = function(npc)
         --print("Entering state_chase")
         npc:playAnimation("run")
+        soundMgr:playSound("angry")
+
         ourID = npc:getID()
       receiverID = npc:findClosestNPC()
       print(receiverID)

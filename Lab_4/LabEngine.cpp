@@ -248,6 +248,8 @@ void LabEngine::loadSoundEffects()
 
 void LabEngine::setupLuaAI()
 {
+
+	lua.set_function("getSoundManagerInstance", []() { return soundMgr; });
 	lua.script_file("Lua/AI/States.lua");
 
 	lua.new_usertype<NPC>("NPC",
@@ -275,6 +277,12 @@ void LabEngine::setupLuaAI()
 		"msg", &telegram::msg,
 		"extraInfo", &telegram::extraInfo
 		);
+
+
+	lua.new_usertype<SoundManager>("SoundManager",
+		"playSound", &SoundManager::playSound);
+
+	//lua.set_function("getSoundManagerInstance", []() { return soundMgr; });
 
 	lua.new_usertype<glm::vec3>("vec3",
 		"x", &glm::vec3::x,
