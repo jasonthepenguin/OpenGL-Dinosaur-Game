@@ -430,16 +430,24 @@ void EngGUI::backButton()
 
 void EngGUI::save_game() {
 	std::ofstream outfile("savegame.txt");
+
+	glm::vec3 position = LabEngine::getInstance().m_camera->getCameraLocation();
 	outfile << LabEngine::getInstance().ourGameData.score << std::endl;
+	outfile << position.x << " " << position.y << " " << position.z << std::endl;
+
 	outfile.close();
 }
 
 void EngGUI::load_game() {
 	std::ifstream infile("savegame.txt");
+
+	glm::vec3 position;
 	infile >> LabEngine::getInstance().ourGameData.score;
+	infile >> position.x >> position.y >> position.z;
+	LabEngine::getInstance().m_camera->setCameraLocation(position);
+
 	infile.close();
 }
-
 
 void EngGUI::EndFrame() {
 
