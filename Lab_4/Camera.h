@@ -281,7 +281,7 @@ private:
     glm::vec3 m_VerticalPlane;
     glm::vec3 m_HorizontalPlane;
 
-    bool m_mouseMovementAllowed;
+    bool m_mouseMovementAllowed = true;
 
 
     /********************************************************************************************************
