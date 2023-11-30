@@ -1,5 +1,11 @@
 # OpenGL-Dinosaur-Game
 
+My first project exploring the idea of creating a basic game engine with C++, Modern OpenGL, Lua
+
+- Basic Lua scripting
+- Basic AI NPCs
+- Basic game loop
+- Testing ReactPhysics3D for projectiles
 
 YouTube video showing a trailer for my first FPS OpenGL C++ Game!
 
