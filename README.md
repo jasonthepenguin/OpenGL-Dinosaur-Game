@@ -6,6 +6,7 @@ My first project exploring the idea of creating a basic game engine with C++, Mo
 - Basic AI NPCs
 - Basic game loop
 - Testing ReactPhysics3D for projectiles
+- Loading MD2 models and their animations
 
 YouTube video showing a trailer for my first FPS OpenGL C++ Game!
 
